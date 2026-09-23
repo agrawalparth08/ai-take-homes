@@ -106,7 +106,7 @@ def run_tests(where: Path, name: str | None = None) -> bool:
 def main() -> int:
     tmp = Path(tempfile.mkdtemp(prefix="mutation-"))
     try:
-        for part in ("solution", "stubs", "data", "eval"):
+        for part in ("solution", "stubs", "data"):
             shutil.copytree(ROOT / part, tmp / part, ignore=shutil.ignore_patterns("var", "cache", "output",
                                                                                     "__pycache__", ".venv"))
         if not run_tests(tmp):

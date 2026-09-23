@@ -58,4 +58,4 @@ The sinks write to `stubs/outbox/{jira,slack,corroborations}.jsonl`. The stubs h
 | `review.py` | the review packet | no |
 | `obs.py` | `runs/<id>/events.jsonl`, `summary.json`, `health` | no |
 | `evaluate.py` | line-anchored dev eval, repeat-run reliability | no |
-| `../eval/dev_expectations.json` | the dev labels re-expressed with transcript line spans | data |
+| `eval/dev_expectations.json` | the dev labels re-expressed with transcript line spans | data |

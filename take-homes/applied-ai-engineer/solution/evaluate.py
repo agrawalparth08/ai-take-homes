@@ -158,7 +158,7 @@ def diagnose(c: dict, findings: list[Finding], proposals: list[dict]) -> str:
 
 
 def run_eval(root: Path, llm: LLM | None, runs: int, refresh: bool, out_dir: Path, name: str = "eval-report") -> dict:
-    spec = json.loads((root / "eval" / "dev_expectations.json").read_text())
+    spec = json.loads((root / "solution" / "eval" / "dev_expectations.json").read_text())
     cases = spec["cases"]
     dev = {c["call_id"] for c in cases}
     paths = pipeline.Paths.default(root)
