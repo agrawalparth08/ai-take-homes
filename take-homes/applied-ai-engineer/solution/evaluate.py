@@ -138,20 +138,20 @@ def diagnose(c: dict, findings: list[Finding], proposals: list[dict]) -> str:
     lo, hi = c["span"]
     fs = [f for f in findings if f.call_id == c["call_id"] and (lo <= f.line <= hi or any(lo <= n <= hi for n in f.context_lines))]
     if c["action"] == "none":
-        return "wrote here: " + "; ".join(f"{f.id} '{f.title}' ({f.disposition})" for f in fs if f.actionable)
+        return "wrote here: " + "; ".join(f"{f.id} L{f.line} '{f.title}' ({f.disposition})" for f in fs if f.actionable)
     if not fs:
         return "NEVER EXTRACTED: model produced no finding in the span"
-    parts = []
+    parts = [f"(span L{lo}-L{hi})"]
     for f in fs:
         if not f.valid:
             parts.append(f"REJECTED BY VALIDATOR {f.id}: {f.reject_reason}")
         elif f.disposition == "no_action":
             parts.append(f"DISMISSED {f.id} ({f.no_action_reason}{'; ' + f.policy_note if f.policy_note else ''}): '{f.title}'")
         elif f.disposition == "matches_tracked":
-            parts.append(f"MATCHED {f.id} to {f.tracked_key}: '{f.title}' / {f.match_note}")
+            parts.append(f"MATCHED {f.id} L{f.line} to {f.tracked_key}: '{f.title}' / {f.match_note}")
         elif f.disposition == "new":
             owner = next((p["key"] for p in proposals if any(e["finding_id"] == f.id for e in p["review"]["evidence"])), None)
-            parts.append(f"NEW {f.id} '{f.title}' [{f.kind}/{f.severity}] -> {owner}")
+            parts.append(f"NEW {f.id} L{f.line} '{f.title}' [{f.kind}/{f.severity}] -> {owner}")
         else:
             parts.append(f"{f.disposition.upper()} {f.id} -> {f.tracked_key}")
     return " | ".join(parts)
@@ -167,7 +167,7 @@ def run_eval(root: Path, llm: LLM | None, runs: int, refresh: bool, out_dir: Pat
         tmp = Path(tempfile.mkdtemp(prefix="june-eval-"))
         # Run 0 replays the committed cache unless --refresh; later runs always call the model fresh.
         cache = paths.cache if (i == 0 and not refresh) else tmp / "cache"
-        p = pipeline.Paths(root=root, state=tmp / "state", cache=cache, runs=paths.state / "eval-runs", out=tmp / "out")
+        p = pipeline.Paths(root=root, state=tmp / "state", cache=cache, runs=tmp / "runs", out=tmp / "out")
         res = pipeline.run(p, llm, only=dev, store=Store(tmp / "state"), persist=False)
         g = grade(cases, res.proposals, res.findings)
         g["run"] = i

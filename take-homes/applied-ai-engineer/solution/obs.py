@@ -39,6 +39,7 @@ class RunLog:
         s = {"run_id": self.run_id, "command": self.command,
              "finished_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
              "duration_s": round(time.monotonic() - self.t0, 1), "event_counts": dict(self.counts), **summary}
+        self.dir.mkdir(parents=True, exist_ok=True)  # survive someone clearing state mid-run
         (self.dir / "summary.json").write_text(json.dumps(s, indent=1))
         self.event("run", "finish")
         self._fh.close()
