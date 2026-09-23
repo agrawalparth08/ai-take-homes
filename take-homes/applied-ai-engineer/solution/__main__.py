@@ -138,9 +138,10 @@ def _cmd(args, paths: pipeline.Paths, store: Store) -> int:
             print("--offline replays the cache, so it can only do a single run without --refresh", file=sys.stderr)
             return 1
         model = None if args.offline else llm.make(args.backend, args.model)
-        rep = evaluate.run_eval(ROOT, model, args.runs, args.refresh, paths.out)
+        rep = evaluate.run_eval(ROOT, model, args.runs, args.refresh, paths.out,
+                                name="eval-report-replay" if args.offline else "eval-report")
         print(json.dumps({k: v for k, v in rep.items() if k != "per_run"}, indent=1))
-        print(f"report: {paths.out / 'eval-report.md'}")
+        print(f"report: {paths.out / ('eval-report-replay.md' if args.offline else 'eval-report.md')}")
     return 0
 
 

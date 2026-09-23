@@ -157,7 +157,7 @@ def diagnose(c: dict, findings: list[Finding], proposals: list[dict]) -> str:
     return " | ".join(parts)
 
 
-def run_eval(root: Path, llm: LLM | None, runs: int, refresh: bool, out_dir: Path) -> dict:
+def run_eval(root: Path, llm: LLM | None, runs: int, refresh: bool, out_dir: Path, name: str = "eval-report") -> dict:
     spec = json.loads((root / "eval" / "dev_expectations.json").read_text())
     cases = spec["cases"]
     dev = {c["call_id"] for c in cases}
@@ -177,8 +177,8 @@ def run_eval(root: Path, llm: LLM | None, runs: int, refresh: bool, out_dir: Pat
 
     report = summarize(results, cases)
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "eval-report.json").write_text(json.dumps({"summary": report, "runs": results}, indent=1))
-    (out_dir / "eval-report.md").write_text(render(report, results))
+    (out_dir / f"{name}.json").write_text(json.dumps({"summary": report, "runs": results}, indent=1))
+    (out_dir / f"{name}.md").write_text(render(report, results))
     return report
 
 

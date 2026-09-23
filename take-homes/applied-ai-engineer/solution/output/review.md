@@ -20,6 +20,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P1 (critical):** Every federated user (potentially hundreds, all roles) is locked out on a rolling 24h basis with no self-service recovery path; only remediation is an admin manually unlocking each account one-by-one, an unsustainable daily operational burden blocking claims adjusters' access.
 - **Related asks folded in:** Request for bulk-unlock capability as stopgap for the Ping lockout issue
 - **Slack:** @derek.okafor
+- **Approve:** `python -m solution approve 'new:call-088#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -59,6 +60,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers a dashboard summary-card vs. breakdown data mismatch; distinct from the timezone display issue (PROJ-101).
 - **Priority P2 (high):** Wrong headline metric is feeding a customer's finance/ops reporting and directly undermines the renewal narrative, even though the underlying detailed data is correct.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-001#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -98,6 +100,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Not covered by any catalogue item: PROJ-089 is a login-history view (audit trail, not role assignment) and PROJ-155 is SCIM-driven deprovisioning on departure, not group-to-role mapping applied on every login.
 - **Priority P2 (high):** Blocks a regulated customer's access-review audit and a 400-seat rollout; no scalable workaround exists (manual one-by-one promotion is error-prone at that scale).
 - **Slack:** @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-003#f1'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -137,6 +140,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue item covers a programmatic/SIEM-friendly audit-log export API; PROJ-089 (SSO login-history view) is a different, already-shipped capability.
 - **Priority P2 (high):** Blocks Atlas Financial's SOC 2 continuous-monitoring control; their auditors are actively citing the lack of automation as a compliance gap.
 - **Slack:** @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-010#f1'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -176,6 +180,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Symptom and scope differ from PROJ-064: different IdP (Azure AD vs Okta) and opposite failure mode (hard lockout/redirect loop vs early logout with successful re-login).
 - **Priority P2 (high):** Currently masked by the pilot's staggered rotation dates, but projected to hit all ~400 users every quarter at full rollout with no scalable workaround, threatening the rollout timeline.
 - **Slack:** @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-010#f3'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -215,6 +220,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Distinct from PROJ-087 (duplicate webhook deliveries to existing endpoints); this is a request for a new session-completed event type that does not currently exist, not a fix to duplicate delivery of an existing webhook.
 - **Priority P2 (high):** Feeds an audit/OSHA compliance system of record; manual entry is error-prone and an error in this data is described as a potential audit finding, with no automated workaround today.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-013#f1'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -255,6 +261,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Wrong/sensitive aggregate performance data (another team's stats) is being exposed to unauthorized members via email, raising data-visibility and compliance concerns for the customer's legal team; a manual workaround (disabling the digest) exists, keeping it below critical.
 - **Related asks folded in:** N/A - workaround request for digest data-exposure bug
 - **Slack:** @maya.chen
+- **Approve:** `python -m solution approve 'new:call-017#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -295,6 +302,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** The missing attribute already produced incorrect-looking data seen by the CFO (an apparently empty cost center) and is explicitly tied by the account exec to the renewal decision, though a brittle manual workaround exists.
 - **Related asks folded in:** Interim: normalize BetterBark member emails to match HRIS formal format
 - **Slack:** @maya.chen
+- **Approve:** `python -m solution approve 'new:call-023#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -335,6 +343,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Bulk import silently loses data with no error surfaced, affecting a majority of this customer's workforce (Japanese names) and recurring on every future import; caused a two-week access gap for 29 employees, though a manual per-user workaround exists.
 - **Related asks folded in:** Manual provisioning requested for the 29 members stuck from the import bug
 - **Slack:** @maya.chen
+- **Approve:** `python -m solution approve 'new:call-029#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -381,6 +390,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Wrong behavior structurally affects the customer's entire non-US population (~260 members across 3 regions), degrades a core engagement feature, and the only available lever (disabling notifications) is explicitly rejected as not a real fix, leaving effectively no workaround.
 - **Grouped because:** Both describe the same bug: goal-tracking reminder notifications fire at a fixed absolute time tuned for US business hours, landing around 2:30-3:30am local time for APAC members (Singapore/Sydney/Tokyo in one call, Japan offices in the other), causing members to disable notifications entirely.
 - **Slack:** @priya.nair, @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-042#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -428,6 +438,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** No data loss and a manual workaround exists, but the operation silently produces an undiagnosable partial state (no report, no error reference) at customer-facing admin-panel core functionality, risks lingering access for offboarded seasonal staff (security-review exposure), and is expected to become a hard operational blocker at the January seasonal volume (~2000+ deactivations).
 - **Related asks folded in:** Manual chunking into 150-member batches used as stopgap for bulk deactivate timeout
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-044#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -481,6 +492,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Grouped because:** All three request the same underlying capability: a programmatic REST API (or BI connector) exposing aggregate, org/team-level engagement and utilization metrics for ingestion into BI tools (Tableau/Power BI/Looker) on a schedule, replacing manual dashboard screenshotting/retyping. Same scope (aggregate metrics, pull-based API), distinct from the SFTP push request (explicitly no-API) and from the audit-log SIEM API (different data domain) and the privacy-aggregated executive trend report (different requirement: suppression thresholds/anonymization, not raw metrics API).
 - **Related asks folded in:** Interim scheduled CSV export requested as bridge until API exists; Request to automate CSV export download; Periodic manual CSV export offered as interim stopgap for engagement-metrics API
 - **Slack:** @derek.okafor, @sam.oduya, @priya.nair
+- **Approve:** `python -m solution approve 'new:call-049#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -533,6 +545,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers a read-only auditor role; PROJ-089 (shipped SSO login-history view) only covers one data point admins can already see, not a scoped read-only role over the whole admin/config/security surface.
 - **Priority P2 (high):** Blocks the customer's SOC2 access-control audit requirement and shows up on Sterling's own client security questionnaires (renewal-adjacent), though a workaround (granting Super Admin) currently exists.
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-059#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -579,6 +592,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** No workaround exists in-product; the manual process is error-prone and has already caused a clinician to be left without an active coach for a day or two in a clinical burnout-prevention context, and the trigger event (coach departure) is recurring and predictable.
 - **Grouped because:** Both request the same feature: a bulk-reassignment path to move a departing coach's entire caseload to one or more new coaches at once, since only one-at-a-time manual reassignment exists today. Same scope and primary use case (departing coach).
 - **Slack:** @maya.chen, @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-060#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -626,6 +640,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Silently overrides an explicit user privacy/attention preference on every release across both platforms, and the customer states it is actively jeopardizing adoption/retention on a floor rollout (a deliberate opt-out being un-done is effectively an unresolved defect with no confirmed workaround yet).
 - **Related asks folded in:** N/A - customer request for interim mitigation tied to notification-reset bug
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-065#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -665,6 +680,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue item covers an aggregate/anonymized org-level wellbeing trend view; PROJ-118 (PDF export of engagement dashboard) and PROJ-120 (Slack at-risk alerts) are individual/account-level engagement features, not a privacy-preserving aggregate wellbeing trend report — distinct scope and privacy design, so this is new.
 - **Priority P2 (high):** No current capability exists to meet this need (workaround is anecdotal reporting only); customer ties it directly to budget justification for the whole people-development program, i.e. it feeds a customer business/retention decision, though it is a net-new feature rather than a broken existing capability.
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-069#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -705,6 +721,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Blocks reliable login for effectively the entire Canadian workforce (~430 users) at a regulated bank; while an authenticator-app workaround exists, it requires an admin-driven rollout, and the customer needs this tracked for its own vendor risk/compliance log.
 - **Related asks folded in:** Mandate authenticator-app TOTP for Canadian staff as interim MFA workaround
 - **Slack:** @ravi.patel
+- **Approve:** `python -m solution approve 'new:call-075#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -745,6 +762,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Recurring monthly manual-reconciliation burden and allocation errors that have twice escalated to the customer's CFO with week-long disputes; affects billing accuracy across all four of the customer's cost centers, though a manual workaround exists.
 - **Related asks folded in:** Interim CSV roster export offered as stopgap pending per-department invoice split
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-080#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -785,6 +803,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Systematic (confirmed 4-for-4 on spot check) loss of member-facing access to their own historical data, undermining a core retention workflow with no in-product workaround (only a messaging workaround exists); not critical since backend data is not actually deleted.
 - **Related asks folded in:** Manual restoration of one member's hidden notes (stopgap request)
 - **Slack:** @maya.chen
+- **Approve:** `python -m solution approve 'new:call-100#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -825,6 +844,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Wrong data has been feeding a board-facing metric used to justify program budget for an extended period; no product-side workaround exists (only a manual, one-off reconciliation offered as a stopgap), though it does not block core product use.
 - **Related asks folded in:** Manual board-number reconciliation and historical restatement request; Customer plans manual spot-reconciliation to verify future report totals post-fix
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-103#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -864,6 +884,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers verification-link tokens being consumed by an email security scanner's prefetch; distinct from PROJ-142 (password-reset send delay) and PROJ-064 (SSO session length) which involve different mechanisms and symptoms.
 - **Priority P2 (high):** Blocks account activation for a majority (60%) of an enterprise customer's new-hire cohort and will recur for every future Outlook-based cohort; core onboarding flow broken, though a customer-side mitigation (Safe Links exclusion) and a support-side stopgap (manual backend verification) exist, keeping it below critical.
 - **Slack:** @ravi.patel
+- **Approve:** `python -m solution approve 'new:call-115#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -903,6 +924,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers session-credit double-deduction on reschedule; distinct from all listed items, which concern report timestamps, app crashes, webhooks, SSO, search indexing, email delivery, calendar invites, uploads, and iOS logout.
 - **Priority P2 (high):** Incorrect billing data feeds the customer's finance reconciliation and creates real, quantified monetary loss (60-80 credits over two months) with no disclosure or contractual basis; no workaround exists other than avoiding late reschedules, and it does not block core product use, so not critical.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-122#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -942,6 +964,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers in-app messaging delivery; distinct from all tracked bugs (webhooks, SSO, scheduling, uploads, etc.).
 - **Priority P2 (high):** Silent data loss (message content vanishes with a false success indicator, no error) undermining the core coaching-prep use case for the account's most valuable/engaged users, with no in-product fix — only a manual message-splitting workaround.
 - **Slack:** @derek.okafor
+- **Approve:** `python -m solution approve 'new:call-125#f2'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -982,6 +1005,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P2 (high):** Feature gap is directly correlated with a measured 28-point activation gap and throttles engagement for over 1,000 members in the customer's largest, highest-growth, highest-priority (safety-leadership) population; no product-side workaround exists, only a manual customer-run substitute that lacks functional booking links.
 - **Related asks folded in:** Customer-run manual Spanish email workaround (HR-sent, non-scalable)
 - **Slack:** @maya.chen
+- **Approve:** `python -m solution approve 'new:call-139#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1034,6 +1058,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P3 (medium):** Real, reproducible defect causing confusion and support tickets during high-edit periods, but data is not lost, it self-corrects in ~10 minutes, and there is a known workaround (wait and re-search); customer explicitly says it is not urgent.
 - **Grouped because:** All three describe the identical bug: after an admin renames a team or moves a member, search results remain stale for ~10 minutes (old name/team shown, or empty for new name) before self-correcting, while the underlying save/edit itself succeeds immediately. Same symptom, same scope (search index propagation delay), reported by different customers during reorg events.
 - **Slack:** @tomas.vela, @sam.oduya, @maya.chen
+- **Approve:** `python -m solution approve 'new:call-006#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1086,6 +1111,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No existing catalogue issue covers a deactivation-triggered blank screen; distinct from PROJ-160 (iOS force-logout after an OS update) and PROJ-131 (new-member search indexing delay) in trigger and symptom.
 - **Priority P3 (medium):** Reproducible, consistent defect on the offboarding path, but low volume (6-7 users per batch, tied to periodic mass-deactivation events) and has a known workaround (force-quit and reopen); no data loss or blocked core functionality for active members.
 - **Slack:** @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-014#f4'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1145,6 +1171,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Grouped because:** All four describe the same bug: live in-browser coaching session video freezes to a still frame roughly 30-45 minutes into the session while audio keeps playing, occurring on Chrome, fixed by a page refresh, and reported as a recent regression by multiple independent accounts. Same symptom, same platform, same scope.
 - **Related asks folded in:** Request to tell users about an alternate workaround for the video-freeze issue
 - **Slack:** @priya.nair, @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-021#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1217,6 +1244,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Grouped because:** All three describe the identical bug: coach-search filters are cleared when using the browser back button to return from a coach profile to the results list, forcing users to re-apply filters and causing search abandonment. Same symptom and scope across independent reports.
 - **Related asks folded in:** New-tab workaround for coach search filter reset
 - **Slack:** @maya.chen, @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-034#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1270,6 +1298,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P3 (medium):** Valuable, repeatedly-requested feature affecting a retention-sensitive user segment, but no core workflow is blocked and there's no data-integrity or security risk.
 - **Related asks folded in:** N/A - mobile notes download is same request as desktop notes export
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-037#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1310,6 +1339,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P3 (medium):** Real defect causing missed/mismatched sessions and member distrust, but scoped to date-line-west members booking with far-timezone coaches (~5-10% of this account's base) and a workaround exists (verify the booked date in the member's own synced calendar app).
 - **Related asks folded in:** Request to preferentially match members with closer-timezone coaches
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-052#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1350,6 +1380,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P3 (medium):** Real, reproducible defect affecting all iOS users across all notification email types and reducing engagement click-through, but a manual login workaround exists and no core functionality or data is blocked/lost.
 - **Related asks folded in:** Customer asks whether the iOS link-routing fix will be quick or backlog-tier
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-085#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1389,6 +1420,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No existing catalogue issue covers a team-management/creation API; closest tracked items (PROJ-155 SCIM, PROJ-095 CSV roster export) address different scopes (user deprovisioning, member roster export, not team/org-unit creation).
 - **Priority P3 (medium):** Valuable feature addressing real toil and a demonstrated data-integrity risk (naming drift) for a high-churn account, but a manual workaround (hand-creating teams via the admin console) exists and is currently in use, so it is not blocking core use.
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-095#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1429,6 +1461,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Priority P3 (medium):** Valuable integration feature for one account's reporting workflow with a known (if tedious) manual workaround currently in use; not a defect and doesn't block core product use.
 - **Related asks folded in:** Interim/middle-path delivery mechanism (shared bucket pull) raised as fallback to SFTP push
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-107#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1468,6 +1501,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers no-show calendar-hold release/availability behavior; distinct from all tracked scheduling/calendar items (PROJ-138 is about ICS invite display in Outlook, not hold release).
 - **Priority P3 (medium):** Valuable capacity-recovery feature with real business impact during peak weeks, but a manual workaround exists (coach manually waits and marks no-show) and it doesn't block core product use for most users.
 - **Slack:** @tomas.vela
+- **Approve:** `python -m solution approve 'new:call-132#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1507,6 +1541,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogued issue covers CSV import header parsing or this generic-error-on-import failure; closest is PROJ-149 (photo upload generic error) but that is a different feature/flow, so this is a new, distinct defect.
 - **Priority P3 (medium):** Blocks the customer's core weekly admin workflow across 14 properties and is reliably reproducible from their new HRIS export, but a manual workaround (stripping the trailing space) fully unblocks it, so it is not a no-workaround/critical case.
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-136#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1546,6 +1581,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Not present in the tracked catalogue; distinct cosmetic text-defect issue, unrelated to any existing ticket.
 - **Priority P4 (low):** Purely cosmetic copy defect (brand-name typo) with no functional or data impact; a real but trivial defect per guidance.
 - **Slack:** @sam.oduya
+- **Approve:** `python -m solution approve 'new:call-008#f1'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1585,6 +1621,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue addresses apostrophe/special-character handling in profile links; distinct from PROJ-138 (Outlook ICS invite time display) and other tracked email/link issues.
 - **Priority P4 (low):** A broken/truncated link is a real but trivial defect (per triage guidance such defects are rated low); a workaround exists (manual navigation to the app) even though it affects 31 members on every notification.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-011#f2'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1622,6 +1659,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Distinct from PROJ-118 (PDF export of team engagement summary); this is a facility-level breakdown/filter request, not a PDF export capability.
 - **Priority P4 (low):** Valuable but explicitly non-blocking nice-to-have with an existing manual filtering workaround already in use.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-057#f3'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1660,6 +1698,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Distinct from PROJ-118 (PDF export of team engagement summary); no catalogue issue covers an at-a-glance overdue-sessions manager view.
 - **Priority P4 (low):** Customer explicitly frames this as a non-urgent nicety with an existing partial workaround (a manager view and manual clicking), not a blocker.
 - **Slack:** @priya.nair
+- **Approve:** `python -m solution approve 'new:call-102#f3'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1699,6 +1738,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** No catalogue issue covers a French-locale tooltip accent typo; this is a distinct new low-severity text defect not matching any tracked item.
 - **Priority P4 (low):** Purely cosmetic text typo in a tooltip; no functional impact, nobody blocked, button works and settings open normally.
 - **Slack:** @derek.okafor
+- **Approve:** `python -m solution approve 'new:call-131#f0'`
 
 <details><summary>Exact Jira payload</summary>
 
@@ -1737,6 +1777,7 @@ Nothing below has been written anywhere. Approve with `python -m solution approv
 - **Why new, not an existing issue:** Not present in the catalogue; no existing tracked issue addresses pre-import CSV validation or a dry-run mode.
 - **Priority P4 (low):** Valuable quality-of-life improvement for admins doing frequent bulk imports, but not blocking since a manual canary-file workaround exists and no data integrity or availability impact.
 - **Slack:** @lena.kowalski
+- **Approve:** `python -m solution approve 'new:call-136#f1'`
 
 <details><summary>Exact Jira payload</summary>
 

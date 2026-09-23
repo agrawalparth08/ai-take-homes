@@ -54,6 +54,7 @@
      ],
      "date": "2026-06-17",
      "finding_id": "call-004#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-004.md#L26",
      "quote": "Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm.",
@@ -128,6 +129,7 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-005#f0",
+     "instruction_like": [],
      "line": 38,
      "link": "transcripts/call-005.md#L38",
      "quote": "some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict",
@@ -202,6 +204,7 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-008#f0",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-008.md#L18",
      "quote": "A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon.",
@@ -276,6 +279,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-015#f0",
+     "instruction_like": [],
      "line": 30,
      "link": "transcripts/call-015.md#L30",
      "quote": "several of them told me the password-reset email just... didn't come. Or came way late.",
@@ -350,6 +354,7 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-020#f0",
+     "instruction_like": [],
      "line": 14,
      "link": "transcripts/call-020.md#L14",
      "quote": "I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes.",
@@ -424,6 +429,7 @@
      ],
      "date": "2026-06-24",
      "finding_id": "call-026#f0",
+     "instruction_like": [],
      "line": 28,
      "link": "transcripts/call-026.md#L28",
      "quote": "the Outlook invite doesn't update to the new time. It still shows the old time.",
@@ -498,6 +504,7 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-035#f0",
+     "instruction_like": [],
      "line": 40,
      "link": "transcripts/call-035.md#L40",
      "quote": "There's some size ceiling around 8 megabytes. Anything over it fails, anything under it works.",
@@ -572,6 +579,7 @@
      ],
      "date": "2026-06-26",
      "finding_id": "call-040#f0",
+     "instruction_like": [],
      "line": 34,
      "link": "transcripts/call-040.md#L34",
      "quote": "That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom — logged out, back to the login screen, gotta re-enter everything.",
@@ -634,6 +642,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-044#f2",
+     "instruction_like": [],
      "line": 12,
      "link": "transcripts/call-044.md#L12",
      "quote": "A couple asked for a PDF export but I told them to just screenshot it for now.",
@@ -708,6 +717,7 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-047#f0",
+     "instruction_like": [],
      "line": 31,
      "link": "transcripts/call-047.md#L31",
      "quote": "the times are several hours ahead of when things actually occurred. A session I know was at two in the afternoon shows up listed as something like eight in the evening",
@@ -782,6 +792,7 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-053#f0",
+     "instruction_like": [],
      "line": 16,
      "link": "transcripts/call-053.md#L16",
      "quote": "Duplicates. We're getting the same event delivered more than once. Not constantly — it's intermittent — but often enough",
@@ -856,6 +867,7 @@
      ],
      "date": "2026-06-30",
      "finding_id": "call-055#f2",
+     "instruction_like": [],
      "line": 32,
      "link": "transcripts/call-055.md#L32",
      "quote": "The reset email takes forever to arrive. Sometimes. That's the maddening part — it's not always.",
@@ -930,6 +942,7 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-063#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-063.md#L24",
      "quote": "What I want — what all forty-two of them want, and they've told me so loudly — is a button on the manager dashboard that spits out their team's engagement summary as a PDF.",
@@ -1004,6 +1017,7 @@
      ],
      "date": "2026-06-27",
      "finding_id": "call-067#f0",
+     "instruction_like": [],
      "line": 30,
      "link": "transcripts/call-067.md#L30",
      "quote": "What I need is for BetterBark to support SCIM so that user lifecycle — create, update, and critically deactivate — is driven automatically from our identity provider.",
@@ -1078,6 +1092,7 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-074#f0",
+     "instruction_like": [],
      "line": 38,
      "link": "transcripts/call-074.md#L38",
      "quote": "We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes.",
@@ -1152,6 +1167,7 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-082#f0",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-082.md#L18",
      "quote": "But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.",
@@ -1226,6 +1242,7 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-091#f0",
+     "instruction_like": [],
      "line": 14,
      "link": "transcripts/call-091.md#L14",
      "quote": "They pick the photo, they hit upload, and after a second it just fails. And the error message is so unhelpful, it's like \"something went wrong\" or \"upload failed, please try again.\"",
@@ -1300,6 +1317,7 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-105#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-105.md#L26",
      "quote": "A session that I know happened at nine in the morning our time shows in the report as three in the afternoon.",
@@ -1374,6 +1392,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-111#f0",
+     "instruction_like": [],
      "line": 22,
      "link": "transcripts/call-111.md#L22",
      "quote": "And then the email doesn't come. Or rather — it comes, eventually, but not for like half an hour.",
@@ -1448,6 +1467,7 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-116#f0",
+     "instruction_like": [],
      "line": 20,
      "link": "transcripts/call-116.md#L20",
      "quote": "They'd search for a teacher by name in the member search, and nothing would come up",
@@ -1522,6 +1542,7 @@
      ],
      "date": "2026-06-26",
      "finding_id": "call-130#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-130.md#L26",
      "quote": "We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times.",
@@ -1586,6 +1607,7 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-013#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-013.md#L26",
      "quote": "I need to get the full member roster out of the system. Everyone, all fields, one file — for our annual training audit.",
@@ -1637,6 +1659,7 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-029#f2",
+     "instruction_like": [],
      "line": 54,
      "link": "transcripts/call-029.md#L54",
      "quote": "a couple of my people asked if there's a dark mode. Screens are hard on the eyes at night.",
@@ -1700,6 +1723,7 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-030#f0",
+     "instruction_like": [],
      "line": 30,
      "link": "transcripts/call-030.md#L30",
      "quote": "is there any chance of a dark mode? The white screen at 10pm is brutal.",
@@ -1751,6 +1775,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-072#f2",
+     "instruction_like": [],
      "line": 58,
      "link": "transcripts/call-072.md#L58",
      "quote": "Just the login-history export for our security team's quarterly review. That's in the admin panel now, right?",
@@ -1802,6 +1827,7 @@
      ],
      "date": "2026-06-24",
      "finding_id": "call-079#f2",
+     "instruction_like": [],
      "line": 38,
      "link": "transcripts/call-079.md#L38",
      "quote": "The dark mode thing was a hit too, weirdly. Trainers work early mornings and late nights, dark screens are easier on the eyes.",
@@ -1865,6 +1891,7 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-109#f0",
+     "instruction_like": [],
      "line": 23,
      "link": "transcripts/call-109.md#L23",
      "quote": "The auditor wants evidence of login monitoring — specifically, they want to see that we have visibility into admin login activity.",
@@ -1916,6 +1943,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-114#f2",
+     "instruction_like": [],
      "line": 46,
      "link": "transcripts/call-114.md#L46",
      "quote": "Oh, you can export the roster now? Last I checked I was copy-pasting like an animal.",
@@ -1999,12 +2027,14 @@
      ],
      "date": "2026-06-15",
      "finding_id": "call-001#f0",
+     "instruction_like": [],
      "line": 30,
      "link": "transcripts/call-001.md#L30",
      "quote": "The headline \"active members\" card — the big number at the top — says 280 for this month. Our admin panel says 412.",
      "sha": "eed27f587ec2"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers a dashboard summary-card vs. breakdown data mismatch; distinct from the timezone display issue (PROJ-101).",
    "related": [],
    "severity": "high",
@@ -2093,12 +2123,14 @@
      ],
      "date": "2026-06-17",
      "finding_id": "call-003#f1",
+     "instruction_like": [],
      "line": 40,
      "link": "transcripts/call-003.md#L40",
      "quote": "We need role assignment to happen automatically from SAML group membership, at login.",
      "sha": "014738137d02"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Not covered by any catalogue item: PROJ-089 is a login-history view (audit trail, not role assignment) and PROJ-155 is SCIM-driven deprovisioning on departure, not group-to-role mapping applied on every login.",
    "related": [],
    "severity": "high",
@@ -2202,6 +2234,7 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-006#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-006.md#L24",
      "quote": "There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.",
@@ -2244,6 +2277,7 @@
      ],
      "date": "2026-06-21",
      "finding_id": "call-012#f0",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-012.md#L18",
      "quote": "search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist.",
@@ -2286,12 +2320,14 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-072#f0",
+     "instruction_like": [],
      "line": 29,
      "link": "transcripts/call-072.md#L29",
      "quote": "When we rename a team or move people between teams — which we do a lot during reorgs — the changes don't seem to show up right away when you search.",
      "sha": "c9d317249e65"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-131 (new invites not searchable until next day's index build): this is a ~10-minute lag on renames/moves for existing teams/members, not a next-day delay scoped to newly invited members.",
    "related": [],
    "severity": "medium",
@@ -2406,12 +2442,14 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-008#f1",
+     "instruction_like": [],
      "line": 48,
      "link": "transcripts/call-008.md#L48",
      "quote": "She noticed the confirmation emails your system sends have \"BetterBrak\" — B-E-T-T-E-R-B-R-A-K — in the footer.",
      "sha": "22754fba4655"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Not present in the tracked catalogue; distinct cosmetic text-defect issue, unrelated to any existing ticket.",
    "related": [],
    "severity": "low",
@@ -2500,12 +2538,14 @@
      ],
      "date": "2026-06-20",
      "finding_id": "call-010#f1",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-010.md#L18",
      "quote": "Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night.",
      "sha": "b5d267e23e8b"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue item covers a programmatic/SIEM-friendly audit-log export API; PROJ-089 (SSO login-history view) is a different, already-shipped capability.",
    "related": [],
    "severity": "high",
@@ -2594,12 +2634,14 @@
      ],
      "date": "2026-06-20",
      "finding_id": "call-010#f3",
+     "instruction_like": [],
      "line": 34,
      "link": "transcripts/call-010.md#L34",
      "quote": "They never get in. Not \"logged in briefly then out\" — they never reach the app at all. It just spins between your login and our IdP until they give up.",
      "sha": "b5d267e23e8b"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Symptom and scope differ from PROJ-064: different IdP (Azure AD vs Okta) and opposite failure mode (hard lockout/redirect loop vs early logout with successful re-login).",
    "related": [],
    "severity": "high",
@@ -2688,12 +2730,14 @@
      ],
      "date": "2026-06-21",
      "finding_id": "call-011#f2",
+     "instruction_like": [],
      "line": 46,
      "link": "transcripts/call-011.md#L46",
      "quote": "It cuts off right at the apostrophe. So Maria O'Brien's profile link — it should be her full profile URL, but it ends at \"/maria-o\" and just stops.",
      "sha": "e23735c7040b"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue addresses apostrophe/special-character handling in profile links; distinct from PROJ-138 (Outlook ICS invite time display) and other tracked email/link issues.",
    "related": [],
    "severity": "low",
@@ -2782,12 +2826,14 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-013#f1",
+     "instruction_like": [],
      "line": 44,
      "link": "transcripts/call-013.md#L44",
      "quote": "Ask if they can send a session-completed webhook with the member ID and timestamp; we'll do the rest.",
      "sha": "a6f6ce51ea29"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-087 (duplicate webhook deliveries to existing endpoints); this is a request for a new session-completed event type that does not currently exist, not a fix to duplicate delivery of an existing webhook.",
    "related": [],
    "severity": "high",
@@ -2876,12 +2922,14 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-014#f4",
+     "instruction_like": [],
      "line": 42,
      "link": "transcripts/call-014.md#L42",
      "quote": "When an admin deactivates a member while that member happens to be in the app — like, actively using it, mid-session on their phone — the app doesn't handle it gracefully.",
      "sha": "950a65a41083"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No existing catalogue issue covers a deactivation-triggered blank screen; distinct from PROJ-160 (iOS force-logout after an OS update) and PROJ-131 (new-member search indexing delay) in trigger and symptom.",
    "related": [],
    "severity": "medium",
@@ -2970,12 +3018,14 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-017#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-017.md#L24",
      "quote": "His Monday digest showed him the aggregate stats — session counts, average goals-completed, engagement rate — for a team he is not on.",
      "sha": "bc6558151aba"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers digest/team-membership data resolving to the wrong team; distinct from PROJ-101 (timezone display) which is a formatting issue, not a data-exposure issue.",
    "related": [
     "N/A - workaround request for digest data-exposure bug"
@@ -3088,6 +3138,7 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-021#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-021.md#L24",
      "quote": "somewhere around the forty-minute mark, the video just freezes. The coach's picture locks up on one frame",
@@ -3130,6 +3181,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-057#f0",
+     "instruction_like": [],
      "line": 28,
      "link": "transcripts/call-057.md#L28",
      "quote": "Several of my corporate members have said that during their live training sessions in the browser, the video just freezes.",
@@ -3172,6 +3224,7 @@
      ],
      "date": "2026-06-24",
      "finding_id": "call-093#f0",
+     "instruction_like": [],
      "line": 13,
      "link": "transcripts/call-093.md#L13",
      "quote": "during a coaching session in the browser, the video freezes. Not right away. It's always well into the session.",
@@ -3214,12 +3267,14 @@
      ],
      "date": "2026-06-25",
      "finding_id": "call-128#f0",
+     "instruction_like": [],
      "line": 32,
      "link": "transcripts/call-128.md#L32",
      "quote": "our ops-center folks — the ones on laptops — have started reporting that during longer coaching sessions, the video just freezes",
      "sha": "79de2dac9871"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers this symptom; distinct from PROJ-110 (Android crash-on-launch, different platform/failure mode) and PROJ-138 (Outlook ICS invite timing, unrelated to live video).",
    "related": [
     "Request to tell users about an alternate workaround for the video-freeze issue"
@@ -3325,12 +3380,14 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-023#f0",
+     "instruction_like": [],
      "line": 22,
      "link": "transcripts/call-023.md#L22",
      "quote": "What I cannot get is cost center or region, because your system doesn't know they exist. There's nowhere to put them.",
      "sha": "6445cb19b421"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers extensible/custom member profile fields; distinct from PROJ-118 (PDF export of existing engagement view) and PROJ-095 (shipped CSV roster export), neither of which adds new attributes.",
    "related": [
     "Interim: normalize BetterBark member emails to match HRIS formal format"
@@ -3421,12 +3478,14 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-029#f0",
+     "instruction_like": [],
      "line": 38,
      "link": "transcripts/call-029.md#L38",
      "quote": "every single one has a name written in kanji or katakana in the name field. Non-Latin characters.",
      "sha": "c97d193e3786"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers import row loss by character set; PROJ-131 (search indexing delay for new invites) is a different symptom and different failure mode.",
    "related": [
     "Manual provisioning requested for the 29 members stuck from the import bug"
@@ -3532,6 +3591,7 @@
      ],
      "date": "2026-06-22",
      "finding_id": "call-034#f0",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-034.md#L18",
      "quote": "The filters are gone. Completely reset. They're back to the full unfiltered list of every coach, and they have to re-select Spanish, re-select the specialty, re-select the timezone, all over again.",
@@ -3574,6 +3634,7 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-078#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-078.md#L24",
      "quote": "Then they click into a coach's profile to read the bio. And then they hit the browser back button to go back to the list — and all their filters are gone. Wiped. Back to square one.",
@@ -3616,12 +3677,14 @@
      ],
      "date": "2026-06-17",
      "finding_id": "call-112#f0",
+     "instruction_like": [],
      "line": 23,
      "link": "transcripts/call-112.md#L23",
      "quote": "Every time they hit back, the filters vanish. So if someone wants to compare five coaches, they're re-entering their filters five times.",
      "sha": "550a7745766c"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers coach-search filter/navigation state loss; distinct from all listed bugs (different feature area than reports, webhooks, SSO, search-indexing, calendar, uploads, crashes).",
    "related": [
     "New-tab workaround for coach search filter reset"
@@ -3726,12 +3789,14 @@
      ],
      "date": "2026-06-24",
      "finding_id": "call-037#f0",
+     "instruction_like": [],
      "line": 32,
      "link": "transcripts/call-037.md#L32",
      "quote": "the ask is simple: let a member download their own session notes. A PDF, a text file, I don't care about the format.",
      "sha": "d6a3287659a2"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No existing catalogue issue covers member-facing export of their own session notes; PROJ-095 is CSV roster export for admins, a different capability and audience.",
    "related": [
     "N/A - mobile notes download is same request as desktop notes export"
@@ -3830,6 +3895,7 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-042#f0",
+     "instruction_like": [],
      "line": 40,
      "link": "transcripts/call-042.md#L40",
      "quote": "So my theory is these reminders are scheduled for a nice sensible time — like early afternoon — but tuned to US hours. And nobody adjusted them for people who live on the other side of the planet.",
@@ -3872,12 +3938,14 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-101#f0",
+     "instruction_like": [],
      "line": 27,
      "link": "transcripts/call-101.md#L27",
      "quote": "The goal reminder buzzes at roughly three a.m. local. People are being woken up by their dog-training tool telling them to reflect on their goals",
      "sha": "ec5ee5ce97ff"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-101 (scheduled report display timestamps in UTC vs workspace timezone): this is push-notification firing time for goal reminders, a different feature and failure mode, not a display/report issue.",
    "related": [],
    "severity": "high",
@@ -3979,12 +4047,14 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-044#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-044.md#L26",
      "quote": "It's not all-or-nothing. Some of them get deactivated and some don't. So I'm left with a partial.",
      "sha": "6d66865cb0c2"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers bulk member activation/deactivation reliability; distinct from all listed bugs (none concern batch admin operations, timeouts, or partial-state reporting).",
    "related": [
     "Manual chunking into 150-member batches used as stopgap for bulk deactivate timeout"
@@ -4090,6 +4160,7 @@
      ],
      "date": "2026-06-23",
      "finding_id": "call-049#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-049.md#L26",
      "quote": "What I need is API access to the engagement metrics. Active users, session counts, utilization by team or division, the trend data",
@@ -4132,6 +4203,7 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-086#f0",
+     "instruction_like": [],
      "line": 33,
      "link": "transcripts/call-086.md#L33",
      "quote": "Ideally a REST endpoint we can hit on a schedule, or a native connector. We can work with either.",
@@ -4174,12 +4246,14 @@
      ],
      "date": "2026-06-30",
      "finding_id": "call-134#f2",
+     "instruction_like": [],
      "line": 39,
      "link": "transcripts/call-134.md#L39",
      "quote": "What I need is API access to the engagement metrics. A programmatic endpoint I can call to pull the aggregate engagement data",
      "sha": "073b5572d81f"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers raw-metrics API/warehouse export; distinct from PROJ-118 (PDF export of the dashboard visual, which the customer explicitly says would not meet the need) and PROJ-095 (CSV roster export, unrelated data).",
    "related": [
     "Interim scheduled CSV export requested as bridge until API exists",
@@ -4298,12 +4372,14 @@
      ],
      "date": "2026-06-26",
      "finding_id": "call-052#f0",
+     "instruction_like": [],
      "line": 20,
      "link": "transcripts/call-052.md#L20",
      "quote": "They open their coach's availability calendar, they see the open slots, they pick one. Say they pick what shows as Wednesday.",
      "sha": "13314218e1fb"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-101 (scheduled report timestamps off by hours due to UTC vs workspace timezone in reports/PDFs); this is a full-day shift in the coach booking availability calendar caused by date-line crossing, a different feature area and different failure mode, so not the same tracked issue.",
    "related": [
     "Request to preferentially match members with closer-timezone coaches"
@@ -4382,12 +4458,14 @@
      ],
      "date": "2026-06-16",
      "finding_id": "call-057#f3",
+     "instruction_like": [],
      "line": 59,
      "link": "transcripts/call-057.md#L59",
      "quote": "The facility breakdown I can mostly do by filtering. If it ever becomes a one-click thing I won't complain.",
      "sha": "ce911df55fb9"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-118 (PDF export of team engagement summary); this is a facility-level breakdown/filter request, not a PDF export capability.",
    "related": [],
    "severity": "low",
@@ -4476,12 +4554,14 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-059#f0",
+     "instruction_like": [],
      "line": 24,
      "link": "transcripts/call-059.md#L24",
      "quote": "I need a role that can see everything — all the configuration, all the access logs, all the settings — but can change absolutely nothing. A pure read-only observer.",
      "sha": "affc3d1bf51a"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers a read-only auditor role; PROJ-089 (shipped SSO login-history view) only covers one data point admins can already see, not a scoped read-only role over the whole admin/config/security surface.",
    "related": [],
    "severity": "high",
@@ -4578,6 +4658,7 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-060#f0",
+     "instruction_like": [],
      "line": 23,
      "link": "transcripts/call-060.md#L23",
      "quote": "There's no way to do that in bulk. When she left, I had to go in and reassign each of those thirty-some members to a new coach one at a time.",
@@ -4620,12 +4701,14 @@
      ],
      "date": "2026-06-21",
      "finding_id": "call-119#f1",
+     "instruction_like": [],
      "line": 34,
      "link": "transcripts/call-119.md#L34",
      "quote": "I want to see all the members currently assigned to that coach, select them, and reassign the whole group to a new coach in one action.",
      "sha": "d84fb3587e29"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers bulk coach-to-coach reassignment; distinct from all tracked bug/feature items.",
    "related": [],
    "severity": "high",
@@ -4727,12 +4810,14 @@
      ],
      "date": "2026-06-25",
      "finding_id": "call-065#f0",
+     "instruction_like": [],
      "line": 27,
      "link": "transcripts/call-065.md#L27",
      "quote": "every time the mobile app updates, those settings get wiped. The notification preferences reset back to the defaults, which is everything ON.",
      "sha": "f6b3c8e7bb77"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers notification-preference persistence across app updates; distinct from PROJ-110 (Android launch crash) and PROJ-160 (iOS logout after OS update), which are different symptoms/scopes.",
    "related": [
     "N/A - customer request for interim mitigation tied to notification-reset bug"
@@ -4823,12 +4908,14 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-069#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-069.md#L26",
      "quote": "I would give a lot for an anonymized, aggregate, org-level read.",
      "sha": "61454b973c69"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue item covers an aggregate/anonymized org-level wellbeing trend view; PROJ-118 (PDF export of engagement dashboard) and PROJ-120 (Slack at-risk alerts) are individual/account-level engagement features, not a privacy-preserving aggregate wellbeing trend report — distinct scope and privacy design, so this is new.",
    "related": [],
    "severity": "high",
@@ -4917,12 +5004,14 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-075#f0",
+     "instruction_like": [],
      "line": 21,
      "link": "transcripts/call-075.md#L21",
      "quote": "And the code says it's only valid for five minutes. So by the time the text arrives, the window's already closed. The code's dead on arrival.",
      "sha": "f0c21c1d1914"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers SMS 2FA delivery latency vs. code expiry; PROJ-064 is a distinct problem (Okta SSO session lifetime, not SMS code expiry) so this is new.",
    "related": [
     "Mandate authenticator-app TOTP for Canadian staff as interim MFA workaround"
@@ -5013,12 +5102,14 @@
      ],
      "date": "2026-06-25",
      "finding_id": "call-080#f0",
+     "instruction_like": [],
      "line": 34,
      "link": "transcripts/call-080.md#L34",
      "quote": "If the invoice itself broke out the cost by department.",
      "sha": "fc5e87cb9ea1"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers per-department billing/invoice breakdown; PROJ-118 (PDF export of engagement dashboard) and PROJ-095 (CSV roster export) are unrelated capabilities, not invoice line-item splitting.",
    "related": [
     "Interim CSV roster export offered as stopgap pending per-department invoice split"
@@ -5109,12 +5200,14 @@
      ],
      "date": "2026-06-15",
      "finding_id": "call-085#f0",
+     "instruction_like": [],
      "line": 32,
      "link": "transcripts/call-085.md#L32",
      "quote": "It opens a web page asking them to log in again. In the mobile browser. Even though they've got the app installed and they're already signed into the app.",
      "sha": "9551db00c0a8"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers iOS universal-link/deep-link routing from emails; PROJ-160 (iOS logout after OS update) is a different symptom and root cause, so this is a new issue.",
    "related": [
     "Customer asks whether the iOS link-routing fix will be quick or backlog-tier"
@@ -5205,12 +5298,14 @@
      ],
      "date": "2026-06-18",
      "finding_id": "call-088#f0",
+     "instruction_like": [],
      "line": 19,
      "link": "transcripts/call-088.md#L19",
      "quote": "They cannot get back in. They hit the login, it bounces to Ping, Ping authenticates them fine, they come back to BetterBark, and BetterBark rejects them.",
      "sha": "0621f0fac0e8"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-064: that item is Okta-only with a soft expiry that self-resolves on re-login; this is PingFederate with a hard account lock requiring manual admin unlock, so it is a new, separate issue as the call itself explicitly distinguishes.",
    "related": [
     "Request for bulk-unlock capability as stopgap for the Ping lockout issue"
@@ -5301,12 +5396,14 @@
      ],
      "date": "2026-06-26",
      "finding_id": "call-095#f0",
+     "instruction_like": [],
      "line": 32,
      "link": "transcripts/call-095.md#L32",
      "quote": "An API endpoint to create teams. If I could call an API to create a team when our ops platform provisions a new site, I'd wire it into our existing provisioning automation in an afternoon",
      "sha": "886bc1f0c92f"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No existing catalogue issue covers a team-management/creation API; closest tracked items (PROJ-155 SCIM, PROJ-095 CSV roster export) address different scopes (user deprovisioning, member roster export, not team/org-unit creation).",
    "related": [],
    "severity": "medium",
@@ -5395,12 +5492,14 @@
      ],
      "date": "2026-06-17",
      "finding_id": "call-100#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-100.md#L26",
      "quote": "She came back, got reactivated, logged in, and her notes from before she left were just... gone. Not visible to her.",
      "sha": "55dad1ed816e"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers reactivation/note-visibility; distinct from all tracked bugs, so this is a new finding.",
    "related": [
     "Manual restoration of one member's hidden notes (stopgap request)"
@@ -5485,12 +5584,14 @@
      ],
      "date": "2026-06-19",
      "finding_id": "call-102#f3",
+     "instruction_like": [],
      "line": 45,
      "link": "transcripts/call-102.md#L45",
      "quote": "I sometimes wish I could see at a glance which of my captains are behind on sessions without clicking around.",
      "sha": "f2560983a390"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Distinct from PROJ-118 (PDF export of team engagement summary); no catalogue issue covers an at-a-glance overdue-sessions manager view.",
    "related": [],
    "severity": "low",
@@ -5579,12 +5680,14 @@
      ],
      "date": "2026-06-20",
      "finding_id": "call-103#f0",
+     "instruction_like": [],
      "line": 29,
      "link": "transcripts/call-103.md#L29",
      "quote": "Every single missing session belonged to a member who had been deactivated at some point during May.",
      "sha": "eff7b394c43a"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers status-based exclusion of historical sessions; explicitly distinct from PROJ-101 (timezone display) per the customer's own boundary-clustering test and Ravi's confirmation.",
    "related": [
     "Manual board-number reconciliation and historical restatement request",
@@ -5676,12 +5779,14 @@
      ],
      "date": "2026-06-25",
      "finding_id": "call-107#f0",
+     "instruction_like": [],
      "line": 26,
      "link": "transcripts/call-107.md#L26",
      "quote": "A nightly SFTP drop of a usage extract. Predictable filename, predictable schema, lands in our folder, we take it from there.",
      "sha": "e2b13aee82ae"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue item covers automated scheduled push delivery of a usage extract to a customer SFTP endpoint; PROJ-095 (CSV roster export) and PROJ-118 (PDF engagement export) are both manual, human-initiated exports of different data, not automated nightly pushes, and customer explicitly rejects manual download as insufficient.",
    "related": [
     "Interim/middle-path delivery mechanism (shared bucket pull) raised as fallback to SFTP push"
@@ -5772,12 +5877,14 @@
      ],
      "date": "2026-06-17",
      "finding_id": "call-115#f0",
+     "instruction_like": [],
      "line": 16,
      "link": "transcripts/call-115.md#L16",
      "quote": "A chunk of my new associates were telling me the link didn't work. They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.",
      "sha": "90e7f6585dc3"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers verification-link tokens being consumed by an email security scanner's prefetch; distinct from PROJ-142 (password-reset send delay) and PROJ-064 (SSO session length) which involve different mechanisms and symptoms.",
    "related": [],
    "severity": "high",
@@ -5866,12 +5973,14 @@
      ],
      "date": "2026-06-24",
      "finding_id": "call-122#f0",
+     "instruction_like": [],
      "line": 30,
      "link": "transcripts/call-122.md#L30",
      "quote": "If they reschedule the morning of, or the night before — inside that twenty-four-hour window — two credits get burned for the one session.",
      "sha": "1bc37b1719a6"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers session-credit double-deduction on reschedule; distinct from all listed items, which concern report timestamps, app crashes, webhooks, SSO, search indexing, email delivery, calendar invites, uploads, and iOS logout.",
    "related": [],
    "severity": "high",
@@ -5960,12 +6069,14 @@
      ],
      "date": "2026-06-27",
      "finding_id": "call-125#f2",
+     "instruction_like": [],
      "line": 18,
      "link": "transcripts/call-125.md#L18",
      "quote": "the coach never gets the long ones. The member writes this whole thoughtful message, hits send, sees it appear in their own thread like it went through",
      "sha": "c4b8188bc712"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers in-app messaging delivery; distinct from all tracked bugs (webhooks, SSO, scheduling, uploads, etc.).",
    "related": [],
    "severity": "high",
@@ -6054,12 +6165,14 @@
      ],
      "date": "2026-06-26",
      "finding_id": "call-131#f0",
+     "instruction_like": [],
      "line": 23,
      "link": "transcripts/call-131.md#L23",
      "quote": "It says \"Paramétres.\" With an accent on the é. It should be \"Paramètres\" — the accent is grave, not acute.",
      "sha": "47699205907a"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers a French-locale tooltip accent typo; this is a distinct new low-severity text defect not matching any tracked item.",
    "related": [],
    "severity": "low",
@@ -6148,12 +6261,14 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-132#f0",
+     "instruction_like": [],
      "line": 43,
      "link": "transcripts/call-132.md#L43",
      "quote": "the coach's calendar hold to auto-release if the member no-shows, say, ten minutes in",
      "sha": "d4c6f956eae3"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue covers no-show calendar-hold release/availability behavior; distinct from all tracked scheduling/calendar items (PROJ-138 is about ICS invite display in Outlook, not hold release).",
    "related": [],
    "severity": "medium",
@@ -6242,12 +6357,14 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-136#f0",
+     "instruction_like": [],
      "line": 22,
      "link": "transcripts/call-136.md#L22",
      "quote": "I upload the file, and it just... rejects the whole thing. The entire file. It doesn't import a single row.",
      "sha": "ac4522830d23"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogued issue covers CSV import header parsing or this generic-error-on-import failure; closest is PROJ-149 (photo upload generic error) but that is a different feature/flow, so this is a new, distinct defect.",
    "related": [],
    "severity": "medium",
@@ -6330,12 +6447,14 @@
      ],
      "date": "2026-06-29",
      "finding_id": "call-136#f1",
+     "instruction_like": [],
      "line": 50,
      "link": "transcripts/call-136.md#L50",
      "quote": "is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?",
      "sha": "ac4522830d23"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "Not present in the catalogue; no existing tracked issue addresses pre-import CSV validation or a dry-run mode.",
    "related": [],
    "severity": "low",
@@ -6424,12 +6543,14 @@
      ],
      "date": "2026-06-30",
      "finding_id": "call-139#f0",
+     "instruction_like": [],
      "line": 38,
      "link": "transcripts/call-139.md#L38",
      "quote": "Multi-language notification emails. Send the automated emails in the member's language, not just English.",
      "sha": "ba465b35600a"
     }
    ],
+   "instruction_like_evidence": [],
    "match_note": "No catalogue issue addresses notification language/localization; PROJ-101 (timezone display) and other tracked items are unrelated to email language content, so this is a new feature request.",
    "related": [
     "Customer-run manual Spanish email workaround (HR-sent, non-scalable)"

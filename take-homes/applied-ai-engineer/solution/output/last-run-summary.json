@@ -1,8 +1,8 @@
 {
- "run_id": "20260923T044809Z-34d6a0",
+ "run_id": "20260923T051642Z-8b0c86",
  "command": "run",
- "finished_at": "2026-09-23T04:48:11+00:00",
- "duration_s": 1.2,
+ "finished_at": "2026-09-23T05:16:42+00:00",
+ "duration_s": 0.1,
  "event_counts": {
   "run.start": 1,
   "parse.skipped_internal": 6,

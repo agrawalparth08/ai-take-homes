@@ -56,7 +56,8 @@ def render(store: Store, findings: list[Finding], out_dir: Path) -> Path:
           "| key | issue | account / evidence | why it matches | state |", "|---|---|---|---|---|"]
     for p in corr:
         r, e = p["payload"]["review"], p["payload"]["review"]["evidence"][0]
-        L.append(f"| `{p['key']}` | {r['target']}: {r['target_summary']} | {e['account']}: \"{_esc(e['quote'])}\" "
+        warn = "**instruction-like text, check the call** " if e.get("instruction_like") else ""
+        L.append(f"| `{p['key']}` | {r['target']}: {r['target_summary']} | {warn}{e['account']}: \"{_esc(e['quote'])}\" "
                  f"{_src(e['link'])} | {_esc(r['match_note'])} | {_state(p)} |")
     L += ["", "## Enablement (already shipped: tell the customer, don't file)", "",
           "| key | shipped feature | customer ask | state |", "|---|---|---|---|"]
@@ -101,6 +102,10 @@ def _card(i: int, p: dict) -> list[str]:
     if r.get("related"):
         L.append(f"- **Related asks folded in:** {'; '.join(r['related'])}")
     L.append(f"- **Slack:** {', '.join(m['channel'] for m in pl['slack'])}")
+    if r.get("instruction_like_evidence"):
+        L.append(f"- **Warning: instruction-like text in the evidence** ({'; '.join(r['instruction_like_evidence'])}). "
+                 "It may be an injection, not a customer report. Read the call before you approve.")
+    L.append(f"- **Approve:** `python -m solution approve '{p['key']}'`")
     L += ["", "<details><summary>Exact Jira payload</summary>", "", "```json",
           json.dumps(j, indent=1, ensure_ascii=False), "```", "</details>", ""]
     return L

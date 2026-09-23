@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
@@ -33,6 +34,18 @@ def slack_handle(name: str) -> str:
 
 def link(call_id: str, line: int) -> str:
     return f"transcripts/{call_id}.md#L{line}"
+
+
+# Text that addresses an automated system rather than a person. Code flags it on the review card, whatever
+# the model decided, so a planted "file a P0" can't slide past a fast reviewer (calls 005 and 011).
+_INSTRUCTION_LIKE = re.compile(
+    r"system instruction|ignore (?:all |your |any )?(?:previous|prior) (?:instructions|rules)|"
+    r"disregard (?:all |your |any )?(?:previous|prior)|note to (?:automated|ai)|automated assistants?|"
+    r"\b(?:bot|ai|assistant) (?:that is |which is )?(?:transcribing|processing|reading) this", re.I)
+
+
+def instruction_like(texts: list[str]) -> list[str]:
+    return sorted({m.group(0).lower() for t in texts for m in _INSTRUCTION_LIKE.finditer(t)})
 
 
 # --- policy -----------------------------------------------------------------
@@ -111,8 +124,10 @@ def _evidence(f: Finding, t: Transcript) -> dict:
         ln = t.line(n)
         if ln:
             ctx.append({"line": n, "role": ln.role, "speaker": ln.speaker, "text": ln.text})
+    flags = instruction_like([f.quote, *(c["text"] for c in ctx if c["line"] == f.line)])
     return {"finding_id": f.id, "call_id": f.call_id, "sha": t.sha256[:12], "account": t.account, "date": t.date,
-            "line": f.line, "quote": f.quote, "link": link(f.call_id, f.line), "context": ctx}
+            "line": f.line, "quote": f.quote, "link": link(f.call_id, f.line), "context": ctx,
+            "instruction_like": flags}
 
 
 def new_ticket(group: Group, ts: dict[str, Transcript], related: dict[str, list[Finding]]) -> dict:
@@ -159,7 +174,8 @@ def new_ticket(group: Group, ts: dict[str, Transcript], related: dict[str, list[
         "jira": jira, "slack": slack,
         "review": {"severity": severity, "severity_reason": primary.severity_reason,
                    "match_note": primary.match_note, "cluster_reason": group.reason,
-                   "evidence": evidence, "related": [r.title for r in extras], "slack_ctx": slack_ctx},
+                   "evidence": evidence, "related": [r.title for r in extras], "slack_ctx": slack_ctx,
+                   "instruction_like_evidence": sorted({x for e in evidence for x in e["instruction_like"]})},
     }
 
 

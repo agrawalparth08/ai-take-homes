@@ -128,6 +128,10 @@ class Store:
                            (json.dumps(payload, sort_keys=True), sha, run_id, now(), key))
                 return "revived"
             if row["payload_sha"] == sha:
+                # Same written payload; refresh review-only metadata (flags, context) unless a human edited it.
+                if not row["human_edited"] and row["payload"] != json.dumps(payload, sort_keys=True):
+                    db.execute("UPDATE proposals SET payload=?, updated_at=? WHERE key=?",
+                               (json.dumps(payload, sort_keys=True), now(), key))
                 return "unchanged"
             if row["human_edited"]:
                 return "kept_human_edit"
