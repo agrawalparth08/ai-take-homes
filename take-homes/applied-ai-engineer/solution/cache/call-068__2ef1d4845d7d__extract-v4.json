@@ -1,0 +1,56 @@
+{
+ "call_id": "call-068",
+ "sha256": "2ef1d4845d7dec3ff50ba8b2ea6a6fbe4cb5affa30b7b55ce2a128db295e5a3b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:31:05+00:00",
+ "usage": {
+  "input_tokens": 13653,
+  "output_tokens": 3041,
+  "latency_s": 35.38,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "No product issues reported with mobile app",
+    "description": "When asked whether there was any app feedback, the customer stated the app is fine with no complaints from the field staff, calling a quiet field 'a miracle' for a frontline hospitality crew. This is a satisfaction statement, not a defect report or feature request.",
+    "line": 52,
+    "quote": "The app's fine, no complaints from the field, which for a frontline hospitality crew is a miracle.",
+    "context_lines": [
+     51,
+     53
+    ],
+    "severity": "low",
+    "severity_reason": "Purely informational/positive feedback with no reported impact or defect.",
+    "match_note": "No catalogue issue applies; there is no problem stated to match.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "App performance feedback attributed to property-side WiFi, not app defect",
+    "description": "Customer says the only app feedback she ever receives is when WiFi at a specific property is bad, and she explicitly characterizes this as 'the property's problem, not yours.' She notes the new Tulum property's WiFi is currently unreliable per the contractor, and both parties agree any app struggles there would be attributable to WiFi rather than BetterBark. No underlying app defect is described.",
+    "line": 54,
+    "quote": "The only app feedback I ever get is when the WiFi at a property is bad, and that's the property's problem, not yours.",
+    "context_lines": [
+     55,
+     56,
+     57,
+     58
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly attributed by the customer to property-side infrastructure (WiFi), not a BetterBark product defect.",
+    "match_note": "No catalogue issue covers WiFi-dependent app performance; customer herself rules out a product cause.",
+    "no_action_reason": "customer_side_cause",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

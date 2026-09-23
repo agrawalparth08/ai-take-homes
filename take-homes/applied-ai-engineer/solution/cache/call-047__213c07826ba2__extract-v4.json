@@ -1,0 +1,54 @@
+{
+ "call_id": "call-047",
+ "sha256": "213c07826ba2d81a96f3042d75d63fedd3285941c768fe92a48095cc45b5cdff",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:28:21+00:00",
+ "usage": {
+  "input_tokens": 14312,
+  "output_tokens": 2736,
+  "latency_s": 29.28,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-101",
+    "title": "Scheduled engagement report renders times in UTC instead of workspace Central timezone",
+    "description": "Customer's weekly scheduled engagement report (session counts, active participants) shows all timestamps roughly five to six hours ahead of actual Central time, consistent with the report rendering in UTC. Confirmed workspace timezone setting is correctly set to Central, ruling out customer-side misconfiguration. Affects both the emailed PDF and the in-app schedule view, and both the session times and the report's own 'generated at' header are shifted by the same amount. Customer already forwarded a shifted report to a dean who misread it as evening sessions, and plans to widen the report's distribution to adjunct coordinators, increasing the impact of the confusing timestamps.",
+    "line": 31,
+    "quote": "the times are several hours ahead of when things actually occurred. A session I know was at two in the afternoon shows up listed as something like eight in the evening",
+    "context_lines": [
+     37,
+     39,
+     47,
+     53
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Incorrect timestamps have already fed a wrong impression to a dean (a leadership decision-maker) and the customer is about to expand the report's audience, so the defect will confuse more stakeholders and undermine trust in the data ahead of a program expansion case.",
+    "match_note": "Same defect as PROJ-101: workspace-timezone (non-UTC, here Central) scheduled reports showing UTC times in both the emailed PDF and in-app schedule view; only the account differs."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "N/A - workaround discussion for UTC timestamp issue",
+    "description": "Internal rep offered to check whether the dashboard's raw numbers avoid the timezone shift as an interim source the customer could share while the report defect is investigated; customer asked the rep to verify before relying on it. This is a stopgap tied to the same UTC-timestamp issue already raised, not a separate product topic from the customer.",
+    "line": 51,
+    "quote": "Please verify. I'd rather not swap one funny report for another.",
+    "context_lines": [
+     50,
+     52
+    ],
+    "related_line": 31,
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; it is a request to confirm a workaround for the already-filed timestamp issue.",
+    "match_note": "Not a separate finding \u2014 workaround discussion for the same issue reported at L31 (matches PROJ-101)."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

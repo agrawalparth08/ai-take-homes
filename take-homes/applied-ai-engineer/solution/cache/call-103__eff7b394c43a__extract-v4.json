@@ -1,0 +1,89 @@
+{
+ "call_id": "call-103",
+ "sha256": "eff7b394c43a7643def03960088b7414b6a278ef8340654ed6a4f57f072d9cd3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:08+00:00",
+ "usage": {
+  "input_tokens": 41944,
+  "output_tokens": 6404,
+  "latency_s": 65.3,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Monthly session-count reports exclude sessions from members deactivated mid-period",
+    "description": "Members who complete coaching sessions while active, then get deactivated later in the same reporting month, have their entire session history for that month dropped from the report total instead of just future sessions being excluded. Harriet verified this by hand-reconciling a 60-member business unit against independent coach session logs, finding five members whose completed sessions (e.g., three sessions delivered May 1-10 for a member deactivated May 18) showed as zero in the May report. The exclusion tracks with deactivation status at report-run time, not with session timestamps, and affects sessions scattered throughout the month (not clustered at boundaries), ruling out the known timezone display bug as the cause. This has understated the board-facing monthly engagement total for as long as Winslow Group has been running the report, with the error size scaling with member churn.",
+    "line": 29,
+    "quote": "Every single missing session belonged to a member who had been deactivated at some point during May.",
+    "context_lines": [
+     25,
+     30,
+     31,
+     34
+    ],
+    "severity": "high",
+    "severity_reason": "Wrong data has been feeding a board-facing metric used to justify program budget for an extended period; no product-side workaround exists (only a manual, one-off reconciliation offered as a stopgap), though it does not block core product use.",
+    "match_note": "No catalogue issue covers status-based exclusion of historical sessions; explicitly distinct from PROJ-101 (timezone display) per the customer's own boundary-clustering test and Ravi's confirmation."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "retracted",
+    "title": "Customer hypothesized timezone report bug as cause of low May session total",
+    "description": "Harriet initially suspected the known timezone display bug (report timestamps off, sessions bucketed into the wrong month) was causing her May session total to read low, based on something she'd read in a community forum post or release note. She and Ravi tested this hypothesis by checking whether missing sessions clustered around month boundaries or odd hours; they were scattered mid-month at normal times (e.g., the 12th at 2pm, the 21st at 10am), which does not match a UTC-offset bucketing pattern. Harriet and Ravi concluded this was not the timezone issue and identified a different root cause (see deactivation-exclusion finding).",
+    "line": 22,
+    "quote": "I figured sessions were getting bucketed into the wrong month or the wrong day because of timezone math",
+    "context_lines": [
+     20,
+     25,
+     26,
+     33
+    ],
+    "severity": "low",
+    "severity_reason": "The hypothesis was explicitly disproven by the customer and staff before the call ended, so it does not stand as an issue to act on; logged only so reviewers see it was considered and correctly ruled out.",
+    "match_note": "Referenced PROJ-101 (timezone display bug) by description but the customer's own investigation ruled it out as the cause of her symptom; not a first-hand confirmed instance of PROJ-101."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Manual board-number reconciliation and historical restatement request",
+    "description": "Harriet asked BetterBark to manually reconstruct the true delivered-session count for the May board period (and asked how far back a similar restatement could go, including prior quarters) given the deactivation-exclusion bug. Ravi and Lena agreed to a manual reconciliation for the current board period using a customer-supplied list of members deactivated in May with their deactivation dates, and suggested deferring any historical/prior-quarter restatement decision until after the current period is handled.",
+    "line": 44,
+    "quote": "What do I put in front of the board next week? I can't hand them a number I now know is wrong.",
+    "context_lines": [
+     45,
+     46,
+     48,
+     52
+    ],
+    "severity": "medium",
+    "severity_reason": "This is a services/manual-support request tied to the underlying bug, not a separate product defect, so it is filed as a workaround rather than scored independently.",
+    "match_note": "Directly downstream of the deactivation-exclusion bug reported at L29; not a distinct product defect or feature.",
+    "related_line": 29
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Customer plans manual spot-reconciliation to verify future report totals post-fix",
+    "description": "Harriet stated that once the deactivation-exclusion bug is fixed, she intends to spot-reconcile a couple of business units against her coaches' independent session logs for a month or two before fully trusting the report totals again. Ravi endorsed this as a reasonable verification step. This is the customer's own planned QA process, not a request for a product change.",
+    "line": 55,
+    "quote": "once this is fixed, how do I trust the totals again? I've now been burned once.",
+    "context_lines": [
+     56,
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "Describes the customer's own future verification process rather than a product defect or feature request; no action needed beyond the underlying bug fix.",
+    "match_note": "A follow-on trust-rebuilding step tied to the same deactivation-exclusion bug reported at L29, not an independent issue.",
+    "related_line": 29
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

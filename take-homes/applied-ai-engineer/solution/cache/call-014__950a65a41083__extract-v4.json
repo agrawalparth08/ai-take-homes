@@ -1,0 +1,105 @@
+{
+ "call_id": "call-014",
+ "sha256": "950a65a41083f9f4bac93bede3688b185e0bfe2910f6479e03d057b3dfbab871",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:00+00:00",
+ "usage": {
+  "input_tokens": 15165,
+  "output_tokens": 8103,
+  "latency_s": 88.46,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "GM cohort praises new-puppy foundations training track",
+    "description": "Gloria reports the full ~40-person GM cohort completed the new-puppy foundations training track with high attendance, completion, and follow-through, including a normally-skeptical Denver GM calling it 'actually useful.' Uptake varied by property type (city properties engaged more than resort properties during peak season). This is unsolicited positive feedback about program content, not a request to change the product.",
+    "line": 10,
+    "quote": "The GM cohort's dogs graduated the new-puppy foundations track. Genuinely loved it, not politely-tolerated-it.",
+    "context_lines": [
+     14,
+     16,
+     18,
+     20
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or capability gap raised; purely positive feedback with no requested change.",
+    "match_note": "No catalogue analog; positive training feedback, not a defect or feature request."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Competitor WagWell's 'real-time pulse survey' feature raised as renewal talking point",
+    "description": "Gloria discloses that competitor WagWell pitched Sunrise Hospitality and emphasized 'real-time pet-wellbeing pulse surveys,' a phrase that stuck with the interim-HR CFO. Gloria is not requesting BetterBark build this; both she and Tom\u00e1s explicitly agree this is competitive positioning to manage at the renewal table, not a product gap to file. No first-hand ask to change the BetterBark product was made.",
+    "line": 32,
+    "quote": "WagWell pitched us two weeks ago. Full-court press, nice deck. And their pitch leaned hard on having, quote, \"real-time pet-wellbeing pulse surveys\" built in.",
+    "context_lines": [
+     34,
+     35,
+     37,
+     38
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly framed by both parties as sales/competitive chatter, not a product defect or requested capability.",
+    "match_note": "No catalogue issue; competitor feature mention used for renewal positioning, not a filed product gap."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Custom frontline utilization-to-retention report cut requested for renewal",
+    "description": "Gloria asks for a custom, one-off report cutting training engagement/utilization against retention specifically for the frontline staff population, to satisfy the interim-HR CFO during renewal review. She says she'll send exact specs (properties, date range, retention definition) by email before Tom\u00e1s builds anything. This is an ad hoc reporting/services deliverable tied to the renewal, not a request for a new persistent product capability.",
+    "line": 28,
+    "quote": "I'll need a custom cut for the frontline population specifically, because that's where our turnover pain is and that's the number he'll fixate on.",
+    "context_lines": [
+     29,
+     30,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "One-off ad hoc reporting favor for a renewal conversation, not a product defect or standing feature gap.",
+    "match_note": "No catalogue issue; distinct from PROJ-118 (manager PDF export) \u2014 this is a bespoke ad hoc data cut, not a standing dashboard capability request."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Contract term length (one-year vs two-year) negotiation ahead of CFO review",
+    "description": "Gloria anticipates the interim-HR CFO will push for a one-year term instead of the current two-year to retain negotiating leverage, and asks Tom\u00e1s to structure pricing so the two-year option remains the obvious choice. This is a commercial/contract negotiation topic, not related to the BetterBark product itself.",
+    "line": 56,
+    "quote": "He'll probably float a one-year instead of the two-year to \"keep options open,\" which is CFO for \"I want leverage next year.\"",
+    "context_lines": [
+     54,
+     57,
+     58
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a commercial/pricing negotiation matter, no product impact.",
+    "match_note": "No catalogue issue; contract term negotiation is out of scope for the product issue catalogue."
+   },
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Mobile app shows blank white screen (not the inactive-account screen) when deactivated mid-session",
+    "description": "When an admin deactivates a member account while that member has an active mobile session open, the app does not show the existing 'account inactive' screen; instead it goes to a blank white screen with no message and does not recover on its own. Force-quitting and reopening the app is required before the correct inactive-account screen appears. During Sunrise Hospitality's May seasonal deactivation batch (a few hundred accounts), this happened consistently to all 6-7 members who were mid-session at deactivation time, and 2 of them contacted the customer's IT helpdesk believing the app had crashed.",
+    "line": 42,
+    "quote": "When an admin deactivates a member while that member happens to be in the app \u2014 like, actively using it, mid-session on their phone \u2014 the app doesn't handle it gracefully.",
+    "context_lines": [
+     44,
+     46,
+     48,
+     50
+    ],
+    "severity": "medium",
+    "severity_reason": "Reproducible, consistent defect on the offboarding path, but low volume (6-7 users per batch, tied to periodic mass-deactivation events) and has a known workaround (force-quit and reopen); no data loss or blocked core functionality for active members.",
+    "match_note": "No existing catalogue issue covers a deactivation-triggered blank screen; distinct from PROJ-160 (iOS force-logout after an OS update) and PROJ-131 (new-member search indexing delay) in trigger and symptom."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

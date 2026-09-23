@@ -1,0 +1,72 @@
+{
+ "call_id": "call-065",
+ "sha256": "f6b3c8e7bb779eb85a7a399e4a32f08081e7d5cf1e1c75b3c457ddc8a56d9eb0",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:47+00:00",
+ "usage": {
+  "input_tokens": 13968,
+  "output_tokens": 3727,
+  "latency_s": 41.05,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Mobile app resets notification preferences to all-on after every app update",
+    "description": "Members who deliberately opt out of push notifications (session reminders, nudges, goal-tracking pings) in the mobile app have their preferences wiped back to default (all-on) every time the app updates, silently re-subscribing them. Confirmed on both iOS and Android, occurring across at least three separate app updates. Only in-app push notification settings are affected; web preferences and email settings are unaffected. Customer reports 11 complaints within two days following one such update, with opted-out machinists now threatening to delete the app.",
+    "line": 27,
+    "quote": "every time the mobile app updates, those settings get wiped. The notification preferences reset back to the defaults, which is everything ON.",
+    "context_lines": [
+     29,
+     32,
+     34,
+     37
+    ],
+    "severity": "high",
+    "severity_reason": "Silently overrides an explicit user privacy/attention preference on every release across both platforms, and the customer states it is actively jeopardizing adoption/retention on a floor rollout (a deliberate opt-out being un-done is effectively an unresolved defect with no confirmed workaround yet).",
+    "match_note": "No catalogue issue covers notification-preference persistence across app updates; distinct from PROJ-110 (Android launch crash) and PROJ-160 (iOS logout after OS update), which are different symptoms/scopes."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - customer request for interim mitigation tied to notification-reset bug",
+    "description": "Renata asks whether anything can be done before the next app update ships to avoid another wave of unwanted notifications for opted-out members. This is a stopgap request tied directly to the notification-preferences-reset bug raised earlier in the same call, not a separate product issue.",
+    "line": 45,
+    "quote": "Is there anything we can do in the meantime? Because the next update is presumably coming and I'd like to not have another wave.",
+    "context_lines": [
+     46,
+     47,
+     48,
+     53
+    ],
+    "related_line": 27,
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; it is a mitigation ask for the already-captured bug at L27.",
+    "no_action_reason": "workaround_request",
+    "match_note": "Directly tied to the notification-preferences-reset bug (line 27); per rules, workaround/stopgap requests for the same-call issue are not filed separately."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - customer-built onboarding process, not a BetterBark product topic",
+    "description": "Devon and Renata describe a QR code posted at the time clock that lets machinists scan in and register for BetterBark, which drove strong floor adoption. This is a customer-side onboarding tactic using an existing app entry point, not a request to change or fix any BetterBark product capability.",
+    "line": 10,
+    "quote": "They showed up because we made it dead simple. One QR code by the time clock, scan, you're in. No friction.",
+    "context_lines": [
+     9,
+     11,
+     12,
+     14
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or feature gap in the product; purely a customer rollout tactic shared for context.",
+    "no_action_reason": "not_product",
+    "match_note": "Not a BetterBark product defect or feature request; it's the customer's own onboarding process built around the existing app, mentioned as positive context before the actual escalation."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

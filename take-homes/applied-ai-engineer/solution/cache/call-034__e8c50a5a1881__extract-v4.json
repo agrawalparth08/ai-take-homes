@@ -1,0 +1,83 @@
+{
+ "call_id": "call-034",
+ "sha256": "e8c50a5a1881a1f85a89b529aa30bcade0fc717e52bfc3152eb46da647e5b697",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:53+00:00",
+ "usage": {
+  "input_tokens": 13664,
+  "output_tokens": 4467,
+  "latency_s": 49.84,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Coach-search filters reset to default when navigating back via browser back button",
+    "description": "Members on the coach-search page apply filters (language, specialty, timezone), click into a coach's full profile, then use the browser's back button to return to results. On return, all filter selections are cleared and the full unfiltered coach list is shown instead of the previously filtered set. Reproduced by the customer and a colleague on standard, unmodified Chrome sessions on the corporate network; behavior is consistent, not user- or browser-config-specific. Customer reports this causes members comparing multiple coaches to give up re-filtering and just pick whichever coach appears first in the unfiltered list, undermining the purpose of filtering. An in-page 'back to results' link may preserve state as a stopgap, but users instinctively use the browser back button instead.",
+    "line": 18,
+    "quote": "The filters are gone. Completely reset. They're back to the full unfiltered list of every coach, and they have to re-select Spanish, re-select the specialty, re-select the timezone, all over again.",
+    "context_lines": [
+     14,
+     21,
+     30,
+     38
+    ],
+    "severity": "medium",
+    "severity_reason": "Real, reproducible defect affecting coach selection quality for ~400 enrolled users, but an in-page link workaround exists even though it requires retraining user habits.",
+    "match_note": "No catalogue issue covers coach-search filter/navigation state loss; distinct from all listed bugs (different feature area than reports, webhooks, SSO, search-indexing, calendar, uploads, crashes)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Engagement-by-department reporting dashboard did not meet needs (resolved: filters were already available)",
+    "description": "Customer had previously asked about pulling engagement data by department. On this call she confirms the dashboard did meet her needs once she found the right filters, and acknowledges she simply hadn't explored the existing capabilities enough.",
+    "line": 47,
+    "quote": "It did, once I found the right filters. It was more capable than I gave it credit for.",
+    "context_lines": [
+     46,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Issue is explicitly resolved and attributed to the customer not having explored existing functionality; no product defect remains.",
+    "match_note": "Not the same as PROJ-118 (PDF export request) or any tracked reporting bug; explicitly closed out by the customer with no product change requested."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "SSO/SAML setup confirmed stable, no issue reported",
+    "description": "Customer proactively states their standard SAML SSO setup has been reliable, contrasting it with a previous vendor's frequent SSO outages. This is offered as positive confirmation, not a report of any defect or request for change.",
+    "line": 54,
+    "quote": "we're on our standard SAML setup and it's been rock solid.",
+    "context_lines": [
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or request present; purely affirmative feedback about current product behavior.",
+    "match_note": "Distinct from PROJ-064 (Okta session-expiry bug): this customer explicitly reports no problem and is not on the affected symptom or scope."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Roadmap/renewal discussion deferred to leadership",
+    "description": "Customer asks whether there is anything on the roadmap or renewal side to discuss, then immediately clarifies that is her boss's area and she only cares that the product schedules, reports, and allows login. Maya routes the strategic/renewal conversation to the customer's leadership separately.",
+    "line": 49,
+    "quote": "Anything on the roadmap or renewal side you want to touch while we're here?",
+    "context_lines": [
+     50,
+     51
+    ],
+    "severity": "low",
+    "severity_reason": "Commercial/roadmap discussion, not a product defect or feature gap raised first-hand by the customer for engineering action.",
+    "match_note": "Pricing/renewal/roadmap chatter is explicitly excluded from actionable scope per triage criteria; no tracked issue applies."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

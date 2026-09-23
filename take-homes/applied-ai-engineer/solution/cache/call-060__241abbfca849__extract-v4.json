@@ -1,0 +1,103 @@
+{
+ "call_id": "call-060",
+ "sha256": "241abbfca84993f50e9791c9a84a3045801ee9a9d26f5cec2c3000eb882dea44",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:29+00:00",
+ "usage": {
+  "input_tokens": 14086,
+  "output_tokens": 5260,
+  "latency_s": 51.6,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No bulk reassignment path when a coach departs and their caseload must move",
+    "description": "When a coach left the platform, the admin had to manually reassign ~30 members one at a time (click into member, change coach, save, repeat), taking most of an afternoon. Both the admin bulk-actions menu (which has bulk deactivate and bulk invite) and the help docs were checked and confirmed to have no bulk reassign option. During the manual process, at least one member was left without an active coach for a day or two because they were still assigned to the departed coach's account. Customer also wants the ability to split a departing coach's caseload across multiple new coaches (e.g., 15 to Coach A, 15 to Coach B), not just a single straight move.",
+    "line": 23,
+    "quote": "There's no way to do that in bulk. When she left, I had to go in and reassign each of those thirty-some members to a new coach one at a time.",
+    "context_lines": [
+     26,
+     30,
+     32,
+     35
+    ],
+    "severity": "high",
+    "severity_reason": "No workaround exists in-product; the manual process is error-prone and has already caused a clinician to be left without an active coach for a day or two in a clinical burnout-prevention context, and the trigger event (coach departure) is recurring and predictable.",
+    "match_note": "No catalogue issue covers bulk coach-to-coach reassignment; distinct from all tracked bug/feature items."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Ask for one-off backend batch reassignment as stopgap before bulk feature ships",
+    "description": "Coordinator asked whether support engineering could script a backend batch reassignment for the next coach departure, as a stopgap until self-serve bulk reassignment exists. Maya confirmed this is sometimes possible via support engineering but is not self-serve, not instant, and offered as an option rather than a commitment.",
+    "line": 38,
+    "quote": "That'd be a lifesaver. Is that something you can do now, backend?",
+    "context_lines": [
+     37,
+     39
+    ],
+    "related_line": 21,
+    "severity": "low",
+    "severity_reason": "This is a request for a manual services workaround tied to the bulk-reassignment feature gap, not a separate product defect or capability request.",
+    "match_note": "Directly tied to the bulk coach-reassignment request at L21-L37; not a distinct product issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Request for more short-form (sub-5-minute) content in wellbeing library",
+    "description": "Clinicians want more short-form wellbeing content since physicians typically have only a few minutes between patients; long modules are well-received but under-consumed relative to short ones. Framed by both the customer and account manager as a content-strategy/demand signal for the content team rather than a software defect or missing product capability.",
+    "line": 42,
+    "quote": "our clinicians want more short-form stuff. The long modules are great but a physician between patients has four minutes, not forty.",
+    "context_lines": [
+     43,
+     44,
+     45
+    ],
+    "severity": "low",
+    "severity_reason": "Content curation request, not an engineering-actionable product defect or feature; explicitly characterized as a wish/demand signal, not a required product change.",
+    "match_note": "No tracked engineering issue covers content-library curation; this is a content-strategy ask, not a software capability gap."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Engagement report exports show department codes instead of friendly names",
+    "description": "Exported engagement reports show department identifiers like 'DEPT_0447' instead of friendly names like 'Emergency Medicine'. Account manager identified this as resulting from departments being imported with codes set as the display name rather than a friendly name, a configuration issue on the customer's import rather than a product bug, and offered to help set friendly names once she reviews the export.",
+    "line": 47,
+    "quote": "When I export the engagement report, the department names come through as codes instead of names",
+    "context_lines": [
+     48,
+     49,
+     50
+    ],
+    "severity": "low",
+    "severity_reason": "Confirmed as a customer-side configuration issue (import data), not a product defect; fixable via config change.",
+    "match_note": "Resolved on the call as a customer-side data/config issue, not matched to any catalogue defect."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "New coordinator wants context/rationale behind existing processes, not just click-through steps",
+    "description": "New coordinator says the handoff documentation covers steps but not the reasoning behind processes (e.g., why seasonal deactivation is timed as it is). Account manager offered to run a informal context-transfer session to close this gap. This is an onboarding/account-management request, not a product defect or feature.",
+    "line": 53,
+    "quote": "The gaps are the \"why\" behind things \u2014 like, I know the seasonal deactivation process, but not why it's timed the way it is.",
+    "context_lines": [
+     52,
+     54,
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "Purely an account-servicing/onboarding request with no product component.",
+    "match_note": "Not a product topic; no catalogue relevance."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

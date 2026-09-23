@@ -1,0 +1,87 @@
+{
+ "call_id": "call-044",
+ "sha256": "6d66865cb0c2bf0e98e04bc4203bece5b8b6a7c752358953b20c90ad10a53034",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:28:02+00:00",
+ "usage": {
+  "input_tokens": 14255,
+  "output_tokens": 4190,
+  "latency_s": 43.2,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Bulk member deactivation times out and leaves partial state with no success/failure report",
+    "description": "Admin bulk-deactivates members via CSV-derived selection in the admin panel; batches over ~200 cause the operation to spin for 30-40 seconds then throw a generic 'Something went wrong' error with no error code or reference number, dumping the admin back to the member list. The operation is not atomic: some members are deactivated and some are not, and there is no report or confirmation list indicating which succeeded. Admin must manually cross-check every member ID against the roster to determine actual state, which is impractical at scale (thousands of accounts expected in January seasonal offboarding). Batches of 150 or fewer have been reliably clean across roughly a dozen attempts.",
+    "line": 26,
+    "quote": "It's not all-or-nothing. Some of them get deactivated and some don't. So I'm left with a partial.",
+    "context_lines": [
+     24,
+     30,
+     36,
+     42
+    ],
+    "severity": "high",
+    "severity_reason": "No data loss and a manual workaround exists, but the operation silently produces an undiagnosable partial state (no report, no error reference) at customer-facing admin-panel core functionality, risks lingering access for offboarded seasonal staff (security-review exposure), and is expected to become a hard operational blocker at the January seasonal volume (~2000+ deactivations).",
+    "match_note": "No catalogue issue covers bulk member activation/deactivation reliability; distinct from all listed bugs (none concern batch admin operations, timeouts, or partial-state reporting)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Manual chunking into 150-member batches used as stopgap for bulk deactivate timeout",
+    "description": "Admin currently works around the bulk-deactivate timeout by splitting large deactivation lists into batches of 150 and processing them one at a time, which he describes as reliable but tedious and unsustainable at January volumes.",
+    "line": 32,
+    "quote": "My workaround right now is chunking it into batches of a hundred and fifty and babysitting each one, which works but it's absurd.",
+    "context_lines": [
+     24,
+     26,
+     34
+    ],
+    "severity": "low",
+    "severity_reason": "Stopgap description for an already-captured defect, not an independent issue.",
+    "match_note": "Workaround for the bulk-deactivate partial-state/timeout defect raised at L26; not filed separately per instructions.",
+    "related_line": 26,
+    "no_action_reason": "workaround_request"
+   },
+   {
+    "kind": "feature",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-118",
+    "title": "District managers want one-click PDF export of the manager dashboard team engagement view",
+    "description": "After rollout of the manager dashboard, several district managers asked for a PDF export of the team engagement view for use in their meetings/slide decks; admin currently tells them to screenshot it instead. Raised as a nice-to-have, not blocking, with no committed timeline discussed.",
+    "line": 12,
+    "quote": "A couple asked for a PDF export but I told them to just screenshot it for now.",
+    "context_lines": [
+     13,
+     14
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable convenience feature with an easy existing workaround (screenshotting) and explicitly described by the customer as non-blocking.",
+    "match_note": "Same request as PROJ-118 (export team engagement summary as PDF from manager dashboard); scope and feature description match exactly."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Unconfirmed concern that bulk activation may share the same batch-size ceiling as deactivation",
+    "description": "While discussing Q4 seat provisioning, admin raised concern that bulk activation might hit the same failure as bulk deactivation, but explicitly stated he has never pushed activation past a couple hundred at once (due to staggered onboarding) and does not know if it actually has the same limitation. Internal staff agreed to investigate and confirm before November.",
+    "line": 46,
+    "quote": "If activation has the same ceiling I'm in trouble twice.",
+    "context_lines": [
+     47,
+     50,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "No confirmed defect observed; purely a speculative concern pending investigation, so not yet actionable for engineering.",
+    "match_note": "Not an independently reported defect (customer has never experienced an activation failure); distinct from and not yet confirmed to be the same as the L26 deactivation bug.",
+    "related_line": null,
+    "no_action_reason": "too_vague"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

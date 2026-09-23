@@ -1,0 +1,59 @@
+{
+ "call_id": "call-122",
+ "sha256": "1bc37b1719a68ec5015d5d72b0849feb33a5fc7fa2287d4875c06cbea8ed46b8",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:52+00:00",
+ "usage": {
+  "input_tokens": 13905,
+  "output_tokens": 3837,
+  "latency_s": 48.68,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Rescheduling a session within 24 hours deducts a second, undisclosed credit",
+    "description": "When a member reschedules a booked session to a new time within 24 hours of the original slot, the system deducts a second session credit in addition to the one already held for the original booking \u2014 effectively double-charging for a single session. The customer's operations analyst traced this via a tracking sheet matching every consumption anomaly to a short-notice reschedule; reschedules made a week or more out correctly consume only one credit. The extra deduction fires at the moment of the reschedule action itself, not when the new session is attended, pointing to the reschedule handler. There is no contractual basis, no disclosure in the UI, and no notice to the member \u2014 the credit simply disappears. Over the prior two months the customer estimates 60-80 credits were lost this way, and it is billing-visible because credits are reconciled against internal department budgets.",
+    "line": 30,
+    "quote": "If they reschedule the morning of, or the night before \u2014 inside that twenty-four-hour window \u2014 two credits get burned for the one session.",
+    "context_lines": [
+     22,
+     28,
+     31,
+     38,
+     56
+    ],
+    "severity": "high",
+    "severity_reason": "Incorrect billing data feeds the customer's finance reconciliation and creates real, quantified monetary loss (60-80 credits over two months) with no disclosure or contractual basis; no workaround exists other than avoiding late reschedules, and it does not block core product use, so not critical.",
+    "match_note": "No catalogue issue covers session-credit double-deduction on reschedule; distinct from all listed items, which concern report timestamps, app crashes, webhooks, SSO, search indexing, email delivery, calendar invites, uploads, and iOS logout.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer asks about recovering/crediting back the credits already lost to the double-deduction bug",
+    "description": "After the bug was confirmed, the customer asked whether the already-lost credits could be recovered, and specifically whether remediation would land as credits restored to their pool or as a billing adjustment, since finance needs to know which bucket it falls under. Account management (internal) committed to working this on the account/billing side once the bug is confirmed and the loss is quantified, but did not commit to a number or mechanism on the call. This is a billing/account remediation request, not a defect in or missing capability of the product itself.",
+    "line": 44,
+    "quote": "What about the credits we've already lost? Can those be recovered?",
+    "context_lines": [
+     45,
+     48,
+     49,
+     51
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a billing/account remediation question tied to the underlying bug; no separate product defect or feature is being requested.",
+    "match_note": "Directly downstream of the reschedule double-credit bug (line 30); not a distinct product issue and not a workaround for it, so filed as no_action rather than a new ticket.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

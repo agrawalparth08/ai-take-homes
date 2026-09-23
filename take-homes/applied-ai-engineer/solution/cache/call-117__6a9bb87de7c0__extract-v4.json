@@ -1,0 +1,37 @@
+{
+ "call_id": "call-117",
+ "sha256": "6a9bb87de7c07c6da90582c94eea3f5ba48fece4a0b334ecf1405385d5520e26",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:38:56+00:00",
+ "usage": {
+  "input_tokens": 13388,
+  "output_tokens": 2959,
+  "latency_s": 42.35,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer wants more capacity on reactive-dog rehab coaching track for supervisor cohort",
+    "description": "Simone says the reactive-dog rehabilitation coaching track has been a lifeline for shop-floor supervisors who adopted high-energy rescue dogs, and that she'd want more of it, possibly as a reason to grow seats sooner. Priya frames this as a mid-term seat add tagged to the supervisor group on the existing agreement, not a new product capability. This is praise for an existing offering plus a request for more seats/capacity, not a defect in or missing feature of the BetterBark product itself.",
+    "line": 48,
+    "quote": "The reactive-dog rehabilitation track has been the workhorse. Our shop floor supervisors, the ones who adopted high-energy rescues",
+    "context_lines": [
+     49,
+     50,
+     51,
+     53
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product defect or capability gap identified; this is positive feedback tied to a commercial seat-expansion conversation, with no engineering-actionable ask.",
+    "match_note": "No catalogue issue matches; existing coaching track already delivers the value described, and the ask is for more seats, not a product change."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

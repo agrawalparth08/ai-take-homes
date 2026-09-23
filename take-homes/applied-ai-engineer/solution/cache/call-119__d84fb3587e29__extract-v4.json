@@ -1,0 +1,73 @@
+{
+ "call_id": "call-119",
+ "sha256": "d84fb3587e295fe010c7d3a193841aeec9fc2fddd05fd93ca5f722539ef9c6ec",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:37+00:00",
+ "usage": {
+  "input_tokens": 59708,
+  "output_tokens": 3939,
+  "latency_s": 47.33,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Batch import of new-site staff onto the program (positive feedback, no defect)",
+    "description": "Customer added a batch of newly onboarded urgent-care staff to the program and reported the import went smoothly, processed the whole file, and reported a count with no complaints. This is a confirmation that the existing bulk-import capability works correctly, not a defect or feature gap.",
+    "line": 14,
+    "quote": "I added them in a batch, went smoothly. No complaints there. The import took the whole file, told me the count, done.",
+    "context_lines": [
+     12,
+     13,
+     16
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or request present; purely positive confirmation of existing functionality.",
+    "match_note": "No matching catalogue issue; customer is praising working functionality, not reporting a problem.",
+    "tracked_key": null,
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Add bulk reassignment of a departing coach's members to a new coach",
+    "description": "When a coach leaves the platform, the admin must reassign each affected member to a new coach one at a time (open member, select reassignment option, pick new coach, confirm), with no bulk/select-all option available. Customer had 43 members concentrated with one departing coach and spent two afternoons manually reassigning them; internal staff confirmed no bulk-reassign path exists today. The single-member reassignment itself works correctly and preserves session history/notes, so the gap is purely the absence of a bulk action, not a data-integrity issue. Customer's primary desired scenario is the departing-coach case (urgent, forced, high-volume); general rebalancing was named as a secondary nice-to-have.",
+    "line": 34,
+    "quote": "I want to see all the members currently assigned to that coach, select them, and reassign the whole group to a new coach in one action.",
+    "context_lines": [
+     24,
+     26,
+     36,
+     42
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Real, valuable capability gap affecting many members at once during coach departures, but a manual one-by-one workaround exists today (confirmed functional, just tedious), so it does not meet the no-workaround bar for high/critical.",
+    "match_note": "No catalogue issue covers coach-reassignment bulk actions; distinct from all tracked items (closest unrelated ones concern reports, crashes, webhooks, SSO, search indexing, email delivery, calendar invites, uploads, and logout).",
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Roster CSV export used smoothly for monthly HRIS reconciliation (positive feedback)",
+    "description": "Customer pulls the member roster CSV export monthly for HRIS reconciliation and reports the process has been smooth since the export capability was added, calling out that it improved their workflow. No defect or additional capability was requested.",
+    "line": 48,
+    "quote": "I pull the roster export monthly for our HRIS reconciliation and that's been smooth since the CSV export got added.",
+    "context_lines": [
+     49
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or request; positive feedback on an already-shipped, working feature.",
+    "match_note": "Matches already-shipped PROJ-095 (Bulk CSV export of member roster, shipped 4.3) but customer is not requesting anything, only confirming it works well; not filed since no ask is present.",
+    "tracked_key": "PROJ-095",
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

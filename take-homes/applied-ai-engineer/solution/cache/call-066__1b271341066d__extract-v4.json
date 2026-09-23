@@ -1,0 +1,55 @@
+{
+ "call_id": "call-066",
+ "sha256": "1b271341066d96640304bfeae24aea8a93fc2f6a847aa1aa566e800a7d3a99c8",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:37+00:00",
+ "usage": {
+  "input_tokens": 13431,
+  "output_tokens": 1867,
+  "latency_s": 22.07,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vague, unconfirmed impression of web app 'slowness' with no reproducible detail",
+    "description": "Customer describes a fuzzy, intermittent impression that the web app (Chrome) feels 'less snappy' over the last couple of weeks, but cannot identify a specific screen, action, day, or repro step. He notes confounds (old laptop, ~900 open tabs), confirms no other team member has complained, and that the team's active gripe channel has had zero mentions of BetterBark. By the end of the call he concludes he likely imagined it, and both parties agree to only revisit if a concrete repro surfaces.",
+    "line": 22,
+    "quote": "Honestly more of a vibe. Like it's not quite as snappy as it used to be? But I genuinely couldn't tell you if that's the app or my laptop",
+    "context_lines": [
+     30,
+     38,
+     42,
+     45
+    ],
+    "severity": "low",
+    "severity_reason": "No confirmed defect, no reproducible impact identified, and the customer himself walked it back to 'probably imagined it' with zero corroborating reports from ~90 users.",
+    "match_note": "No catalogue issue matches an unconfirmed, non-reproducible general slowness impression on web with explicit customer-side confounds; too vague to be a distinct product bug and ultimately retracted.",
+    "no_action_reason": "too_vague",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for more training content on small-apartment/studio dog living",
+    "description": "Customer relays that his creative team, many of whom live in studio apartments, would like more BetterBark content specifically addressing dogs in small apartments. He explicitly frames this as 'a wish, not a complaint.' This is a content/curriculum request rather than a software defect or product capability gap.",
+    "line": 54,
+    "quote": "the creatives want more stuff on dogs in small apartments specifically, since half of them are in studios, but that's a wish, not a complaint",
+    "context_lines": [
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly framed by the customer as a non-urgent content wish, not a functional product gap; no engineering action implied.",
+    "match_note": "Not in the catalogue (which tracks software bugs/features); this is a content-library curation request, not a product defect or missing software capability.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

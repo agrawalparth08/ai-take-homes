@@ -1,0 +1,125 @@
+{
+ "call_id": "call-083",
+ "sha256": "5ef6e23378124f2d5b006622eed7d1991648a915fd0c5eaf5f1945d4c21b8196",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:36+00:00",
+ "usage": {
+  "input_tokens": 13626,
+  "output_tokens": 9751,
+  "latency_s": 100.15,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Engagement dashboard showed only 11 sessions due to stuck custom date range (user error)",
+    "description": "Customer viewed the engagement dashboard while preparing a quarterly deck and saw only 11 sessions company-wide versus an expected several hundred per month. Investigation showed the dashboard's custom date range was set to a 3-day window (June 27-30) rather than the full quarter. Switching the filter to 'This quarter' correctly returned 437 sessions. No data was actually missing; the discrepancy was caused by a stale filter setting the customer had left in place, not a product defect.",
+    "line": 14,
+    "quote": "So I'm on the engagement dashboard, and it's showing me like eleven sessions total for the whole company. We do hundreds a month. Eleven is absurd.",
+    "context_lines": [
+     18,
+     19,
+     21,
+     26
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Confirmed user error (stale date filter), not a product defect; no data was actually lost or wrong.",
+    "match_note": "No tracked issue involves session counts or date-range filters being misread as missing data; this is a user-side filter mistake, not a defect."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Feature idea: default a wider date range or warn when a custom range is stale",
+    "description": "After realizing the stuck 3-day custom date range had caused the apparent data-loss scare, the customer asked whether the report could default to a wider range so she isn't caught out again. Support explained the tool simply persists whatever range was last selected and advised manually checking the date range whenever numbers look surprising. The customer accepted this manual habit as a workaround rather than pursuing a product change.",
+    "line": 32,
+    "quote": "Is there a way to make it default to a wider range so I don't get burned again?",
+    "context_lines": [
+     22,
+     29,
+     31,
+     33
+    ],
+    "related_line": 14,
+    "severity": "low",
+    "severity_reason": "Stopgap request tied to the already-resolved date-range issue; customer adopted a manual workaround and did not press for a product change.",
+    "match_note": "Workaround/stopgap request for the same underlying date-range issue raised at L14; not filed separately per guidance."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Clarification requested: 'sessions completed' vs 'sessions booked' metric to use in deck",
+    "description": "While preparing the CHRO deck, the customer asked whether to use 'sessions completed' or 'sessions booked' as the headline engagement metric, since the two differ. Support recommended 'sessions completed' as the primary number with 'booked vs completed' as a secondary slide, and confirmed the completion rate was 92% (low no-show rate) before the customer put it in front of leadership. This is a request for guidance on interpreting existing report metrics, not a defect or missing capability.",
+    "line": 38,
+    "quote": "is the number I want for the CHRO deck the \"sessions completed\" or \"sessions booked\"? They're slightly different.",
+    "context_lines": [
+     40,
+     41,
+     42
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Purely a metric-interpretation question answered live on the call; no product behavior needs to change.",
+    "match_note": "Not a defect or feature gap in the product; existing metrics already provide both figures as requested."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Customer unaware that scheduled monthly report emails already exist",
+    "description": "The customer asked whether the engagement report could be scheduled to email itself to her monthly. Support showed her the existing 'Schedule this report' feature (Reports > Schedule in the top right of any report view), which she had not previously known about, and configured it with a rolling 'Last 30 days' range so it stays current. The capability already exists in the product; the customer simply hadn't discovered it, likely due to lack of documentation from her predecessor.",
+    "line": 47,
+    "quote": "is there a way to schedule this report to email itself to me monthly?",
+    "context_lines": [
+     48,
+     49,
+     52
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product gap; feature already exists and was successfully set up during the call.",
+    "match_note": "No catalogue entry represents a gap here (PROJ-101 concerns scheduled-report timezone display, not existence of scheduling); feature already ships."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "hearsay",
+    "title": "Secondhand report: predecessor's scheduled report reportedly stopped after her account changed",
+    "description": "In the same request about scheduling reports, the customer mentioned that her predecessor had set up a similar recurring report before leaving, and that it stopped working when the predecessor's account changed. The customer did not witness this firsthand and gave no further detail (error behavior, timing, or what 'account changed' meant), so there is nothing an engineer could act on.",
+    "line": 47,
+    "quote": "My colleague set something like that up before she left and it stopped when her account changed.",
+    "context_lines": [
+     53
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Secondhand, vague account with no reproducible detail; cannot be assessed for impact or scope.",
+    "match_note": "Too vague and secondhand to compare against any tracked issue; no matching catalogue entry regardless."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer requests a documentation cheat-sheet for commonly used reports",
+    "description": "The customer asked for a guide covering the reports most used by analytics leads (scheduled reports, engagement dashboard, roster export), noting her predecessor left no documentation behind. Support agreed to compile and send a short guide. This is a request for a documentation/services deliverable from the support team, not a product defect or feature gap.",
+    "line": 55,
+    "quote": "Please. I'd love a cheat sheet. Half my job right now is rediscovering what she knew.",
+    "context_lines": [
+     54,
+     56
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Services/documentation request, explicitly out of scope for product defect/feature tracking.",
+    "match_note": "Not a product issue; excluded per criteria that services/reporting favours are not actionable product findings."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,85 @@
+{
+ "call_id": "call-001",
+ "sha256": "eed27f587ec28c70f98eb8ec74149ca5765e0977e4112561618515845008a76f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:18+00:00",
+ "usage": {
+  "input_tokens": 14412,
+  "output_tokens": 4555,
+  "latency_s": 44.15,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Active Members summary card total disagrees with per-team breakdown on same dashboard",
+    "description": "On the usage dashboard's 'Meridian Health \u2014 June' view, the headline 'active members' summary card shows 280 for the month while the per-team breakdown directly below it sums to 412, matching the admin panel's true count. The two numbers were in agreement until roughly a week to a week and a half before the call. The customer uses this card to report adoption numbers to finance, and last month a VP asked why adoption 'fell off a cliff' when the underlying number had actually risen. The customer will send a screenshot showing the card and breakdown together in the same frame.",
+    "line": 30,
+    "quote": "The headline \"active members\" card \u2014 the big number at the top \u2014 says 280 for this month. Our admin panel says 412.",
+    "context_lines": [
+     31,
+     32,
+     34,
+     36
+    ],
+    "severity": "high",
+    "severity_reason": "Wrong headline metric is feeding a customer's finance/ops reporting and directly undermines the renewal narrative, even though the underlying detailed data is correct.",
+    "match_note": "No catalogue issue covers a dashboard summary-card vs. breakdown data mismatch; distinct from the timezone display issue (PROJ-101)."
+   },
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-101",
+    "title": "Scheduled report timestamps off by several hours (timezone handling)",
+    "description": "Customer reports that since May, scheduled report timestamps appear off by a few hours. Customer confirms BetterBark support already identified this as the known timezone issue and that Meridian Health is on the list for the fix; they are only reconfirming it is still occurring, not re-reporting it as new.",
+    "line": 44,
+    "quote": "back in May we saw the report timestamps looking off by a few hours. But your team already told us that's the known timezone thing",
+    "context_lines": [
+     45,
+     46,
+     47
+    ],
+    "severity": "medium",
+    "severity_reason": "Confirmed still-present instance of an already-tracked, in-progress defect; no new scope or symptom, customer is not blocked and is aware a fix is coming.",
+    "match_note": "Same symptom (report timestamps off) and same account (Meridian Health) as PROJ-101, which the customer explicitly confirms is the known, already-attached issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "cosmetic_preference",
+    "title": "Dashboard team-label font size hard to read on laptop",
+    "description": "Customer asks if the small gray team labels under the summary card could be a notch bigger, since they squint at them on a laptop screen. Customer explicitly frames this as nitpicking, attributes it to their own eyesight/laptop rather than a product defect, and tells the CSM not to file it.",
+    "line": 50,
+    "quote": "could the dashboard font be a notch bigger? I'm on a laptop screen half the day and I squint at the little team labels under the card.",
+    "context_lines": [
+     52,
+     53,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "Purely cosmetic preference explicitly retracted by the customer as not a real complaint.",
+    "match_note": "No catalogue match; excluded per rule that self-described 'not a real complaint' taste remarks are not filed."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Social awkwardness reported when members request a trainer switch",
+    "description": "Customer relays that a few members asked whether they can switch trainers without it feeling like 'a breakup,' describing social awkwardness around re-matching. No product defect or feature gap is identified; the CSM characterizes it as a program-design/communications issue and offers to send comms language rather than a product change, and no product change is requested.",
+    "line": 62,
+    "quote": "a few people asked whether they can switch trainers without it feeling like a breakup. There's some social awkwardness to it.",
+    "context_lines": [
+     63,
+     64
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or capability gap; addressed via customer communications, not engineering.",
+    "match_note": "No catalogue issue applies; this is a program-design/comms concern, not a product bug or feature request."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

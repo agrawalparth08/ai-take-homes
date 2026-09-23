@@ -1,0 +1,73 @@
+{
+ "call_id": "call-128",
+ "sha256": "79de2dac9871ac7b923cd2c3f336dd2eb462558e25d05d123c317c65adc64690",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:40:45+00:00",
+ "usage": {
+  "input_tokens": 80287,
+  "output_tokens": 4610,
+  "latency_s": 49.74,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Coach video freezes to still frame ~40 min into browser sessions (Chrome), audio continues",
+    "description": "Ops-center users on laptops in Chrome report that during longer coaching sessions the coach's video locks to a still frame around the 40-minute mark while audio keeps playing normally. Reloading the browser tab reliably restores video. Started roughly 5-6 weeks before the call (i.e., around mid-May 2026), affects at least 5-6 distinct users so far, and has not been reported on the mobile app or outside Chrome. Impact is worse for a body-language-dependent rehabilitation coaching track where a frozen coach image disrupts session flow.",
+    "line": 32,
+    "quote": "our ops-center folks \u2014 the ones on laptops \u2014 have started reporting that during longer coaching sessions, the video just freezes",
+    "context_lines": [
+     34,
+     36,
+     38,
+     49
+    ],
+    "severity": "medium",
+    "severity_reason": "Recurring, reproducible defect affecting session quality for multiple corporate users, but scoped to Chrome/browser long sessions and has a reliable workaround (page refresh), so not a full block.",
+    "match_note": "No catalogue issue covers video freezing during sessions; closest entries (PROJ-101 report timezones, PROJ-138 Outlook invite times) are unrelated symptoms.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request to tell users about an alternate workaround for the video-freeze issue",
+    "description": "Deborah asked whether there is a workaround to give users beyond refreshing the page for the video-freeze problem. Sam confirmed refresh remains the recommended workaround and noted the mobile app doesn't exhibit the issue as an alternative for users who can't tolerate interruption. This is a stopgap request tied to the video-freeze defect already logged, not a separate product issue.",
+    "line": 57,
+    "quote": "is there a workaround I can tell people beyond \"refresh\"?",
+    "context_lines": [
+     58,
+     59
+    ],
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; a workaround inquiry for an already-captured issue.",
+    "match_note": "Directly tied to the browser video-freeze bug raised at L32; not filed separately per workaround-request rule.",
+    "tracked_key": null,
+    "related_line": 32,
+    "no_action_reason": "workaround_request"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request to shift monthly summary delivery to next business day when the 1st falls on a weekend",
+    "description": "Raj asked for the corporate cohort's monthly summary report to be delivered on the first business day rather than the calendar first of the month, since weekend deliveries get buried by Monday. Sam characterized this as a configurable scheduling/report-cadence preference for the account rather than a product gap, and agreed to adjust the cadence directly.",
+    "line": 28,
+    "quote": "Can we get the corporate cohort's monthly summary to land on the first business day instead of the actual first of the month?",
+    "context_lines": [
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Account-level configuration/service adjustment, not a product defect or missing capability.",
+    "match_note": "Not a product bug or feature gap \u2014 it's an account-specific report scheduling preference explicitly handled as a config change, not tied to any catalogue item.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

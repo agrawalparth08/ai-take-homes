@@ -1,0 +1,295 @@
+{
+ "groups": [
+  {
+   "candidate_ids": [
+    "call-006#f0",
+    "call-012#f0",
+    "call-072#f0"
+   ],
+   "filed_key": null,
+   "reason": "All three describe the identical bug: after an admin renames a team or moves a member, search results remain stale for ~10 minutes (old name/team shown, or empty for new name) before self-correcting, while the underlying save/edit itself succeeds immediately. Same symptom, same scope (search index propagation delay), reported by different customers during reorg events."
+  },
+  {
+   "candidate_ids": [
+    "call-003#f1"
+   ],
+   "filed_key": null,
+   "reason": "Unique request: SAML group-to-role mapping re-evaluated on every login for automated role provisioning/deprovisioning. No other candidate addresses this."
+  },
+  {
+   "candidate_ids": [
+    "call-001#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: dashboard summary card total disagrees with per-team breakdown sum on the same page. No other candidate matches this discrepancy."
+  },
+  {
+   "candidate_ids": [
+    "call-008#f1"
+   ],
+   "filed_key": null,
+   "reason": "Unique low-priority copy bug: company name misspelled in email footer. Not related to any other candidate."
+  },
+  {
+   "candidate_ids": [
+    "call-010#f1"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: dedicated machine-readable, time-range-filterable API endpoint for exporting raw audit/security log events for SIEM/SOC2 continuous monitoring. Distinct data domain (security audit logs, not engagement/usage metrics) and distinct consumption pattern from the engagement-metrics BI API asks and the SFTP push request."
+  },
+  {
+   "candidate_ids": [
+    "call-010#f3"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: Azure AD-federated users hit an infinite redirect loop (full lockout) after a network password change. Explicitly confirmed distinct from the Okta early-session-expiry issue and unrelated to the PingFederate 24h hard-lock issue (different IdP, different failure mode - loop vs. lockout requiring admin unlock)."
+  },
+  {
+   "candidate_ids": [
+    "call-011#f2"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: notification email profile links truncate at apostrophe in member names, causing 404s. No other candidate describes this."
+  },
+  {
+   "candidate_ids": [
+    "call-014#f4"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: mobile app shows blank white screen instead of the inactive-account screen when deactivated mid-session. Distinct from other mobile bugs (notification reset, universal links)."
+  },
+  {
+   "candidate_ids": [
+    "call-017#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: weekly digest email exposes an unrelated team's aggregate stats to dual-team members - a data exposure issue distinct from all other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-021#f0",
+    "call-057#f0",
+    "call-093#f0",
+    "call-128#f0"
+   ],
+   "filed_key": null,
+   "reason": "All four describe the same bug: live in-browser coaching session video freezes to a still frame roughly 30-45 minutes into the session while audio keeps playing, occurring on Chrome, fixed by a page refresh, and reported as a recent regression by multiple independent accounts. Same symptom, same platform, same scope."
+  },
+  {
+   "candidate_ids": [
+    "call-023#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: custom profile fields (cost center, region, business unit, employee type) settable at provisioning and flowing through exports. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-029#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: CSV member import silently drops rows containing non-Latin (kanji/katakana) characters with no error shown. Distinct failure mode from the trailing-whitespace CSV import bug (call-136#f0), which rejects the entire file rather than silently dropping specific rows."
+  },
+  {
+   "candidate_ids": [
+    "call-034#f0",
+    "call-078#f0",
+    "call-112#f0"
+   ],
+   "filed_key": null,
+   "reason": "All three describe the identical bug: coach-search filters are cleared when using the browser back button to return from a coach profile to the results list, forcing users to re-apply filters and causing search abandonment. Same symptom and scope across independent reports."
+  },
+  {
+   "candidate_ids": [
+    "call-037#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: policy-gated export/download of members' own session notes. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-042#f0",
+    "call-101#f0"
+   ],
+   "filed_key": null,
+   "reason": "Both describe the same bug: goal-tracking reminder notifications fire at a fixed absolute time tuned for US business hours, landing around 2:30-3:30am local time for APAC members (Singapore/Sydney/Tokyo in one call, Japan offices in the other), causing members to disable notifications entirely."
+  },
+  {
+   "candidate_ids": [
+    "call-044#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: bulk member deactivation times out on large batches (>200), leaving non-atomic partial state with no success/failure report. Distinct from the CSV import bugs and from other bulk-action gaps."
+  },
+  {
+   "candidate_ids": [
+    "call-049#f0",
+    "call-086#f0",
+    "call-134#f2"
+   ],
+   "filed_key": null,
+   "reason": "All three request the same underlying capability: a programmatic REST API (or BI connector) exposing aggregate, org/team-level engagement and utilization metrics for ingestion into BI tools (Tableau/Power BI/Looker) on a schedule, replacing manual dashboard screenshotting/retyping. Same scope (aggregate metrics, pull-based API), distinct from the SFTP push request (explicitly no-API) and from the audit-log SIEM API (different data domain) and the privacy-aggregated executive trend report (different requirement: suppression thresholds/anonymization, not raw metrics API)."
+  },
+  {
+   "candidate_ids": [
+    "call-052#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: coach availability calendar shows day shifted by one for members located west of the international date line, a date-boundary-specific defect distinct from generic timezone bugs (e.g., the APAC reminder-time issue)."
+  },
+  {
+   "candidate_ids": [
+    "call-057#f3"
+   ],
+   "filed_key": null,
+   "reason": "Unique, lower-priority feature request for a one-click facility-level breakdown in reporting; distinct in scope and urgency from the general engagement-metrics API requests."
+  },
+  {
+   "candidate_ids": [
+    "call-059#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: read-only 'Auditor' admin role with full visibility and zero write access, to avoid provisioning Super Admin for audit purposes. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-060#f0",
+    "call-119#f1"
+   ],
+   "filed_key": null,
+   "reason": "Both request the same feature: a bulk-reassignment path to move a departing coach's entire caseload to one or more new coaches at once, since only one-at-a-time manual reassignment exists today. Same scope and primary use case (departing coach)."
+  },
+  {
+   "candidate_ids": [
+    "call-065#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: mobile app resets notification preferences to all-on after every app update, silently re-subscribing opted-out users. No other candidate matches this."
+  },
+  {
+   "candidate_ids": [
+    "call-069#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: a privacy-preserving, anonymized, aggregate-only org-level trend report for executives with minimum suppression thresholds and opt-in provenance - distinct in requirements (anonymization/suppression, trend-over-time, non-individual) from the raw engagement-metrics API/BI-connector requests and from the SFTP push request."
+  },
+  {
+   "candidate_ids": [
+    "call-075#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: SMS 2FA codes expire before delivery specifically for Canadian mobile numbers across all three major carriers. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-080#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: per-department cost/seat breakdown on invoices for multi-department billing allocation. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-085#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: iOS universal links from notification emails open a web login page instead of deep-linking into the installed app; Android unaffected. Distinct from the video-freeze and notification-preference-reset mobile bugs."
+  },
+  {
+   "candidate_ids": [
+    "call-088#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: PingFederate-federated users are hard-locked ~24 hours after login (mismatched with the 12h Ping session config) and require admin unlock, with no self-service re-auth. Distinct IdP and distinct failure mode (hard lock requiring admin intervention) from both the Azure AD redirect-loop bug and the Okta early-expiry issue referenced in call-010#f3."
+  },
+  {
+   "candidate_ids": [
+    "call-095#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: REST API to programmatically create/manage teams (org units) for provisioning automation. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-100#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: reactivated members lose visibility into their own pre-deactivation session notes, though admin view and underlying data remain intact. No other candidate matches this."
+  },
+  {
+   "candidate_ids": [
+    "call-102#f3"
+   ],
+   "filed_key": null,
+   "reason": "Unique, low-priority feature want: an at-a-glance manager view of captains behind on sessions, noted as possibly already partially addressed by an existing view. Distinct from the reporting/metrics API requests."
+  },
+  {
+   "candidate_ids": [
+    "call-103#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: monthly session-count reports exclude an entire month's sessions for members deactivated mid-period, tied to deactivation status at report-run time rather than session timestamps - distinct from the timezone display bug and from other reporting issues."
+  },
+  {
+   "candidate_ids": [
+    "call-107#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: automated nightly SFTP push of a usage/engagement CSV extract to a customer-provisioned SFTP folder, explicitly required to be a push with no API call or human involvement - distinct requirement from the pull-based engagement-metrics API/BI-connector requests."
+  },
+  {
+   "candidate_ids": [
+    "call-013#f1"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: a session-completion webhook event (member ID + timestamp) for LMS (Cornerstone) integration - an event-driven push notification for a specific downstream compliance system, distinct from the aggregate metrics API/BI asks and the nightly SFTP extract request."
+  },
+  {
+   "candidate_ids": [
+    "call-122#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: rescheduling a session within 24 hours deducts an undisclosed second session credit. No other candidate matches this billing/credit defect."
+  },
+  {
+   "candidate_ids": [
+    "call-125#f2"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: in-app member-to-coach messages over ~2000 characters silently fail to deliver while showing 'sent' to the sender. No other candidate matches this."
+  },
+  {
+   "candidate_ids": [
+    "call-131#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique, purely cosmetic bug: incorrect accent in the French-locale settings tooltip. No overlap with other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-132#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: automatic release of a coach's calendar hold after a grace window on member no-show, freeing the slot for rebooking. No other candidate matches this."
+  },
+  {
+   "candidate_ids": [
+    "call-136#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique bug: bulk CSV member import rejects the entire file with a generic/misleading error when the header row has trailing whitespace. Distinct failure mode from the non-Latin-name silent-drop import bug (call-029#f0) - here the whole file fails outright with a specific, reproducible cause (whitespace) rather than silently dropping a subset of rows."
+  },
+  {
+   "candidate_ids": [
+    "call-136#f1"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature request (raised in the same call as call-136#f0 but a separate ask): a dry-run/validation mode for bulk CSV import to catch formatting problems before committing. Kept separate since it is a distinct feature ask from the bug it was inspired by."
+  },
+  {
+   "candidate_ids": [
+    "call-139#f0"
+   ],
+   "filed_key": null,
+   "reason": "Unique feature: multi-language (Spanish/French) rendering of automated notification emails driven by per-member language preference, addressing an activation gap. No other candidate matches this."
+  }
+ ]
+}

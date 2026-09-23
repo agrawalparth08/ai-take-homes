@@ -198,7 +198,7 @@ def corroboration(call_id: str, target: str, target_summary: str, members: list[
               "line": f.line, "snippet": f.quote, "link": link(call_id, f.line), "idempotency_key": idem}
     owner = _owner_name(t)
     slack = [{"channel": slack_handle(owner),
-              "text": (f"FYI: {t.account}'s report on {call_id} was attached to {target} ({target_summary}) "
+              "text": (f"FYI: the {t.account} report on {call_id} was attached to {target} ({target_summary}) "
                        f"instead of opening a new ticket. Quote: \"{f.quote}\""),
               "idempotency_key": f"{idem}-slack"}] if owner else []
     return {"key": key, "kind": "corroborate", "call_ids": [call_id], "corroboration": record, "slack": slack,

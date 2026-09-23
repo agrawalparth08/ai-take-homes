@@ -1,0 +1,56 @@
+{
+ "call_id": "call-115",
+ "sha256": "90e7f6585dc36a3d477efc22e1d501d5990259f0a08290070e063c4bc45ed2a2",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:01+00:00",
+ "usage": {
+  "input_tokens": 16303,
+  "output_tokens": 5215,
+  "latency_s": 57.7,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Verification email links show false 'expired' error - Outlook Safe Links prefetch consumes single-use token",
+    "description": "New members receive a verification email to confirm their account and set a password. A subset of associates - specifically those on Outlook/Microsoft 365 - click the link within minutes of receipt and see 'This link has expired,' even though the token was just issued; behavior is intermittent (sometimes a freshly requested link works, sometimes not). Customer's diagnosis, which the agent found coherent: Microsoft Defender Safe Links pre-fetches/scans the URL to check for malware, and this scan consumes the single-use verification token before the human clicks, producing a misleading 'expired' message (it is actually already-redeemed, not expired). Non-Outlook users (other mail clients) never hit the problem. Impact: ~25 of 42 (about 60%) of the current new-hire cohort were locked out, and the issue will recur for every future Outlook-based cohort (next one starts in three weeks). Customer-side mitigations discussed: excluding the verification domain from Safe Links scanning (requires customer security team approval, not guaranteed), or manual backend verification as a stopgap.",
+    "line": 16,
+    "quote": "A chunk of my new associates were telling me the link didn't work. They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.",
+    "context_lines": [
+     18,
+     22,
+     24,
+     56
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Blocks account activation for a majority (60%) of an enterprise customer's new-hire cohort and will recur for every future Outlook-based cohort; core onboarding flow broken, though a customer-side mitigation (Safe Links exclusion) and a support-side stopgap (manual backend verification) exist, keeping it below critical.",
+    "tracked_key": null,
+    "match_note": "No catalogue issue covers verification-link tokens being consumed by an email security scanner's prefetch; distinct from PROJ-142 (password-reset send delay) and PROJ-064 (SSO session length) which involve different mechanisms and symptoms."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Unconfirmed report of possible password-reset link failures (no specifics provided)",
+    "description": "Customer asks whether the same Safe-Links prefetch mechanism affecting verification links might also affect password-reset links, citing 'a few grumbles' from users. She explicitly states she has not investigated and has no concrete examples of who was affected, when, or what error they saw. The support agent declines to speculate and asks her to gather specific examples (who/when/what) before it can be evaluated as a separate issue; she agrees to do so afterward.",
+    "line": 58,
+    "quote": "is there any chance this same scanner issue affects the password-reset links too? Because we've had a few grumbles about those, though I haven't dug into it.",
+    "context_lines": [
+     59,
+     60,
+     61
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No confirmed defect or specifics were provided; impact and even existence of a problem are unknown until the customer supplies concrete examples.",
+    "tracked_key": null,
+    "match_note": "Too vague/hearsay ('vague mutterings', no concrete examples) to file or match to any catalogue issue; customer agreed to follow up with specifics separately.",
+    "no_action_reason": "too_vague"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,73 @@
+{
+ "call_id": "call-067",
+ "sha256": "fd4745c9b9f73f9945959ca9993b1bca6e2affc4100942233e6bb83f75a8d0a1",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:31:23+00:00",
+ "usage": {
+  "input_tokens": 14203,
+  "output_tokens": 5966,
+  "latency_s": 54.52,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-155",
+    "title": "Add SCIM support for automated user deprovisioning from customer IdP",
+    "description": "Colin (IT/identity owner) states BetterBark is the only system in Fenwick's identity stack that does not support SCIM; every other system provisions and deprovisions via SCIM against their IdP. Today, deactivating a terminated employee's BetterBark seat requires a manual admin step, and there have been cases where terminated employees' accounts stayed active for days, which the customer's regulators treat as an audit finding. Customer runs SCIM 2.0 and wants automated create/update/deactivate driven from their IdP, with deactivate/deprovisioning being the must-have (provisioning-in is a nice-to-have). Continued BetterBark expansion at this growing finance account (recently +200 headcount via acquisition) may be at risk if the security team deems manual deprovisioning an unacceptable compliance gap.",
+    "line": 30,
+    "quote": "What I need is for BetterBark to support SCIM so that user lifecycle \u2014 create, update, and critically deactivate \u2014 is driven automatically from our identity provider.",
+    "context_lines": [
+     13,
+     23,
+     36,
+     42
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Feeds an audit/compliance requirement and is flagged as a potential blocker to account expansion for a regulated finance customer, but interim workarounds (scoped admin role, reconciliation report) reduce immediate risk, so not critical.",
+    "match_note": "Same underlying capability gap as PROJ-155 (SCIM support for automated user deprovisioning) \u2014 no SCIM lifecycle support, with deprovisioning/deactivation as the priority driver."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Interim scoped IT admin role to remove HR handoff delay in manual deprovisioning",
+    "description": "As a stopgap for the missing SCIM deprovisioning capability, BetterBark offered to grant Colin's identity team a scoped admin role so they can directly deactivate BetterBark accounts as part of their own termination runbook, instead of routing through HR. Colin confirmed this closes most of the timing gap, since the delay was mainly the HR handoff. This is an interim mitigation for the SCIM gap, not a separate product change.",
+    "line": 46,
+    "quote": "If I can fold the manual BetterBark deactivate into my own termination checklist rather than firing a ticket to HR, that closes a lot of the timing gap.",
+    "context_lines": [
+     45,
+     47,
+     30
+    ],
+    "related_line": 30,
+    "severity": "low",
+    "severity_reason": "Not a product change request \u2014 it is an agreed-upon interim workaround for the tracked SCIM deprovisioning gap.",
+    "match_note": "Workaround/stopgap for the SCIM deprovisioning request at L30; not a distinct product issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Monthly active-accounts reconciliation export as deprovisioning backstop",
+    "description": "As a second interim mitigation for the missing SCIM deprovisioning capability, BetterBark offered a periodic export of active BetterBark accounts for Colin to diff against the active-employee roster to catch missed deactivations. Colin welcomed this as a backstop control and said he might keep it even after SCIM ships. This is a workaround for the tracked SCIM gap, not a separate product request.",
+    "line": 50,
+    "quote": "A reconciliation report as a monthly backstop is smart \u2014 belt and suspenders. Even after we have SCIM I might keep that.",
+    "context_lines": [
+     49,
+     51,
+     30
+    ],
+    "related_line": 30,
+    "severity": "low",
+    "severity_reason": "Not a product change request \u2014 it is an agreed-upon interim backstop for the tracked SCIM deprovisioning gap.",
+    "match_note": "Workaround/stopgap for the SCIM deprovisioning request at L30; not a distinct product issue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

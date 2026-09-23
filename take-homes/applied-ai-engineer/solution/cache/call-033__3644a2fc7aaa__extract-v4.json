@@ -1,0 +1,54 @@
+{
+ "call_id": "call-033",
+ "sha256": "3644a2fc7aaac6bff160b39b49e47f12795d786e23986915b10a97749f5d0f94",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:21+00:00",
+ "usage": {
+  "input_tokens": 13733,
+  "output_tokens": 2229,
+  "latency_s": 28.32,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Customer self-reports unfamiliarity with reporting dashboard (not a product defect)",
+    "description": "Marcus says he personally never learned the reporting features well enough to pull board-ready engagement numbers, but explicitly frames this as his own fault ('me-not-clicking-around problem, not a you problem') rather than a product issue. Tom\u00e1s resolves it by offering a free 30-minute walkthrough session in August, a services/enablement fix, not a product change. No defect or missing capability in the reporting feature itself is described.",
+    "line": 50,
+    "quote": "I'd say I personally wish I understood the platform's reporting better, but that's a me-not-clicking-around problem, not a you problem.",
+    "context_lines": [
+     51,
+     52,
+     53,
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly disclaimed as user error with no product impact described; resolved via a training session rather than any product change.",
+    "match_note": "Not a product complaint at all \u2014 customer explicitly rules out a product cause; no catalogue issue applies."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer requests phased/pilot billing structure for fall expansion (contract/business ask)",
+    "description": "Marcus asks whether the planned fall expansion to teacher-leaders could be phased so he isn't asking his school board to approve a large line item all at once. Tom\u00e1s proposes starting with a small pilot group and expanding once proven, which they agree to revisit as a business conversation in the fall. This concerns program rollout/contract structuring and board budgeting optics, not a BetterBark product capability, defect, or missing feature.",
+    "line": 58,
+    "quote": "is there a way to phase it so I'm not asking my board for a huge number all at once? They spook easily at big line items.",
+    "context_lines": [
+     46,
+     59,
+     60,
+     61
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a commercial/rollout planning question with no product functionality involved.",
+    "match_note": "No catalogue issue applies \u2014 this is a pricing/contract-phasing discussion, not a product bug or feature request."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

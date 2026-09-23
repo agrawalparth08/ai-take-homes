@@ -1,0 +1,57 @@
+{
+ "call_id": "call-013",
+ "sha256": "a6f6ce51ea29acb6d676302c628524f46baa2b4cb4e5d30de412ee20b01fed08",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:37+00:00",
+ "usage": {
+  "input_tokens": 9107,
+  "output_tokens": 2084,
+  "latency_s": 24.65,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "title": "Bulk CSV export of full member roster",
+    "description": "Customer's coordinator manually paged through the member list and copied it into a spreadsheet chunk by chunk, taking most of a morning last quarter. Customer asked for a one-click export button covering the full roster, all fields, as CSV, for an annual training audit. This capability shipped in release 4.3 (2026-06-10) as the 'Export all (CSV)' button on Admin panel > Members, which the customer confirmed exists when shown.",
+    "line": 26,
+    "quote": "I need to get the full member roster out of the system. Everyone, all fields, one file \u2014 for our annual training audit.",
+    "context_lines": [
+     27,
+     28,
+     30,
+     33
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Feature already shipped and confirmed working for the customer; only remaining action is a how-to email, not a product fix.",
+    "tracked_key": "PROJ-095",
+    "match_note": "Directly matches PROJ-095 (bulk CSV roster export), shipped in 4.3 on 2026-06-10; customer confirmed the button is present."
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No webhook event emitted on session completion (member ID + timestamp) for LMS integration",
+    "description": "Customer's LMS (Cornerstone) is the system of record for all training/safety compliance required by auditors, OSHA, and corporate. Currently, participation data is exported and manually hand-keyed into Cornerstone monthly by the customer's team, which is described as tedious and error-prone for a compliance record. The customer's integrations contact requested that BetterBark send a session-completed webhook carrying the member ID and completion timestamp so Cornerstone can automatically record participation. CSM was unsure whether such an event already exists and planned to confirm before filing.",
+    "line": 44,
+    "quote": "Ask if they can send a session-completed webhook with the member ID and timestamp; we'll do the rest.",
+    "context_lines": [
+     38,
+     42,
+     45,
+     49,
+     50
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Feeds an audit/OSHA compliance system of record; manual entry is error-prone and an error in this data is described as a potential audit finding, with no automated workaround today.",
+    "tracked_key": null,
+    "match_note": "Distinct from PROJ-087 (duplicate webhook deliveries to existing endpoints); this is a request for a new session-completed event type that does not currently exist, not a fix to duplicate delivery of an existing webhook."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,36 @@
+{
+ "call_id": "call-050",
+ "sha256": "6135b6c7cbb8d3e839fa7e43ff33cd4440f2e6ca6653466ec1bc908c03a21725",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:28:29+00:00",
+ "usage": {
+  "input_tokens": 16094,
+  "output_tokens": 2305,
+  "latency_s": 26.98,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer expresses general preference that vendor stay 'invisible' and issue-free",
+    "description": "Gregory states his overarching wish is that BetterBark remains invisible to him and that the worst outcome would be being pulled into 'a call about a broken feature.' This is a hypothetical/aspirational remark about the relationship, not a report of any actual current defect, and names no specific feature, behavior, or reproduction detail. Nothing else in the call identifies a concrete product problem.",
+    "line": 44,
+    "quote": "The moment I'm in a call about a broken feature is the moment I start questioning the whole thing.",
+    "context_lines": [
+     43,
+     45
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No actual defect is described; purely a hypothetical statement about relationship expectations with no product impact to assess.",
+    "match_note": "No catalogue issue applies; there is no specific symptom, scope, or repro to match against any tracked bug or feature.",
+    "tracked_key": null,
+    "no_action_reason": "too_vague"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

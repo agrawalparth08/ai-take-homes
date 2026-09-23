@@ -1,0 +1,55 @@
+{
+ "call_id": "call-088",
+ "sha256": "0621f0fac0e8956c22520ca6a01155c2cd6787abcda81429332976b46d46e6df",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:48+00:00",
+ "usage": {
+  "input_tokens": 14683,
+  "output_tokens": 3904,
+  "latency_s": 45.71,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "PingFederate SSO users hard-locked at 24h, no self-service re-auth, needs admin unlock",
+    "description": "Beaumont federates all BetterBark logins through PingFederate. Every SSO user is hard-locked almost exactly 24 hours (within a minute or two) after their last login, even though the Ping-side session lifetime is configured to 12 hours and no Ping configuration changed. Ping's logs show a clean, successful SAML assertion on the retry, but BetterBark rejects the user with an 'account locked/access denied' message and flips the account to a locked state that only a BetterBark admin can clear from the admin console; affected users cannot log back in themselves. The issue began about 8 days before the call, hits every federated user regardless of role, and does not affect Beaumont's two local (non-federated) break-glass accounts. The customer's admin is currently manually unlocking 40+ accounts every morning.",
+    "line": 19,
+    "quote": "They cannot get back in. They hit the login, it bounces to Ping, Ping authenticates them fine, they come back to BetterBark, and BetterBark rejects them.",
+    "context_lines": [
+     17,
+     21,
+     26,
+     30
+    ],
+    "severity": "critical",
+    "severity_reason": "Every federated user (potentially hundreds, all roles) is locked out on a rolling 24h basis with no self-service recovery path; only remediation is an admin manually unlocking each account one-by-one, an unsustainable daily operational burden blocking claims adjusters' access.",
+    "tracked_key": null,
+    "related_line": null,
+    "match_note": "Distinct from PROJ-064: that item is Okta-only with a soft expiry that self-resolves on re-login; this is PingFederate with a hard account lock requiring manual admin unlock, so it is a new, separate issue as the call itself explicitly distinguishes."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for bulk-unlock capability as stopgap for the Ping lockout issue",
+    "description": "Susan and Harold ask whether BetterBark has a bulk-unlock option so she isn't forced to clear 40+ locked accounts one at a time every day while the root cause of the 24-hour Ping lockout is fixed. Susan confirms no bulk option currently exists in the admin console.",
+    "line": 43,
+    "quote": "A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right now there's no bulk option that I can find, it's user by user.",
+    "context_lines": [
+     41,
+     42
+    ],
+    "severity": "low",
+    "severity_reason": "Not filed as its own defect; it is a stopgap request tied to the primary lockout bug and inherits that issue's severity rather than standing alone.",
+    "tracked_key": null,
+    "related_line": 19,
+    "match_note": "Workaround/stopgap request for the same-call Ping hard-lockout issue (line 19); not filed as a separate ticket per instructions.",
+    "no_action_reason": "workaround_request"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,55 @@
+{
+ "call_id": "call-039",
+ "sha256": "7bd341bbd78ae786a251f1d2d21c54e4c45f1a24de9c29e350d50b638a5953ab",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:19+00:00",
+ "usage": {
+  "input_tokens": 13883,
+  "output_tokens": 2283,
+  "latency_s": 26.62,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports no technical issues with the platform",
+    "description": "When asked directly whether anything was broken, the customer stated the product 'just works' for her 90 directors logging in and booking sessions, with no complaints from users. No defect or missing capability was raised.",
+    "line": 54,
+    "quote": "No, honestly, it just works. My directors log in, they book their sessions, they do their thing.",
+    "context_lines": [
+     53,
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "No defect exists; this is a confirmation that the product is functioning normally for the account.",
+    "match_note": "No catalogue match applicable; customer explicitly confirms no problems exist.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Speculative future request to extend training program to lead teachers",
+    "description": "Customer mentioned she might someday want to extend the coaching program to reach lead teachers, not just center directors, but immediately characterized this as a 'when we have money' conversation and said 'which is to say never.' Internal staff logged it only as an unfunded placeholder with no commitment.",
+    "line": 50,
+    "quote": "I might want to talk in the future about reaching lead teachers, not just directors, but that's a \"when we have money\" conversation",
+    "context_lines": [
+     51,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly speculative, unfunded, and not a concrete near-term ask; no scope or requirements given.",
+    "match_note": "Not in catalogue; too vague/aspirational and self-described as unlikely to happen, so not a real product request to track.",
+    "no_action_reason": "too_vague",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

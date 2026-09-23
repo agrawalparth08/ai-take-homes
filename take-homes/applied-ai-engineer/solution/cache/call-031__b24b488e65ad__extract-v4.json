@@ -1,0 +1,69 @@
+{
+ "call_id": "call-031",
+ "sha256": "b24b488e65add1fdb6c3d5eacb639e42930d06f4f4cdd90c49f405e56ea3cf0b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:00+00:00",
+ "usage": {
+  "input_tokens": 13886,
+  "output_tokens": 6605,
+  "latency_s": 74.45,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vague concern about mobile app usability for field crews without desks",
+    "description": "Harold noted that the planned expansion of ~80-100 field-operations crew leads/supervisors would mostly use the product 'from a truck' rather than a desk, and warned that if the linemen find it clunky, adoption will fail. He did not identify any specific defect or missing capability in the mobile app \u2014 this was a rollout-design risk, not a reported product issue. Sam agreed the mobile experience matters for this group and offered to bring a solutions lead to design field-friendly onboarding.",
+    "line": 53,
+    "quote": "That's actually the thing that'll make or break it. If the linemen find it clunky, word spreads fast and it dies.",
+    "context_lines": [
+     51,
+     52,
+     55
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No concrete defect or missing capability was stated; this is a general adoption-risk concern, not a product issue.",
+    "match_note": "Vague usability worry with no specific repro or capability gap; does not match any tracked bug or feature.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer wants renewal proposal delivered as PDF, not a portal link",
+    "description": "Harold asked that the renewal proposal be sent 'as a PDF, not one of those online portal links,' explaining his board is old-school, prints emails, and that portal links go to spam and cause proposals to die unread. This is a request about how Sam's sales team delivers a document for this deal, not a defect or missing capability in the BetterBark product itself.",
+    "line": 59,
+    "quote": "send it as a PDF, not one of those online portal links. My board is old-school and half of them print things out.",
+    "context_lines": [
+     60,
+     61
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Concerns the sales proposal delivery channel, not the product; no product impact.",
+    "match_note": "Not a BetterBark product topic \u2014 it's a preference for how the sales proposal document is transmitted.",
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer due-diligence question about upcoming feature sunsets or price changes",
+    "description": "Harold asked Sam whether there were 'price changes coming, features being sunset, anything that would embarrass me if I found out after signing.' Sam responded that standard pricing has ticked up modestly year over year but 'there are no sunsets affecting your setup.' Harold did not name any specific feature or defect; this was a general check answered within the call.",
+    "line": 33,
+    "quote": "is there anything on your side I should know? Price changes coming, features being sunset, anything that would embarrass me if I found out after signing?",
+    "context_lines": [
+     34
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "General due-diligence question with no specific feature or defect named; resolved immediately on the call.",
+    "match_note": "No specific product topic identified; answered on the call and not linked to any tracked issue.",
+    "no_action_reason": "too_vague"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,72 @@
+{
+ "call_id": "call-091",
+ "sha256": "687bb51138b6e6f8817be7e4b3f085f48ab56325ae81ba1b663c83e4fecb2d51",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:59+00:00",
+ "usage": {
+  "input_tokens": 14045,
+  "output_tokens": 3853,
+  "latency_s": 44.86,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-149",
+    "title": "Profile photo upload fails for large (8MB+) images with generic error",
+    "description": "New instructor cohort members with high-resolution, professional DSLR headshots (e.g., ~12MB JPEGs) cannot upload profile photos; the upload spinner runs a couple seconds then fails with a generic 'something went wrong' / 'upload failed, please try again' message with no mention of file size. Instructors using smaller phone photos (1-2MB) upload successfully, confirming file size as the trigger. Current workaround is to resize or screenshot the image to shrink it below the limit. Customer emphasizes the actionable error message (stating the size limit) is the higher-priority fix, even more than raising the size cap itself.",
+    "line": 14,
+    "quote": "They pick the photo, they hit upload, and after a second it just fails. And the error message is so unhelpful, it's like \"something went wrong\" or \"upload failed, please try again.\"",
+    "context_lines": [
+     20,
+     24,
+     26,
+     28
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Blocks onboarding self-serve for affected instructors but a workaround (resize/screenshot) exists and impact is limited to first-mile onboarding, not ongoing use.",
+    "match_note": "Same symptom (uploads over ~8MB fail with a generic 'something went wrong' error, no size guidance) and same scope (profile photo upload) as PROJ-149."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Request for interim workaround to unblock photo upload failures",
+    "description": "Customer asks whether telling instructors to shrink their photo is an acceptable interim fix while the upload bug is addressed; this is a workaround request tied to the profile photo upload failure already raised on this call, not a separate product issue.",
+    "line": 38,
+    "quote": "So the workaround for now is just, tell them to shrink the photo?",
+    "context_lines": [
+     39,
+     40,
+     41
+    ],
+    "related_line": 14,
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; purely a request for confirmation of a stopgap for the already-filed upload issue.",
+    "match_note": "Directly tied to the photo upload failure discussed at L14; not filed separately per instructions."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Suggestion to offer coaching for dance parents (new market idea)",
+    "description": "Customer remarks, half-jokingly, that there should be coaching available for competition dance parents since managing stressed adults is a bigger burden than managing the kids. This is floated as a business/market expansion idea in casual conversation rather than a request to change or add a capability to the existing BetterBark product for Lumen Dance Academy's own use.",
+    "line": 52,
+    "quote": "There should be coaching for the parents, honestly. Half our stress is managing the adults, not the kids.",
+    "context_lines": [
+     53,
+     55
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Casual business-idea remark, not a defect or a concrete scoped capability request for the product.",
+    "match_note": "No catalogue analog; excluded as a market/business-expansion musing rather than a product defect or feature request."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

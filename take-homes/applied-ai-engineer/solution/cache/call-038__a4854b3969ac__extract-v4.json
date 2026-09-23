@@ -1,0 +1,37 @@
+{
+ "call_id": "call-038",
+ "sha256": "a4854b3969ac1af308d36632ad1fd829f7174a2288b0fe279408f4d97b8b5320",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:15+00:00",
+ "usage": {
+  "input_tokens": 17079,
+  "output_tokens": 3639,
+  "latency_s": 38.93,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Live training video sessions dropped for head-office users (root cause: customer TLS-inspecting proxy)",
+    "description": "Head-office users reported that in-browser live video training sessions would connect, start, and then die mid-call, sometimes reconnecting and sometimes not; remote mine-site users on satellite/cellular links were unaffected. Diagnosis found the customer's corporate TLS-inspecting security proxy was decrypting/re-inspecting traffic and mishandling the websocket upgrade and long-lived connection used for the sessions, terminating it after a while. The customer's network team whitelisted BetterBark's session domains from TLS inspection, and the customer confirmed zero drops for a full week afterward. Both sides explicitly agreed the platform behaved as designed and the fix was entirely a customer-side network configuration change, so no product defect was logged.",
+    "line": 18,
+    "quote": "That's what came to me. \"The video keeps cutting out.\" Which is the least useful bug report in the world, but that's what I had to start with.",
+    "context_lines": [
+     19,
+     29,
+     35,
+     36
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "While active it fully blocked a core real-time feature (live coaching sessions) for an entire office location with no client-side workaround, but the cause was confirmed to be the customer's own network appliance, it was fully resolved via a customer-side config change, and it has been stable for a verified week, so there is no ongoing product risk.",
+    "match_note": "No catalogue issue involves websockets/TLS-inspection proxies; distinct from PROJ-101 (report timezone) and PROJ-138 (Outlook ICS) which are the only other session/reporting-timing items in the catalogue. Explicitly closed as customer-side, not filed as a product bug."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

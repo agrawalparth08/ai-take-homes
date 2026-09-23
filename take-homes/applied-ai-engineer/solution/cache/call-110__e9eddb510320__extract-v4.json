@@ -1,0 +1,52 @@
+{
+ "call_id": "call-110",
+ "sha256": "e9eddb510320152a7e943c05d334000c3525b036ff83f13f82d6bdca05ae406f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:57+00:00",
+ "usage": {
+  "input_tokens": 40749,
+  "output_tokens": 3257,
+  "latency_s": 49.9,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Session reschedule due to coach illness \u2014 explicitly not a product issue",
+    "description": "Eleanor reports one scheduling mixup during the period: a coach had to reschedule a session due to personal illness. She explicitly characterizes this as 'just life, not a product problem' and notes the rescheduling process itself went smoothly. No platform defect, app issue, or scheduling-tool failure is implicated.",
+    "line": 32,
+    "quote": "The one time there was a mixup it was a coach who had to reschedule due to illness, which is just life, not a product problem",
+    "context_lines": [
+     33,
+     34
+    ],
+    "severity": "low",
+    "severity_reason": "Customer explicitly states this is not a product problem and the process worked fine; no defect to size.",
+    "match_note": "No catalogue issue applies; explicitly disclaimed as non-product by the customer herself, distinct from PROJ-138 (Outlook ICS timing bug) which is a different, unretracted defect not mentioned here."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Request to extend coaching program to Project Managers (new user cohort)",
+    "description": "Eleanor is considering extending the coaching program to roughly 25 Project Managers across three studios, a group currently excluded from the program, and has asked the CSM (Derek) to draft a proposal for a PM-specific coaching track tailored to delivery/client management rather than design leadership. This is a request to expand the scope of the coaching service/program to a new employee segment, not a defect in or missing capability of the BetterBark software product itself. Timeline is not urgent (next month, ahead of fall budget cycle).",
+    "line": 40,
+    "quote": "They're a different discipline entirely, often not architects at all, and they've been asking why coaching is only for the design side.",
+    "context_lines": [
+     41,
+     47,
+     48,
+     49
+    ],
+    "severity": "low",
+    "severity_reason": "Business/program expansion request handled via services proposal, not a product engineering item; no product functionality is broken or absent.",
+    "match_note": "No catalogue match; not a product feature gap (e.g., not comparable to PROJ-118 dashboard export) but a request to widen the coaching program's target audience, which is a services/account decision."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

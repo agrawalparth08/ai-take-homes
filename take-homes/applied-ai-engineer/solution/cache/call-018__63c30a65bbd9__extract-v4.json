@@ -1,0 +1,91 @@
+{
+ "call_id": "call-018",
+ "sha256": "63c30a65bbd9166073e86a3865e3ec676921e3a45811042c4e6b625033948ad1",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:07+00:00",
+ "usage": {
+  "input_tokens": 13649,
+  "output_tokens": 8332,
+  "latency_s": 91.6,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer asks for guidance on maximizing product usage",
+    "description": "Ben asks whether there is more he should be doing to get value from BetterBark, estimating he's only using about 40% of what the platform offers. This is a general request for usage/coaching guidance rather than a specific product defect or missing capability. Derek responds with two suggestions (goal-tracking feature, informal peer group) rather than any product change.",
+    "line": 28,
+    "quote": "is there anything I should be doing to get more out of it? I feel like I'm probably using like 40% of what this thing can do.",
+    "context_lines": [
+     29,
+     33,
+     35
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or feature gap is described; purely a request for usage guidance.",
+    "match_note": "Not a defect/feature request; distinct from all catalogue items."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Customer considers enabling existing goal-tracking feature after being told about it",
+    "description": "Derek tells Ben about the existing goal-tracking feature (members set a training goal with their coach and track it over a quarter). Ben says he knew it existed but hadn't promoted it, and after hearing the description decides his checklist-oriented staff might respond well to it and agrees to try it. No defect or missing capability is raised; this is adoption of an already-available feature that was introduced by the internal rep, not requested by the customer.",
+    "line": 30,
+    "quote": "I know it exists. I haven't pushed it. Is it worth it?",
+    "context_lines": [
+     29,
+     31,
+     32,
+     46
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Existing feature, no change requested.",
+    "match_note": "Feature already exists and is not in the tracked catalogue as a gap; no action needed."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "cosmetic_preference",
+    "title": "Positive feedback on scheduling ease-of-use; no change requested",
+    "description": "Ben volunteers that the mobile scheduling flow is easy enough for his least tech-savvy store manager to independently book sessions, explicitly framing the remark as 'not a complaint, it's a compliment.' He separately recounts that this same manager (Gary) prints and laminates the coaching schedule for the break-room wall despite it being fully available in the app, describing it fondly as Gary's own workflow rather than a product shortcoming. No product change is requested.",
+    "line": 40,
+    "quote": "the scheduling is easy enough that even my least-techy manager, a guy who still prints his emails, books his own sessions.",
+    "context_lines": [
+     38,
+     39,
+     42,
+     44
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Explicitly framed by the customer as a compliment/observation, not a request for change.",
+    "match_note": "Positive, non-actionable feedback; not matched to any catalogue defect."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Possible future seat expansion for a tenth store",
+    "description": "Ben mentions that a tenth store is a possible (unsigned) plan for next year, which would require a few additional license seats if it happens. This is a commercial/seat-count matter rather than a product defect or feature request; Ben says he will flag the account team once it's confirmed.",
+    "line": 53,
+    "quote": "Store ten is a maybe for next year, nothing signed. If it happens I'll need a few more seats but we're not there.",
+    "context_lines": [
+     52,
+     54
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Commercial/account matter, not a product issue.",
+    "match_note": "Not a product defect or feature request; no catalogue match applicable."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,55 @@
+{
+ "call_id": "call-105",
+ "sha256": "7cc26c3d9b1e4d9b12624c6a8fcf49ff4014fb96aa0374f2ed805080c24368de",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:07+00:00",
+ "usage": {
+  "input_tokens": 17359,
+  "output_tokens": 4842,
+  "latency_s": 52.98,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-101",
+    "title": "Scheduled report displays timestamps in UTC instead of workspace (Eastern) timezone",
+    "description": "Saskia's weekly Monday scheduled report (both the emailed PDF and the in-app scheduled view) shows every session timestamp shifted six hours forward from the account's Eastern workspace time, effectively rendering in UTC. The workspace timezone setting is confirmed correct, and every other part of the product (session detail view, calendar) shows the correct Eastern time \u2014 the discrepancy is isolated to this scheduled report output. The underlying data (counts, completion rates, member lists) is accurate; only the timestamp display is wrong. Current workaround is manually subtracting six hours from every report time.",
+    "line": 26,
+    "quote": "A session that I know happened at nine in the morning our time shows in the report as three in the afternoon.",
+    "context_lines": [
+     22,
+     28,
+     29,
+     41
+    ],
+    "severity": "medium",
+    "severity_reason": "Wrong data display (not underlying data) confined to one report artifact, with a known usable manual workaround (subtract six hours), so it doesn't block core use or corrupt decision-relevant metrics.",
+    "match_note": "Same symptom (scheduled report shows UTC instead of workspace timezone) and same scope (emailed PDF and in-app schedule view) as PROJ-101."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "N/A - multi-timezone report behavior inquiry for planned Chicago facility",
+    "description": "Joost raises a forward-looking concern: Delft is considering adding a second facility (Chicago, Central timezone) to the workspace, and asks what happens to report times for Central-timezone members given the existing UTC-display defect. No Chicago facility exists yet, and Maya explicitly frames this as a question to be answered (whether the fix will localize per-member or per-workspace) rather than a described defect. Saskia notes the answer could determine whether she needs a single combined report or separate reports per site.",
+    "line": 45,
+    "quote": "If the report already cannot handle one timezone correctly, what happens with two? Will the Chicago people's times be even more wrong?",
+    "context_lines": [
+     43,
+     46,
+     48,
+     52
+    ],
+    "related_line": 26,
+    "severity": "low",
+    "severity_reason": "Hypothetical/future concern about an as-yet-nonexistent facility, not a present defect or concrete feature request an engineer could act on.",
+    "match_note": "Downstream question about the same underlying PROJ-101 timezone defect; not a distinct actionable issue since it depends on the still-hypothetical Chicago rollout and existing issue's resolution."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

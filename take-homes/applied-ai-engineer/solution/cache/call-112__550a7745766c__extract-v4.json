@@ -1,0 +1,71 @@
+{
+ "call_id": "call-112",
+ "sha256": "550a7745766c09e1477d315d8ad8f2164f03e8c94e75dc25647863b0fe3831a5",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:38:14+00:00",
+ "usage": {
+  "input_tokens": 15215,
+  "output_tokens": 5691,
+  "latency_s": 64.76,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Coach-search filters reset on browser back navigation after viewing a profile",
+    "description": "When a member filters the coach directory (specialty, language, timezone), clicks into a coach profile to read the bio, then uses the browser back button to return to results, all filters are cleared and the full unfiltered coach list is shown instead. This forces users to re-enter every filter each time they want to view another candidate, reported on both phone and desktop browsers (not device/browser specific). Impact: users comparing multiple coaches give up re-filtering after a few tries and pick from the unfiltered top of the list, undermining coach-fit matching and early retention. A workaround (open profiles in a new tab via long-press/middle-click) was proposed by the account team as a stopgap, not a fix.",
+    "line": 23,
+    "quote": "Every time they hit back, the filters vanish. So if someone wants to compare five coaches, they're re-entering their filters five times.",
+    "context_lines": [
+     19,
+     27,
+     29,
+     34
+    ],
+    "severity": "medium",
+    "severity_reason": "Real, broad defect (cross-browser/device) that degrades matching quality and retention, but a usable stopgap workaround (open profile in new tab) exists, limiting it below high/critical.",
+    "match_note": "No catalogue issue covers coach-search filter state loss on back-navigation; distinct from all tracked bugs (none concern search/filter persistence)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "N/A - request for screenshots to build internal how-to one-pager",
+    "description": "Trevor asked the account team to supply clean screenshots of the new-tab workaround flow so he can build a one-page how-to guide with pictures for store managers. This is a request for enablement material tied to the coach-search filter workaround, not an independent product change.",
+    "line": 50,
+    "quote": "can I make a little one-page how-to with screenshots? My store managers do better with pictures than with me explaining over text.",
+    "context_lines": [
+     37,
+     51,
+     52
+    ],
+    "related_line": 19,
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature gap; a documentation/enablement request tied directly to the filter-reset workaround.",
+    "match_note": "Directly supports the workaround for the coach-search filter bug at L19-29; not a separate product issue."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "N/A - manager-as-coach enablement for district managers",
+    "description": "Simone asked whether BetterBark could offer a 'manager as coach' element or framing to help district managers deliberately apply their coaching learnings when developing their own store managers. Tom\u00e1s responded that BetterBark already has manager-as-coach content and framing for this purpose and offered to bring a tailored overview to the next review rather than describe it ad hoc. Since the capability was described as already existing in the product, with a consulting/overview deliverable promised (not a product build), this is not a product gap.",
+    "line": 46,
+    "quote": "some kind of \"manager as coach\" element, tools or framing that help the district managers deliberately apply what they're learning downward.",
+    "context_lines": [
+     44,
+     45,
+     47,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Internal response indicates the requested capability already exists in the product; remaining action is an account-level overview/consulting deliverable, not an engineering fix or new feature.",
+    "match_note": "Not in the tracked catalogue; internal SME states equivalent content/framing already exists, so it is not a confirmed product gap requiring a new ticket."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,54 @@
+{
+ "call_id": "call-085",
+ "sha256": "9551db00c0a8bf3be8d46238a2f10dc53d2ceed5a1eceb36584461d8c60b582c",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:06+00:00",
+ "usage": {
+  "input_tokens": 15778,
+  "output_tokens": 4854,
+  "latency_s": 59.75,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "iOS universal links from notification emails open web login instead of installed app",
+    "description": "On iPhone, tapping a link in a BetterBark notification email (session reminder, coach note, or weekly nudge) opens a mobile browser login page instead of deep-linking into the already-installed and already-authenticated app. The customer's IT contact identified this as a universal-links configuration issue specific to iOS; Android users tapping the same links land directly in the app on the correct screen. The customer reports this affects all iPhone users regardless of iOS version and every notification email type tested, causing reduced click-through since users are annoyed by re-entering credentials and often abandon the flow. A manual web login workaround exists, so access is not blocked, but the reminder mechanism's purpose is undermined.",
+    "line": 32,
+    "quote": "It opens a web page asking them to log in again. In the mobile browser. Even though they've got the app installed and they're already signed into the app.",
+    "context_lines": [
+     34,
+     36,
+     38,
+     44
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Real, reproducible defect affecting all iOS users across all notification email types and reducing engagement click-through, but a manual login workaround exists and no core functionality or data is blocked/lost.",
+    "match_note": "No catalogue issue covers iOS universal-link/deep-link routing from emails; PROJ-160 (iOS logout after OS update) is a different symptom and root cause, so this is a new issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Customer asks whether the iOS link-routing fix will be quick or backlog-tier",
+    "description": "Marcus asks whether the iOS universal-links issue is a quick fix or something that could languish in the backlog, purely to set expectations with his team; Priya declines to guess and commits to getting a real answer from the mobile team. This is a follow-up question about the same issue already logged, not a distinct product topic.",
+    "line": 50,
+    "quote": "Is this the kind of thing that's a quick fix on your end, or one of those \"it's in the backlog forever\" deals?",
+    "context_lines": [
+     45,
+     47,
+     51
+    ],
+    "related_line": 32,
+    "severity": "low",
+    "severity_reason": "Not a separate defect or feature; a timeline/expectation-setting question tied to the already-filed iOS link issue.",
+    "match_note": "Directly references the iOS universal-links issue raised at L32-L44; not a new topic."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

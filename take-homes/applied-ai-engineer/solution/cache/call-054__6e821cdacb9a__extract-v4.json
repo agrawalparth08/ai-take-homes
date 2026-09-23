@@ -1,0 +1,51 @@
+{
+ "call_id": "call-054",
+ "sha256": "6e821cdacb9a2ad593ba31d5dec78f6bae2234990fed7cc17d3a7de4fd000426",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:29:44+00:00",
+ "usage": {
+  "input_tokens": 41100,
+  "output_tokens": 5216,
+  "latency_s": 61.0,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer inquiry about upcoming platform changes/deprecations before renewal",
+    "description": "At renewal, Cheryl asked whether any platform changes, deprecations, or updates would affect her plant managers going into the new term. Priya confirmed there are no deprecations on her feature set and the mobile experience the managers rely on is stable and only improving. This was a forward-looking check for reassurance, not a report of an actual defect or missing capability, and Priya's answer left nothing outstanding.",
+    "line": 47,
+    "quote": "Anything I need to know about the platform going into the new term? Changes, deprecations, anything that'd affect the plant managers?",
+    "context_lines": [
+     48,
+     49,
+     50
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or gap was identified; purely an informational exchange resolved on the call with no outstanding concern.",
+    "match_note": "No catalogue issue applies; nothing specific was reported to act on.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback: mobile booking flow simplicity drives plant-manager adoption",
+    "description": "Cheryl explained that plant managers book training sessions on their phones between shifts, and credited the low-friction booking flow (and lack of nagging corporate emails) as key to why the program is used. She stated that adding even one extra step of friction would cause them to stop bothering. This was offered as color explaining strong engagement, not a complaint about the current flow or a request to change anything.",
+    "line": 33,
+    "quote": "It's because I made it dead simple and I don't nag them with corporate emails. They book on their phones between shifts. If it were one click harder they wouldn't bother.",
+    "context_lines": [
+     20,
+     34
+    ],
+    "severity": "low",
+    "severity_reason": "Positive feedback about an existing capability performing well; no defect or unmet need raised.",
+    "match_note": "No catalogue issue applies; this is praise for current behavior, not a reported problem.",
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

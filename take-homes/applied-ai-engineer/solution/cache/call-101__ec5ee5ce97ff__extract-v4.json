@@ -1,0 +1,69 @@
+{
+ "call_id": "call-101",
+ "sha256": "ec5ee5ce97ff1457460345073a193787f4455491e1a857dd0698febe19d6bcd6",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:36:21+00:00",
+ "usage": {
+  "input_tokens": 8880,
+  "output_tokens": 3632,
+  "latency_s": 40.35,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Goal-tracking reminder notifications fire at ~3am local for APAC members",
+    "description": "Goal check-in reminder notifications, intended to nudge members during their working day, are instead arriving around 3:00 a.m. local time for members in Japan (Tokyo, Osaka, Nagoya, Fukuoka offices). The customer confirmed this is consistent across multiple members' phones. Timezone analysis by the customer shows 3 a.m. Japan time corresponds to late morning/lunchtime in the US, suggesting the reminder is sent at a fixed absolute time tuned for US working hours rather than being adjusted to each member's local timezone. Current member workaround is disabling goal reminder notifications entirely (losing the feature), and the customer believes other APAC customers are likely silently doing the same without reporting it, masking the true cause of low goal-reminder engagement metrics.",
+    "line": 27,
+    "quote": "The goal reminder buzzes at roughly three a.m. local. People are being woken up by their dog-training tool telling them to reflect on their goals",
+    "context_lines": [
+     30,
+     33,
+     36,
+     39
+    ],
+    "severity": "high",
+    "severity_reason": "Affects a core wellbeing feature for an entire APAC customer (and likely all APAC customers), actively disrupts members' sleep, and the only workaround is to disable the feature outright; also silently skews engagement metrics used to assess the program.",
+    "match_note": "Distinct from PROJ-101 (scheduled report display timezone in PDFs/dashboard); this is a push-notification send-time defect for goal reminders, a different feature and different failure mode, so filed as new."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Session reminder notifications confirmed to arrive at correct times",
+    "description": "Customer proactively asked whether session (coaching appointment) reminder notifications suffer from the same timezone issue as goal reminders. Kenji confirmed he has not heard any complaints and that session reminders arrive at the correct time, distinguishing this from the goal-reminder defect.",
+    "line": 43,
+    "quote": "I have not heard a single complaint about session reminders. They seem to arrive when they should.",
+    "context_lines": [
+     41,
+     44,
+     46
+    ],
+    "severity": "low",
+    "severity_reason": "No defect present; raised only as a precautionary check and confirmed working correctly, useful only as contrast data for the goal-reminder bug.",
+    "match_note": "Not an issue in itself; recorded to show it was checked and ruled out, contrasted against the goal-reminder timezone bug at line 27.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer inquiry: will the goal-reminder fix require an app update",
+    "description": "Kenji asked whether, once the goal-reminder timezone bug is fixed, the fix will apply automatically or require members to update the app, so cohort leads can communicate this clearly once. This is a request for information about the eventual fix's delivery mechanism, not a distinct product defect or feature request.",
+    "line": 59,
+    "quote": "When the goal-reminder fix comes, will it apply automatically, or will our members need to update the app?",
+    "context_lines": [
+     60,
+     61
+    ],
+    "severity": "low",
+    "severity_reason": "Purely an informational follow-up tied to the goal-reminder bug fix rollout; not itself a product defect or missing capability.",
+    "match_note": "Directly contingent on the goal-reminder timezone bug (line 27); not a separate actionable issue.",
+    "related_line": 27,
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

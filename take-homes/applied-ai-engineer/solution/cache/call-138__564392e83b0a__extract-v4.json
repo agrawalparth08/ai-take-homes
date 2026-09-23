@@ -1,0 +1,93 @@
+{
+ "call_id": "call-138",
+ "sha256": "564392e83b0a511b675313cd87fa09b81c4f70dd51d7d945bc9cbbc4d203ed81",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:42:57+00:00",
+ "usage": {
+  "input_tokens": 13870,
+  "output_tokens": 6262,
+  "latency_s": 68.2,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer praises mobile session flexibility (no defect, no request)",
+    "description": "Tanya states her team can book and complete coaching sessions from their phones at irregular hours (e.g., from a car in a venue parking lot), which she says is essential given events staff never work a standard 9-to-5. She frames this as a strength of the product, not a gap or complaint, and requests no change.",
+    "line": 44,
+    "quote": "the fact that they can book sessions at weird times, do them from their phones, fit it around a schedule that has no respect for a normal workweek",
+    "context_lines": [
+     45,
+     46,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Positive feedback only; no defect or missing capability identified.",
+    "match_note": "No catalogue match \u2014 this is unsolicited praise for existing mobile scheduling capability, not a bug or feature ask.",
+    "related_line": null,
+    "tracked_key": null,
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports app reliability is strong and explicitly has no complaints",
+    "description": "Tanya says the app has been 'rock solid' and that her impatient staff would have abandoned it and complained if it were clunky. When directly asked by Derek whether there's any friction or anything to smooth out, she confirms 'Genuinely no' and says she tried and failed to come up with a complaint before the call.",
+    "line": 50,
+    "quote": "the app has been rock solid, which I appreciate. My planners are not patient people.",
+    "context_lines": [
+     51,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "Explicit confirmation of no outstanding product issues; purely positive/no-action signal.",
+    "match_note": "No catalogue match \u2014 customer affirmatively states no friction exists; nothing to file.",
+    "related_line": null,
+    "tracked_key": null,
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Newest hires not yet enrolled in coaching program \u2014 manual CSM provisioning requested",
+    "description": "Tanya notes that the three or four most recently hired planners/coordinators have not yet been added to the coaching program because she hasn't had time to compile the list. Derek offers to manually provision them once she sends names and emails, and notes she has allocation room. This is a routine account-administration ask handled via the CSM, not a reported product defect or a request for new self-service functionality.",
+    "line": 28,
+    "quote": "I think the newest three or four haven't been set up yet. I keep meaning to and then a wedding eats my week.",
+    "context_lines": [
+     27,
+     29,
+     31,
+     33
+    ],
+    "severity": "low",
+    "severity_reason": "No product malfunction; it's an unfinished admin task to be completed via CSM-assisted enrollment.",
+    "match_note": "No catalogue match \u2014 this is a services/account-management favour (manual member provisioning), not a product bug or feature gap.",
+    "related_line": null,
+    "tracked_key": null,
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer mentions informally referring another events-industry founder",
+    "description": "Tanya mentions she recommended BetterBark coaching to another events company founder at an industry dinner, with nothing formalized in writing. This is word-of-mouth/referral commentary about business development, not a report of a product defect or a request for a product capability.",
+    "line": 54,
+    "quote": "I sat next to another events founder at an industry dinner and I told her she should look into coaching for her team.",
+    "context_lines": [
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "Not product-related; informal referral mention with no defect or feature request.",
+    "match_note": "No catalogue match \u2014 referral/marketing chatter, not a product topic.",
+    "related_line": null,
+    "tracked_key": null,
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

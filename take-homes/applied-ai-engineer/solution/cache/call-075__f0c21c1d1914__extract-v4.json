@@ -1,0 +1,70 @@
+{
+ "call_id": "call-075",
+ "sha256": "f0c21c1d19141e921e940cc9ac78186a452e0b60af3badaee17aaeba4653357c",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:32:07+00:00",
+ "usage": {
+  "input_tokens": 7967,
+  "output_tokens": 4030,
+  "latency_s": 42.25,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "SMS 2FA codes expire before delivery on Canadian mobile numbers",
+    "description": "For staff using Canadian mobile numbers, the SMS carrying the 2FA login code takes 5-7 minutes to arrive, but the code is only valid for 5 minutes, so it is expired on arrival and login fails. US mobile numbers on the same account receive codes in under 30 seconds and authenticate successfully every time. The customer confirmed the delay occurs across all three major Canadian carriers (Rogers, Bell, Telus), ruling out a single-carrier cause. Over two weeks the help desk logged 22 tickets from Canadian numbers and zero from the two US numbers, out of roughly 430 Canadian-number staff affected. Interim workaround offered: switch affected users to authenticator-app TOTP, which is generated on-device and avoids SMS delivery latency.",
+    "line": 21,
+    "quote": "And the code says it's only valid for five minutes. So by the time the text arrives, the window's already closed. The code's dead on arrival.",
+    "context_lines": [
+     19,
+     26,
+     29,
+     45
+    ],
+    "severity": "high",
+    "severity_reason": "Blocks reliable login for effectively the entire Canadian workforce (~430 users) at a regulated bank; while an authenticator-app workaround exists, it requires an admin-driven rollout, and the customer needs this tracked for its own vendor risk/compliance log.",
+    "match_note": "No catalogue issue covers SMS 2FA delivery latency vs. code expiry; PROJ-064 is a distinct problem (Okta SSO session lifetime, not SMS code expiry) so this is new."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Mandate authenticator-app TOTP for Canadian staff as interim MFA workaround",
+    "description": "Devon asked whether the bank can mandate authenticator-app TOTP specifically for Canadian-numbered staff while the SMS delivery/expiry defect is fixed. Ravi confirmed both SMS and TOTP can be enabled simultaneously via Admin > Security > MFA settings, with Canadian users steered to the app. This is an interim mitigation for the SMS 2FA expiry bug raised earlier on the call, not a separate product gap.",
+    "line": 39,
+    "quote": "That would kill the ticket queue overnight. Can we mandate it for the Canadian numbers specifically?",
+    "context_lines": [
+     36,
+     38,
+     40
+    ],
+    "related_line": 21,
+    "severity": "low",
+    "severity_reason": "Purely a workaround/configuration request tied to an already-captured defect; capability already exists in the product.",
+    "no_action_reason": "workaround_request",
+    "match_note": "Directly tied to the SMS 2FA expiry defect raised at L19-L21 on this same call; not a distinct issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer wants ticket reference for internal vendor risk log",
+    "description": "Corinne, as a regulated bank, asked to be given the bug ticket number/reference so she can log it in her organization's internal vendor risk register. This is a request for a reference/communication artifact for the customer's own compliance process, not a defect in or missing capability of the BetterBark product.",
+    "line": 43,
+    "quote": "Perfect. We're a regulated bank, so I'll need to reference that ticket in our own vendor risk log.",
+    "context_lines": [
+     42,
+     44
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product impact; purely an administrative/communication request handled outside the product.",
+    "no_action_reason": "not_product",
+    "match_note": "Not a product defect or feature gap; it's a request for ticket-tracking info for the customer's own audit log."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

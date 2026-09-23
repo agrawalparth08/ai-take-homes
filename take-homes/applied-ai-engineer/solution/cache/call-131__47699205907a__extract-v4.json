@@ -1,0 +1,69 @@
+{
+ "call_id": "call-131",
+ "sha256": "47699205907a3104a05dd63bea214de492e2c915a6fca4a79746603929a19f7b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:41:39+00:00",
+ "usage": {
+  "input_tokens": 40406,
+  "output_tokens": 4106,
+  "latency_s": 53.85,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "French-locale settings tooltip shows wrong accent ('Param\u00e9tres' instead of 'Param\u00e8tres')",
+    "description": "The tooltip shown when hovering over the settings gear icon in the French-locale interface displays 'Param\u00e9tres' with an acute accent, when it should read 'Param\u00e8tres' with a grave accent (or arguably no accent at all in that position). Only the hover tooltip is affected; the settings button's visible label is spelled correctly. The defect has no functional impact \u2014 clicking the gear still opens settings normally. Customer (a French luxury brand headquartered in Paris) flagged it as highly visible and brand-sensitive to their HQ office, though not blocking any task.",
+    "line": 23,
+    "quote": "It says \"Param\u00e9tres.\" With an accent on the \u00e9. It should be \"Param\u00e8tres\" \u2014 the accent is grave, not acute.",
+    "context_lines": [
+     21,
+     27,
+     28,
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Purely cosmetic text typo in a tooltip; no functional impact, nobody blocked, button works and settings open normally.",
+    "match_note": "No catalogue issue covers a French-locale tooltip accent typo; this is a distinct new low-severity text defect not matching any tracked item."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Milan office asked about Italian session reminders \u2014 resolved via existing language setting",
+    "description": "Customer relayed that the Milan office asked whether session reminders could be received in Italian. Derek clarified the interface already has a language selector in settings that Milan users can use to self-serve this. The customer confirmed this was simply a case of the office not having found the existing setting, calling it 'a training matter, not a request,' and asked Derek to send the steps so she could forward them to Milan.",
+    "line": 60,
+    "quote": "The Milan office asked whether they can get their session reminders in Italian. Is that a thing?",
+    "context_lines": [
+     61,
+     62,
+     63
+    ],
+    "severity": "low",
+    "severity_reason": "No product gap exists; capability already present and resolved by pointing to an existing settings option.",
+    "match_note": "Not a genuine feature gap \u2014 customer herself confirms the capability already exists and this is a training/awareness issue, not a product request."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Request to provision accounts for 12 new Paris hires ahead of autumn launch",
+    "description": "Customer mentioned Montclair is onboarding twelve new people to the Paris office next month as part of their autumn collection launch and asked whether anything should be done differently for them. Derek confirmed it's the same process and offered to provision their accounts ahead of their start date once HR sends the finalized list, expected in about two weeks. This is a standard account-provisioning/customer-success service request, not a defect in or missing capability of the BetterBark product.",
+    "line": 51,
+    "quote": "the autumn launch means we are onboarding twelve new people to the Paris office next month. Should I do anything differently for them, or is it the same process?",
+    "context_lines": [
+     52,
+     53,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product issue at all; routine account provisioning/services request with no defect or capability gap involved.",
+    "match_note": "Services/account-provisioning request rather than a product defect or feature gap; no catalogue issue applies."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

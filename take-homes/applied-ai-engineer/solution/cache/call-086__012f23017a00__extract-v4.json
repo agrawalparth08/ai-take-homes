@@ -1,0 +1,75 @@
+{
+ "call_id": "call-086",
+ "sha256": "012f23017a00dcb4291e90f24712c6b7c83b71d5cbee3551f7ef42fb0f3d7df4",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:02+00:00",
+ "usage": {
+  "input_tokens": 13461,
+  "output_tokens": 4596,
+  "latency_s": 46.65,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No API/BI connector to export aggregate engagement metrics into customer BI tools",
+    "description": "Customer's coaching program metrics (engagement, utilization, program-wellbeing trends, participation, progress milestones) are the only data source not flowing automatically into their Tableau/Power BI stack; every other function (attrition, comp, DEI, hiring) updates live. Today the VP manually screenshots the dashboards into a board deck monthly (11 screenshots last cycle) and CSV export requires manual login and click, which breaks when the admin is unavailable. Customer wants a REST endpoint callable on a schedule, or a native Tableau/Power BI connector, exposing aggregate (org- and team-level, not individual) engagement/utilization metrics, ideally with historical series. BetterBark confirmed no self-serve metrics API is generally available today; only dashboards and CSV export exist.",
+    "line": 33,
+    "quote": "Ideally a REST endpoint we can hit on a schedule, or a native connector. We can work with either.",
+    "context_lines": [
+     22,
+     27,
+     35,
+     40
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable feature with an existing (painful, manual) workaround via dashboards/CSV export; not blocking core product use, but drives real toil and a board-reporting credibility concern for a fast-scaling account.",
+    "match_note": "No catalogue issue covers a metrics API/BI-connector capability; closest catalogue items (PROJ-118 PDF export, PROJ-095 CSV roster export) are different deliverables (PDF/CSV, not a scheduled API/BI connector) and cover different data (team engagement PDF, member roster) rather than programmatic engagement-metrics access.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request to automate CSV export download",
+    "description": "Tobias notes that CSV export is somewhat better than screenshots but still requires manual login and clicking, so it has the same 'breaks when I'm out' problem as the screenshot process, and asks if the download itself could be automated.",
+    "line": 51,
+    "quote": "If I could at least automate the download that'd help but I don't think I can.",
+    "context_lines": [
+     33,
+     40,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "Stopgap ask for the same underlying capability gap as the main API/BI-connector request; not a separate defect or feature.",
+    "match_note": "Same underlying gap as the API/BI-connector request (line 33) \u2014 a stopgap for automating data extraction rather than a distinct issue.",
+    "tracked_key": null,
+    "related_line": 33,
+    "no_action_reason": "workaround_request"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Question about satisfaction survey response-rate denominator",
+    "description": "Tobias asked whether the 4.6/5 session satisfaction score is based on every session or a sample; Sam explained it's a post-session survey with roughly 40% response rate and offered to send the response-rate breakdown for the board deck. This is a clarifying question about an existing metric's methodology, not a request for a product change, and was resolved on the call via a manual data pull rather than a product capability.",
+    "line": 14,
+    "quote": "What's the denominator on satisfaction, is that every session or a sample?",
+    "context_lines": [
+     15,
+     16
+    ],
+    "severity": "low",
+    "severity_reason": "Informational question resolved via a manual reporting favour, not a product defect or feature gap.",
+    "match_note": "Not a product capability request; distinct from the BI-connector ask since it's a one-off metric-definition question, answered by Sam sending a manual breakdown rather than a product change.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

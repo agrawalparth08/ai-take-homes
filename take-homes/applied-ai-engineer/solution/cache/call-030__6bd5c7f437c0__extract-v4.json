@@ -1,0 +1,115 @@
+{
+ "call_id": "call-030",
+ "sha256": "6bd5c7f437c0c976c641938be2417fd8e915c961a2f867005649484399c08ea2",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:03+00:00",
+ "usage": {
+  "input_tokens": 13828,
+  "output_tokens": 4932,
+  "latency_s": 48.26,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "title": "Customer requests dark mode for mobile app (already shipped in 4.2)",
+    "description": "Bianca reports several managers use the mobile app in the evening after their kids' bedtime and find the bright white screen at 10pm harsh, and asks whether dark mode could be added. Derek confirms dark mode shipped in the 4.2 release (Settings > Appearance), including a system-follow option, and Bianca had simply not found it. No further action needed beyond making the feature more discoverable.",
+    "line": 30,
+    "quote": "is there any chance of a dark mode? The white screen at 10pm is brutal.",
+    "context_lines": [
+     31,
+     32,
+     33,
+     35
+    ],
+    "severity": "low",
+    "severity_reason": "Underlying need is already met by a shipped feature; only a discoverability gap remains, no functional impact.",
+    "match_note": "Directly matches PROJ-102 (Dark mode for mobile app), shipped in 4.2 on 2026-05-14, exactly as described by Derek.",
+    "tracked_key": "PROJ-102",
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Coach mismatch on retail-specific experience request (resolved via rematch)",
+    "description": "Bianca mentions one early coach-matching mismatch, where a manager wanted a coach with retail-specific experience. The account was rematched and, per Bianca, it 'has been smooth since,' with the new coach even having beauty-brand experience leading to good rapport. This concerns coach/service assignment rather than a software defect or missing product capability, and is already resolved.",
+    "line": 24,
+    "quote": "There was one early mismatch \u2014 a manager who wanted someone with retail-specific experience \u2014 but we swapped her and it's been smooth since.",
+    "context_lines": [
+     25,
+     26
+    ],
+    "severity": "low",
+    "severity_reason": "Already resolved via a service-side rematch; no ongoing product impact.",
+    "match_note": "No catalogue issue covers coach-matching service quality; also not a software product defect, so not tracked regardless.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vague, unreproducible report-load sluggishness in admin dashboard",
+    "description": "Bianca mentions the admin dashboard sometimes 'feels a beat slow' when loading reports on her laptop, but immediately attributes it to possibly being hotel wifi or having many browser tabs open. She cannot name a specific report, time, or reproduction step, and explicitly downgrades it: 'Consider it a shrug, not a ticket.' Derek declines to file it and offers to informally check on their end, asking her to send concrete details (specific report, persistent spinner) if it recurs.",
+    "line": 52,
+    "quote": "Sometimes when I'm in the admin dashboard on my laptop, it feels a little sluggish to load the reports.",
+    "context_lines": [
+     53,
+     54,
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "Customer explicitly retracted it as a real issue and could not provide reproduction details; likely customer-network related.",
+    "match_note": "Too vague/unreproducible and explicitly withdrawn by the customer to file or compare against any tracked performance issue.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "retracted"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Fall expansion to individual-contributor coaching track with tailored content",
+    "description": "Bianca wants to expand the program in the fall to include an individual-contributor (IC) track (roughly 60-70 people, pending budget) with content tailored to IC needs rather than the manager-focused reactive-dog content. Derek notes existing pathways already cover this (new-puppy foundations, senior-dog/anxiety work) and will send a content menu for her to choose from. This is a program/content-curation request using existing offerings, not a defect or missing product capability.",
+    "line": 40,
+    "quote": "We're expanding the program in the fall \u2014 I want to add the individual-contributor track, not just managers.",
+    "context_lines": [
+     42,
+     44,
+     45,
+     46
+    ],
+    "severity": "low",
+    "severity_reason": "Existing content pathways already address the stated need; this is a services/curation request, not a product gap.",
+    "match_note": "Not a software product defect or missing capability (existing coaching pathways already cover it), so no catalogue match applies.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback on reworked onboarding welcome email sequence",
+    "description": "Bianca reports that onboarding for the spring cohort went smoothly and that the welcome emails were actually read by participants, which she says rarely happens. Derek attributes this to a reworked, shorter, less corporate welcome sequence rolled out earlier in the year. This is unsolicited positive feedback with no requested change or reported defect.",
+    "line": 58,
+    "quote": "The onboarding for the spring cohort was smooth. Whatever your team did on the welcome emails, people actually read them, which never happens.",
+    "context_lines": [
+     59,
+     60,
+     61
+    ],
+    "severity": "low",
+    "severity_reason": "Positive feedback only; no defect or gap identified, no action requested.",
+    "match_note": "No defect or feature request is present, so there is nothing to compare against the catalogue.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

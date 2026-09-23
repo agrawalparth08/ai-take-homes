@@ -1,0 +1,55 @@
+{
+ "call_id": "call-015",
+ "sha256": "e66434f792d21cfc169f4c9df8071200f68e056a08f9b7eb2b0b6cde1f42f9f1",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:09+00:00",
+ "usage": {
+  "input_tokens": 7622,
+  "output_tokens": 3204,
+  "latency_s": 31.98,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-142",
+    "title": "Password-reset emails delayed ~20-30 min during batch onboarding morning rush",
+    "description": "During a batch onboarding of 23 new hires on a Monday morning, several employees requested password-reset emails within the same ten-minute window (triggered by an HR 'set up your account' email sent at 9am sharp) and the reset emails arrived 20-30 minutes late instead of immediately. Not everyone was affected \u2014 a couple received theirs fine \u2014 and everyone eventually got in with no permanent lockouts. Testing the customer's own account outside the rush delivered the reset instantly, suggesting the delay is tied to request volume/peak-hours congestion. This matches the catalogue issue describing reset emails queuing behind bulk sends during morning peak.",
+    "line": 30,
+    "quote": "several of them told me the password-reset email just... didn't come. Or came way late.",
+    "context_lines": [
+     32,
+     34,
+     36,
+     42
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Delays self-resolve within ~30 minutes and everyone eventually logged in, but it visibly disrupted a live onboarding session for roughly half the room; a workaround (staggering invite waves) was offered.",
+    "match_note": "Same underlying symptom (reset emails queued/delayed up to 30 min during morning peak volume) as PROJ-142; different account but identical failure mode and scope."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "N/A - internal workaround suggestion, not a customer-raised request",
+    "description": "Priya (internal) proactively suggested staggering the HR 'set up your account' email into multiple waves to spread out reset requests and avoid the peak-hours congestion, as a stopgap while the underlying delay issue is checked. Marcus agreed it was a good idea and said he'd relay it to HR. This is a suggested mitigation for the reset-email delay issue already logged, not a separate customer ask.",
+    "line": 47,
+    "quote": "If HR sends it in two or three waves fifteen minutes apart instead of one 9am blast, you spread the reset requests out",
+    "context_lines": [
+     48,
+     49,
+     50
+    ],
+    "related_line": 30,
+    "severity": "low",
+    "severity_reason": "Not a defect or feature request; it is a workaround tied to the reset-email delay finding.",
+    "match_note": "Directly tied to the password-reset delay issue at L30; filed as related workaround, not standalone."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

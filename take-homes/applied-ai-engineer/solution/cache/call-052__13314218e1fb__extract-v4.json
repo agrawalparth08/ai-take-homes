@@ -1,0 +1,54 @@
+{
+ "call_id": "call-052",
+ "sha256": "13314218e1fbc8d75e7ce633feae05a96560c941546d218edb028469d358024b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:29:05+00:00",
+ "usage": {
+  "input_tokens": 42010,
+  "output_tokens": 3715,
+  "latency_s": 44.73,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Coach availability calendar shows day shifted by one for date-line-west members",
+    "description": "Members located west of the international date line (New Zealand) see the coach availability calendar with the day-of-week/date shifted a full day when booking sessions with coaches in North America/UK, so a slot they select as one day actually books the adjacent day. The error is in the availability picker itself before booking (not just the confirmation), and times are correct once the day is mentally corrected, indicating a date-boundary-specific defect rather than a general timezone offset. At least 3 members have shown up a day early/late or given up confused, with an estimated 10-15 more likely silently affected out of roughly 200 active members; members matched with Australia-based (closer timezone) coaches have not reported the issue. The customer reports it has likely been present since launch but only became noticeable as booking volume grew.",
+    "line": 20,
+    "quote": "They open their coach's availability calendar, they see the open slots, they pick one. Say they pick what shows as Wednesday.",
+    "context_lines": [
+     22,
+     26,
+     34,
+     36,
+     43
+    ],
+    "severity": "medium",
+    "severity_reason": "Real defect causing missed/mismatched sessions and member distrust, but scoped to date-line-west members booking with far-timezone coaches (~5-10% of this account's base) and a workaround exists (verify the booked date in the member's own synced calendar app).",
+    "match_note": "Distinct from PROJ-101 (scheduled report timestamps off by hours due to UTC vs workspace timezone in reports/PDFs); this is a full-day shift in the coach booking availability calendar caused by date-line crossing, a different feature area and different failure mode, so not the same tracked issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Request to preferentially match members with closer-timezone coaches",
+    "description": "Customer asked whether coaches could be quietly matched closer to New Zealand's timezone to sidestep the date-line booking bug. Internal staff declined to use matching as a fix since it would distort a process that weighs specialty/fit, and the customer agreed the root calendar defect should be fixed instead.",
+    "line": 45,
+    "quote": "If you could quietly prefer closer-timezone coaches for us that'd help, but I know matching is about more than timezone.",
+    "context_lines": [
+     43,
+     46,
+     47
+    ],
+    "related_line": 20,
+    "severity": "low",
+    "severity_reason": "Not a standalone product ask; it's a proposed stopgap for the date-line calendar bug, explicitly abandoned in favor of fixing the root cause.",
+    "match_note": "Workaround/mitigation request for the same underlying issue as the L20 finding, not a separate product defect or feature."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

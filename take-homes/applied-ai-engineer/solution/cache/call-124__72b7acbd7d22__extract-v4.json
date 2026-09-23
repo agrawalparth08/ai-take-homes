@@ -1,0 +1,17 @@
+{
+ "call_id": "call-124",
+ "sha256": "72b7acbd7d222558f862777991962820e3ac6cbd47f01bb0ef38428382cbf7ea",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:55+00:00",
+ "usage": {
+  "input_tokens": 13777,
+  "output_tokens": 1421,
+  "latency_s": 22.62,
+  "attempts": 1
+ },
+ "output": {
+  "findings": []
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

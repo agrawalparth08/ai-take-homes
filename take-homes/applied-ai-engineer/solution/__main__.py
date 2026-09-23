@@ -82,6 +82,14 @@ def main(argv: list[str] | None = None) -> int:
         return 2 if s["failed_calls"] else 0
 
     store = Store(paths.state)
+    try:
+        return _cmd(args, paths, store)
+    except (KeyError, ValueError) as e:  # unknown key, withdrawn, partly delivered...
+        print(f"error: {e.args[0] if e.args else e}", file=sys.stderr)
+        return 1
+
+
+def _cmd(args, paths: pipeline.Paths, store: Store) -> int:
     if args.cmd == "review":
         print(review.render(store, _last_findings(paths), paths.out))
     elif args.cmd == "approve":

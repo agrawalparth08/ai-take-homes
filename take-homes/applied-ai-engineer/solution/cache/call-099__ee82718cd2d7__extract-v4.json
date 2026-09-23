@@ -1,0 +1,54 @@
+{
+ "call_id": "call-099",
+ "sha256": "ee82718cd2d755c959a3d9843840edc2ba8de7f7c8612b744c617d3dfba840b3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:36:05+00:00",
+ "usage": {
+  "input_tokens": 17680,
+  "output_tokens": 5349,
+  "latency_s": 50.95,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Birmingham site login failures caused by customer's own network proxy stripping auth headers",
+    "description": "On Tuesday morning shift change, roughly 40 users at the Birmingham mill could not log in; the login page would spin and then silently bounce back to the login screen with no error message. BetterBark's auth logs showed the login requests arriving without the authorization header, so the platform correctly treated them as unauthenticated and redirected to login (working as designed). Root cause was traced to a new corporate web proxy appliance installed the prior Friday as a security pilot at the Birmingham site, which was stripping the authorization header on requests to domains not on its allowlist. The customer added BetterBark's and their SSO provider's domains to the proxy allowlist, which resolved the issue within about 20 minutes, and confirmed it held stable over the following days. Customer explicitly confirmed the product behaved correctly and no platform-side change is needed.",
+    "line": 23,
+    "quote": "they'd put in their credentials, the page would spin, and then it'd just bounce them back to the login screen",
+    "context_lines": [
+     21,
+     33,
+     37,
+     42
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Core login was blocked for ~40 users at one site for roughly a day, but root cause and fix were entirely on the customer's network infrastructure, not the product, and it was resolved quickly without any platform change.",
+    "match_note": "Distinct from PROJ-064 (Okta SSO session expiring early) and PROJ-160 (iOS logout after OS update) \u2014 different failure mode (missing auth header due to customer proxy) and different root cause (customer-side network device, not the product); no matching catalogue issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Customer sanity-checks that 8-hour session length is an admin-controlled setting (confirmed working as intended)",
+    "description": "Following the unrelated proxy incident, the customer asked support to confirm that their workspace's 8-hour session timeout is an admin-controlled setting rather than something the proxy issue might also be affecting. Support confirmed this is controlled under Admin > Security session settings, adjustable up to 12 hours, and is customer-configured. The customer confirmed the 8-hour setting is holding correctly and users remain logged in for their full shift with no unexpected logouts. No defect was reported; this was purely a confirmation question.",
+    "line": 46,
+    "quote": "The session length setting. We have ours set to eight hours because our shifts are long and I hate people re-logging mid-shift.",
+    "context_lines": [
+     47,
+     48
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect exists; customer confirmed the feature works exactly as configured and intended.",
+    "match_note": "Not the same as PROJ-064 (Okta SSO sessions expiring early unexpectedly) \u2014 here the customer confirms the session length behaves exactly as configured, with no premature expiry or complaint."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -174,7 +174,7 @@ class Store:
         with self.tx() as db:
             row = db.execute("SELECT payload_sha, status FROM proposals WHERE key=?", (key,)).fetchone()
             if row is None:
-                raise KeyError(key)
+                raise KeyError(f"no proposal {key!r} (see output/review.md for keys)")
             if row["status"] == "withdrawn":
                 raise ValueError(f"{key} was withdrawn by a later run; nothing to decide")
             if decision != "approved" and self._dispatched(db, key):

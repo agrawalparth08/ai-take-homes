@@ -1,0 +1,92 @@
+{
+ "call_id": "call-134",
+ "sha256": "073b5572d81f2280a99030de37b1e5aea20ecfb30ce726434634899be78845dd",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:42:22+00:00",
+ "usage": {
+  "input_tokens": 14716,
+  "output_tokens": 5545,
+  "latency_s": 58.19,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Extend coaching program to portfolio-company founders (new billing/account structure)",
+    "description": "Bethany raised the idea of offering BetterBark coaching to portfolio-company founders as a competitive differentiator when courting deals. This requires a separate account and billing structure since founders are not Sequoia Ventures employees, and Priya framed it as a resourcing/scoping conversation rather than a product gap. Bethany specified an initial pilot scope of roughly 15 active portfolio CEOs. This is a commercial/services expansion request (new contract structure, new customer population), not a defect or missing product capability.",
+    "line": 19,
+    "quote": "founder coaching is a differentiator when we're competing for deals",
+    "context_lines": [
+     20,
+     27,
+     28,
+     46
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a product defect or capability gap; it's a business/contracting expansion request with no engineering action implied.",
+    "match_note": "No catalogue entry covers program/contract expansion to non-employee populations; excluded as a services/billing matter, not a product issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Clarify that founder coaching sessions stay confidential from the investor",
+    "description": "Bethany stated that for the prospective founder-coaching program, confidentiality is essential \u2014 a founder must know that what they discuss with a coach doesn't flow back to the investor, or the program is a non-starter. Priya confirmed this is already how the coaching relationship works today (investor does not see session content) and offered to have it documented explicitly as part of scoping. No product gap was identified; the concern was resolved by confirming existing behavior.",
+    "line": 21,
+    "quote": "a founder needs to know that whatever they discuss with a coach doesn't flow back to us as their investor",
+    "context_lines": [
+     22,
+     23,
+     24
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Confirmed as already-true existing product/program design during the call; no defect or gap remains.",
+    "match_note": "Not in catalogue; resolved in-call as existing confidentiality behavior rather than a product change request."
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No API / machine-readable export for aggregate engagement metrics (BI integration)",
+    "description": "Alan (People Analytics lead) reports he currently has no way to pull BetterBark's aggregate engagement metrics (activation rate, session volume, engagement trends) into his BI pipeline; he must manually screenshot the dashboard or retype numbers into Tableau, monthly for standing partner reports and up to weekly during board-prep season. He explicitly does not need individual-level data \u2014 only the same aggregate, org-level rollups already shown to admins \u2014 delivered via a callable API (preferred) or at minimum a scheduled machine-readable export, so it can be ingested into Tableau, Looker, and Power BI on a schedule. Impact: analyst time lost and, more importantly, transcription-error risk that puts wrong engagement numbers in front of partners/leadership; Bethany added that this becomes a scale blocker as the program grows to new populations (e.g., portfolio founders).",
+    "line": 39,
+    "quote": "What I need is API access to the engagement metrics. A programmatic endpoint I can call to pull the aggregate engagement data",
+    "context_lines": [
+     43,
+     45,
+     46,
+     52
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Manual transcription of dashboard numbers creates real risk of wrong engagement data reaching partners/leadership decisions, and no automated workaround currently exists.",
+    "match_note": "Distinct from PROJ-118 (one-click PDF export of team engagement view for a human reader); Alan explicitly wants machine-readable, programmatic, scheduled data for automated BI ingestion, not a PDF."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Periodic manual CSV export offered as interim stopgap for engagement-metrics API",
+    "description": "As an interim measure, Priya offered to look into providing Alan a periodic manual CSV export to reduce the screenshotting burden while the real API request is considered. Alan agreed a periodic CSV would help but insisted this stopgap must not replace or delay the underlying API request. This is a workaround tied to the engagement-metrics API ask, not a separate product issue.",
+    "line": 58,
+    "quote": "Even a periodic CSV would be better than screenshots, honestly. But the real fix is the API.",
+    "context_lines": [
+     39,
+     50,
+     57,
+     59
+    ],
+    "related_line": 39,
+    "severity": "low",
+    "severity_reason": "Interim workaround for an already-captured feature request; no independent engineering action.",
+    "match_note": "Tied directly to the API access request at L39; filed together per workaround_request handling, not as a separate ticket."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

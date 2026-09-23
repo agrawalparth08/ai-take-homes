@@ -1,0 +1,59 @@
+{
+ "call_id": "call-132",
+ "sha256": "d4c6f956eae3e4b8a8e56f02e7dd314055077f04b4262639d36da49dda3b661d",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:41:54+00:00",
+ "usage": {
+  "input_tokens": 17268,
+  "output_tokens": 5070,
+  "latency_s": 57.48,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No auto-release of coach calendar hold on member no-show",
+    "description": "When a member no-shows a scheduled coaching session, the coach's calendar hold is never released; the coach waits out the session and the full hour stays blocked and unbookable by anyone else, even when other members are actively requesting time in that same slot. The customer reports roughly 5-8 no-shows out of ~60 weekly bookings (~10% of coach time) stranded this way, which is most damaging during capacity-constrained peak/staffing-crunch weeks when demand for coaching is also highest. Requested behavior: after a grace window of about 10 minutes (ideally configurable), automatically release the coach's hold so the remaining time returns to bookable availability. Stretch/nice-to-have additions mentioned: auto-notifying a waitlist and auto-marking the no-show so the coach doesn't have to do it manually.",
+    "line": 43,
+    "quote": "the coach's calendar hold to auto-release if the member no-shows, say, ten minutes in",
+    "context_lines": [
+     39,
+     41,
+     47,
+     49,
+     54
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable capacity-recovery feature with real business impact during peak weeks, but a manual workaround exists (coach manually waits and marks no-show) and it doesn't block core product use for most users.",
+    "match_note": "No catalogue issue covers no-show calendar-hold release/availability behavior; distinct from all tracked scheduling/calendar items (PROJ-138 is about ICS invite display in Outlook, not hold release).",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "London analysts' coach-matching time zone complaint (relayed secondhand)",
+    "description": "Owen relays that last year's London-based analysts complained their only coaching session time options were effectively dawn or midnight local time ('breakfast or bedtime'). This was raised as a report of other members' past complaints rather than Owen's own firsthand experience of a product defect, and no explicit product/system change was requested. Tom\u00e1s's response was to manually flag the incoming London cohort for timezone-appropriate coach matching as a program-administration action, not a product change.",
+    "line": 28,
+    "quote": "the London folks complained about exactly that last year. Their choices were basically breakfast or bedtime",
+    "context_lines": [
+     26,
+     27,
+     29,
+     30
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete, standing product ask was made; issue was addressed operationally rather than escalated as a defect or feature request.",
+    "match_note": "Not comparable to any tracked issue; no catalogue item concerns coach-timezone matching during enrollment.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "hearsay"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

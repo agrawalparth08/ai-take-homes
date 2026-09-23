@@ -1,0 +1,88 @@
+{
+ "call_id": "call-072",
+ "sha256": "c9d317249e6520cda3baba2e7993df4ab791c1646258f38940c7a9b2ce4e483f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:32:08+00:00",
+ "usage": {
+  "input_tokens": 40527,
+  "output_tokens": 6580,
+  "latency_s": 62.75,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Search results stale ~10 min after team rename or member move between teams",
+    "description": "Customer reports that renaming a team (e.g., 'Downstream Ops' to 'Refining Operations') or moving a member to a different team saves and confirms successfully, but search results remain stale for roughly ten minutes afterward, showing the old team name or old membership. Direct navigation to the team page reflects the change immediately; only search results lag. The issue self-corrects after ~10-15 minutes with no further action needed. During biannual reorgs, with many renames/moves happening at once, this produces a wave of 'where's my report' tickets from managers who search and can't find their people.",
+    "line": 29,
+    "quote": "When we rename a team or move people between teams \u2014 which we do a lot during reorgs \u2014 the changes don't seem to show up right away when you search.",
+    "context_lines": [
+     33,
+     36,
+     42,
+     44
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Causes real confusion and support-ticket spikes for managers during reorgs, but the window is short (~10 min), it self-corrects, and direct navigation to the team page is unaffected, giving an easy workaround.",
+    "tracked_key": null,
+    "match_note": "Distinct from PROJ-131 (new-invite members not searchable until next-day index build): this is a ~10-minute self-correcting staleness on renamed teams/moved existing members, not new invites."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer compliments shipped dark mode feature; no request made",
+    "description": "Customer volunteered that the mobile app has been great since dark mode shipped, explicitly noting eye strain relief. She clarified this was 'a genuine compliment, not a setup for a complaint' and had no other mobile issues to report.",
+    "line": 50,
+    "quote": "the mobile app's been great since dark mode, my eyes thank you",
+    "context_lines": [
+     51,
+     52
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or request; purely positive feedback with no change requested.",
+    "tracked_key": "PROJ-102",
+    "match_note": "References already-shipped PROJ-102 dark mode; customer is complimenting it, not asking for anything further, so no_action rather than shipped_feature-as-request."
+   },
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "title": "Customer asks for login-history export, already shipped in admin panel",
+    "description": "Customer asked whether a login-history export for their security team's quarterly review is available in the admin panel. Maya confirmed the capability shipped previously at Admin > Security > Login History, and the customer can self-serve it without filing a ticket.",
+    "line": 58,
+    "quote": "Just the login-history export for our security team's quarterly review. That's in the admin panel now, right?",
+    "context_lines": [
+     59,
+     60
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Capability already exists and is self-serve; no product gap remains.",
+    "tracked_key": "PROJ-089",
+    "match_note": "Directly matches PROJ-089 (SSO login-history view for admins), confirmed shipped and sufficient for the customer's need."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Manual bulk-upload provisioning cumbersome during biannual reorgs",
+    "description": "Customer manages member provisioning through the admin console via manual bulk uploads. He noted this gets messy during the twice-yearly reorg but explicitly attributed the friction to organizational complexity rather than a product problem, saying 'that's org life, not you.' No specific defect or capability gap was described, and no change was requested.",
+    "line": 25,
+    "quote": "We do a big reorg twice a year and that's when it gets messy, but that's org life, not you.",
+    "context_lines": [
+     23,
+     24
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Customer explicitly frames this as organizational overhead rather than a product defect, and gave no specific, actionable ask.",
+    "tracked_key": null,
+    "match_note": "No catalogue match; too vague and explicitly self-attributed by the customer as non-product, so logged for visibility only."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,72 @@
+{
+ "call_id": "call-095",
+ "sha256": "886bc1f0c92f073043b41303ef9b3e6bf9c81c05aeff7f78defa8d4b7ded1595",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:35:28+00:00",
+ "usage": {
+  "input_tokens": 14584,
+  "output_tokens": 4367,
+  "latency_s": 44.88,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No API to programmatically create/manage teams (org units)",
+    "description": "Northgate creates and tears down 20-30 teams per month as physical-security contracts are won/lost, with regional onboardings requiring up to 15 teams created back-to-back. Team creation in BetterBark is fully manual through the admin console (click, type, save, repeat) with no bulk or programmatic path, unlike member assignment which has a bulk CSV import. The customer's provisioning platform already automates contract/site setup via webhooks and a Python middleware layer, and they want a REST API endpoint to create a team (with name and initial members) so it can be wired into that existing automation, eliminating manual re-keying and data drift (e.g., a team was named 'Riverside Mall' in one system and 'Riverside Plaza' in BetterBark, undetected for a week). Full lifecycle support (rename on site rename, archive/delete on contract end) was requested as a nice-to-have extension; create is the explicit must-have, with deletion manageable via a monthly manual batch as an interim workaround.",
+    "line": 32,
+    "quote": "An API endpoint to create teams. If I could call an API to create a team when our ops platform provisions a new site, I'd wire it into our existing provisioning automation in an afternoon",
+    "context_lines": [
+     15,
+     21,
+     29,
+     36
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Valuable feature addressing real toil and a demonstrated data-integrity risk (naming drift) for a high-churn account, but a manual workaround (hand-creating teams via the admin console) exists and is currently in use, so it is not blocking core use.",
+    "tracked_key": null,
+    "match_note": "No existing catalogue issue covers a team-management/creation API; closest tracked items (PROJ-155 SCIM, PROJ-095 CSV roster export) address different scopes (user deprovisioning, member roster export, not team/org-unit creation)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Admin underusing existing bulk member CSV import feature",
+    "description": "Fatima stated she is likely only using the existing bulk CSV member-import feature at about 60% of its potential and had stopped after learning the basics. Lena offered to send a best-practice guide with tips for large batches. This is a training/adoption gap on an already-working feature, not a product defect or missing capability.",
+    "line": 55,
+    "quote": "Honestly I'm probably using it at 60 percent of its potential. I figured out the basics and stopped.",
+    "context_lines": [
+     17,
+     19,
+     56,
+     57
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product defect; purely a customer-side under-utilization of an existing feature, addressed by documentation rather than engineering work.",
+    "tracked_key": null,
+    "match_note": "Not a distinct product gap; PROJ-095 (bulk CSV roster export, shipped) is a different capability from the existing member-assignment CSV import referenced here, which the customer confirms already works."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request to route future API-request updates directly to Wesley",
+    "description": "Wesley asked that when product's decision on the API feature request comes back, he be looped in directly as the technical point of contact rather than the update routing only through Fatima. Lena agreed to make him primary contact and copy Fatima. This is a communication/process preference, not a product behaviour or capability.",
+    "line": 62,
+    "quote": "when you get product's read, can you loop me directly rather than routing through Fatima? I'd rather be the technical point of contact on the API side.",
+    "context_lines": [
+     63
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Purely an internal communication/routing preference with no product impact.",
+    "tracked_key": null,
+    "match_note": "Not a product issue; no catalogue analog applies."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

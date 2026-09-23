@@ -1,0 +1,69 @@
+{
+ "call_id": "call-136",
+ "sha256": "ac4522830d23f16c9bb943a4bc672d80e8d2038b7b683440c6b1a1cc9819b03e",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:42:52+00:00",
+ "usage": {
+  "input_tokens": 14515,
+  "output_tokens": 6275,
+  "latency_s": 73.07,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Bulk CSV member import rejects entire file on trailing header whitespace, generic error",
+    "description": "Admin bulk CSV import (Admin panel > Members > bulk import) rejects the entire file and imports zero rows when the header row has a single trailing whitespace character after the last column name (observed on 'start_date '). The file's source was a CSV exported from the customer's newly migrated HRIS, which reliably produces this trailing space on every export, making the failure weekly-recurring for this account. The system returns an opaque 'An unknown error occurred. Please try again.' message with no line/field detail, and retrying the identical file fails every time (confirmed ~15 retries) since the message misleadingly implies a transient issue. Workaround: open the CSV in a plain-text editor and manually strip the trailing space from the header row before upload, which was confirmed to fix the import (230/230 rows succeeded).",
+    "line": 22,
+    "quote": "I upload the file, and it just... rejects the whole thing. The entire file. It doesn't import a single row.",
+    "context_lines": [
+     24,
+     30,
+     34,
+     38,
+     47
+    ],
+    "severity": "medium",
+    "severity_reason": "Blocks the customer's core weekly admin workflow across 14 properties and is reliably reproducible from their new HRIS export, but a manual workaround (stripping the trailing space) fully unblocks it, so it is not a no-workaround/critical case.",
+    "match_note": "No catalogued issue covers CSV import header parsing or this generic-error-on-import failure; closest is PROJ-149 (photo upload generic error) but that is a different feature/flow, so this is a new, distinct defect."
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Add dry-run/validation mode for bulk CSV member import",
+    "description": "Customer asked whether the product offers a way to validate a roster CSV before committing the import \u2014 a dry-run that reports whether the file is clean without actually creating any members. No such mode exists today; the only current practice is manually uploading a small 2-3 row 'canary' file first to surface formatting problems before running the full batch. Customer confirmed this would have caught the header-whitespace failure immediately and plans to adopt the canary-file habit as a stopgap going forward.",
+    "line": 50,
+    "quote": "is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?",
+    "context_lines": [
+     51,
+     52,
+     53
+    ],
+    "severity": "low",
+    "severity_reason": "Valuable quality-of-life improvement for admins doing frequent bulk imports, but not blocking since a manual canary-file workaround exists and no data integrity or availability impact.",
+    "match_note": "Not present in the catalogue; no existing tracked issue addresses pre-import CSV validation or a dry-run mode."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer centralizes all roster admin instead of delegating to property GMs",
+    "description": "Customer explained that she alone performs all roster/provisioning admin for 14 properties by design, because GMs are 'terrible at data hygiene' and once uploaded a misformatted spreadsheet. This is described as a deliberate operational choice she is satisfied with, not a complaint about missing product capability, and no change to the product was requested.",
+    "line": 16,
+    "quote": "The GMs are great at running hotels and terrible at data hygiene, so I don't let them touch the roster.",
+    "context_lines": [
+     14,
+     15,
+     17
+    ],
+    "severity": "low",
+    "severity_reason": "No product defect or requested change; purely a description of the customer's own administrative process with no stated product impact.",
+    "no_action_reason": "other",
+    "match_note": "Not a product complaint or request \u2014 customer states satisfaction with her own centralized workflow choice, so it does not map to any catalogue issue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,94 @@
+{
+ "call_id": "call-098",
+ "sha256": "e3ad6db5c0f9c2bed0821defba4e0beb5c1b829c1b2793ec788bd113985ddce4",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:36:14+00:00",
+ "usage": {
+  "input_tokens": 17147,
+  "output_tokens": 7074,
+  "latency_s": 75.17,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Managers not viewing team engagement dashboard views (adoption/habit issue)",
+    "description": "Amara notes she wishes more of her managers looked at their team engagement views, but she explicitly frames this as a 'get my managers to log in' habit problem rather than a platform defect. No specific UI, data, or functional problem with the engagement view itself is described. Priya offers a short manager-enablement coaching session as a fix, which is a services engagement, not a product change.",
+    "line": 54,
+    "quote": "I wish more of my managers looked at their team engagement views, but that's a \"get my managers to log in\" problem, not a platform problem.",
+    "context_lines": [
+     55,
+     56,
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly identified by the customer as a customer-side habit issue, not a product defect or missing capability.",
+    "match_note": "No catalogue issue matches; customer explicitly disclaims this as a platform problem, so it is not filed as one.",
+    "no_action_reason": "customer_side_cause",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Coach matching successfully served mission-driven/nonprofit-adjacent staff needs",
+    "description": "Amara states some staff specifically wanted coaches who understood the nonprofit-adjacent, mission-driven environment of an education organization, and reports the matching process met that need well. She confirms there were no complaints on this front and that it had been her biggest pre-renewal worry, now resolved. No change to the product is requested.",
+    "line": 50,
+    "quote": "A few of our staff specifically wanted coaches who understood the nonprofit-adjacent, mission-driven headspace, and the matching seemed to get that.",
+    "context_lines": [
+     51,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "Positive feedback only; no defect or capability gap is raised, and no action is requested.",
+    "match_note": "Not a defect or feature ask; customer confirms satisfaction with existing coach-matching functionality.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Seasonal start-of-school-year dip in coaching engagement self-resolves",
+    "description": "Amara reports that usage of the coaching program dips at the start of the school year when staff are busy onboarding students, then climbs back once workload normalizes. She states she briefly worried about this dip last fall but it recovered on its own without any intervention. No ongoing product issue is identified.",
+    "line": 48,
+    "quote": "Good, because I did briefly worry about it last fall until it recovered on its own.",
+    "context_lines": [
+     45,
+     46,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "Concern was workload-driven and self-resolved; not indicative of a product defect.",
+    "match_note": "No catalogue issue applies; the raised concern was explicitly described as having resolved on its own.",
+    "no_action_reason": "retracted",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer initially unsure whether 83% seat utilization indicated healthy usage",
+    "description": "Amara questioned whether 83% seat utilization was good, worrying the account was leaving value on the table. Priya explained that for a one-seat-per-person model this level is strong, and that pushing toward 100% usually requires nagging that backfires. Amara accepted this explanation and the concern was fully resolved within the call.",
+    "line": 16,
+    "quote": "83 is good? I always worry we're leaving value on the table.",
+    "context_lines": [
+     15,
+     17,
+     18,
+     19
+    ],
+    "severity": "low",
+    "severity_reason": "A perception/expectation issue resolved through explanation; no underlying product defect involved.",
+    "match_note": "Not a product issue; the customer's concern was a benchmarking misunderstanding, resolved in-call by the account team.",
+    "no_action_reason": "resolved_user_error",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}
