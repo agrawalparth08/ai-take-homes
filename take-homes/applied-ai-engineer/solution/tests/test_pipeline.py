@@ -217,6 +217,17 @@ class TestGateAndIdempotency(Harness):
         self.assertEqual([(p["kind"], p["call_ids"]) for p in pending], [("corroborate", ["call-004"])])
         self.assertEqual(pending[0]["corroboration"]["issue_key"], filed)
 
+    def test_reordered_reextraction_after_filing_proposes_nothing_new(self):
+        self.run_pipeline()
+        self.approve_all()
+        self.dispatch()
+        # Same transcripts, same evidence, but the model lists the findings in a different order.
+        for call in ("call-001", "call-002"):
+            self.responses[call] = list(reversed(self.responses[call]))
+        res = self.run_pipeline(refresh=True)
+        self.assertEqual(res.summary["proposals"]["new"], 0)
+        self.assertEqual(self.dispatch()["sent"], 0)
+
     def test_edit_after_approval_blocks_dispatch_until_reapproved(self):
         self.run_pipeline()
         self.approve_all()
