@@ -1,7 +1,7 @@
 # June Tapes: solution
 
 Customer-call transcripts → grounded, de-duplicated issue proposals → human approval → Jira/Slack stubs, with no duplicate writes on re-run.
-Design, results and trade-offs: [WRITEUP.md](WRITEUP.md). AI-tool disclosure: [AI_USE.md](AI_USE.md).
+Design, results and trade-offs: [WRITEUP.md](WRITEUP.md). AI-tool disclosure: [AI_USE.md](AI_USE.md). Requirement → test map: [TRACEABILITY.md](TRACEABILITY.md).
 
 ## Run it (from `take-homes/applied-ai-engineer/`)
 
@@ -16,8 +16,9 @@ pip install -r solution/requirements.txt
 
 ```bash
 python -m solution run --offline          # 140 calls -> solution/output/review.md (the human review packet)
-python -m solution eval --offline         # dev-set eval (calls 001-015) -> solution/output/eval-report.md
-python -m unittest discover -s solution/tests -t . -v   # 17 behavioural tests, fake model
+python -m solution eval --offline         # dev-set eval replay (calls 001-015) -> solution/output/eval-report-replay.md
+python -m unittest discover -s solution/tests -t . -v   # 41 behavioural tests, fake model
+python solution/scripts/mutation_check.py              # breaks 29 guarantees, checks each test goes red
 ```
 
 With a model (`ANTHROPIC_API_KEY` set → Anthropic SDK. Otherwise it falls back to a logged-in `claude` CLI):

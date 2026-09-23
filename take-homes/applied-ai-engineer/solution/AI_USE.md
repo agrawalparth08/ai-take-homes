@@ -1,32 +1,67 @@
 # AI-tool use
 
+The PDF asks for four things here. Which tools I used and for what. Where I wrote or designed and where I delegated. Where the AI got it wrong. One concrete case where I rejected its output. Each has a section below.
+
+## How the work flowed
+
+| Step | Who | Time | What came out |
+|---|---|---|---|
+| 1. Planning | Astra (GPT, via Codex) | 20 min | Three plan documents for a "Company Brain" built on Graphiti and Neo4j |
+| 2. First pass | GPT-5.6 Luna (via Codex) | 10 min | A partial scaffold: models, a store, providers and one red test. No pipeline ran. |
+| 3. Review and rebuild | Claude Code (Opus 5.5), directed by me | about 1 h 25 min, much of it waiting on model runs | The GPT plans discarded; a new plan; the pipeline, eval, tests and a full 140-call run |
+| 4. Independent review | Fable 5 subagent | inside step 3 | 16 defects, most with repro scripts, all fixed with regression tests |
+| 5. TDD pass | Claude Code, at my request | inside step 3 | Requirement traceability, mutation evidence (29 of 29 caught), gap tests written red first |
+| My own time | me | about 1 h | Setting direction, reviewing plans, flows, outputs and these docs |
+
+Total: about 2 h 55 min.
+
 ## Tools and what they did
 
 | Tool | Used for |
 |---|---|
-| **ChatGPT / Codex (GPT)** | An earlier planning pass: three plan documents and a partial code scaffold built around a Graphiti/Neo4j knowledge graph. **Discarded** (see below). None of that code is in this submission. |
-| **Claude Code, Opus 5.5** (main session) | Reviewed the GPT plans and recommended discarding them. Wrote the replacement plan and nearly all of the code, tests, eval harness and first drafts of these docs, working to my direction and review. |
-| **Claude Code subagent, Sonnet 5** | Drafted `eval/dev_expectations.json`: line spans for each dev label. It read only calls 001-015. |
-| **Claude Code subagent, Fable 5** | An independent code review, on a different model from the builder. It found 16 defects and reproduced most with scripts. |
-| **Claude Sonnet 5** (runtime) | The pipeline's own model: per-call extraction and cross-call grouping. |
+| Astra and GPT-5.6 Luna (Codex) | Steps 1 and 2 above. **Nothing from them ships.** The scaffold is archived outside the repo. |
+| Claude Code, Opus 5.5 | Most of the code, tests, eval harness and first drafts of these docs, working to my instructions |
+| Claude Code subagent, Sonnet 5 | Drafted `eval/dev_expectations.json` (a line span for each dev label). It read only calls 001-015. |
+| Claude Code subagent, Fable 5 | Independent code review. I keep a standing rule that a different model reviews the builder's work. |
+| Claude Sonnet 5 (runtime) | The pipeline's own model: one extraction per call, one grouping call across calls |
 
-## Wrote / designed vs delegated
+## What I decided, and what I delegated
 
-This build was heavily delegated, and I'd rather say so plainly than overstate my share.
+**My decisions:**
 
-- **What I decided:** to throw away the GPT plans unless they held up against the brief (they didn't); to build exactly what the brief asks and stop there; to route the code review to a different model from the one that built it; to run Claude as the runtime model.
-- **What Claude Code proposed and I accepted:** the pipeline shape; code deciding everything factual while the model only judges language; approval bound to a payload hash; the ledger with reconcile-before-retry; eval spans anchored to transcript lines.
-- **What was fully delegated:** the implementation, the span key (a subagent) and the bug hunt (the Fable reviewer).
-- **How it was checked:** 24 behavioural tests that call the provided stubs; 8 of the 30 eval spans spot-checked against the transcripts; the dev eval run 1 + 2 + 5 times with fresh model calls; an end-to-end demo that re-runs and re-dispatches and checks outbox line counts. I read the review packet and the demo transcript myself.
+- I ran the GPT planning and first pass, then brought both to Claude Code with one instruction: check them against the PDF, throw them out if they don't fit, and build only what the submission needs.
+- I held the scope to the brief. No graph, no agent framework, no extras.
+- I chose Claude as the runtime model.
+- I sent the code to a second model for review, so the builder did not grade its own work.
+- Mid-build, I stopped feature work and required proper TDD, tied to the PDF's evaluation criteria and my own review. That produced `TRACEABILITY.md`, the mutation check and the red-first gap tests.
+- I reviewed the flows and the two red gap tests before they were built: a copy-paste approve command on each card, and a code-side flag for instruction-like text.
+- I set the readability bar for the docs (ASD-STE100 style, grade 8 or below).
+
+**Proposed by Claude Code, reviewed and kept by me:** the pipeline shape; code deciding every fact while the model only judges language; approval bound to a payload hash; the ledger with an outbox check before any retry; eval spans anchored to transcript lines.
+
+**Delegated:** the implementation, the eval span key and the bug hunt.
+
+**How it was checked:**
+
+- 41 behavioural tests that call the provided stubs
+- a mutation check that breaks each of 29 guarantees and confirms its test fails
+- 8 of the 30 eval spans spot-checked against the transcripts
+- the dev eval run 1 + 2 + 5 times with fresh model calls
+- a demo that re-runs and re-dispatches and checks the outbox line counts
 
 ## Where the AI got it wrong
 
-1. **The GPT plans were built for the wrong problem.** They targeted a "Company Brain" with Graphiti, Neo4j, an A/B test between retrievers, a security-scan workflow and threat models. The brief asks for a tight 2-3 hour build and says "don't gold-plate". The catalogue holds 15 issues, which fit in one prompt. The plans also missed the label details that decide the grade: an account already attributed means no action, trivial means P4, shipped means enablement, and one ticket per cross-call cluster.
-2. **Opus keyed "already handled" findings by list position.** A re-extraction can reorder the list, so a finding could be silently skipped. The test suite caught it. The fix keys on (call, transcript hash, quoted line).
-3. **The Opus-built code had real reliability holes** that the Fable review found. A withdrawn proposal never came back after a partial failure. A write marked `failed` but actually delivered could be re-filed. Scheduled re-runs overwrote reviewer edits. A clustering failure crashed the whole run. All are fixed, each with a regression test.
-4. **The runtime model (prompt v3)** filed a workaround ask as its own feature (call-012) and a cosmetic remark the customer explicitly declined (call-006). The prompt was fixed, and a code rule added for workaround asks.
+1. **The GPT plans solved the wrong problem.** They built toward a "Company Brain" with Graphiti, Neo4j, an A/B test of retrievers, security scans and threat models. The brief asks for a 2-3 hour build and says "don't gold-plate". The catalogue has 15 issues, and they fit in one prompt. The plans also missed the label details that decide the grade: already attributed means no action, trivial means P4, shipped means enablement, and one ticket per cross-call cluster.
+2. **Claude keyed filed findings by list position.** A re-extraction can reorder the list, so a finding could be skipped. A test caught it. The key is now (call, transcript hash, quoted line).
+3. **Claude's first version had reliability holes.** The Fable review found them:
+   - a withdrawn card never came back after a partial failure
+   - a write marked `failed` but actually delivered could be filed again
+   - a scheduled re-run overwrote a reviewer's edit
+   - a failed grouping call crashed the whole run
+4. **Claude's first tests were not test-first.** Some were also weak: the first mutation run caught 16 of 20. One real gap had no test at all (re-running after filing). My TDD request surfaced this. It is fixed and logged in `TDD_LOG.md`.
+5. **The runtime model on prompt v3** filed a workaround ask as its own feature (call-012). It also filed a cosmetic remark that the customer declined (call-006). The prompt changed, and a code rule now folds workaround asks into their bug.
 
-## A case where I rejected the output
+## Output I rejected
 
-- **Rejected: the whole GPT plan set, and its partial code.** Three ideas survived: exact-quote evidence checks, approval bound to a hash, and a delivery ledger. The rest was archived outside the repo, and the build restarted from a plan that maps line by line to the brief.
-- **Rejected: one of the Fable reviewer's findings.** It argued that a correct corroboration quoting a line just outside the labelled span should pass. Strict spans were kept. Loosening the rule makes the grader depend on judgment, which is exactly what the brief asks us to avoid. Instead the spans are wide, and the failure report prints the finding and its line number, so a human can overrule a case in seconds.
+- **The GPT plan set and scaffold.** Three ideas survived: exact-quote evidence checks, approval bound to a hash, and a delivery ledger. The rest was archived. The build restarted from a plan that maps line by line to the brief.
+- **One Fable review finding.** It argued that a correct write quoting a line just outside the labelled span should pass. The spans stay strict: a looser rule would make the grader a judgment call, and the brief asks for a rule a second engineer would agree with. The spans are wide, and each failure prints the finding and its line number, so a person can overrule a case quickly.

@@ -31,4 +31,19 @@ The first build (commits `b34e51f`, `7fb1ca7`) did **not** follow strict red-gre
 | T4 grader rules, table-driven (9 rows) + call-level garbage + cluster ref + one-prediction-one-case + diagnosis | green | the grader matched its docstring |
 | T5 health: clean, 6 failure modes, `--only` masking, stuck delivery, event fields | green | |
 
-**Waiting for review before implementing the two RED tests.**
+Parth approved both RED tests.
+
+## 3. Green
+
+| Test | Change |
+|---|---|
+| each card has a copy-paste `approve '<key>'` line | `review._card` adds the line |
+| code flags instruction-like evidence | `proposals.instruction_like` (a regex over the quoted line) sets `review.instruction_like_evidence`; the card and the corroboration table show a warning. `store.upsert_proposal` now refreshes review-only fields when the written payload is unchanged, so new flags reach existing cards. |
+
+Suite: 41 tests pass. On the real 140-call run the flag fires 0 times: the model dismissed both planted injections (calls 005 and 011), so no card quotes them.
+
+## 4. Mutation evidence for the gap tests
+
+Nine more mutations cover the gap tests that were green on the first run. The first try of the flag mutation survived, but the mutation was wrong (`[] or (...)` still gives a list), not the test. With `[] and ...` it goes red.
+
+`python solution/scripts/mutation_check.py`: **29/29** (28 red, 1 held by a second guard).

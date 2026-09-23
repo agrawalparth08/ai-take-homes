@@ -28,7 +28,7 @@ Main decisions:
 | Same problem on two calls? | model, validated | Semantic. Code rejects any grouping that isn't a clean partition and falls back to one card each: a reviewer can merge two cards, but can't see an issue a bad merge swallowed. |
 | Severity | model proposes, with a reason | Shown on the card. P4 for trivial defects. The customer's "P0!" framing is ignored by instruction. |
 | Workaround asks ("give us a re-sync button") | model links, code enforces | Folded into the bug they work around (call-012), never a separate ticket. |
-| Every write | code, after approval | |
+| Every write | code, after approval | Each card has a copy-paste approve command. Code flags instruction-like text in the evidence, whatever the model decided. |
 
 Prompt injection (call-005, call-011) is handled twice. The prompt treats the transcript as data. Even if the model obeyed an injected instruction, the result could only become a card in the review queue, never a write.
 
@@ -40,7 +40,7 @@ The stubs append whatever you send. Three things make "run it twice, get nothing
 2. **Model drift between runs.** A re-extraction can reword or reorder findings. Evidence that's already filed is "settled" by (call, transcript hash, quoted line), not by list position. Tickets we've filed join the dedupe catalogue, so a later report of the same issue becomes a corroboration of our own ticket.
 3. **Partial failure.** Each transcript runs in isolation, and one failure is logged and marked while the rest proceed. A `--refresh` whose model call fails falls back to the last good extraction. If clustering fails, the run degrades to one card per candidate and skips all withdrawals. Proposals touching a failed call are never withdrawn. Jira and Slack are separate ledger rows, so a Slack outage retries only Slack.
 
-A Fable-model review of my first version found 16 defects here, most with repro scripts. Examples: a withdrawn proposal never came back, a `failed` write that had actually landed could be re-filed, and a scheduled re-run silently overwrote a reviewer's edit. All are fixed, each with a regression test (24 tests, `solution/tests/`).
+A Fable-model review of my first version found 16 defects here, most with repro scripts. Examples: a withdrawn proposal never came back, a `failed` write that had actually landed could be re-filed, and a scheduled re-run silently overwrote a reviewer's edit. All are fixed, each with a regression test.
 
 Two further rules. Reviewer edits win over regenerated payloads, and an edit voids the approval. A rejected proposal reopens if a *new* call reports the same issue. `run` and `dispatch` share a file lock.
 
@@ -83,7 +83,7 @@ I've seen it work: an offline re-run after filing couldn't cluster and `health` 
 
 ## Validation
 
-24 behavioural tests on a fake model. They cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 2 tickets and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. Everything replays offline from `solution/cache/`.
+41 behavioural tests on a fake model, traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 2 tickets and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. Everything replays offline from `solution/cache/`.
 
 ## Prototype vs production
 
@@ -94,4 +94,4 @@ Production would run on a scheduler (cron, or Airflow if it grows) with Postgres
 Next: calibrate severity against a labelled sample; add a slice of the holdout for hand-labelling to measure real precision; let reviewers merge or split clusters from the CLI; move the review packet to Slack buttons.
 Left out on purpose: a knowledge graph or vector store (15 tracked issues fit in the prompt), an agent framework (one structured call per transcript is enough and is easier to test), and automatic filing of anything.
 
-Time: [verify: hours you spent, including model runs]. AI use is disclosed in [AI_USE.md](AI_USE.md).
+Time: about 2 h 55 min in total. That is 20 min of planning with Astra and 10 min of a first pass with Luna (both GPT, both discarded), about 1 h 25 min in the Claude Code session (much of it waiting on model runs), and about 1 h of my own direction and review. AI use is disclosed in [AI_USE.md](AI_USE.md).
