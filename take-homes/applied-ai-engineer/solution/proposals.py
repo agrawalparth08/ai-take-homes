@@ -92,6 +92,8 @@ def cluster(cands: list[Finding], filed: list[dict], llm: LLM | None, cache_dir:
             continue
         seen.update(ids)
         fk = g.get("filed_key") if g.get("filed_key") in filed_keys else None
+        if g.get("filed_key") and fk is None and log:
+            log.event("cluster", "warn", detail=f"unknown filed_key {g.get('filed_key')!r}; treated as new")
         groups.append(Group([by_id[i] for i in sorted(ids)], fk, g.get("reason", "")))
     for f in cands:
         if f.id not in seen:
@@ -145,23 +147,46 @@ def new_ticket(group: Group, ts: dict[str, Transcript], related: dict[str, list[
                                    "link": e["link"]} for e in evidence[1:]],
         "idempotency_key": idem,
     }
-    slack = []
+    slack_ctx = []
     for owner in _owners(group.members, ts):
         calls = [m.call_id for m in group.members if _owner_name(ts[m.call_id]) == owner]
-        slack.append({
-            "channel": slack_handle(owner),
-            "text": (f"New {jira['type'].lower()} filed from your call(s) {', '.join(calls)}: "
-                     f"{{jira_key}} [{jira['priority']}] {jira['summary']}. "
-                     f"Customer quote: \"{primary.quote if primary.call_id in calls else _first(group.members, calls).quote}\""),
-            "idempotency_key": f"{idem}-{slack_handle(owner)[1:]}",
-        })
+        quote = primary.quote if primary.call_id in calls else _first(group.members, calls).quote
+        slack_ctx.append({"channel": slack_handle(owner), "calls": calls, "quote": quote,
+                          "idempotency_key": f"{idem}-{slack_handle(owner)[1:]}"})
+    slack = new_ticket_slack(jira, slack_ctx)
     return {
         "key": key, "kind": "new_ticket", "call_ids": sorted({m.call_id for m in group.members}),
         "jira": jira, "slack": slack,
         "review": {"severity": severity, "severity_reason": primary.severity_reason,
                    "match_note": primary.match_note, "cluster_reason": group.reason,
-                   "evidence": evidence, "related": [r.title for r in extras]},
+                   "evidence": evidence, "related": [r.title for r in extras], "slack_ctx": slack_ctx},
     }
+
+
+def new_ticket_slack(jira: dict, ctx: list[dict]) -> list[dict]:
+    return [{"channel": c["channel"],
+             "text": (f"New {jira['type'].lower()} filed from your call(s) {', '.join(c['calls'])}: "
+                      f"{{jira_key}} [{jira['priority']}] {jira['summary']}. Customer quote: \"{c['quote']}\""),
+             "idempotency_key": c["idempotency_key"]} for c in ctx]
+
+
+def apply_edit(payload: dict, *, priority: str | None = None, title: str | None = None,
+               type_: str | None = None, by: str = "reviewer") -> dict:
+    """A reviewer edit keeps the whole bundle consistent: Jira fields, description footer and Slack text."""
+    j = payload["jira"]
+    if priority:
+        j["priority"] = priority
+    if title:
+        j["summary"] = title
+    if type_:
+        j["type"] = type_
+    lines = [l for l in j["description"].split("\n") if not l.startswith("_Severity ") and not l.startswith("_Edited ")]
+    footer = lines.index(next(l for l in lines if l.startswith("_Drafted by")))
+    lines.insert(footer, f"_Edited by {by}: {j['type']} {j['priority']} (model proposed {payload['review']['severity']}: "
+                         f"{payload['review']['severity_reason']})_")
+    j["description"] = "\n".join(lines)
+    payload["slack"] = new_ticket_slack(j, payload["review"]["slack_ctx"])
+    return payload
 
 
 def corroboration(call_id: str, target: str, target_summary: str, members: list[Finding],

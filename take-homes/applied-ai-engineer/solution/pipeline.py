@@ -42,8 +42,14 @@ class RunResult:
 
 def run(paths: Paths, llm: LLM | None, *, only: set[str] | None = None, refresh: bool = False,
         workers: int = 4, store: Store | None = None, persist: bool = True) -> RunResult:
-    log = RunLog(paths.runs, "run")
     store = store or Store(paths.state)
+    with store.exclusive("state"):  # a run and a dispatch never interleave on the same state
+        return _run(paths, llm, only, refresh, workers, store, persist)
+
+
+def _run(paths: Paths, llm: LLM | None, only: set[str] | None, refresh: bool, workers: int, store: Store,
+         persist: bool) -> RunResult:
+    log = RunLog(paths.runs, "run")
     catalog = json.loads((paths.root / "data" / "existing_issues.json").read_text())
     by_key = {i["key"]: i for i in catalog}
     files = sorted((paths.root / "transcripts").glob("call-*.md"))
@@ -93,6 +99,9 @@ def run(paths: Paths, llm: LLM | None, *, only: set[str] | None = None, refresh:
             stats["from_cache"] += int(e.cached)
             store.set_call(t.call_id, t.sha256, "extracted", log.run_id)
             res.findings.extend(e.findings)
+            if e.stale_fallback:
+                log.event("extract", "stale_fallback", call_id=t.call_id,
+                          detail="model call failed on --refresh; reused the previous extraction")
             log.event("extract", "ok", call_id=t.call_id, cached=e.cached, model=e.model,
                       prompt_version=e.prompt_version, n_findings=len(e.findings),
                       n_actionable=sum(f.actionable for f in e.findings),
@@ -104,27 +113,30 @@ def run(paths: Paths, llm: LLM | None, *, only: set[str] | None = None, refresh:
     stats["failed"] = len(failed)
 
     # 3. Build proposals (code) with cross-call clustering (model, validated).
-    res.proposals = build_proposals(res.findings, res.transcripts, by_key, store, llm, paths.cache, log)
+    res.proposals, degraded = build_proposals(res.findings, res.transcripts, by_key, store, llm, paths.cache, log)
 
     # 4. Persist proposals. Approved-then-changed payloads lose their approval automatically.
-    changes = {"new": 0, "unchanged": 0, "changed": 0, "locked": 0}
+    changes = {k: 0 for k in ("new", "unchanged", "changed", "revived", "reopened", "kept_human_edit", "locked")}
     if persist:
         for p in res.proposals:
             outcome = store.upsert_proposal(p["key"], p["kind"], p, pr.sha(pr.written_part(p)), log.run_id)
             changes[outcome] += 1
             log.event("proposal", outcome, proposal=p["key"], kind=p["kind"], calls=p["call_ids"])
-        # Only withdraw proposals from calls this run actually looked at (a partial / --only run must
-        # not withdraw everything else).
-        scope = {c for c in res.transcripts if c not in failed}
-        live = {p["key"] for p in res.proposals}
-        withdrawn = [k for k in store.withdraw_missing(live | _out_of_scope(store, scope), log.run_id)]
-        for k in withdrawn:
-            log.event("proposal", "withdrawn", proposal=k)
+        # Withdraw proposals the pipeline no longer produces, but only when this run had the full picture
+        # for them: never for proposals outside an --only scope or touching a call that failed this run,
+        # and not at all if clustering degraded (its fallback keys differ from the real clusters').
+        if not degraded:
+            ok_scope = {c for c in res.transcripts if c not in failed}
+            keep = {p["key"] for p in res.proposals} | {
+                q["key"] for q in store.proposals()
+                if not set(q["payload"]["call_ids"]) <= ok_scope or set(q["payload"]["call_ids"]) & set(failed)}
+            for k in store.withdraw_missing(keep, log.run_id):
+                log.event("proposal", "withdrawn", proposal=k)
         (paths.state / "last_findings.json").write_text(json.dumps([asdict(f) for f in res.findings], indent=1))
 
     fs = res.findings
     res.summary = log.finish(
-        calls=stats, failed_calls=failed,
+        scope="partial" if only else "full", degraded=degraded, calls=stats, failed_calls=failed,
         findings={"total": len(fs), "actionable": sum(f.actionable for f in fs),
                   "rejected_by_validator": sum(not f.valid for f in fs),
                   "no_action": sum(f.valid and f.disposition == "no_action" for f in fs)},
@@ -141,12 +153,8 @@ def _outcome(f: ex.Finding) -> str:
     return f.disposition
 
 
-def _out_of_scope(store: Store, scope: set[str]) -> set[str]:
-    return {p["key"] for p in store.proposals() if not set(p["payload"]["call_ids"]) & scope}
-
-
 def build_proposals(findings: list[ex.Finding], ts: dict[str, Transcript], by_key: dict[str, dict],
-                    store: Store, llm: LLM | None, cache: Path, log: RunLog) -> list[dict]:
+                    store: Store, llm: LLM | None, cache: Path, log: RunLog) -> tuple[list[dict], bool]:
     # Evidence already covered by something we dispatched is settled and must not be re-proposed (e.g. as
     # a "corroboration" of the very ticket it created). Keyed by (call, transcript version, quoted line),
     # not by finding index: a re-extraction can reorder the model's list.
@@ -157,12 +165,26 @@ def build_proposals(findings: list[ex.Finding], ts: dict[str, Transcript], by_ke
             settled.update((e["call_id"], e.get("sha", ""), e["line"]) for e in p["payload"]["review"]["evidence"])
 
     live = [f for f in findings if f.actionable and (f.call_id, ts[f.call_id].sha256[:12], f.line) not in settled]
+    # Workaround/stopgap asks ride along with the issue they work around instead of becoming their own
+    # ticket. The model links them via related_line; code enforces the rule even when the model also
+    # (inconsistently) marked the ask as a new feature.
     related: dict[str, list[ex.Finding]] = {}
-    for f in findings:  # workaround requests ride along with the issue they work around
-        if f.valid and f.disposition == "no_action" and f.no_action_reason == "workaround_request" and f.related_line:
-            host = next((g for g in live if g.call_id == f.call_id and g.line == f.related_line), None)
-            if host:
-                related.setdefault(host.id, []).append(f)
+    for f in findings:
+        if not (f.valid and f.related_line):
+            continue
+        host = next((g for g in live if g.call_id == f.call_id and g.line == f.related_line and g is not f
+                     and g.disposition == "new"), None)
+        in_live = any(g is f for g in live)
+        is_workaround = f.disposition == "no_action" and f.no_action_reason == "workaround_request"
+        is_linked_feature = in_live and f.disposition == "new" and f.kind == "feature" and host is not None \
+            and host.kind == "bug"
+        if host and (is_workaround or is_linked_feature):
+            related.setdefault(host.id, []).append(f)
+            if in_live:
+                live = [g for g in live if g is not f]
+                f.disposition, f.no_action_reason = "no_action", "workaround_request"
+                f.policy_note = f"folded into {host.id}: stopgap for that issue, not a separate ticket"
+                log.event("policy", "folded_related", call_id=f.call_id, finding=f.id, host=host.id)
 
     out: list[dict] = []
     # Corroborations of tracked issues: one per (call, issue).
@@ -177,7 +199,15 @@ def build_proposals(findings: list[ex.Finding], ts: dict[str, Transcript], by_ke
 
     # New issues: cluster across calls (and against tickets we already filed).
     filed = store.filed_tickets()
-    groups = pr.cluster([f for f in live if f.disposition == "new"], filed, llm, cache, log)
+    cands = [f for f in live if f.disposition == "new"]
+    degraded = False
+    try:
+        groups = pr.cluster(cands, filed, llm, cache, log)
+    except Exception as err:  # clustering down: still produce everything else, one card per candidate
+        degraded = True
+        log.event("cluster", "failed", error=f"{type(err).__name__}: {err}",
+                  detail="fell back to one proposal per candidate; withdrawals skipped this run")
+        groups = [pr.Group([f], None, "clustering unavailable: not checked for duplicates") for f in cands]
     filed_by_key = {x["key"]: x for x in filed}
     for g in groups:
         log.event("cluster", "group", members=[m.id for m in g.members], filed_key=g.filed_key, reason=g.reason)
@@ -189,7 +219,7 @@ def build_proposals(findings: list[ex.Finding], ts: dict[str, Transcript], by_ke
                                             ts[call_id], True))
         else:
             out.append(pr.new_ticket(g, ts, related))
-    return sorted(out, key=lambda p: p["key"])
+    return sorted(out, key=lambda p: p["key"]), degraded
 
 
 def last_findings(paths: Paths) -> list[ex.Finding]:

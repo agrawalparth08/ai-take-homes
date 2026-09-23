@@ -45,12 +45,13 @@ class RunLog:
         return s
 
 
-def health(runs_dir: Path, max_age_hours: float = 26.0) -> tuple[bool, list[str]]:
-    """Return (healthy, messages). Designed to be run by a separate scheduler/alerting job."""
+def health(runs_dir: Path, max_age_hours: float = 26.0, store=None) -> tuple[bool, list[str]]:
+    """Return (healthy, messages). Designed to be run by a separate scheduler/alerting job.
+    Only full-scope runs count: an `--only` debug run must not mask a stalled schedule."""
     summaries = []
     for p in sorted(runs_dir.glob("*/summary.json")):
         s = json.loads(p.read_text())
-        if s.get("command") == "run":
+        if s.get("command") == "run" and s.get("scope", "full") == "full":
             summaries.append(s)
     msgs: list[str] = []
     if not summaries:
@@ -88,6 +89,25 @@ def health(runs_dir: Path, max_age_hours: float = 26.0) -> tuple[bool, list[str]
         if not lo <= rate <= hi:
             ok = False
             msgs.append(f"DRIFT: {rate:.2f} actionable findings/call vs recent band [{lo:.2f}, {hi:.2f}]")
+    if last.get("degraded"):
+        ok = False
+        msgs.append("DEGRADED: clustering failed last run; duplicates were not merged and withdrawals were skipped")
+    stale = last.get("event_counts", {}).get("extract.stale_fallback", 0)
+    if stale:
+        ok = False
+        msgs.append(f"DEGRADED: {stale} calls reused an old extraction because the model call failed")
+    if store is not None:
+        stuck = [a["action_key"] for a in store.actions() if a["status"] in ("sending", "failed")]
+        if stuck:
+            ok = False
+            msgs.append(f"DELIVERY: {len(stuck)} writes failed or unconfirmed (run dispatch to reconcile): {stuck[:5]}")
+        waiting = [p for p in store.proposals("approved") if not any(
+            a["proposal_key"] == p["key"] and a["status"] == "sent" for a in store.actions())]
+        old = [p["key"] for p in waiting if p["decided_at"] and
+               (datetime.now(timezone.utc) - datetime.fromisoformat(p["decided_at"])).total_seconds() > max_age_hours * 3600]
+        if old:
+            ok = False
+            msgs.append(f"DELIVERY: {len(old)} approved proposals never dispatched (dispatch job not running?)")
     if c["extracted"] >= 10 and f["actionable"] == 0:
         ok = False
         msgs.append("STOPPED?: 10+ calls processed and zero actionable findings")

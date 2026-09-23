@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS proposals (
   decided_by TEXT,
   decided_at TEXT,
   note TEXT,
+  human_edited INTEGER NOT NULL DEFAULT 0,  -- 1 = a reviewer edited it; the pipeline must not overwrite
   run_id TEXT NOT NULL,
   updated_at TEXT NOT NULL
 );
@@ -97,14 +98,20 @@ class Store:
 
     # --- proposals ---------------------------------------------------------
     def upsert_proposal(self, key: str, kind: str, payload: dict, sha: str, run_id: str) -> str:
-        """Insert or refresh a proposal. Returns what happened: new | unchanged | changed | locked.
+        """Insert or refresh a proposal. Returns: new | unchanged | changed | revived | reopened |
+        kept_human_edit | locked.
 
-        A proposal that has already been dispatched is never rewritten (locked). If the payload of an
-        approved-but-undispatched proposal changes, its approval goes stale automatically because
-        approved_sha no longer equals payload_sha.
+        - Anything with a delivery attempt (sent, sending OR failed: a failed call may have landed) is
+          never rewritten: 'locked'.
+        - A reviewer's edit wins over a regenerated payload: 'kept_human_edit'.
+        - A withdrawn proposal the pipeline produces again comes back to the queue: 'revived'.
+        - A rejected proposal that gained evidence from a NEW call goes back to review: 'reopened'
+          (otherwise one rejection would silently swallow every later report of the same issue).
+        - If an approved payload changes, approved_sha no longer matches, so the approval is stale.
         """
         with self.tx() as db:
-            row = db.execute("SELECT payload_sha, status FROM proposals WHERE key=?", (key,)).fetchone()
+            row = db.execute("SELECT payload, payload_sha, status, human_edited FROM proposals WHERE key=?",
+                             (key,)).fetchone()
             if row is None:
                 db.execute(
                     "INSERT INTO proposals (key, kind, payload, payload_sha, status, run_id, updated_at) "
@@ -112,15 +119,27 @@ class Store:
                     (key, kind, json.dumps(payload, sort_keys=True), sha, run_id, now()),
                 )
                 return "new"
-            if row["payload_sha"] == sha:
-                return "unchanged"
             if self._dispatched(db, key):
                 return "locked"
+            old_calls = set(json.loads(row["payload"])["call_ids"])
+            if row["status"] == "withdrawn":
+                db.execute("UPDATE proposals SET payload=?, payload_sha=?, status='proposed', approved_sha=NULL, "
+                           "human_edited=0, run_id=?, updated_at=? WHERE key=?",
+                           (json.dumps(payload, sort_keys=True), sha, run_id, now(), key))
+                return "revived"
+            if row["payload_sha"] == sha:
+                return "unchanged"
+            if row["human_edited"]:
+                return "kept_human_edit"
+            status = row["status"]
+            outcome = "changed"
+            if status == "rejected" and set(payload["call_ids"]) - old_calls:
+                status, outcome = "proposed", "reopened"
             db.execute(
-                "UPDATE proposals SET payload=?, payload_sha=?, run_id=?, updated_at=? WHERE key=?",
-                (json.dumps(payload, sort_keys=True), sha, run_id, now(), key),
+                "UPDATE proposals SET payload=?, payload_sha=?, status=?, run_id=?, updated_at=? WHERE key=?",
+                (json.dumps(payload, sort_keys=True), sha, status, run_id, now(), key),
             )
-            return "changed"
+            return outcome
 
     def withdraw_missing(self, live_keys: set[str], run_id: str) -> list[str]:
         """Proposals no longer produced by the pipeline (and never dispatched) are withdrawn, not deleted."""
@@ -138,7 +157,7 @@ class Store:
     @staticmethod
     def _dispatched(db: sqlite3.Connection, key: str) -> bool:
         return db.execute(
-            "SELECT 1 FROM actions WHERE proposal_key=? AND status IN ('sent','sending') LIMIT 1", (key,)
+            "SELECT 1 FROM actions WHERE proposal_key=? LIMIT 1", (key,)  # any attempt may have landed
         ).fetchone() is not None
 
     def proposals(self, status: str | None = None) -> list[dict[str, Any]]:
@@ -158,6 +177,8 @@ class Store:
                 raise KeyError(key)
             if row["status"] == "withdrawn":
                 raise ValueError(f"{key} was withdrawn by a later run; nothing to decide")
+            if decision != "approved" and self._dispatched(db, key):
+                raise ValueError(f"{key} is partly delivered; it can't be un-approved. Run dispatch to finish it.")
             db.execute(
                 "UPDATE proposals SET status=?, approved_sha=?, decided_by=?, decided_at=?, note=? WHERE key=?",
                 (decision, row["payload_sha"] if decision == "approved" else None, who, now(), note, key),
@@ -170,7 +191,7 @@ class Store:
                 raise ValueError(f"{key} is already dispatched; edit it in Jira")
             db.execute(
                 "UPDATE proposals SET payload=?, payload_sha=?, status='proposed', approved_sha=NULL, "
-                "updated_at=? WHERE key=?",
+                "human_edited=1, updated_at=? WHERE key=?",
                 (json.dumps(payload, sort_keys=True), sha, now(), key),
             )
 

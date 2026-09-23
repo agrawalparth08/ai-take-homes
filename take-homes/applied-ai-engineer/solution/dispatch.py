@@ -60,7 +60,7 @@ def default_sinks() -> Sinks:
 
 def dispatch(store: Store, sinks: Sinks, log: RunLog) -> dict:
     stats = {"sent": 0, "reconciled": 0, "skipped_already_sent": 0, "stale_approval": 0, "failed": 0}
-    with store.exclusive("dispatch"):
+    with store.exclusive("state"):
         for p in store.proposals("approved"):
             payload = p["payload"]
             if sha(written_part(payload)) != p["approved_sha"]:

@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import json
 
-PROMPT_VERSION = "extract-v3"
+PROMPT_VERSION = "extract-v4"
 CLUSTER_VERSION = "cluster-v1"
 
 NO_ACTION_REASONS = [
@@ -49,7 +49,11 @@ A finding is actionable (kind "bug" or "feature") only if ALL hold:
   pricing, or competitive chatter).
 - It still stands by the end of the call (not retracted, not explained as user error or a customer-side cause).
 - It is specific enough for an engineer to act on (what, where, ideally how to reproduce).
-Real-but-trivial defects (typos, small visual bugs) ARE actionable: mark them severity "low".
+- The customer wants it changed. A taste remark (font size, truncation style, colours, photos) that the customer
+  says is "just an observation" or "not really asking for anything" is no_action / cosmetic_preference.
+Real-but-trivial DEFECTS (a typo in product text, a broken link) ARE actionable: mark them severity "low".
+A workaround or stopgap request for another issue raised on the same call is NOT filed separately: use
+no_action / workaround_request and set related_line to that issue's line.
 
 For each finding:
 - line + quote: the single [EXTERNAL] line that best states the issue, and a VERBATIM contiguous excerpt of it
@@ -61,7 +65,7 @@ For each finding:
                     AND same scope. A different IdP, platform, or failure mode is a DIFFERENT issue.
   "shipped_feature" the customer asks for something the catalogue shows as Shipped (set tracked_key).
   "no_action"       not actionable (set no_action_reason).
-- related_line: for a workaround request tied to another finding on this call, that finding's line.
+- related_line: for a workaround request tied to another finding on this call, that finding's line (else null).
 - severity: critical = security/data loss, or core use blocked for many users with no workaround;
   high = wrong data feeding customer decisions, blocks a rollout/audit/compliance, or no workaround;
   medium = real defect or valuable feature with a workaround or limited scope; low = cosmetic/typo.

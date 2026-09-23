@@ -22,6 +22,7 @@ from pathlib import Path
 
 from . import dispatch as dp
 from . import evaluate, llm, obs, pipeline, review
+from . import proposals
 from .proposals import sha, written_part
 from .store import Store
 
@@ -100,19 +101,19 @@ def main(argv: list[str] | None = None) -> int:
         if not p or "jira" not in p["payload"]:
             print(f"{args.key}: not an editable new-ticket proposal", file=sys.stderr)
             return 1
-        pl = p["payload"]
-        if args.priority:
-            pl["jira"]["priority"] = args.priority
-        if args.title:
-            pl["jira"]["summary"] = args.title
-        if args.type:
-            pl["jira"]["type"] = args.type
+        pl = proposals.apply_edit(p["payload"], priority=args.priority, title=args.title, type_=args.type,
+                                  by=getpass.getuser())
         store.edit_payload(args.key, pl, sha(written_part(pl)))
         print(f"edited {args.key}; it needs approval again")
         review.render(store, _last_findings(paths), paths.out)
     elif args.cmd == "dispatch":
         log = obs.RunLog(paths.runs, "dispatch")
-        stats = dp.dispatch(store, dp.default_sinks(), log)
+        try:
+            stats = dp.dispatch(store, dp.default_sinks(), log)
+        except RuntimeError as e:  # lock held by a running `run`/`dispatch`
+            log.finish(error=str(e))
+            print(e, file=sys.stderr)
+            return 3
         log.finish(dispatch=stats)
         print(f"dispatch: {stats}")
         review.render(store, _last_findings(paths), paths.out)
@@ -121,10 +122,13 @@ def main(argv: list[str] | None = None) -> int:
         print("proposals:", dict(Counter((p["kind"], p["status"]) for p in store.proposals())))
         print("actions:  ", dict(Counter((a["sink"], a["status"]) for a in store.actions())))
     elif args.cmd == "health":
-        ok, msgs = obs.health(paths.runs, args.max_age_hours)
+        ok, msgs = obs.health(paths.runs, args.max_age_hours, store)
         print("\n".join(msgs))
         return 0 if ok else 1
     elif args.cmd == "eval":
+        if args.offline and (args.runs > 1 or args.refresh):
+            print("--offline replays the cache, so it can only do a single run without --refresh", file=sys.stderr)
+            return 1
         model = None if args.offline else llm.make(args.backend, args.model)
         rep = evaluate.run_eval(ROOT, model, args.runs, args.refresh, paths.out)
         print(json.dumps({k: v for k, v in rep.items() if k != "per_run"}, indent=1))

@@ -221,14 +221,34 @@ class TestGateAndIdempotency(Harness):
         self.run_pipeline()
         self.approve_all()
         key = next(p["key"] for p in self.store.proposals() if p["kind"] == "new_ticket")
-        p = self.store.proposal(key)["payload"]
-        p["jira"]["priority"] = "P4"
+        p = proposals.apply_edit(self.store.proposal(key)["payload"], priority="P4", type_="Feature")
+        self.assertIn("[P4]", p["slack"][0]["text"])
+        self.assertIn("New feature", p["slack"][0]["text"])
         self.store.edit_payload(key, p, proposals.sha(proposals.written_part(p)))
         self.dispatch()
         self.assertEqual(self.outbox_lines("jira.jsonl"), [])
         self.store.decide(key, "approved", "tester")
         self.dispatch()
         self.assertEqual(json.loads(self.outbox_lines("jira.jsonl")[0])["priority"], "P4")
+
+    def test_scheduled_rerun_does_not_overwrite_a_human_edit(self):
+        self.run_pipeline()
+        key = next(p["key"] for p in self.store.proposals() if p["kind"] == "new_ticket")
+        p = proposals.apply_edit(self.store.proposal(key)["payload"], title="Human title")
+        self.store.edit_payload(key, p, proposals.sha(proposals.written_part(p)))
+        res = self.run_pipeline(refresh=True)
+        self.assertEqual(res.summary["proposals"]["kept_human_edit"], 1)
+        self.assertEqual(self.store.proposal(key)["payload"]["jira"]["summary"], "Human title")
+
+    def test_rejected_proposal_reopens_when_a_new_call_reports_it(self):
+        self.responses["call-002"] = []
+        self.run_pipeline()
+        key = next(p["key"] for p in self.store.proposals() if p["kind"] == "new_ticket")
+        self.store.decide(key, "rejected", "tester", note="not convinced")
+        self.responses = default_responses()
+        res = self.run_pipeline(refresh=True)
+        self.assertEqual(res.summary["proposals"]["reopened"], 1)
+        self.assertEqual(self.store.proposal(key)["status"], "proposed")
 
     def test_payload_change_from_rerun_makes_approval_stale(self):
         self.run_pipeline()
@@ -246,13 +266,38 @@ class TestPartialFailure(Harness):
         res = self.run_pipeline()
         self.assertEqual(res.summary["failed_calls"].keys(), {"call-001"})
         self.assertTrue(any("call-002" in p["call_ids"] for p in res.proposals))
-        # Its proposals from a previous good run must not be withdrawn by the failed run.
-        self.fail_calls = set()
+
+    def test_refresh_failure_keeps_previous_extraction_and_approval(self):
         self.run_pipeline()
+        key = next(p["key"] for p in self.store.proposals() if p["kind"] == "new_ticket")
+        self.store.decide(key, "approved", "tester")
         self.fail_calls = {"call-001"}
+        res = self.run_pipeline(refresh=True)  # model down for call-001: fall back to its cached extraction
+        self.assertEqual(res.summary["failed_calls"], {})
+        self.assertEqual(self.store.proposal(key)["status"], "approved")
+        self.assertEqual(sorted(p["key"] for p in self.store.proposals()), sorted(p["key"] for p in res.proposals))
+
+    def test_withdrawn_proposal_comes_back_when_produced_again(self):
         self.run_pipeline()
-        self.assertTrue(any("call-001" in p["payload"]["call_ids"] and p["status"] == "proposed"
-                            for p in self.store.proposals()))
+        self.responses["call-001"] = []
+        self.responses["call-002"] = []
+        self.run_pipeline(refresh=True)
+        self.assertTrue(all(p["status"] == "withdrawn" for p in self.store.proposals()))
+        self.responses = default_responses()
+        res = self.run_pipeline(refresh=True)
+        self.assertEqual({p["key"]: p["status"] for p in self.store.proposals()},
+                         {p["key"]: "proposed" for p in res.proposals})
+
+    def test_clustering_failure_degrades_instead_of_crashing(self):
+        def broken(tool, prompt):
+            if tool == "report_groups":
+                raise LLMError("cluster model down")
+            return self._respond(tool, prompt)
+        self.llm.responder = broken
+        res = self.run_pipeline()
+        self.assertTrue(res.summary["degraded"])
+        self.assertEqual(len([p for p in res.proposals if p["kind"] == "new_ticket"]), 2)  # unmerged, not lost
+        self.assertEqual(len([p for p in res.proposals if p["kind"] == "corroborate"]), 1)
 
     def test_crash_after_jira_write_reconciles_instead_of_duplicating(self):
         self.run_pipeline()
@@ -286,10 +331,51 @@ class TestPartialFailure(Harness):
         jira_key = json.loads(self.outbox_lines("jira.jsonl")[0])["key"]
         self.assertTrue(any(jira_key in json.loads(l)["text"] for l in self.outbox_lines("slack.jsonl")))
 
+    def test_failed_write_that_may_have_landed_is_never_withdrawn_or_refiled(self):
+        self.run_pipeline()
+        self.approve_all()
+
+        def write_then_crash(payload):
+            jira_stub.create_issue(payload)
+            raise ConnectionError("reset")
+        self.dispatch(jira_create=write_then_crash)
+        key = next(p["key"] for p in self.store.proposals() if p["kind"] == "new_ticket")
+        self.responses["call-001"] = []  # the next run no longer produces that proposal
+        self.run_pipeline(refresh=True)
+        self.assertEqual(self.store.proposal(key)["status"], "approved")
+        with self.assertRaises(ValueError):
+            self.store.decide(key, "rejected", "tester")  # partly delivered: can't be un-approved
+        self.dispatch()
+        self.assertEqual(len(self.outbox_lines("jira.jsonl")), 1)
+
+    def approve_all(self):
+        for p in self.store.proposals("proposed"):
+            self.store.decide(p["key"], "approved", "tester")
+
     def test_concurrent_dispatch_is_refused(self):
-        with self.store.exclusive("dispatch"):
+        with self.store.exclusive("state"):
             with self.assertRaises(RuntimeError):
                 self.dispatch()
+
+
+class TestFolding(Harness):
+    def test_stopgap_feature_folds_into_its_bug_but_not_into_a_corroboration(self):
+        stopgap = finding(6, "active members card shows a different number", kind="feature", title="Resync button")
+        stopgap["related_line"] = 5
+        self.responses["call-002"] = [finding(5, "report timestamps show UTC instead of Pacific", title="Card bug"),
+                                      stopgap]
+        res = self.run_pipeline()
+        new = [p for p in res.proposals if p["kind"] == "new_ticket" and "call-002" in p["call_ids"]]
+        self.assertEqual(len(new), 1)
+        self.assertEqual(new[0]["review"]["related"], ["Resync button"])
+        # Host is a corroboration, not a new ticket: the ask must stay visible as its own proposal.
+        self.responses["call-002"][0] = finding(5, "report timestamps show UTC instead of Pacific",
+                                                "matches_tracked", tracked="PROJ-101")
+        self.cluster_answer = {"groups": [{"candidate_ids": ["call-001#f0"], "reason": "a"},
+                                          {"candidate_ids": ["call-002#f1"], "reason": "b"}]}
+        res = self.run_pipeline(refresh=True)
+        self.assertTrue(any(p["kind"] == "new_ticket" and p["jira"]["summary"] == "Resync button"
+                            for p in res.proposals))
 
 
 class TestParser(unittest.TestCase):
