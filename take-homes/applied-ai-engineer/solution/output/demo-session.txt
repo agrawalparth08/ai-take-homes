@@ -48,7 +48,7 @@ $ python -m solution dispatch
 dispatch: {'sent': 0, 'reconciled': 0, 'skipped_already_sent': 50, 'stale_approval': 0, 'failed': 0}
 
 $ python -m solution run --offline
-run 20260923T051641Z-bd08c2: {'seen': 140, 'extracted': 134, 'skipped_internal': 6, 'failed': 0, 'from_cache': 134} | proposals {'new_ticket': 38, 'corroborate': 0, 'enablement': 7, 'new': 0, 'unchanged': 45, 'changed': 0, 'revived': 0, 'reopened': 0, 'kept_human_edit': 0, 'locked': 0} | findings {'total': 388, 'actionable': 80, 'rejected_by_validator': 0, 'no_action': 308}
+run 20260923T053605Z-34de75: {'seen': 140, 'extracted': 134, 'skipped_internal': 6, 'failed': 0, 'from_cache': 134} | proposals {'new_ticket': 38, 'corroborate': 0, 'enablement': 7, 'new': 0, 'unchanged': 45, 'changed': 0, 'revived': 0, 'reopened': 0, 'kept_human_edit': 0, 'locked': 0} | findings {'total': 388, 'actionable': 80, 'rejected_by_validator': 0, 'no_action': 308}
 review packet: solution/output/review.md
 
 $ python -m solution dispatch
@@ -65,12 +65,12 @@ proposals: {('corroborate', 'approved'): 21, ('enablement', 'proposed'): 7, ('ne
 actions:   {('corroboration', 'sent'): 21, ('slack', 'sent'): 26, ('jira', 'sent'): 3}
 
 $ python -m solution health
-OK: run 20260923T051641Z-bd08c2 processed 134 calls, 80 actionable findings, 0% validator rejects, 0.0h ago
+OK: run 20260923T053605Z-34de75 processed 134 calls, 80 actionable findings, 0% validator rejects, 0.0h ago
 
 $ head -1 stubs/outbox/jira.jsonl
 {
     "key": "PROJ-1001",
-    "recorded_at": "2026-09-23T05:16:41.592149+00:00",
+    "recorded_at": "2026-09-23T05:36:02.935287+00:00",
     "corroborating_sources": [
         {
             "call_id": "call-012",
@@ -103,5 +103,5 @@ $ head -1 stubs/outbox/jira.jsonl
     "type": "Bug"
 }
 $ cat stubs/outbox/slack.jsonl | head -2
-{"ts": "2026-09-23T05:16:41.575904+00:00", "channel": "@priya.nair", "idempotency_key": "jt-e9f8257d70546a77-slack", "text": "FYI: the Cedar Grove Schools report on call-004 was attached to PROJ-101 (Scheduled reports display times in UTC instead of the workspace timezone) instead of opening a new ticket. Quote: \"Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm.\""}
-{"ts": "2026-09-23T05:16:41.577279+00:00", "channel": "@sam.oduya", "idempotency_key": "jt-3147ea8efa372db1-slack", "text": "FYI: the Vanta Retail report on call-005 was attached to PROJ-087 (Occasional duplicate webhook deliveries to customer endpoints) instead of opening a new ticket. Quote: \"some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict\""}
+{"ts": "2026-09-23T05:36:02.898582+00:00", "channel": "@priya.nair", "idempotency_key": "jt-e9f8257d70546a77-slack", "text": "FYI: the Cedar Grove Schools report on call-004 was attached to PROJ-101 (Scheduled reports display times in UTC instead of the workspace timezone) instead of opening a new ticket. Quote: \"Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm.\""}
+{"ts": "2026-09-23T05:36:02.901155+00:00", "channel": "@sam.oduya", "idempotency_key": "jt-3147ea8efa372db1-slack", "text": "FYI: the Vanta Retail report on call-005 was attached to PROJ-087 (Occasional duplicate webhook deliveries to customer endpoints) instead of opening a new ticket. Quote: \"some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict\""}

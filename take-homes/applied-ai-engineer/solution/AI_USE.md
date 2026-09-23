@@ -65,3 +65,8 @@ Total: about 2 h 55 min.
 
 - **The GPT plan set and scaffold.** Three ideas survived: exact-quote evidence checks, approval bound to a hash, and a delivery ledger. The rest was archived. The build restarted from a plan that maps line by line to the brief.
 - **One Fable review finding.** It argued that a correct write quoting a line just outside the labelled span should pass. The spans stay strict: a looser rule would make the grader a judgment call, and the brief asks for a rule a second engineer would agree with. The spans are wide, and each failure prints the finding and its line number, so a person can overrule a case quickly.
+
+## A late look at other submissions
+
+After the submission work above was finished, I asked a subagent to read the other June Tapes solutions that are public on GitHub (one PR on the upstream repo, four forks). The goal was to see how other people use AI-driven development on the same brief. No code, prompt or design came from them. The only changes after that look: I committed the post-demo stub outbox as evidence, and added two sentences to the write-up about behaviour the pipeline already had (per-transcript cache checkpointing, and grouping only after all extraction is in).
+
