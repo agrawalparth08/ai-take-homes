@@ -1,0 +1,54 @@
+{
+ "call_id": "call-133",
+ "sha256": "c5e7da31a0e2e2a3e3bd9d9cfd719e85a1a1976c5edc577ed86dfc1a502cf9b3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:41:49+00:00",
+ "usage": {
+  "input_tokens": 13965,
+  "output_tokens": 2762,
+  "latency_s": 38.79,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "Customer reports vague, unspecified platform slowness",
+    "description": "Customer mentions a general sense that the platform 'feels slow' or laggy, echoed in passing by a couple of district managers, but cannot identify which page, feature, or time of day it occurs, nor any repeatable pattern or error. When pressed for specifics (page, time of day, load vs. in-session vs. report-pull), the customer had no concrete details to offer, and the one secondhand report was simply 'it was being weird the other day.' Customer agreed to capture a concrete instance (page/time/type of slowness) and to test on cellular vs. store wifi to rule out network causes, and no ticket was filed pending that evidence.",
+    "line": 28,
+    "quote": "sometimes the platform feels slow? Like, laggy. But I genuinely can't tell you when or where or how bad.",
+    "context_lines": [
+     30,
+     32,
+     34,
+     37
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No confirmed defect, no reproducible symptom, and possibly caused by customer's own wifi/laptop; nothing for engineering to act on yet.",
+    "match_note": "No catalogue issue describes generic, unlocalized slowness with no page/feature/time specificity; too vague to map to any tracked performance bug."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "District managers unaware they can subscribe to report-drop email notifications",
+    "description": "Customer asked whether district managers could get a heads-up email before their monthly report drops, noting a couple of them had asked about this. Sam explained that report notification subscriptions already exist as a self-service settings option, and offered to send the district managers steps to turn it on themselves. The request is fully satisfied by an existing product capability rather than requiring any product change.",
+    "line": 63,
+    "quote": "Can the district managers get a heads-up email before their monthly report drops? A couple asked.",
+    "context_lines": [
+     64,
+     65
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Purely a discoverability/awareness gap resolved by existing settings; no product change needed.",
+    "match_note": "Not a product gap \u2014 settings already support subscribing to report notifications, so it does not match any open feature request in the catalogue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

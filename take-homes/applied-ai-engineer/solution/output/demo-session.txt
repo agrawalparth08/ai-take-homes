@@ -1,0 +1,107 @@
+$ python -m solution status
+proposals: {('corroborate', 'proposed'): 21, ('enablement', 'proposed'): 7, ('new_ticket', 'proposed'): 41}
+actions:   {}
+
+$ python -m solution approve new:call-006#f0 new:call-010#f3
+approved new:call-006#f0
+approved new:call-010#f3
+
+$ python -m solution approve --kind corroborate
+approved corr:call-004:PROJ-101
+approved corr:call-005:PROJ-087
+approved corr:call-008:PROJ-110
+approved corr:call-015:PROJ-142
+approved corr:call-020:PROJ-110
+approved corr:call-026:PROJ-138
+approved corr:call-035:PROJ-149
+approved corr:call-040:PROJ-160
+approved corr:call-044:PROJ-118
+approved corr:call-047:PROJ-101
+approved corr:call-053:PROJ-087
+approved corr:call-055:PROJ-142
+approved corr:call-063:PROJ-118
+approved corr:call-067:PROJ-155
+approved corr:call-074:PROJ-120
+approved corr:call-082:PROJ-138
+approved corr:call-091:PROJ-149
+approved corr:call-105:PROJ-101
+approved corr:call-111:PROJ-142
+approved corr:call-116:PROJ-131
+approved corr:call-130:PROJ-087
+
+$ python -m solution edit new:call-008#f1 --priority P4 --title Typo "BetterBrak" in confirmation email footer
+edited new:call-008#f1; it needs approval again
+
+$ python -m solution approve new:call-008#f1
+approved new:call-008#f1
+
+$ python -m solution dispatch
+dispatch: {'sent': 50, 'reconciled': 0, 'skipped_already_sent': 0, 'stale_approval': 0, 'failed': 0}
+
+$ wc -l stubs/outbox/*.jsonl
+      21 stubs/outbox/corroborations.jsonl
+       3 stubs/outbox/jira.jsonl
+      26 stubs/outbox/slack.jsonl
+      50 total
+
+$ python -m solution dispatch
+dispatch: {'sent': 0, 'reconciled': 0, 'skipped_already_sent': 50, 'stale_approval': 0, 'failed': 0}
+
+$ python -m solution run --offline
+run 20260923T053605Z-34de75: {'seen': 140, 'extracted': 134, 'skipped_internal': 6, 'failed': 0, 'from_cache': 134} | proposals {'new_ticket': 38, 'corroborate': 0, 'enablement': 7, 'new': 0, 'unchanged': 45, 'changed': 0, 'revived': 0, 'reopened': 0, 'kept_human_edit': 0, 'locked': 0} | findings {'total': 388, 'actionable': 80, 'rejected_by_validator': 0, 'no_action': 308}
+review packet: solution/output/review.md
+
+$ python -m solution dispatch
+dispatch: {'sent': 0, 'reconciled': 0, 'skipped_already_sent': 50, 'stale_approval': 0, 'failed': 0}
+
+$ wc -l stubs/outbox/*.jsonl   # unchanged after a re-run and two re-dispatches
+      21 stubs/outbox/corroborations.jsonl
+       3 stubs/outbox/jira.jsonl
+      26 stubs/outbox/slack.jsonl
+      50 total
+
+$ python -m solution status
+proposals: {('corroborate', 'approved'): 21, ('enablement', 'proposed'): 7, ('new_ticket', 'proposed'): 38, ('new_ticket', 'approved'): 3}
+actions:   {('corroboration', 'sent'): 21, ('slack', 'sent'): 26, ('jira', 'sent'): 3}
+
+$ python -m solution health
+OK: run 20260923T053605Z-34de75 processed 134 calls, 80 actionable findings, 0% validator rejects, 0.0h ago
+
+$ head -1 stubs/outbox/jira.jsonl
+{
+    "key": "PROJ-1001",
+    "recorded_at": "2026-09-23T05:36:02.935287+00:00",
+    "corroborating_sources": [
+        {
+            "call_id": "call-012",
+            "line": 18,
+            "link": "transcripts/call-012.md#L18",
+            "snippet": "search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist."
+        },
+        {
+            "call_id": "call-072",
+            "line": 29,
+            "link": "transcripts/call-072.md#L29",
+            "snippet": "When we rename a team or move people between teams \u2014 which we do a lot during reorgs \u2014 the changes don't seem to show up right away when you search."
+        }
+    ],
+    "description": "After renaming a team or moving a member in the admin panel, search returns stale/old results (empty for the new team name, or old team for a moved member) for approximately 10 minutes before self-correcting with no user action required. Customer reproduced this on demand three separate times with consistent ~10 minute timing. During a large-scale reorg (60 members moved, 5 teams collapsed to 3 over two days), this caused a stream of 'where did this person go' tickets from managers who searched immediately after changes and concluded people had been deleted. The underlying edit/save operations (bulk move, rename) work correctly and do not lose data; only the search index is delayed. Workaround is waiting ~10 minutes for the index to catch up.\n\n*Reported on 3 call(s) by 3 account(s):* Copperline Energy, Gable Group, Harborline Media\n\n> \"There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.\"  (Harborline Media, call-006 2026-06-18, transcripts/call-006.md#L24)\n> \"search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist.\"  (Gable Group, call-012 2026-06-21, transcripts/call-012.md#L18)\n> \"When we rename a team or move people between teams \u2014 which we do a lot during reorgs \u2014 the changes don't seem to show up right away when you search.\"  (Copperline Energy, call-072 2026-06-16, transcripts/call-072.md#L29)\n\n_Severity medium: Real, reproducible defect causing confusion and support tickets during high-edit periods, but data is not lost, it self-corrects in ~10 minutes, and there is a known workaround (wait and re-search); customer explicitly says it is not urgent._\n_Drafted by june-tapes from customer-call transcripts; reviewed and approved by a human before filing._",
+    "idempotency_key": "jt-e184470eb555df81",
+    "labels": [
+        "customer-call",
+        "june-tapes"
+    ],
+    "priority": "P3",
+    "project": "PROJ",
+    "source": {
+        "call_id": "call-006",
+        "line": 24,
+        "link": "transcripts/call-006.md#L24",
+        "snippet": "There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes."
+    },
+    "summary": "Search index lags ~10 minutes after team rename or member move",
+    "type": "Bug"
+}
+$ cat stubs/outbox/slack.jsonl | head -2
+{"ts": "2026-09-23T05:36:02.898582+00:00", "channel": "@priya.nair", "idempotency_key": "jt-e9f8257d70546a77-slack", "text": "FYI: the Cedar Grove Schools report on call-004 was attached to PROJ-101 (Scheduled reports display times in UTC instead of the workspace timezone) instead of opening a new ticket. Quote: \"Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm.\""}
+{"ts": "2026-09-23T05:36:02.901155+00:00", "channel": "@sam.oduya", "idempotency_key": "jt-3147ea8efa372db1-slack", "text": "FYI: the Vanta Retail report on call-005 was attached to PROJ-087 (Occasional duplicate webhook deliveries to customer endpoints) instead of opening a new ticket. Quote: \"some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict\""}

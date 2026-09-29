@@ -1,0 +1,92 @@
+{
+ "call_id": "call-042",
+ "sha256": "5db1f282920f01c11ad345a380a294d2d720e8a83db64f5ab61bfd989e27ea9b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:51+00:00",
+ "usage": {
+  "input_tokens": 17739,
+  "output_tokens": 4502,
+  "latency_s": 45.65,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Goal-tracking reminder notifications fire at ~3am local time for APAC members (US-hour tuned)",
+    "description": "Goal-tracking check-in reminder notifications arrive in the middle of the night (roughly 2:30-3:30am local time) for members across the customer's Singapore, Sydney, and Tokyo offices. The customer's theory, agreed by the CSM, is that the reminders are scheduled to a fixed absolute time tuned for US business hours (early afternoon US), which lands in the small hours for APAC timezones instead of adjusting to each member's local time. Affected members are disabling notifications entirely to stop being woken, which eliminates the intended engagement nudge. About a dozen members complained directly, but the exposed population is the customer's entire ~260-person APAC base across three regions.",
+    "line": 40,
+    "quote": "So my theory is these reminders are scheduled for a nice sensible time \u2014 like early afternoon \u2014 but tuned to US hours. And nobody adjusted them for people who live on the other side of the planet.",
+    "context_lines": [
+     32,
+     36,
+     42,
+     50
+    ],
+    "severity": "high",
+    "severity_reason": "Wrong behavior structurally affects the customer's entire non-US population (~260 members across 3 regions), degrades a core engagement feature, and the only available lever (disabling notifications) is explicitly rejected as not a real fix, leaving effectively no workaround.",
+    "match_note": "Distinct from PROJ-101 (scheduled report display timestamps in UTC vs workspace timezone): this is push-notification firing time for goal reminders, a different feature and failure mode, not a display/report issue.",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback: timezone-aware coach matching working well for APAC members",
+    "description": "Customer volunteered that cross-timezone coach matching has worked better than expected: Tokyo members feared being matched with coaches only available at bad hours, but the platform matched them with coaches whose availability overlaps their workday. This was raised as praise, not a complaint, with no requested change.",
+    "line": 24,
+    "quote": "the coach matching across timezones has been better than I feared. My Tokyo people worried they'd get stuck with coaches only available at bad hours",
+    "context_lines": [
+     25,
+     26
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or gap reported; purely complimentary feedback, no action possible or requested.",
+    "match_note": "Not an issue at all \u2014 customer states the feature is working well; nothing to track.",
+    "tracked_key": null,
+    "no_action_reason": "other",
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Question about incremental seat scaling for Sydney hiring growth",
+    "description": "Customer asked whether adding ~40-50 seats over the next two quarters as Sydney hires ramp up would be a hassle. This was resolved on the call as a commercial/account-provisioning process (CSM will add seats incrementally as headcount grows, customer gives a heads-up), not a request for a product feature or a report of a product defect.",
+    "line": 62,
+    "quote": "we're hiring aggressively in Sydney over the next two quarters. Probably another forty, fifty people. I'll want them in the program as they onboard. Is scaling the seats going to be a hassle?",
+    "context_lines": [
+     63,
+     64,
+     65
+    ],
+    "severity": "low",
+    "severity_reason": "Commercial/provisioning process question, not a product defect or feature gap; already resolved via account management on the call.",
+    "match_note": "Pricing/account-provisioning topic, excluded per scope rules (not a product capability gap).",
+    "tracked_key": null,
+    "no_action_reason": "not_product",
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for a Sydney-specific welcome/kickoff session",
+    "description": "Customer noted the Sydney team joined a few months after the rest of the org and didn't get the same kickoff energy, and agreed a Sydney-specific welcome session would help. The CSM offered to run this live session (scheduled at a Sydney-friendly hour) as a service, not a product change.",
+    "line": 54,
+    "quote": "a welcome session for the Sydney folks specifically wouldn't hurt. They joined a few months after the rest and I don't think they got the same kickoff energy",
+    "context_lines": [
+     55,
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "A CSM-delivered services/reporting favour (a live kickoff session), not a product defect or feature request.",
+    "match_note": "Services request excluded per scope rules (not a product capability or defect).",
+    "tracked_key": null,
+    "no_action_reason": "not_product",
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,55 @@
+{
+ "call_id": "call-064",
+ "sha256": "e4cac81fcd8460c2013c49910f9f4b5713da08be3fcababbd620e1d9937473e8",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:28+00:00",
+ "usage": {
+  "input_tokens": 16526,
+  "output_tokens": 2313,
+  "latency_s": 26.45,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer wants additional seats to extend program to seasonal crew (budget/purchasing matter)",
+    "description": "Curtis says he wishes he had more seats so he could open the coaching program to his seasonal crew, not just year-round staff. He explicitly frames this as a budget conversation he needs to have with his owner, not a BetterBark product problem. No product defect or missing capability is described; this is a licensing/seat-count/purchasing matter, and the account manager offered to help him build an internal business case rather than treating it as a product gap.",
+    "line": 42,
+    "quote": "I wish I had more seats so I could open it to the seasonal crew too, not just the year-round staff",
+    "context_lines": [
+     43,
+     44,
+     45
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature gap; explicitly a customer-side budget/purchasing consideration with no functional impact.",
+    "match_note": "Not in catalogue and not filed as a feature request; customer himself disclaims it as a product ask, calling it 'not a you problem'.",
+    "no_action_reason": "not_product",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback on coach-to-customer matching quality (frontline-appropriate coach)",
+    "description": "Curtis reports his head dock master's assigned coach communicates well with frontline/blue-collar staff rather than using 'HR language,' which he credits as key to adoption. This is praise about coach-matching quality, not a complaint or defect, and Curtis asked that the feedback be passed along to the matching team rather than requesting any product change.",
+    "line": 48,
+    "quote": "My dock master's coach in particular clearly gets the frontline world \u2014 doesn't talk to him in HR language, which would've killed it instantly.",
+    "context_lines": [
+     49,
+     50
+    ],
+    "severity": "low",
+    "severity_reason": "Purely positive, informational feedback with no defect or unmet need; no functional impact to assess.",
+    "match_note": "No corresponding catalogue issue; not a defect or feature request, just qualitative feedback to relay internally to the coach-matching team.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

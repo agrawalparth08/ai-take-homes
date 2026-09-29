@@ -1,0 +1,93 @@
+{
+ "call_id": "call-135",
+ "sha256": "8889a6328399b5374d31082cbd1e2627b8c46a6042d36bdfdc1cf7389d572782",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:42:06+00:00",
+ "usage": {
+  "input_tokens": 13814,
+  "output_tokens": 3221,
+  "latency_s": 33.79,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests seat-count increase to clear internal coaching waitlist",
+    "description": "Marco raises that Bristlecone has grown headcount since signing and has been maintaining an internal waitlist (roughly 15-20 people) of staff who want to join the coaching program but can't fit under the current seat allocation. This is a contract/commercial seat-count negotiation for the renewal, not a defect or missing capability in the BetterBark product itself.",
+    "line": 26,
+    "quote": "Is our seat count right? That's actually my question. We've grown since we signed.",
+    "context_lines": [
+     28,
+     32,
+     34,
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a commercial licensing/allocation matter with no product defect or capability gap involved.",
+    "match_note": "No catalogue issue covers seat allocation; excluded as a commercial matter, not a product bug/feature.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer asks whether renewal pricing will increase",
+    "description": "Helena directly asks Maya whether BetterBark will raise pricing on the renewal. This is a pricing/negotiation topic for the renewal contract, explicitly out of scope as a product issue.",
+    "line": 39,
+    "quote": "What about price? That's my blunt question. Are you going to raise it on us?",
+    "context_lines": [
+     40,
+     41
+    ],
+    "severity": "low",
+    "severity_reason": "Pricing discussion with no bearing on product functionality.",
+    "match_note": "No catalogue analog; pricing/commercial chatter is explicitly excluded from actionable findings.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer asks about trade-offs between one-year and two-year contract terms",
+    "description": "Helena, as the non-procurement executive sponsor, asks Maya to explain the trade-offs between a shorter and longer contract term for renewal. This is a contract-structuring question, not a product defect or feature request.",
+    "line": 51,
+    "quote": "What are the trade-offs? I'm genuinely asking as the non-procurement person.",
+    "context_lines": [
+     52,
+     53,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "Contract term-length discussion, unrelated to product functionality.",
+    "match_note": "No catalogue analog; contract term negotiation is a commercial matter, not a product issue.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests anonymized impact examples included in renewal proposal",
+    "description": "Helena asks for one or two anonymized examples of the leadership-development impact coaching has had, to satisfy her own diligence before signing off on renewal. Maya agrees to include a short anonymized impact summary in the proposal document. This is a sales/account-services reporting request, not a product capability.",
+    "line": 47,
+    "quote": "I'd like to see one or two anonymized examples of the kind of impact you mentioned \u2014 the leadership-development stuff \u2014 just something concrete for my own peace of mind.",
+    "context_lines": [
+     48,
+     49
+    ],
+    "severity": "low",
+    "severity_reason": "A one-off reporting favor for the renewal proposal, not a product defect or missing platform capability.",
+    "match_note": "No catalogue analog; explicitly excluded as a services/reporting favour rather than a product feature.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

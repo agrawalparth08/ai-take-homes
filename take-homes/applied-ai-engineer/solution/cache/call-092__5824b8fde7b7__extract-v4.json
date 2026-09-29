@@ -1,0 +1,54 @@
+{
+ "call_id": "call-092",
+ "sha256": "5824b8fde7b72d91b179f92c2d4fb0cfecf7a9b817f2911ea423f0b46bea430c",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:44+00:00",
+ "usage": {
+  "input_tokens": 13899,
+  "output_tokens": 2228,
+  "latency_s": 24.27,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Field techs report poor cell signal at remote/desert install sites",
+    "description": "Priya notes field technicians occasionally grumble about signal quality at remote install sites. She and Derek both attribute this to cell carrier coverage gaps in the desert/remote areas, not the BetterBark product. Priya explicitly frames this as not being BetterBark's issue.",
+    "line": 51,
+    "quote": "The field techs occasionally grumble about signal at remote install sites, but that's cell coverage in the desert, not you.",
+    "context_lines": [
+     52,
+     53
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Customer explicitly attributes the cause to external cell carrier coverage, not the product, and does not request any product change.",
+    "match_note": "Not a product defect; customer self-identifies root cause as carrier network coverage outside BetterBark's control.",
+    "no_action_reason": "customer_side_cause",
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer welcomes offline-usage tips as workaround for remote-site connectivity",
+    "description": "In response to Derek offering to send tips for using the app in low-signal situations (leveraging existing mobile content caching), Priya says it would be handy since some commercial sites are far from cell towers. This is a stopgap/workaround for the connectivity issue raised at L51, not a distinct product ask.",
+    "line": 53,
+    "quote": "That'd actually be handy, some of our commercial sites are genuinely in the middle of nowhere, twenty miles past the last cell tower.",
+    "context_lines": [
+     51,
+     52
+    ],
+    "related_line": 51,
+    "severity": "low",
+    "severity_reason": "Acceptance of a suggested workaround for an already-noted, non-product connectivity issue; no independent defect or feature gap identified.",
+    "match_note": "Workaround/stopgap for the connectivity complaint at L51; not a separate issue to file.",
+    "no_action_reason": "workaround_request",
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

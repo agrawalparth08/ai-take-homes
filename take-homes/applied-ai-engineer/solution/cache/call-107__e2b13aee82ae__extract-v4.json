@@ -1,0 +1,73 @@
+{
+ "call_id": "call-107",
+ "sha256": "e2b13aee82ae1b45ac8b3a100fd0397c0ac84ec8a7cec47be6998779e9754d8f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:09+00:00",
+ "usage": {
+  "input_tokens": 17815,
+  "output_tokens": 4249,
+  "latency_s": 48.26,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No automated nightly SFTP push of usage/engagement data extract",
+    "description": "Customer's central data warehouse ingests all forty-plus data sources via nightly SFTP file drop, not API, and coaching platform data is currently the only source that doesn't flow in automatically, forcing manual transcription of dashboard numbers into reports. Customer wants BetterBark to push a nightly CSV extract (header row, comma-delimited, UTF-8, quoted strings) to a customer-provisioned, key-based, write-only SFTP folder, with a stable schema (member ID, session count, engagement status, timestamp as core fields; coaching track and completion rate as stretch). Customer explicitly states a manual CSV download or an API-pull integration would NOT satisfy the requirement \u2014 it must be an automated push with no human in the loop and no API call required on their side. This is distinct from generic 'data export' asks, which are typically about API access for BI tools.",
+    "line": 26,
+    "quote": "A nightly SFTP drop of a usage extract. Predictable filename, predictable schema, lands in our folder, we take it from there.",
+    "context_lines": [
+     17,
+     19,
+     36,
+     41
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable integration feature for one account's reporting workflow with a known (if tedious) manual workaround currently in use; not a defect and doesn't block core product use.",
+    "match_note": "No catalogue item covers automated scheduled push delivery of a usage extract to a customer SFTP endpoint; PROJ-095 (CSV roster export) and PROJ-118 (PDF engagement export) are both manual, human-initiated exports of different data, not automated nightly pushes, and customer explicitly rejects manual download as insufficient.",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Interim/middle-path delivery mechanism (shared bucket pull) raised as fallback to SFTP push",
+    "description": "Customer asked whether, if automated SFTP push isn't natively supported, a middle path such as a shared storage location or a scheduled export the customer retrieves might work instead. This was raised purely as a contingency/fallback to the primary SFTP push request and left open pending BetterBark's feasibility confirmation.",
+    "line": 45,
+    "quote": "is there a middle path? Like, could you drop the file to a location we both reach, some shared bucket, and we pull from there?",
+    "context_lines": [
+     46,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "Not a distinct request; a hypothetical fallback discussed contingent on the primary feature's feasibility, not yet a standalone requirement.",
+    "match_note": "Directly tied to the SFTP usage-extract feature request; filed as a workaround discussion rather than a separate issue.",
+    "no_action_reason": "workaround_request",
+    "tracked_key": null,
+    "related_line": 26
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "General account health check \u2014 no outstanding product complaints reported",
+    "description": "Customer confirmed the coaching program and admin experience are healthy: engagement is steady, admins aren't complaining, and the helpdesk receives roughly one coaching-related ticket a month, always a routine forgotten-password case. No specific defect or feature gap was identified in this exchange.",
+    "line": 55,
+    "quote": "Engagement's steady, admins aren't complaining, my helpdesk gets maybe one coaching-related ticket a month and it's always a forgotten password.",
+    "context_lines": [
+     13,
+     15
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or request described; purely a status confirmation with no actionable detail.",
+    "match_note": "Not a product issue \u2014 offered as evidence the account is healthy, with no specific complaint to act on.",
+    "no_action_reason": "too_vague",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

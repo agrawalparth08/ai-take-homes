@@ -1,0 +1,72 @@
+{
+ "call_id": "call-080",
+ "sha256": "fc5e87cb9ea187d6f1ac4e5020c7d8a3874a45a08a878a0f44df2a8653b320b3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:33:24+00:00",
+ "usage": {
+  "input_tokens": 16846,
+  "output_tokens": 5939,
+  "latency_s": 64.98,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Invoice has no per-department cost/seat breakdown for multi-department billing allocation",
+    "description": "Customer (finance) requests that invoices show charges broken out by department - seats and dollar amount per department line - instead of a single consolidated total, using the department tags already maintained in the platform for org-chart purposes. Today finance manually cross-references the member roster against a separate HR spreadsheet every month (2-3 hours) to apportion the single invoice across four cost centers (retail ~200 seats, warehouse ~150, corporate ~100, guiding operations the remainder). Missed department reassignments cause allocation errors that over/under-charge a department, which has escalated to the CFO twice this year and taken up to a week to resolve. No product-side workaround exists for the invoice itself; a CSV roster export only removes part of the manual matching step, not the core billing gap.",
+    "line": 34,
+    "quote": "If the invoice itself broke out the cost by department.",
+    "context_lines": [
+     27,
+     29,
+     31,
+     54
+    ],
+    "severity": "high",
+    "severity_reason": "Recurring monthly manual-reconciliation burden and allocation errors that have twice escalated to the customer's CFO with week-long disputes; affects billing accuracy across all four of the customer's cost centers, though a manual workaround exists.",
+    "match_note": "No catalogue issue covers per-department billing/invoice breakdown; PROJ-118 (PDF export of engagement dashboard) and PROJ-095 (CSV roster export) are unrelated capabilities, not invoice line-item splitting."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Interim CSV roster export offered as stopgap pending per-department invoice split",
+    "description": "While the per-department invoice split is not yet built, support offered the already-shipped bulk CSV export of the member roster (Admin > Members > 'Export all CSV'), which includes a department column when tags are current. Customer confirmed this removes the need to separately cross-reference an HR spreadsheet for headcount-per-department, but explicitly noted it does not solve the underlying invoice-splitting problem.",
+    "line": 47,
+    "quote": "And if there's any interim way to make Fiona's life easier before that exists?",
+    "context_lines": [
+     48,
+     49,
+     52
+    ],
+    "related_line": 34,
+    "severity": "low",
+    "severity_reason": "Not a new product gap - a stopgap for the already-filed invoice-split feature request, using an existing shipped export capability.",
+    "match_note": "Workaround for the invoice-split feature raised at L34; the export itself matches shipped feature PROJ-095 but is not a new ask here.",
+    "tracked_key": "PROJ-095"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Seasonal crew bulk provisioning and deactivate/reactivate flow confirmed working as intended",
+    "description": "Customer asked support to confirm that a bulk upload of 112 seasonal retail crew members on 2026-05-30 provisioned cleanly, and to confirm the correct flow for deactivating departing seasonal members and reactivating returning ones. Support confirmed the upload had no errors in the log, and that Admin > Members > Deactivate/Reactivate is correct, with reactivate preserving member history versus creating a duplicate record via re-adding. No defect or missing capability was identified during this exchange.",
+    "line": 10,
+    "quote": "First, we added the seasonal retail crew last month and I want to confirm they provisioned cleanly.",
+    "context_lines": [
+     11,
+     13,
+     15,
+     17
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a confirmation of existing, correctly-functioning behavior; no defect or gap raised.",
+    "match_note": "No catalogue issue applies - this is a routine admin-flow confirmation, not a reported problem or feature gap."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

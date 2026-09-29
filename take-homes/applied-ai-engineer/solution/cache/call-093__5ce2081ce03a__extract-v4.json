@@ -1,0 +1,52 @@
+{
+ "call_id": "call-093",
+ "sha256": "5ce2081ce03a708f73b5cd9589e06328d306998ae0d5b67b965cdcb79a52e30d",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:35:14+00:00",
+ "usage": {
+  "input_tokens": 14342,
+  "output_tokens": 3361,
+  "latency_s": 42.78,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "In-browser coaching session video freezes mid-to-late session on Chrome (audio continues)",
+    "description": "During in-browser coaching sessions on Chrome, the video image freezes (audio keeps playing uninterrupted) somewhere in the back half of a 50-minute session, with customer estimates ranging roughly 30 to 45 minutes in. Refreshing the page restores the video and does not drop the session. The customer reports this started 5-6 weeks ago after over a year of trouble-free browser sessions, with no changes on their network, VPN, or Chrome policy in that window (confirmed via their IT change log). Affects multiple consultants at the account, all on Chrome desktop (mobile app not used by this customer).",
+    "line": 13,
+    "quote": "during a coaching session in the browser, the video freezes. Not right away. It's always well into the session.",
+    "context_lines": [
+     15,
+     17,
+     19,
+     23
+    ],
+    "severity": "medium",
+    "severity_reason": "Core session functionality is disrupted for multiple users repeatedly, but audio continues (no session loss) and a reliable workaround (page refresh) exists, so it does not meet the bar for high/critical.",
+    "match_note": "No catalogue issue covers in-browser video freezing during sessions; distinct from PROJ-110 (Android launch crash) and all other tracked items, so this is a new bug."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "Customer interested in retention/engagement data to build internal business case",
+    "description": "Daniel mentions he is building a case for his managing partner about coaching's impact on junior-consultant retention, and says he wants to pull what data he can, but explicitly defers this as 'a different conversation for a different day' and gives no specific product gap or requested capability. Sam offers to help frame the retention story later with existing engagement data rather than any new feature being requested.",
+    "line": 53,
+    "quote": "But I'm building a case for our managing partner with what data I can pull.",
+    "context_lines": [
+     52,
+     54,
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete defect or feature ask stated; purely a future business-case discussion with no specifics for engineering to act on.",
+    "match_note": "Too vague to map to any tracked item (e.g., PROJ-118 PDF export was not requested); explicitly deferred by the customer to a later conversation."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

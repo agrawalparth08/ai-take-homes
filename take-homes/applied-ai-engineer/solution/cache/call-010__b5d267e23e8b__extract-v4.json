@@ -1,0 +1,96 @@
+{
+ "call_id": "call-010",
+ "sha256": "b5d267e23e8b98efa328f736d90c755817a9f4611fd96b3671ed045a5d3966c1",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:52+00:00",
+ "usage": {
+  "input_tokens": 17530,
+  "output_tokens": 7386,
+  "latency_s": 69.77,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vendor incident letter for Friday's incident (audit support request)",
+    "description": "Renee asks whether the vendor letter documenting Friday's incident helped with her auditors. Tom\u00e1s confirms it was delivered, read, and filed by her audit lead, closing the matter. This is a one-off incident-documentation/services request, not a defect in or missing capability of the BetterBark product, and it is already resolved.",
+    "line": 8,
+    "quote": "did the vendor letter on Friday's incident help with your auditors, since you asked?",
+    "context_lines": [
+     9,
+     10
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Already resolved administrative/documentation matter with no ongoing product impact.",
+    "title_note": null,
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "match_note": "Not a product topic; it's a closed incident-letter/audit support request unrelated to the catalogue."
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Add programmatic audit-log export API for SIEM ingestion (SOC 2 control)",
+    "description": "Atlas Financial's SOC team needs to pull audit events into their SIEM every night via an automated, unattended job for SOC 2 continuous-monitoring compliance. Today only a UI 'export CSV' view exists, which is fine for ad hoc spot checks but requires a human to click it, so auditors keep writing it up as a control gap since it isn't continuous or automated. Customer requests a dedicated API endpoint that is time-range filterable, paginated, and machine-readable (JSON) so a nightly job can pull all audit events between two timestamps without a human in the loop. Customer explicitly wants this filed as its own ticket, separate from the SAML group-to-role mapping request.",
+    "line": 18,
+    "quote": "Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night.",
+    "context_lines": [
+     14,
+     19,
+     20,
+     22
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Blocks Atlas Financial's SOC 2 continuous-monitoring control; their auditors are actively citing the lack of automation as a compliance gap.",
+    "no_action_reason": null,
+    "tracked_key": null,
+    "match_note": "No catalogue item covers a programmatic/SIEM-friendly audit-log export API; PROJ-089 (SSO login-history view) is a different, already-shipped capability."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Reference to prior SAML group-to-role mapping request (from earlier call)",
+    "description": "Renee references a SAML group-to-role mapping request raised on a prior (Wednesday) call and asks that it stay tracked as its own ticket, separate from the new audit-log API request, and that it keep moving. No new technical detail, symptom, or repro is given for it in this transcript; Tom\u00e1s indicates it is already filed elsewhere.",
+    "line": 22,
+    "quote": "keep it separate from the role-mapping request from Wednesday. Different control, different auditors, honestly different people on my side own each one",
+    "context_lines": [
+     23,
+     60,
+     61
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No new actionable detail is provided in this call; it is only referenced as an already-existing, separately tracked item.",
+    "no_action_reason": "too_vague",
+    "tracked_key": null,
+    "match_note": "Referenced only as context ('already filed' per L61); this transcript lacks the underlying symptom/repro needed to file or match it against the catalogue."
+   },
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Azure AD SSO users hit infinite redirect loop after network password change",
+    "description": "After an Azure AD-federated user rotates their network password and opens the BetterBark app, the app redirects them to the IdP, the IdP authenticates them successfully, but the app immediately bounces them back to the IdP again in an infinite authenticate-return-bounce loop, so they never reach the app. Seen in a 40-person pilot: 5 of 5 users who have rotated passwords so far hit the loop; the other 35 simply haven't reached their rotation date yet. The only workaround is clearing browser cookies for the BetterBark domain, which is not scalable to hundreds of users and generates a helpdesk ticket each time. At full rollout (400 users, 90-day rotation policy) this would recur for roughly 400 users every quarter, turning it into a rollout blocker. Confirmed distinct from the tracked Okta early-session-expiry issue: this account uses Azure AD (not Okta), and users are fully locked out rather than logged out early with successful re-entry.",
+    "line": 34,
+    "quote": "They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.",
+    "context_lines": [
+     32,
+     38,
+     44,
+     54
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Currently masked by the pilot's staggered rotation dates, but projected to hit all ~400 users every quarter at full rollout with no scalable workaround, threatening the rollout timeline.",
+    "no_action_reason": null,
+    "tracked_key": null,
+    "match_note": "Symptom and scope differ from PROJ-064: different IdP (Azure AD vs Okta) and opposite failure mode (hard lockout/redirect loop vs early logout with successful re-login)."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

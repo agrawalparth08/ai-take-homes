@@ -1,0 +1,54 @@
+{
+ "call_id": "call-026",
+ "sha256": "3a714497753e972ff54d0df2e0910801515efbc30bb3956ada753a61a4825cb3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:08+00:00",
+ "usage": {
+  "input_tokens": 14192,
+  "output_tokens": 2807,
+  "latency_s": 29.79,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-138",
+    "title": "Rescheduled session Outlook invites still show original time",
+    "description": "When a Berkfield faculty member reschedules a BetterBark coaching session, the Outlook calendar invite continues to display the original time instead of updating to the new time, even though the session itself is correctly moved in the platform and the coach goes by the new time. A department chair missed a session entirely because his Outlook still showed the old slot. The customer confirmed that Google Calendar users at the same account see the reschedule update correctly, isolating the defect to the Outlook side. Berkfield is ~90%+ Outlook, so nearly the whole population is affected; Sam offered a manual workaround (trust the platform time, not Outlook) and asked Rosa to send a concrete repro example.",
+    "line": 28,
+    "quote": "the Outlook invite doesn't update to the new time. It still shows the old time.",
+    "context_lines": [
+     30,
+     32,
+     34,
+     45
+    ],
+    "severity": "high",
+    "severity_reason": "Stale calendar data causes faculty to show up at the wrong time or miss sessions entirely, affecting nearly the whole Outlook-based faculty population; only mitigation is an awkward manual workaround, matching the existing tracked issue's scope and symptom.",
+    "match_note": "Same symptom (Outlook keeps old time on reschedule while Google Calendar updates correctly) and same scope (rescheduled session invites) as PROJ-138; suspected ICS handling per catalogue matches described behavior."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "N/A - licensing/seat-count question for second enrollment wave",
+    "description": "Alan asked whether opening enrollment to a second wave of ~40 faculty requires any action on the licensing side or is purely internal. Sam explained this is an account/seat-management process question, not a product defect or missing capability: staying within current seat count needs no action, while exceeding it just requires looping Sam in to add seats. No product change was requested.",
+    "line": 58,
+    "quote": "Do we need to do anything on the licensing side, or is that just internal?",
+    "context_lines": [
+     59,
+     60,
+     61
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Purely an account/process question about seat allocation, not a product defect or feature gap, so it carries no product severity.",
+    "match_note": "Not a product bug or feature request; it's an operational licensing/seat-count question resolved by account process, so no catalogue issue applies."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

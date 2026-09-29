@@ -1,0 +1,118 @@
+{
+ "call_id": "call-071",
+ "sha256": "318571fdc43ed172f9eee398bb43837efe93d5badd48dfdbc639f2e59c37262a",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:31:52+00:00",
+ "usage": {
+  "input_tokens": 71230,
+  "output_tokens": 5546,
+  "latency_s": 48.06,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback on coach-tech matching quality",
+    "description": "Customer praises that BetterBark matched them with coaches who communicate well with field plumbers, calling it the biggest factor in tech adoption. No defect or missing capability is raised; this is unsolicited positive feedback.",
+    "line": 14,
+    "quote": "The coaches. We got matched with people who don't talk down to a bunch of plumbers, you know?",
+    "context_lines": [
+     16,
+     17,
+     18
+    ],
+    "severity": "low",
+    "severity_reason": "Informational praise, no product impact to assess.",
+    "match_note": "No catalogue issue applies; this is positive feedback, not a defect or feature request.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Admin reporting/export confusion \u2014 resolved as user error",
+    "description": "Customer recalls struggling with the export feature early on ('fighting the export'), but clarifies by the end of the call that it was her own oversight ('me not reading') and that once she found the correct view it worked fine. No outstanding defect remains.",
+    "line": 34,
+    "quote": "That was me not reading. Once I found the right view it was fine. User error, I'll own it.",
+    "context_lines": [
+     31,
+     32,
+     33
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly resolved and attributed to user error, no residual product impact.",
+    "match_note": "No catalogue match; issue is explicitly self-resolved as user error, not a product defect.",
+    "no_action_reason": "resolved_user_error"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "No outstanding product friction reported when asked directly",
+    "description": "When explicitly asked if anything feels clunky, customer states there is nothing worth calling about and that the product does what she needs. No specific issue is identified.",
+    "line": 36,
+    "quote": "Not really. I mean, nothing I'd call you about. It does what I need.",
+    "context_lines": [
+     35
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete issue described; purely a general satisfaction statement.",
+    "match_note": "Too vague to map to any catalogue issue or file as a new one.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Observation on goal-setting feature adoption split (office vs. field)",
+    "description": "Customer notes the goal-setting feature (rolled out in May) is more popular with office staff than field crews, and offers her theory why (field workers think in completed jobs, office staff work in spreadsheets/quarterly goals). This is offered as a general insight for BetterBark's positioning, not a complaint or request for change.",
+    "line": 46,
+    "quote": "Field guys think in terms of jobs done, not quarterly goals. The office folks live in spreadsheets, so goals click for them.",
+    "context_lines": [
+     43,
+     44,
+     45,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "Purely descriptive market/usage insight, not a request for a product change.",
+    "match_note": "No catalogue issue; customer isn't asking for any change to the feature.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Coach scheduling availability tightness \u2014 resolved after coach pool expansion",
+    "description": "Customer previously mentioned coach scheduling felt tight, but by this call reports it resolved itself, attributing it to early-days calendar constraints; plenty of slots are now available. CSM notes BetterBark onboarded more coaches in the customer's specialty pool in May, which likely helped. No outstanding complaint remains.",
+    "line": 54,
+    "quote": "That resolved itself. I think it was just early days and everyone's calendars were full. Plenty of slots now.",
+    "context_lines": [
+     53,
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "Issue is explicitly reported as resolved with no current impact.",
+    "match_note": "No catalogue match; explicitly retracted/resolved by the customer as of this call.",
+    "no_action_reason": "retracted"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Possible future second location \u2014 licensing planning, not a product issue",
+    "description": "Customer mentions a tentative, unconfirmed plan to potentially open a second shop location next year and CSM offers to help with licensing planning if it happens. This is a commercial/account-planning topic, not a product defect or feature gap.",
+    "line": 58,
+    "quote": "We might add a second shop out in Broken Arrow next year. Nothing firm.",
+    "context_lines": [
+     59,
+     60
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a hypothetical commercial/licensing planning note, no product impact.",
+    "match_note": "Not a product topic; relates to licensing/commercial planning, out of scope for engineering action.",
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

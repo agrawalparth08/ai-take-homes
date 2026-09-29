@@ -1,0 +1,56 @@
+{
+ "call_id": "call-043",
+ "sha256": "da6d10aa3dade0c0ca2da43bc87878cbca5e17ce6f90b8d87cd5759555f4df2d",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:55+00:00",
+ "usage": {
+  "input_tokens": 16367,
+  "output_tokens": 3318,
+  "latency_s": 40.77,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback: pilot supervisor cohort engagement stayed strong without reminder nudging",
+    "description": "Customer reports the mill-supervisor pilot cohort has high, self-sustaining engagement: a skeptical veteran supervisor (Ferg) has not missed a session, and account-wide active usage sits at ~78% over the last 30 days, up from the low-70s. The customer stopped sending her own reminder emails in April and engagement did not drop. This is offered as praise/status update, not a complaint or request for a product change.",
+    "line": 26,
+    "quote": "My read is it's sticky. Sessions are getting booked without me nagging, which is the metric I actually care about.",
+    "context_lines": [
+     22,
+     24,
+     27,
+     30
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or gap raised; purely positive status commentary with no action requested.",
+    "match_note": "No catalogue issue applies; this is unsolicited positive feedback, not a bug or feature request.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback: coach-to-coach handoff preserved session history and continuity",
+    "description": "When one director's coach moved on, the handoff to the replacement coach was seamless: the new coach already had the prior transition notes and knew what the member had been working on, so the member avoided a 'start from zero' reset. Customer explicitly calls this out as working well in practice, not as a problem needing a fix.",
+    "line": 42,
+    "quote": "the handoff to the new coach was seamless. She didn't even flag it to me until after, said the transition notes were all there.",
+    "context_lines": [
+     43,
+     44,
+     45,
+     46
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect present; customer confirms the continuity feature performed as intended.",
+    "match_note": "No catalogue issue applies; this is praise for existing coach-handoff continuity behavior, not a new problem.",
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,60 @@
+{
+ "call_id": "call-009",
+ "sha256": "24369201c8aae1ecec39b0721771de39125c9e26ad5363da28ea5f921b9c6549",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:44+00:00",
+ "usage": {
+  "input_tokens": 14449,
+  "output_tokens": 1209,
+  "latency_s": 14.78,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "Uploads (profile photos/documents) timed out during office move",
+    "description": "For about a week and a half during the customer's office move, profile photo and document uploads consistently spun and timed out. Support (Ravi) traced the cause to the customer's temporary VPN concentrator being overloaded on the temporary network used during the move; testing off the VPN confirmed uploads worked instantly. Since the customer moved to their permanent circuit, uploads have been flawless. Customer explicitly confirms this was not a product issue and asks that nothing be filed.",
+    "line": 22,
+    "quote": "Uploads were failing for a while. Profile photos, documents, they'd just spin and time out.",
+    "context_lines": [
+     24,
+     26,
+     27,
+     28,
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Already resolved, root cause confirmed as customer-side network infrastructure, not a product defect; no ongoing impact.",
+    "match_note": "No catalogue match; not a product defect at all, root-caused to customer's own temporary VPN during their move and explicitly closed by the customer.",
+    "no_action_reason": "customer_side_cause",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "Vague afternoon page-load slowness with no reproducible details",
+    "description": "Customer reports a general feeling that pages load slightly slower in the afternoons, but cannot identify which pages, which afternoons, or how often it happens. Customer explicitly labels it a 'vibe, not a bug report' and speculates it could be their new wifi settling in or an aging laptop. No other users at the firm have complained. Support asked the customer to capture time, page, and a screenshot if it recurs, and the customer agreed to do so, but nothing has been captured yet.",
+    "line": 36,
+    "quote": "Sometimes the whole thing feels a little slow in the afternoons. Like, pages take a beat longer to load.",
+    "context_lines": [
+     37,
+     38,
+     39,
+     44,
+     45
+    ],
+    "severity": "low",
+    "severity_reason": "Unconfirmed, unreproducible, self-described as vague with no other users affected; not currently actionable.",
+    "match_note": "No catalogue match; lacks the specificity (page, time, repro) needed to be actionable, and customer/support agreed to hold until it firms up.",
+    "no_action_reason": "too_vague",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

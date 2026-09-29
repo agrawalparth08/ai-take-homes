@@ -1,0 +1,56 @@
+{
+ "call_id": "call-020",
+ "sha256": "53c59e4bad206a66440f0500449ed806f6a497314f0cceddc37e4be27040e144",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:33+00:00",
+ "usage": {
+  "input_tokens": 74406,
+  "output_tokens": 6108,
+  "latency_s": 57.49,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-110",
+    "title": "Android app crashes on launch after recent update (Stallard Freight drivers)",
+    "description": "Beginning roughly 10 days before the 2026-06-19 call, Stallard Freight drivers on Android report the app crashing immediately on launch: splash screen flashes and the app closes before the login screen ever appears. Roy reports 15-16 tickets so far, spread across a mix of Android device models and OS versions (company phones bought in batches), while iPhone users report no issue and Roy could not reproduce it on his own iPhone. One driver (Danny) confirmed cleared cache/restart and a full uninstall-reinstall did not fix it, indicating the crash is in the build rather than local data. Crashing users are reported to be the ones who received a recent MDM-pushed app update; Roy is pulling MDM logs (app version, push date, device models) to confirm the exact build. As an interim step, support is directing affected drivers to a mobile-web bookmark since the native app is unusable for them.",
+    "line": 14,
+    "quote": "I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes.",
+    "context_lines": [
+     18,
+     22,
+     24,
+     27,
+     38
+    ],
+    "severity": "high",
+    "severity_reason": "Core app functionality (launch) is completely blocked for an unknown but sizeable and growing population of Android drivers, undercutting the stated purpose of the benefit (session completion/retention); a usable but degraded mobile-web bookmark workaround exists, keeping it just short of critical.",
+    "match_note": "Same failure mode as PROJ-110: crash-on-launch tied to an app update, device/OS-version dependent on Android only, iOS unaffected; timing (~10 days before 2026-06-19) is later than the 4.2 release date (2026-05-14) noted in the catalogue, so engineering should confirm via the MDM version data whether this is the same regression or a recurrence on a newer build."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Request for interim guidance to give drivers while the crash is unresolved",
+    "description": "Roy asked what he should tell drivers in the meantime about the launch-crash issue, and later whether they should hold off on further updates. Support (internal) proposed a mobile-web bookmark as a stopgap so drivers can still reach sessions, and advised that holding updates would not help since there is no clean rollback path. This is a request for interim guidance tied to the Android crash issue already captured, not a separate product defect or feature ask.",
+    "line": 40,
+    "quote": "is there anything I tell the drivers in the meantime? They're going to ask me \"when's it fixed\" and I need to say something.",
+    "context_lines": [
+     41,
+     43,
+     55,
+     56
+    ],
+    "related_line": 14,
+    "severity": "low",
+    "severity_reason": "Not an independent product issue; it is a request for a stopgap tied to the already-captured crash-on-launch bug.",
+    "match_note": "Directly dependent on the Android crash-on-launch topic raised at L14; not a distinct product gap."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

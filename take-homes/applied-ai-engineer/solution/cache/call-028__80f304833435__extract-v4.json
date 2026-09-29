@@ -1,0 +1,56 @@
+{
+ "call_id": "call-028",
+ "sha256": "80f304833435763d5914f74211ce0e14985e7b52ee88c825fa51e267d0d60381",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:46+00:00",
+ "usage": {
+  "input_tokens": 14083,
+  "output_tokens": 3277,
+  "latency_s": 39.29,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Perceived mass member deletion was default 'Active members' filter hiding archived records",
+    "description": "Customer saw the admin Members list count drop from ~400 to 178 and believed members had been deleted. Root cause was the Members view defaulting to an 'Active members' filter, which hid the ~220 members she herself had archived the prior week following contractor departures. Switching the filter to 'All members' immediately restored the full count of 401, and a spot-check confirmed archived members retain full profile and session history. Resolved live on the call; no data loss occurred and no product defect was found (the filter and archive function behaved as designed).",
+    "line": 6,
+    "quote": "I opened the admin panel this morning and half our members are gone. Deleted.",
+    "context_lines": [
+     15,
+     17,
+     19,
+     32
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No actual defect or data loss occurred; the underlying system behaved correctly and the scare was fully explained by customer-side action (forgotten bulk archiving) combined with a default filter.",
+    "match_note": "Not the same as PROJ-131 (search indexing delay for new invites) or any tracked bug; this is a default-view/filter confusion fully resolved as user error, with no matching catalogue issue.",
+    "no_action_reason": "resolved_user_error"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer unaware bulk-archive action already exists for Members list",
+    "description": "Customer asked whether there is a bulk way to archive members, having manually archived 220 members one-by-one the prior week, which took a long time and contributed to her forgetting the archiving had happened. Support confirmed a bulk archive action already exists in the Members list toolbar (select via checkboxes or select-all with a filter applied, then use the toolbar 'Archive' action). This is an existing product capability the customer was simply unaware of, not a missing feature or defect.",
+    "line": 56,
+    "quote": "is there a bulk way to do it, or is it one at a time?",
+    "context_lines": [
+     57,
+     58,
+     59,
+     60
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product gap exists; the requested capability is already shipped and was simply undiscovered by this user, with no ongoing impact after the call.",
+    "match_note": "Not in the tracked catalogue as a gap; explicitly confirmed on the call as existing functionality (bulk archive toolbar action), so there is nothing to file.",
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

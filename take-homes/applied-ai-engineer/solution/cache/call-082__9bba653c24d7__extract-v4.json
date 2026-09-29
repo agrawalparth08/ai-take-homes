@@ -1,0 +1,55 @@
+{
+ "call_id": "call-082",
+ "sha256": "9bba653c24d7ba3b933c235726ef6f2880df7409ada28247c5bd704d44292187",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:33:15+00:00",
+ "usage": {
+  "input_tokens": 16660,
+  "output_tokens": 2825,
+  "latency_s": 34.55,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-138",
+    "title": "Outlook calendar invites retain original time after session reschedule",
+    "description": "After a coaching session is rescheduled in the platform (e.g., 2pm moved to 4pm), the in-app time and coach view update correctly, but the Outlook calendar invite continues to display the original time. Google Calendar invites update correctly for the same reschedule action, isolating the defect to Outlook. Reported by the customer as happening on every reschedule (not intermittent) for all 6 of their Outlook-based leadership users, regardless of whether the reschedule is initiated from web or mobile. Twice this has caused the member to show up at the wrong time because the coach was expecting them at the new time. Started roughly a month before the call, after having worked correctly previously. Customer workaround: manually delete and re-add the Outlook invite after every reschedule.",
+    "line": 18,
+    "quote": "But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.",
+    "context_lines": [
+     16,
+     27,
+     29,
+     38,
+     52
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Consistent, reproducible defect causing real missed sessions, but scoped to Outlook-connected users (6 affected) and a functional manual workaround exists; matches an already-tracked Open bug.",
+    "match_note": "Same symptom (Outlook invite shows old time post-reschedule, Google unaffected) and same scope as PROJ-138; this call adds a corroborating account."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Request/confirmation of manual delete-and-re-add workaround for stale Outlook invites",
+    "description": "Customer describes already manually deleting and re-adding the Outlook calendar invite after each reschedule as a stopgap to avoid showing up at the wrong time. This is a workaround for the underlying Outlook reschedule sync defect, not a separate issue.",
+    "line": 42,
+    "quote": "I've kind of been doing the manual delete-and-re-add already, just to be safe. It's annoying but it works.",
+    "context_lines": [
+     41,
+     43
+    ],
+    "related_line": 18,
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; it is a stopgap tied to the Outlook invite sync bug already captured above.",
+    "match_note": "Workaround for the same-call Outlook invite issue (line 18); not filed separately per instructions."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

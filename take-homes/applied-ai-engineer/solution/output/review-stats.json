@@ -1,0 +1,11 @@
+{
+ "new_ticket_cards": 41,
+ "corroborations": 21,
+ "enablement_nudges": 7,
+ "decisions_needed": 43,
+ "decisions_note": "one approve per new ticket, one batch approve for corroborations, one for enablement",
+ "median_words_per_card": 312,
+ "max_words_per_card": 965,
+ "median_context_lines_per_card": 4,
+ "reviewer_time": "Parth spent about 1 h in total on direction and review, including reading this queue. Per-card review time was not recorded, so no median is claimed."
+}

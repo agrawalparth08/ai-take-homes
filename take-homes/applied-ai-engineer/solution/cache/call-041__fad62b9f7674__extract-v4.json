@@ -1,0 +1,38 @@
+{
+ "call_id": "call-041",
+ "sha256": "fad62b9f7674860a99e37135038536275e4a46469c8b619f8401574671d50e68",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:18+00:00",
+ "usage": {
+  "input_tokens": 14255,
+  "output_tokens": 1415,
+  "latency_s": 16.78,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer self-reports unfamiliarity with reporting dashboard (explicitly not a product issue)",
+    "description": "Camille states that scheduling, login, the app, and coaches all work well with no complaints. When pressed for any friction, she says she personally could stand to understand the reporting better, but explicitly attributes this to not having taken time to learn it rather than any product defect or missing capability. Tom\u00e1s offers a reporting walkthrough as a service, not a product fix.",
+    "line": 48,
+    "quote": "If I'm scraping the barrel, I'd say I personally could stand to understand the reporting better, but that's me not having sat down to learn it, not a product problem.",
+    "context_lines": [
+     47,
+     49,
+     50,
+     62
+    ],
+    "severity": "low",
+    "severity_reason": "Customer explicitly disclaims this as a product issue; it is a personal knowledge gap addressed by a training walkthrough, not a defect or feature gap.",
+    "match_note": "No catalogue issue applies; customer explicitly states this is not a product problem, so it does not qualify as a bug or feature request.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

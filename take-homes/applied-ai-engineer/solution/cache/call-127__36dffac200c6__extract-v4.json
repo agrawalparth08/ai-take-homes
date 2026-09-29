@@ -1,0 +1,75 @@
+{
+ "call_id": "call-127",
+ "sha256": "36dffac200c690d421b0ff44f64b8439b0203ec43aa417647bc5e357e2f61c79",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:40:57+00:00",
+ "usage": {
+  "input_tokens": 40172,
+  "output_tokens": 6160,
+  "latency_s": 64.58,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer relays unverified Reddit claim about member data being sold",
+    "description": "Marcus reports seeing a screenshot of a Reddit thread claiming BetterBark sells member coaching/wellbeing data to third parties. He has not read the full thread and has not confirmed the original source. Priya states this is not true, that coaching conversations are treated as confidential, and routes the request to the security/trust team for formal documentation rather than treating it as a product defect.",
+    "line": 38,
+    "quote": "somebody claiming that BetterBark \"sells member data\" \u2014 that the coaching conversations or the wellbeing data get packaged up and sold to third parties",
+    "context_lines": [
+     39,
+     41,
+     45,
+     51
+    ],
+    "disposition_detail": null,
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Unverified, anonymous secondhand claim with no confirmed data-handling defect; explicitly handled by the account team as a trust/communications matter, not a product issue.",
+    "match_note": "No catalogue issue addresses data-sale allegations; this is hearsay from an anonymous post, not a first-hand product defect, and is explicitly routed away from the product queue.",
+    "no_action_reason": "not_product",
+    "tracked_key": null
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "Associates report difficulty scheduling coaching sessions around client deadlines",
+    "description": "Marcus relays that a couple of associates found it hard to schedule coaching sessions around client deadlines. He explicitly attributes this to the demands of legal work rather than the BetterBark platform, saying 'that's the job, not your platform.' No product change is requested.",
+    "line": 28,
+    "quote": "A couple said scheduling around client deadlines is hard, but that's the job, not your platform.",
+    "context_lines": [
+     27,
+     29
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Customer explicitly disclaims this as a product issue, attributing it to their own work demands rather than a platform defect.",
+    "match_note": "No catalogue issue matches; the customer explicitly rules this out as a platform problem.",
+    "no_action_reason": "customer_side_cause",
+    "tracked_key": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Members' session history view mistaken for a missing feature (training gap)",
+    "description": "An associate reportedly asked whether they could view their own past coaching session history. Priya confirms this already exists in the member view under the session list. Marcus agrees this is a training/awareness gap rather than a missing capability and asks for a how-to guide to be sent instead.",
+    "line": 60,
+    "quote": "Someone did ask that, actually. So it already exists? Good \u2014 that's a training gap, not a missing feature.",
+    "context_lines": [
+     59,
+     61
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "The capability already exists; the issue is discoverability/communication, not an actual product gap.",
+    "match_note": "Not a catalogue gap because the feature already exists; confirmed on the call as a training/awareness issue rather than a missing feature.",
+    "no_action_reason": "resolved_user_error",
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

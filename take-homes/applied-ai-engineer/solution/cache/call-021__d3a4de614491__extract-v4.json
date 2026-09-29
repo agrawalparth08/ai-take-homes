@@ -1,0 +1,103 @@
+{
+ "call_id": "call-021",
+ "sha256": "d3a4de61449103cab4c15f15ba307cdadbdd782333d7d3bd2ee90015c6ca9c5f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:15+00:00",
+ "usage": {
+  "input_tokens": 17000,
+  "output_tokens": 6712,
+  "latency_s": 63.01,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Live video coaching sessions freeze on Chrome ~40 minutes in, following recent app update",
+    "description": "During in-browser live 1:1 video training sessions, the coach's video image freezes on a single frame around the 40-minute mark (in the back third of hour-long sessions) while audio continues uninterrupted. Reported exclusively by Chrome users (the customer's whole office uses Chrome). Refreshing the browser page restores video and lets the user rejoin, though the freeze can recur later in the same session. Began after the most recent BetterBark app update; sessions were reportedly stable before that release. About 8-9 users have explicitly reported it, with the customer believing the true count is higher since refreshing is an easy, silent workaround.",
+    "line": 24,
+    "quote": "somewhere around the forty-minute mark, the video just freezes. The coach's picture locks up on one frame",
+    "context_lines": [
+     26,
+     30,
+     32,
+     34
+    ],
+    "severity": "medium",
+    "severity_reason": "Real, reproducible defect degrading a core feature (live coaching video) and undermining customer confidence, but a workaround exists (page refresh) and sessions can still be completed, so it is not blocking or critical.",
+    "match_note": "No catalogue issue covers this symptom; distinct from PROJ-110 (Android crash-on-launch, different platform/failure mode) and PROJ-138 (Outlook ICS invite timing, unrelated to live video)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer-run anonymized engagement leaderboard among adjusters",
+    "description": "Curtis describes personally sending an anonymized leaderboard to the claims-adjuster cohort to drive competitive engagement with training. This is a customer-side management tactic he devised, not a described BetterBark product feature, defect, or a request for a product change.",
+    "line": 10,
+    "quote": "I sent them a leaderboard. Anonymized, but everyone knew who was who",
+    "context_lines": [
+     8,
+     12,
+     15
+    ],
+    "severity": "low",
+    "severity_reason": "No product impact; purely a customer-side engagement tactic with no request attached.",
+    "match_note": "Not present in the tracked catalogue; not a product topic at all, included only for completeness."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Finance pressure on per-seat pricing / cheaper tier ask",
+    "description": "Gwen raises that her finance team annually questions the per-seat cost and asks whether a cheaper tier exists. This is a commercial/pricing negotiation topic handled by the account team (renewal pricing options, multi-year lock), not a defect in or missing capability of the BetterBark product.",
+    "line": 44,
+    "quote": "Finance is asking why our per-seat cost is what it is and whether there's a cheaper tier",
+    "context_lines": [
+     45,
+     49,
+     51
+    ],
+    "severity": "low",
+    "severity_reason": "No product impact; pure pricing/commercial discussion.",
+    "match_note": "No tracked issue applies; explicitly excluded category (pricing/competitive chatter) per triage rules."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Custom cohort attrition cut requested for customer board slide",
+    "description": "Gwen asks for a clean cohort attrition-vs-engagement comparison cut she can drop into her board deck to argue the program affects retention. This is a bespoke reporting/analysis favor performed by the account team using existing engagement report data, not a request for a new product capability or a bug report.",
+    "line": 17,
+    "quote": "We're trying to prove this affects retention because that's the number finance respects",
+    "context_lines": [
+     18,
+     19,
+     20
+    ],
+    "severity": "low",
+    "severity_reason": "No product defect or missing feature; a one-off reporting/services request.",
+    "match_note": "Not a catalogue-eligible item; excluded as a services/reporting favour per triage rules, distinct from PROJ-118 (self-serve PDF export feature)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Replacement-cost model requested to justify spend to finance",
+    "description": "Gwen offers to supply finance's replacement-cost figures for adjusters/underwriters so Priya can build a model pairing them with the attrition delta, to argue the program pays for itself. This is a bespoke account-team analysis/deliverable, not a BetterBark product feature or defect.",
+    "line": 48,
+    "quote": "I can get you those replacement numbers from finance, ironically. Turn their own math against them",
+    "context_lines": [
+     45,
+     46,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "No product impact; a custom business-case deliverable built by the account team.",
+    "match_note": "Not present in the catalogue; excluded as a services/reporting favour per triage rules."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

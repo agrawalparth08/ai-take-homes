@@ -1,0 +1,73 @@
+{
+ "call_id": "call-077",
+ "sha256": "8d675d18d855ea379eb6371da2f46fd69f896b6ed8231c456380fafc5021f9f3",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:33:00+00:00",
+ "usage": {
+  "input_tokens": 15606,
+  "output_tokens": 5929,
+  "latency_s": 68.23,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer questions ROI on idle plant-floor licenses (not a product defect)",
+    "description": "Randall raised concern that roughly 100 of 240 plant-floor seats are idle in a given month, asking whether he's paying for unused licenses (L27, L30). This is a utilization/engagement business question, not a defect in or missing capability of the BetterBark product. Derek proposed a services-based fall engagement push (QR codes at the line, posters, supervisor-led public bookings) rather than any product change, and Randall agreed to hold seats at 600 and revisit engagement at the next renewal.",
+    "line": 27,
+    "quote": "What about the plant-floor engagement though? Am I paying for seats that sit idle?",
+    "context_lines": [
+     30,
+     31,
+     33,
+     57
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product defect or feature gap involved; purely a services/engagement planning discussion with no engineering action possible.",
+    "tracked_key": null,
+    "match_note": "No catalogue overlap; this is an account engagement/services concern, not a product defect or feature request."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer confirms current invoicing setup meets their needs, no change requested",
+    "description": "Bev stated invoicing works fine as-is: a single invoice booked to one training budget code, with no need to split by department. She explicitly said simplicity is exactly what she wants and asked not to complicate it. No defect or missing capability was described.",
+    "line": 51,
+    "quote": "Invoicing's fine, actually. Single invoice, we book it to the training budget, done.",
+    "context_lines": [
+     52,
+     53
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No issue raised; customer affirmatively confirmed satisfaction with the status quo and declined added functionality.",
+    "tracked_key": null,
+    "match_note": "No catalogue overlap; explicitly a non-issue, customer wants no change to invoicing."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer confirms security package already on file, no new requirements",
+    "description": "Bev confirmed nothing changed on insurance or security addenda this year, and that BetterBark's existing security package is already on file and passed their prior review. No new product security gap or concern was raised.",
+    "line": 55,
+    "quote": "Nothing changed. Your security package is already on file and it passed our review last time.",
+    "context_lines": [
+     54
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No issue raised; customer confirmed existing security documentation already satisfies their review requirements.",
+    "tracked_key": null,
+    "match_note": "No catalogue overlap; a compliance/paperwork confirmation, not a product defect or feature gap."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

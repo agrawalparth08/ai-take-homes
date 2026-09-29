@@ -1,0 +1,55 @@
+{
+ "call_id": "call-078",
+ "sha256": "36993e7dd7c65749725edff37915926d70eaf36fd66185a03cdecde905676e9f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:32:41+00:00",
+ "usage": {
+  "input_tokens": 16660,
+  "output_tokens": 2751,
+  "latency_s": 34.13,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Coach search filters are cleared after using browser back button from a profile",
+    "description": "On the coach browse/search page, users set filters (specialty, language, timezone), click into a coach's profile to read the bio, then use the browser back button to return to the list. All filter selections are wiped, forcing users to re-enter every filter from scratch. Observed on Chrome (customer's fleet is Chrome-only, so other browsers unconfirmed). Impact scales with the number of filters set \u2014 users with several filters (e.g., language + specialty + timezone) are hit hardest and are most likely to abandon the search; the customer reports at least two users who gave up on booking because of the repeated resets. A workaround exists: opening each coach profile in a new tab instead of clicking through preserves the list tab's filters, but users don't discover this naturally.",
+    "line": 24,
+    "quote": "Then they click into a coach's profile to read the bio. And then they hit the browser back button to go back to the list \u2014 and all their filters are gone. Wiped. Back to square one.",
+    "context_lines": [
+     20,
+     22,
+     26,
+     36,
+     57
+    ],
+    "severity": "medium",
+    "severity_reason": "Real, reproducible usability defect causing reported search abandonment and lost bookings, but a workaround (open profile in new tab) exists and it does not block core product use.",
+    "match_note": "No catalogue issue covers coach-search filter state loss on back navigation; distinct from all listed bugs/features, so this is new.",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "New-tab workaround for coach search filter reset",
+    "description": "One user found that opening each coach profile in a new tab (rather than clicking through and using back) preserves the filters on the original list tab. This is a customer-side workaround for the filter-reset bug, not a separate product issue.",
+    "line": 42,
+    "quote": "The one clever guy opens each coach profile in a new tab instead of clicking through. Then the list tab keeps its filters.",
+    "context_lines": [
+     43,
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; it is a stopgap for the filter-reset bug already captured.",
+    "match_note": "Directly tied to the browser-back filter-reset issue raised at L24; filed as workaround_request rather than a separate ticket.",
+    "no_action_reason": "workaround_request",
+    "related_line": 24
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

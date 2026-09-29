@@ -1,0 +1,90 @@
+{
+ "call_id": "call-063",
+ "sha256": "8c692d3b3c688efd4a38b54327301f3cc52aacf0e78721291a5259c763c2473f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:31:05+00:00",
+ "usage": {
+  "input_tokens": 17015,
+  "output_tokens": 6046,
+  "latency_s": 63.88,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-118",
+    "title": "Manager dashboard lacks one-click PDF export of team engagement summary",
+    "description": "Office managers can view per-practice engagement trend lines on the manager dashboard but have no way to export the view; the only option is to screenshot or manually retype numbers for monthly regional-director meetings. This manual step causes wrong date ranges and typo'd numbers, so regional directors sometimes see mismatched figures for the same practice, damaging trust in the program. Customer wants a dashboard button that outputs a formatted PDF of the manager's own team summary with the selected date range baked in, so it can be dropped into slides/emails without manual recreation. Across 42 practices/office managers this happens monthly.",
+    "line": 24,
+    "quote": "What I want \u2014 what all forty-two of them want, and they've told me so loudly \u2014 is a button on the manager dashboard that spits out their team's engagement summary as a PDF.",
+    "context_lines": [
+     22,
+     26,
+     30,
+     34
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Manual screenshot/retype of dashboard numbers across 42 practices produces mismatched figures that reach regional directors, undermining trust in engagement data used for real decisions; no self-serve export exists.",
+    "match_note": "Same capability requested \u2014 one-click PDF export of the manager dashboard's team engagement summary \u2014 as PROJ-118 (Export team engagement summary as PDF from the manager dashboard)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Customer accepts vendor-run monthly manual export as stopgap for missing PDF export",
+    "description": "As a stopgap for the missing self-serve PDF export (see line 24 finding), the rep offered to manually build and send a monthly per-practice export (PDF plus a spreadsheet summary tab) using a practice-to-region mapping the customer will supply, targeted for delivery by the 1st of each month to precede the customer's first-week regional meetings. The customer accepted this as a relief but it is an internal service workaround, not a product change.",
+    "line": 38,
+    "quote": "That would genuinely take a headache off my plate. What do you need from me to set it up?",
+    "context_lines": [
+     24,
+     35,
+     39,
+     42
+    ],
+    "related_line": 24,
+    "severity": "low",
+    "severity_reason": "This is a manual, vendor-side stopgap for the already-logged export gap, not a separate product defect or request.",
+    "match_note": "Workaround tied directly to the PDF export request raised at line 24; not filed as its own issue per instructions."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "cosmetic_preference",
+    "title": "Unsolicited positive feedback on existing dark mode feature",
+    "description": "Customer explicitly frames this as 'not really a complaint' and reports that younger hygienist staff enjoy the mobile app's dark mode, saying it makes the app 'not feel like a work thing.' No defect, gap, or change is requested; mobile app is otherwise reported as fine with no issues.",
+    "line": 48,
+    "quote": "I just wanted to say the dark mode you added a while back was a hit with the younger hygienists.",
+    "context_lines": [
+     49,
+     50
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Positive, unsolicited feedback on an already-shipped feature (PROJ-102); no change requested.",
+    "match_note": "Praise only, not a request; PROJ-102 (Dark mode) is already Shipped and nothing further is being asked."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "No issues reported with coaches or coach-reassignment workflow",
+    "description": "Customer reports coaches overall are great; one coach was not a fit for two members and the reassignment through the product was smooth and quick ('clicked the change and picked a new coach'). Customer explicitly states there is nothing to raise here. No defect or feature gap identified.",
+    "line": 54,
+    "quote": "Coaches are great. We had one who wasn't a fit for a couple of members and the reassignment was smooth, no drama.",
+    "context_lines": [
+     56,
+     58
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Positive feedback confirming the reassignment workflow worked as intended; no defect or request raised.",
+    "match_note": "No corresponding catalogue issue; topic is explicitly closed out by the customer as a non-issue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,58 @@
+{
+ "call_id": "call-118",
+ "sha256": "a10871e09d453fa43031a092f15acc24e452fa8c576623412bd65f31ac03e4b6",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:33+00:00",
+ "usage": {
+  "input_tokens": 13572,
+  "output_tokens": 4057,
+  "latency_s": 49.11,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Managers lack visibility into team-level engagement dashboard",
+    "description": "Priyanka reports her managers keep asking to see their own team's engagement data, which she can currently see but they cannot. Derek explains a manager dashboard already exists that surfaces team-level engagement without exposing private data, and that access is gated by an admin-side setting. Priyanka suspects she simply never turned that setting on for her account. Derek agreed to check the account configuration and enable the toggle if it was off, resolving this as a config check rather than a product gap.",
+    "line": 37,
+    "quote": "My managers keep asking me how their teams are engaging. I can see it, but they want their own view. Is that a thing?",
+    "context_lines": [
+     38,
+     39,
+     40,
+     42
+    ],
+    "severity": "low",
+    "severity_reason": "The capability already exists in the product; this is a one-toggle admin configuration check, not a defect or missing feature.",
+    "match_note": "Not in catalogue as a bug/feature gap; the underlying feature (manager dashboard) already exists and just needs to be enabled by the account admin.",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "retracted",
+    "title": "Manager dashboard not available on mobile app",
+    "description": "Some of Priyanka's managers asked whether they could view the team engagement dashboard on their phones, or whether it was desktop-only. Derek confirmed the manager dashboard is currently a web-only experience, since the mobile app is designed for members' own coaching activity rather than manager oversight. Priyanka accepted this as a sensible design choice ('That's fine, honestly... When they're doing manager-brain stuff they're at a desk anyway') and said she would set expectations with her managers to use a laptop instead. No further product change was requested by the end of the call.",
+    "line": 45,
+    "quote": "a couple of them asked whether they can see any of this on their phones, or is it desktop only? They live on their phones, being creatives on the go.",
+    "context_lines": [
+     46,
+     47,
+     48,
+     49
+    ],
+    "severity": "low",
+    "severity_reason": "Raised only as a question on behalf of managers and explicitly accepted/dropped once the web-only design rationale was explained; no standing request remains.",
+    "match_note": "No catalogue item covers mobile access to the manager dashboard; not filed since the customer accepted the current web-only behavior rather than asking for change.",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

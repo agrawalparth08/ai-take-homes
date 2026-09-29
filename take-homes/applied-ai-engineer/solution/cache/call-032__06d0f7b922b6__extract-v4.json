@@ -1,0 +1,71 @@
+{
+ "call_id": "call-032",
+ "sha256": "06d0f7b922b67a3a4e3ae52e7910852b5a6fa60a8bfe027baeef9e2f813f66e2",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:33+00:00",
+ "usage": {
+  "input_tokens": 72057,
+  "output_tokens": 4285,
+  "latency_s": 41.06,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Secondhand rumor of dropped rows in large exports (hearsay, no repro)",
+    "description": "Customer relays a secondhand, wine-fueled conference anecdote from an L&D contact at a different (unnamed) company, who said 'large exports drop rows.' Customer has no first-hand experience \u2014 she does not run large exports herself and never saw the issue occur. No account, size threshold, or repro was provided; internal team explicitly declines to file anything on this basis and instead offers to check internally and validate a real export with the customer if/when she runs one.",
+    "line": 29,
+    "quote": "she says something like \"just watch out when you pull big exports, we've heard they drop rows sometimes.\"",
+    "severity": "low",
+    "severity_reason": "Unverified secondhand hearsay with zero first-hand evidence; no actionable defect to size.",
+    "match_note": "Superficially resembles a data-integrity bug but fails the first-hand-EXTERNAL-report bar; not the same as any catalogued export issue.",
+    "no_action_reason": "hearsay",
+    "context_lines": [
+     31,
+     33,
+     34,
+     36
+    ]
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests help building an engagement-to-retention ROI story for leadership",
+    "description": "Customer wants to tie coaching engagement data to retention more explicitly to justify program spend to her managing partner and head of finance in Q3. This is a request for BetterBark's team to help build reporting frameworks/materials, not a request for a new product capability or a fix to an existing one.",
+    "line": 47,
+    "quote": "Send me whatever you've got. Q3 I have to justify the spend again and \"people seem happier\" won't cut it this year.",
+    "severity": "low",
+    "severity_reason": "Services/advisory request, not a product defect or feature gap.",
+    "match_note": "Distinct from PROJ-118 (PDF export of the existing manager dashboard view); this is a request for custom analysis/framework materials, not a product export feature.",
+    "no_action_reason": "not_product",
+    "context_lines": [
+     45,
+     46,
+     48,
+     52
+    ]
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests access to an L&D peer community/newsletter",
+    "description": "Customer asks whether BetterBark offers a peer community or newsletter for people in her L&D role, wanting year-round connection with peers. Internal staff confirms this exists and offers to add her. This is a customer-community/program ask, not a product feature or defect.",
+    "line": 55,
+    "quote": "do you all do anything for L&D teams like mine directly? Like a peer community or a newsletter? I feel starved for people who do exactly my job.",
+    "severity": "low",
+    "severity_reason": "Program/community request unrelated to the software product itself.",
+    "match_note": "No catalogued issue covers customer community programs; request was already satisfiable with an existing (non-product) offering.",
+    "no_action_reason": "not_product",
+    "context_lines": [
+     56,
+     57,
+     58
+    ]
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

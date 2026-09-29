@@ -1,0 +1,109 @@
+{
+ "call_id": "call-017",
+ "sha256": "bc6558151aba1264400605a51f293e1ceaeea6049294e7877f0047eda7d03c7c",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:24+00:00",
+ "usage": {
+  "input_tokens": 14246,
+  "output_tokens": 4443,
+  "latency_s": 49.11,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Weekly team digest exposes aggregate stats of an unrelated team to dual-team members",
+    "description": "Members who belong to two teams (a common setup after the April matrix reorg) receive a Monday digest email that shows aggregate session/engagement stats for a third team they are not a member of at all, rather than for either of their actual two teams. Confirmed for two different members (Aleksander: consistently shown 'Formulation' team stats for two consecutive Mondays; Fenna: shown a different wrong team). Single-team members' digests are correct. This surfaces sensitive team-level performance data (session counts, average goals-completed, engagement rate) to people outside that team. In-app team dashboard view is accurate; only the emailed digest is affected.",
+    "line": 24,
+    "quote": "His Monday digest showed him the aggregate stats \u2014 session counts, average goals-completed, engagement rate \u2014 for a team he is not on.",
+    "context_lines": [
+     20,
+     26,
+     30,
+     32,
+     34
+    ],
+    "severity": "high",
+    "severity_reason": "Wrong/sensitive aggregate performance data (another team's stats) is being exposed to unauthorized members via email, raising data-visibility and compliance concerns for the customer's legal team; a manual workaround (disabling the digest) exists, keeping it below critical.",
+    "match_note": "No catalogue issue covers digest/team-membership data resolving to the wrong team; distinct from PROJ-101 (timezone display) which is a formatting issue, not a data-exposure issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - workaround request for digest data-exposure bug",
+    "description": "Customer asks what to do in the interim about the wrong-team digest issue and whether digests can be disabled for affected members. This is a stopgap for the digest bug already logged, not a separate defect.",
+    "line": 42,
+    "quote": "Is there anything I do in the meantime? Do I tell dual-team people to ignore the digest?",
+    "context_lines": [
+     43,
+     44,
+     45,
+     46
+    ],
+    "severity": "low",
+    "severity_reason": "Not a distinct defect; purely a request for interim mitigation guidance tied to the digest data-exposure bug.",
+    "match_note": "Workaround/stopgap for the same digest team-data-exposure issue at L24; not filed separately.",
+    "no_action_reason": "workaround_request",
+    "related_line": 24
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - positive feedback on Basel coach matching speed",
+    "description": "Customer notes that coach matching for the new Basel site was fast and better than expected, contrary to her worry about lack of German-speaking coaches. This is a compliment about existing service performance, not a defect or feature request.",
+    "line": 48,
+    "quote": "The coach matching for the Basel folks was fast.",
+    "context_lines": [
+     49,
+     50
+    ],
+    "severity": "low",
+    "severity_reason": "Positive remark with no requested change; no product issue involved.",
+    "match_note": "Not a defect or missing capability; purely commendatory feedback about coach-matching turnaround, no catalogue match applicable.",
+    "no_action_reason": "other",
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - Boston coach-matching delay attributed to member preference, not product",
+    "description": "Some Boston members were matched to a coach later than Basel members. Customer explains this was because those specific members held out for a coach with a life-sciences background rather than accepting the first match, and explicitly says 'that's on them, not you.' No product defect identified.",
+    "line": 52,
+    "quote": "A couple of them were picky about wanting a coach with a life-sciences background specifically, so they held out for the right match rather than taking the first offer.",
+    "context_lines": [
+     50,
+     51,
+     53,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly attributed by the customer to member preference/behavior rather than a product or process defect.",
+    "match_note": "No catalogue entry applies; customer herself rules out a product cause for the delay.",
+    "no_action_reason": "customer_side_cause",
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "N/A - marketing/framing discussion, not a product topic",
+    "description": "Customer describes how she rebranded the program from 'pet wellbeing' to 'measurable behavior outcomes' to drive scientist engagement, contrasting a failed pilot framing two years ago with the current successful framing. This concerns program positioning and messaging, not BetterBark product functionality.",
+    "line": 14,
+    "quote": "When we piloted this two years ago I sold it as \"pet wellbeing\" and the scientists ignored it completely.",
+    "context_lines": [
+     12,
+     13,
+     18
+    ],
+    "severity": "low",
+    "severity_reason": "Marketing/positioning anecdote with no product defect or feature request involved.",
+    "match_note": "Not a product capability or defect; no catalogue issue is relevant.",
+    "no_action_reason": "not_product",
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

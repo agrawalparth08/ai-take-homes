@@ -1,0 +1,54 @@
+{
+ "call_id": "call-139",
+ "sha256": "ba465b35600a15f72ee5fe6d9c0c6799b42a871b6763f07efc9f74af9b85145f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:42:25+00:00",
+ "usage": {
+  "input_tokens": 14658,
+  "output_tokens": 2272,
+  "latency_s": 30.31,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Support multi-language (Spanish/French) automated notification emails",
+    "description": "All automated system emails (welcome/first-session prompt, session reminders, new-coach-message alerts) are sent in English only, regardless of the member's actual working language. Andes Mining's LatAm workforce (~1,800 enrolled, ~1,200 more comfortable in Spanish) largely ignores or discards these emails because they read as not-for-them or spam, producing a 28-point activation gap versus the English-speaking North American population (79% vs 51%). The in-app experience and coach-matched sessions are already available in Spanish and are not the problem; the gap is specifically at the outbound notification layer. Customer requests emails rendered in the member's own language, driven by a per-member language preference, prioritizing Spanish and also French (for a French-speaking African joint-venture population of a few hundred members).",
+    "line": 38,
+    "quote": "Multi-language notification emails. Send the automated emails in the member's language, not just English.",
+    "context_lines": [
+     30,
+     32,
+     42,
+     46
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "Feature gap is directly correlated with a measured 28-point activation gap and throttles engagement for over 1,000 members in the customer's largest, highest-growth, highest-priority (safety-leadership) population; no product-side workaround exists, only a manual customer-run substitute that lacks functional booking links.",
+    "match_note": "No catalogue issue addresses notification language/localization; PROJ-101 (timezone display) and other tracked items are unrelated to email language content, so this is a new feature request."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer-run manual Spanish email workaround (HR-sent, non-scalable)",
+    "description": "Diego's HR team manually sends their own Spanish-language emails pointing members back to the platform, as a stopgap for the English-only notification problem. He states this is manual, does not scale, and lacks the functional booking links the real notifications carry, so it cannot substitute for a real fix.",
+    "line": 52,
+    "quote": "We've tried sending our own Spanish emails from my HR team pointing people back to the platform, but it's manual and it doesn't scale",
+    "context_lines": [
+     38,
+     30,
+     53
+    ],
+    "related_line": 38,
+    "severity": "low",
+    "severity_reason": "Not a separate product issue; it is evidence/context for the multi-language notification feature request already captured, not something requiring independent engineering action.",
+    "match_note": "This is the customer's own workaround for the multi-language notification issue raised at L38, not a distinct product problem; filed as workaround_request tied to that line.",
+    "no_action_reason": "workaround_request"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

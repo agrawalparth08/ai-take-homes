@@ -1,0 +1,90 @@
+{
+ "call_id": "call-012",
+ "sha256": "93f88fef27cf223bb532ff37eadd24ac28a58c7dc1f793b864e24d3f37312dbb",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:50+00:00",
+ "usage": {
+  "input_tokens": 17786,
+  "output_tokens": 6257,
+  "latency_s": 58.54,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Search index stale for ~10 minutes after admin renames a team or moves a member",
+    "description": "During Gable Group's June department merge, admins renamed teams and bulk-moved ~40 people. Immediately after renaming a team, searching for the new team name returns empty results as if the team doesn't exist; immediately after moving a member, search still shows them under the old team/department, which no longer exists. Both cases self-correct after roughly 5-10 minutes with no further admin action. The edit screen confirms 'saved' instantly, but gives no indication that search is still catching up, so admins can't tell whether the change failed or is just propagating. It was consistent enough that the two power-user admins began setting kitchen timers and waiting ~10 minutes before trusting search after any batch of changes.",
+    "line": 18,
+    "quote": "search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist.",
+    "context_lines": [
+     16,
+     19,
+     22,
+     20
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Real, reproducible defect affecting decisions during admin changes, but scoped to the two power-user admins during active edits and has a known workaround (wait ~10 minutes).",
+    "tracked_key": null,
+    "match_note": "Distinct from PROJ-131 (newly invited members unsearchable until next-day index build, explicitly scoped to new invites with existing members updating normally); here existing members/teams go stale for minutes, not until the next day, following renames/moves, not invites."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Request: manual re-sync / rebuild-index button in admin panel",
+    "description": "Customer asked for a manual 're-sync' or 'rebuild index' button in the admin panel so admins could force search to catch up immediately after edits instead of waiting out the staleness window. Framed explicitly as a lever to work around the search-staleness bug rather than a standalone need, and customer agreed the underlying fix should be pursued first, with the button only as a fallback if the fix is delayed.",
+    "line": 34,
+    "quote": "could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever.",
+    "context_lines": [
+     35,
+     36,
+     41
+    ],
+    "related_line": 18,
+    "severity": "low",
+    "severity_reason": "Stopgap request tied to another tracked issue, not a standalone defect; customer prioritizes the underlying fix over this workaround.",
+    "tracked_key": null,
+    "match_note": "Workaround/stopgap for the search-staleness bug raised earlier on this same call (line 18); not filed separately per guidance."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback: bulk member-move tool worked flawlessly",
+    "description": "Customer praised the bulk-move tool used to relocate ~40 people via CSV during the merge, reporting zero errors, no partial states, and nothing dropped. Customer explicitly said this should not be filed as a ticket and only wanted the praise relayed to the engineering team.",
+    "line": 48,
+    "quote": "The bulk-move tool itself was flawless. Forty people, one CSV, zero errors, no partial states, nothing dropped.",
+    "context_lines": [
+     49,
+     50,
+     51
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Positive feedback, not a defect or request; no action needed.",
+    "tracked_key": null,
+    "match_note": "Customer explicitly said not to file this ('don't file the tool worked')."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Third-party tool requires delete-and-recreate to rename a team (not a BetterBark issue)",
+    "description": "Customer described a different, unnamed third-party SaaS tool (not BetterBark) that requires deleting and recreating a team just to rename it, and that vendor closed his complaint ticket as 'working as intended.' This was raised as color/context about the broader reorg workload across multiple systems, not as feedback about BetterBark's product.",
+    "line": 12,
+    "quote": "One of the tools made me delete a team and recreate it just to rename it. In 2026.",
+    "context_lines": [
+     13,
+     14
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a BetterBark product issue.",
+    "tracked_key": null,
+    "match_note": "Explicitly about a different, unnamed vendor's tool, not BetterBark."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

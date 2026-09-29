@@ -1,0 +1,70 @@
+{
+ "call_id": "call-121",
+ "sha256": "de958468c6b3789d212507c781285a3aa1fa9fd4ec87b420a6d8a0edc82466cf",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:42+00:00",
+ "usage": {
+  "input_tokens": 59502,
+  "output_tokens": 2859,
+  "latency_s": 40.18,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "Push notifications silently disabled by iOS 'Allow Notifications' setting",
+    "description": "Customer stopped receiving push notifications (session reminders, coach messages) to her phone for about a week to ten days, causing her to miss a coaching session. In-app notifications (bell icon) were still generated and present, and in-app notification preferences were all enabled. Troubleshooting found the iPhone's OS-level Settings > BetterBark > Notifications > 'Allow Notifications' toggle was switched off, blocking delivery to the device. Turning it back on (plus banners/sounds/badges) and sending a test notification confirmed the fix; both parties agreed this was a device-side setting, not a product defect, and no ticket was filed.",
+    "line": 16,
+    "quote": "So I stopped getting notifications from the app. Session reminders, messages from my coach, all of it. Nothing's coming through to my phone.",
+    "context_lines": [
+     18,
+     20,
+     34,
+     43
+    ],
+    "severity": "low",
+    "severity_reason": "Root cause was confirmed as a customer-device OS setting with a known, quick self-service fix (re-enable OS notification permission); not a product defect and no product-side impact remains.",
+    "match_note": "Resembles no tracked issue (PROJ-160 covers iOS logout after OS update, a different symptom/root cause); explicitly resolved as an OS-level permission the user/customer's device had turned off, not a BetterBark app defect.",
+    "no_action_reason": "resolved_user_error"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer asked whether a missed session (caused by the notification issue) counts as a no-show penalty",
+    "description": "After the notification issue was diagnosed, the customer asked whether the coaching session she missed last week (due to not getting a reminder) would count against her account as a no-show penalty. Support checked and confirmed no penalty was flagged on her account for that session; it simply shows as not held.",
+    "line": 44,
+    "quote": "the missed session from last week, is that going to count against me somehow? A no-show penalty or anything?",
+    "context_lines": [
+     45,
+     18
+    ],
+    "severity": "low",
+    "severity_reason": "Purely an account-status inquiry, immediately answered with no adverse finding; not a product defect or feature request.",
+    "match_note": "No related tracked issue; this is an account-policy question, not a product bug or capability gap.",
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requested written troubleshooting steps to share with her office about the notification toggle",
+    "description": "After the fix was confirmed, the customer asked Ravi to send her the step-by-step notification-permission troubleshooting instructions so she could circulate them to colleagues at her 35-person branch, suspecting others may have hit the same accidentally-disabled OS toggle. This is a request for support documentation/steps related to the notification issue already discussed, not a separate product problem.",
+    "line": 54,
+    "quote": "Actually, send me those steps if you can, I bet other people in my office have accidentally done the same thing.",
+    "context_lines": [
+     55,
+     59,
+     16
+    ],
+    "related_line": 16,
+    "severity": "low",
+    "severity_reason": "A documentation/support request tied to the already-resolved notification issue, not a product change.",
+    "match_note": "Directly tied to the notification permission issue at L16; recorded as a workaround/support-material request rather than a separate ticket.",
+    "no_action_reason": "workaround_request"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

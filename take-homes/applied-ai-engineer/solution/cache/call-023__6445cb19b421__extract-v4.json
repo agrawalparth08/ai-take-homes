@@ -1,0 +1,96 @@
+{
+ "call_id": "call-023",
+ "sha256": "6445cb19b421ea6d7e9471a053ca6329863660887cdf46c4fba32b3ddc3f0345",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:52+00:00",
+ "usage": {
+  "input_tokens": 17368,
+  "output_tokens": 9080,
+  "latency_s": 87.61,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No custom fields (cost center, region, business unit, employee type) on member profiles/exports",
+    "description": "Nordvik needs cost center and region (ideally also business unit and employee type) as attributes on every member profile, but BetterBark has no field to store these, so they never appear in any export. As a workaround, the customer manually exports the member roster and VLOOKUPs it against their HRIS roster by email every month to attach these attributes for CFO/COO reporting; last month 12 members dropped out of the join due to nickname-vs-formal email mismatches, causing a cost center to appear empty to the CFO. The customer wants the fields settable at provisioning (CSV import or admin panel), backfillable across all 800 existing members (not just new hires going forward), and to flow through to every data export.",
+    "line": 22,
+    "quote": "What I cannot get is cost center or region, because your system doesn't know they exist. There's nowhere to put them.",
+    "context_lines": [
+     26,
+     28,
+     34,
+     37
+    ],
+    "related_line": null,
+    "severity": "high",
+    "severity_reason": "The missing attribute already produced incorrect-looking data seen by the CFO (an apparently empty cost center) and is explicitly tied by the account exec to the renewal decision, though a brittle manual workaround exists.",
+    "tracked_key": null,
+    "match_note": "No catalogue issue covers extensible/custom member profile fields; distinct from PROJ-118 (PDF export of existing engagement view) and PROJ-095 (shipped CSV roster export), neither of which adds new attributes."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "Lower seafaring-crew completion rates attributed to at-sea connectivity, not product",
+    "description": "Seafaring crew show lower activation/session completion than shore staff (blended completion ~71% vs. shore-only ~82%). The customer explicitly attributes this to limited/absent satellite bandwidth during voyages rather than a program or product failure, and asks only that shore-side and blended numbers be reported separately, not that the product be changed.",
+    "line": 9,
+    "quote": "the seafaring numbers aren't a program failure, they're a physics failure. There's no dog-training app that beats a satellite blackout.",
+    "context_lines": [
+     7,
+     8,
+     10,
+     14
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Explicitly attributed by the customer to an environmental/connectivity constraint outside the product's control, not a defect requiring engineering action.",
+    "tracked_key": null,
+    "no_action_reason": "customer_side_cause",
+    "match_note": "Raised and immediately explained away by the customer as a connectivity limitation at sea; no relation to any catalogue issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Interim: normalize BetterBark member emails to match HRIS formal format",
+    "description": "As a stopgap for the missing cost-center/region fields, the account exec suggested Nordvik standardize member emails in BetterBark to the formal HRIS format so the customer's manual VLOOKUP join stops silently dropping members. The customer agreed to pursue this on her side. This addresses only the join brittleness, not the underlying missing custom-fields capability.",
+    "line": 45,
+    "quote": "That's fair. I can push to normalize the emails on your side to match HRIS. It won't kill the spreadsheet but it'll stop the silent drop-outs, which is the part that burned me.",
+    "context_lines": [
+     22,
+     26,
+     28,
+     44
+    ],
+    "related_line": 22,
+    "severity": "low",
+    "severity_reason": "A customer-side data cleanup step offered as a workaround, not itself a product defect or request.",
+    "tracked_key": null,
+    "no_action_reason": "workaround_request",
+    "match_note": "Workaround for the custom-fields gap raised at line 22; not a separate product ask."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Clarification: bulk CSV import already available for member provisioning",
+    "description": "The customer asked whether there is a bulk way to onboard the newly acquired carrier's employees versus adding them one at a time. The account exec confirmed a CSV import already exists (Admin > Members > Import) where columns are mapped and members are created in one go. No product gap was identified; the capability already exists and the customer was simply unaware of it.",
+    "line": 54,
+    "quote": "The acquired carrier's people, when I onboard them, is there a bulk way or is it one at a time?",
+    "context_lines": [
+     55,
+     56,
+     34
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Question resolved by pointing to existing functionality; no defect or missing capability.",
+    "tracked_key": null,
+    "no_action_reason": "other",
+    "match_note": "Existing capability confirmed on the call, not present in catalogue as a gap; distinct from PROJ-095 (shipped CSV roster export) since this is import, not export."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

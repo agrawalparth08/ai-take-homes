@@ -1,0 +1,38 @@
+{
+ "call_id": "call-120",
+ "sha256": "7894e54083828b10145cf004ed53642f02e09d02b6b92e03551a0c763454fd94",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:29+00:00",
+ "usage": {
+  "input_tokens": 59883,
+  "output_tokens": 1981,
+  "latency_s": 32.98,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Spotty connectivity at some rural sites (not a product complaint)",
+    "description": "In response to being asked whether the app works okay for staff in low-connectivity areas, Wade confirms connectivity is spotty at some sites, but says users plan around it since sessions are scheduled in advance, and nobody has complained about the app. He separately notes his users tend to quietly stop using things rather than complain, but confirms engagement is currently fine (especially among site managers). No defect, missing capability, or change request is raised.",
+    "line": 43,
+    "quote": "Connectivity's spotty at some sites, yeah, but the sessions are scheduled so people plan around it. Nobody's complained to me about the app.",
+    "context_lines": [
+     42,
+     44,
+     45,
+     49
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or impact described; customer explicitly frames this as a non-issue with an existing workaround (scheduling) and no complaints.",
+    "match_note": "Not a product defect or feature gap \u2014 rural network conditions are a customer-side/environmental factor, and the customer explicitly states there's no complaint about the app itself.",
+    "no_action_reason": "customer_side_cause",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

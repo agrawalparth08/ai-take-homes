@@ -1,0 +1,56 @@
+{
+ "call_id": "call-045",
+ "sha256": "6db043cb195433b14e126eec11e1c95bc88a90460553f2b3aff6b861a780b543",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:28:10+00:00",
+ "usage": {
+  "input_tokens": 16886,
+  "output_tokens": 4357,
+  "latency_s": 50.49,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Custom logo renders blurry on high-DPI (Retina) displays",
+    "description": "Customer reported the custom onboarding logo looks soft/blurry on a MacBook with a high-resolution (Retina) display, while it renders fine on a colleague's standard-resolution laptop, matching a low-resolution image being upscaled for high pixel-density screens. The logo's source is a vector file (Illustrator) but the team had exported and uploaded it small (customer estimated ~200px wide), so resolution was not actually constrained on their end. Support asked the customer to re-export the logo at high resolution from the original vector and re-upload under Settings > Branding, with a hard refresh, before treating it as a platform defect. The call ended before the customer confirmed whether the re-upload fixed the rendering, so no platform-side defect was established; the stated cause was a customer-side low-resolution export.",
+    "line": 12,
+    "quote": "On my MacBook. The new one, the high-resolution display. I open the dashboard and our logo, our beautiful logo that our design team agonized over, looks soft. Fuzzy.",
+    "context_lines": [
+     14,
+     15,
+     30,
+     35
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Purely cosmetic rendering issue on one high-DPI device, not confirmed as a platform defect, and a customer-side fix (higher-res re-upload) was already in progress by end of call.",
+    "match_note": "No catalogue issue covers logo/branding image rendering; distinct from any tracked bug, and root cause points to customer's own low-res export rather than a product defect."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Ad-hoc engagement/ROI one-pager requested for leadership readout",
+    "description": "Customer's managing partner is questioning whether the program spend is worth it, and the customer asked for a clear, presentable answer to bring back to leadership. Rather than pointing to an existing in-product report, the internal CSM offered to manually compile a one-page summary covering utilization, active users, session volume, and trend over the contract term, to be delivered outside the product. This was handled as a support/account-management service action rather than a request to add or fix a product capability, and no specific in-product reporting gap was described.",
+    "line": 46,
+    "quote": "My managing partner asks whether the spend is worth it and I'd like a crisp answer. Ideally next to a crisp logo.",
+    "context_lines": [
+     47,
+     48,
+     52,
+     60
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature gap; it is a one-off manual reporting favor performed by the CSM outside the product.",
+    "match_note": "Superficially adjacent to PROJ-118 (PDF export of engagement summary from manager dashboard), but here the customer never asks for an in-product export capability \u2014 the CSM proactively offers a manual, out-of-band deliverable instead."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

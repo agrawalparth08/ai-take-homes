@@ -1,0 +1,128 @@
+{
+ "call_id": "call-057",
+ "sha256": "ce911df55fb91a2a3cb7ab48f3a8740738f93579e9881c512702975b6f4146ff",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:06+00:00",
+ "usage": {
+  "input_tokens": 14084,
+  "output_tokens": 6264,
+  "latency_s": 61.01,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Live coaching session video freezes at ~40 minutes on Chrome; audio continues",
+    "description": "Multiple corporate members (a director and two members on Marcus's team) report that during live browser-based training sessions, the coach's video feed freezes on a single frame while audio keeps playing normally, so the conversation continues with a frozen picture. The freeze consistently occurs around the 40-41 minute mark of the session. All affected users were on Chrome (the company's standard browser). A page refresh temporarily restores the video connection. The issue reportedly started 4-5 weeks before the call; sessions were previously stable for the full hour since March. Customer notes it creates a negative impression with senior members even though it is not session-ending.",
+    "line": 28,
+    "quote": "Several of my corporate members have said that during their live training sessions in the browser, the video just freezes.",
+    "context_lines": [
+     30,
+     33,
+     35,
+     37,
+     39
+    ],
+    "severity": "medium",
+    "severity_reason": "Real, reproducible defect with a clear pattern (Chrome, ~40 min mark, audio-only continues) but a simple workaround exists (page refresh) and audio/session continuity is preserved, limiting business impact to perception rather than data loss or full outage.",
+    "match_note": "No catalogue issue covers live-session video freezing; distinct from PROJ-138 (Outlook invite time mismatch) and all other tracked bugs.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vague reports that the app 'feels slow' with no specifics",
+    "description": "Danielle mentions some members say the app feels slow, but when pressed for details she could get no specific pages or repro steps. She explicitly declines to raise it as a formal issue, saying she'd flag it later only if it sharpens into something concrete.",
+    "line": 47,
+    "quote": "Some people say the app \"feels slow\" but when I push for specifics they can't give me any.",
+    "context_lines": [
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "No reproducible detail provided and customer herself declines to escalate it, so there is nothing actionable for engineering.",
+    "match_note": "Too vague to correspond to any tracked issue; no repro, page, or scope given.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Single unreproducible report of search being 'weird'",
+    "description": "Danielle relays that one unnamed person described search as 'weird' but could not reproduce the behavior. No further detail, page, or repro steps were provided, and Danielle groups this with other 'vibes' she does not want raised as an issue.",
+    "line": 47,
+    "quote": "One person said the search was \"weird\" but couldn't reproduce it.",
+    "context_lines": [
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Single secondhand report with no reproduction steps or specifics; not actionable for engineering as stated.",
+    "match_note": "Not comparable to PROJ-131 (new-invite search indexing delay) since no scope, timing, or repro was given here.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No one-click facility-level breakdown in engagement reporting",
+    "description": "Danielle reiterates a prior request for more granular reporting broken down by facility. Currently she can approximate this by manually filtering the existing dashboard, so it is not blocking her, but she would like a one-click facility breakdown if it becomes available.",
+    "line": 59,
+    "quote": "The facility breakdown I can mostly do by filtering. If it ever becomes a one-click thing I won't complain.",
+    "context_lines": [
+     58,
+     60
+    ],
+    "severity": "low",
+    "severity_reason": "Valuable but explicitly non-blocking nice-to-have with an existing manual filtering workaround already in use.",
+    "match_note": "Distinct from PROJ-118 (PDF export of team engagement summary); this is a facility-level breakdown/filter request, not a PDF export capability.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Seat count discrepancy between finance records and BetterBark order form",
+    "description": "Marcus notes finance believes 1,450 seats were provisioned in Q1 versus the contracted 1,400. Priya confirms 1,400 is the correct figure per the February order form with no amendments, and offers to send the order-form line to close out the discrepancy for finance.",
+    "line": 22,
+    "quote": "Finance has us at 1,400 seats but they think 1,450 got provisioned back in Q1.",
+    "context_lines": [
+     23,
+     24
+    ],
+    "severity": "low",
+    "severity_reason": "Resolved on the call as a records/finance reconciliation matter, not a product defect.",
+    "match_note": "Not a product issue; billing/order-record reconciliation between customer finance and contract records.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for CSM-built manager dashboard training walkthrough",
+    "description": "Danielle has only completed manager-dashboard training with corporate managers and hasn't reached plant managers due to three-shift scheduling difficulty. Priya offers to build a Pemberton-specific recorded walkthrough using anonymized sample data as a service deliverable.",
+    "line": 51,
+    "quote": "I ran one session with the corporate managers and it went well, but I haven't gotten out to the plants.",
+    "context_lines": [
+     52,
+     53,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "A CSM-delivered enablement/training service request, not a product defect or feature gap.",
+    "match_note": "Not a product capability request; existing dashboard functionality is not in question, only delivery of training content.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

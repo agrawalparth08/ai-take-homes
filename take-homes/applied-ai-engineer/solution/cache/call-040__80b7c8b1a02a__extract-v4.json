@@ -1,0 +1,54 @@
+{
+ "call_id": "call-040",
+ "sha256": "80b7c8b1a02a6dc29446f860c1a9a03d2112b4d8d36d0147c2abdda1b1834f2d",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:28+00:00",
+ "usage": {
+  "input_tokens": 17148,
+  "output_tokens": 2209,
+  "latency_s": 27.79,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-160",
+    "title": "iOS app logs out Palmetto GMs after iOS system update",
+    "description": "Multiple Palmetto Hotels GMs (6-7 across different properties, all iPhone users) report being logged out of the BetterBark app immediately after their iPhone's OS updates overnight; they must fully re-enter credentials the next time they open the app. Pattern is specific to iOS updates (not random), and Android users on the same account are not reporting it. Devices are personal (BYOD, not MDM-managed), ruling out a corporate device-management cause. Re-login always succeeds with no data loss, but the added friction risks adoption in this mobile-only, time-starved GM population.",
+    "line": 34,
+    "quote": "That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom \u2014 logged out, back to the login screen, gotta re-enter everything.",
+    "context_lines": [
+     30,
+     36,
+     38,
+     44
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Matches existing tracked iOS logout defect; re-login works (workaround exists) and no data loss, but affects multiple users on a mobile-dependent account and poses adoption risk, consistent with existing Open bug severity.",
+    "match_note": "Same symptom (logout after iOS OS update, re-login succeeds, Android unaffected) and same scope (iOS-only session invalidation) as PROJ-160; new account instance (Palmetto) to attach, not a new defect."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "General preference that features be mobile-first / desktop features would go unused",
+    "description": "Wesley states that his GM population is mobile-only and that a desktop-only feature would go unused by his people, asking BetterBark to keep that in mind for future releases. No specific missing capability, defect, or concrete feature is named \u2014 it's general context about how his org uses the product, not a request for a specific change.",
+    "line": 26,
+    "quote": "A desktop-only feature is a feature my people will never use. Keep that in mind whenever you're telling me about something new.",
+    "context_lines": [
+     22,
+     24
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No concrete product gap identified, purely contextual guidance about usage patterns rather than an actionable defect or feature request.",
+    "match_note": "No catalogue match; not specific enough to be an engineering-actionable item (no named feature or platform gap)."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

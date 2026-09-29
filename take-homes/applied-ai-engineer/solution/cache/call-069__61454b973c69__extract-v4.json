@@ -1,0 +1,38 @@
+{
+ "call_id": "call-069",
+ "sha256": "61454b973c69fbc117aea96a1554c97def61fafc911eabda4339a32ba115b677",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:31:04+00:00",
+ "usage": {
+  "input_tokens": 14183,
+  "output_tokens": 2479,
+  "latency_s": 27.33,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No privacy-preserving, aggregate org-level wellbeing/participation trend report for executives",
+    "description": "Customer (CPO and analytics lead) wants an anonymized, aggregate-only, org-level trend view of program participation and training progress to answer 'how is the org doing' for their executive team \u2014 distinct from existing manager/admin dashboards which only show individual-level engagement/utilization (who's booking, completion rates). Requirements stated: minimum aggregation/suppression thresholds (e.g. no cell shown below ~50 people) so no individual or small team can be re-identified, trend-over-time rather than point-in-time snapshots, and clean opt-in provenance (data members know is being aggregated) rather than mining private coaching-session content. Customer proposes phased delivery: a periodic (quarterly) delivered aggregate report as the MVP, evolving later into a self-serve dashboard. Customer states this is tied to justifying the entire people-development program spend at budget time, and explicitly says they would rather have no feature at all than a version built by extracting data from private session notes.",
+    "line": 26,
+    "quote": "I would give a lot for an anonymized, aggregate, org-level read.",
+    "context_lines": [
+     30,
+     34,
+     44,
+     48
+    ],
+    "severity": "high",
+    "severity_reason": "No current capability exists to meet this need (workaround is anecdotal reporting only); customer ties it directly to budget justification for the whole people-development program, i.e. it feeds a customer business/retention decision, though it is a net-new feature rather than a broken existing capability.",
+    "match_note": "No catalogue item covers an aggregate/anonymized org-level wellbeing trend view; PROJ-118 (PDF export of engagement dashboard) and PROJ-120 (Slack at-risk alerts) are individual/account-level engagement features, not a privacy-preserving aggregate wellbeing trend report \u2014 distinct scope and privacy design, so this is new.",
+    "tracked_key": null,
+    "related_line": null,
+    "no_action_reason": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

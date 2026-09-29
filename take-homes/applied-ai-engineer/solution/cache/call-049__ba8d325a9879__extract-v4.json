@@ -1,0 +1,69 @@
+{
+ "call_id": "call-049",
+ "sha256": "ba8d325a9879ab4607c1dd1abc0b0ea17527418c3965c14467daaa2f6f929764",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:28:46+00:00",
+ "usage": {
+  "input_tokens": 14996,
+  "output_tokens": 4429,
+  "latency_s": 49.54,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No API for programmatic access to engagement metrics for BI/warehouse ingestion",
+    "description": "Customer's talent analytics lead needs programmatic API access to BetterBark engagement metrics (active users, session counts, utilization by team/division, trend data) so they can pull it nightly into their data warehouse and serve it through Tableau/Power BI alongside other people-analytics data. Today the only path is manual: the admin screenshots the dashboard and retypes numbers into a spreadsheet. Customer explicitly wants raw data via a plain REST endpoint (not an embedded dashboard or a Tableau-specific connector), at team/division-level aggregate (not individual-level), pulled on a nightly cadence. Business context: enables ROI/retention correlation reporting for an annual people-investment review next Q1, and is described as a factor in the customer's internal renewal advocacy.",
+    "line": 26,
+    "quote": "What I need is API access to the engagement metrics. Active users, session counts, utilization by team or division, the trend data",
+    "context_lines": [
+     32,
+     36,
+     38,
+     53
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable, well-specified feature with clear business impact (renewal case, ROI reporting) but a manual workaround exists today and it affects one account's analytics workflow rather than blocking core product use.",
+    "match_note": "No catalogue issue covers raw-metrics API/warehouse export; distinct from PROJ-118 (PDF export of the dashboard visual, which the customer explicitly says would not meet the need) and PROJ-095 (CSV roster export, unrelated data)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Interim scheduled CSV export requested as bridge until API exists",
+    "description": "Customer asked whether an automatable scheduled export (even CSV) exists today as a stopgap while the full API request is considered, explicitly rejecting a manual-click export as no better than the current screenshot process.",
+    "line": 47,
+    "quote": "Is there any interim option? Even a scheduled data export we could ingest would be better than screenshots.",
+    "context_lines": [
+     48,
+     49,
+     50
+    ],
+    "related_line": 26,
+    "severity": "low",
+    "severity_reason": "Not a separate defect or feature ask; it is a workaround inquiry tied directly to the API-access request raised earlier in the same call.",
+    "match_note": "Bridge/workaround request for the API-access feature (line 26); not filed as its own ticket per instructions."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer-side initiative to improve retail banking engagement (not a product ask)",
+    "description": "Account team mentions retail banking has lower engagement (~60%) than other divisions and that they plan a separate internal push to address it. This is explicitly deferred as a topic for a separate working session and is not a request for any BetterBark product change.",
+    "line": 13,
+    "quote": "there's a separate push I want to do there but it's not today's topic",
+    "context_lines": [
+     12,
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature request; an internal customer management initiative explicitly deferred to another session.",
+    "match_note": "No product capability is being requested or reported broken; not comparable to any catalogue issue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

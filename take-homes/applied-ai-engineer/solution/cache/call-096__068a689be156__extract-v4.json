@@ -1,0 +1,87 @@
+{
+ "call_id": "call-096",
+ "sha256": "068a689be156c701ccf1e9039d00eb4e8ab60eb55257ad551584adae8f971211",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:35:41+00:00",
+ "usage": {
+  "input_tokens": 13758,
+  "output_tokens": 4386,
+  "latency_s": 52.86,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports coaching program is highly valued by leadership staff",
+    "description": "Colette states the coaching program has been a 'quiet lifesaver' for her year-round leadership staff (directors, head counselors, ops), helping with staff management, difficult parent conversations, and burnout. This is positive testimonial feedback about program value, not a defect or a request for a product change.",
+    "line": 14,
+    "quote": "the honest update is, the coaching program has been a quiet lifesaver for my leadership staff",
+    "context_lines": [
+     15,
+     16,
+     18,
+     22
+    ],
+    "severity": "low",
+    "severity_reason": "No product defect or missing capability; purely positive relationship feedback with no action requested.",
+    "match_note": "No catalogue issue applies; this is satisfaction feedback, not a bug or feature request.",
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer contrasts BetterBark coaching favorably with a prior third-party meditation app's streak mechanic",
+    "description": "Colette mentions that a previous meditation app subscription (a different, non-BetterBark product) used streak-nagging that made staff feel like failures, and the camp discontinued it. She contrasts this with BetterBark's lack of guilt-inducing mechanics. No complaint or request is made about BetterBark itself here.",
+    "line": 30,
+    "quote": "We tried a meditation app subscription a couple years back and the constant streak-nagging made everyone feel like failures",
+    "context_lines": [
+     31,
+     32,
+     33
+    ],
+    "severity": "low",
+    "severity_reason": "Concerns a different, unrelated product; no BetterBark defect or feature gap is described.",
+    "match_note": "Not about BetterBark; competitive/color commentary only, no catalogue relevance.",
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Low connectivity at remote camp location limits where staff can do sessions on the app",
+    "description": "Colette explains the camp is in the mountains with poor wifi, so staff do coaching sessions on their phones from 'the good bench,' the one spot with decent signal. She explicitly says nothing is broken and platform access works fine given the constraints, and asks that the workaround not be disrupted even after the rep mentions the app already caches some content for low-signal use.",
+    "line": 36,
+    "quote": "Nothing broken. The platform does what it does and my people can get to it, which given our connectivity out here is honestly a small miracle",
+    "context_lines": [
+     37,
+     38,
+     42,
+     43,
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "Root cause is the customer's own remote-location connectivity, not a product defect; customer has a working, preferred workaround and explicitly declines any change.",
+    "match_note": "Customer-side environmental limitation, not a BetterBark product bug; no catalogue match, and customer opted out of any fix.",
+    "no_action_reason": "customer_side_cause"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer floats expanding coaching access to additional non-leadership counselors next season",
+    "description": "Colette mentions possibly expanding program access to a few returning senior counselors on a 'new-puppy foundations track' being groomed into future directors. She explicitly frames this as a future, non-binding fall conversation rather than a current ask, and it concerns commercial seat/scope expansion rather than a product capability gap.",
+    "line": 56,
+    "quote": "Maybe expanding to a few of the returning senior counselors whose dogs are on the new-puppy foundations track",
+    "context_lines": [
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "Deferred, non-binding commercial scope idea, not a product defect or missing capability request.",
+    "match_note": "Not a product feature gap (nothing in the software is described as missing); it's a seat-expansion/commercial topic deferred to the fall renewal conversation.",
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

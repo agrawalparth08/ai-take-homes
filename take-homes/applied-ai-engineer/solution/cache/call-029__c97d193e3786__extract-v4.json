@@ -1,0 +1,84 @@
+{
+ "call_id": "call-029",
+ "sha256": "c97d193e378600647de65eae8d64fa4b96c88f949d67dc246ea277a2f0a375e4",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:26:22+00:00",
+ "usage": {
+  "input_tokens": 17008,
+  "output_tokens": 6633,
+  "latency_s": 74.64,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "CSV member import silently drops rows with non-Latin (kanji/katakana) names",
+    "description": "The Admin > Members bulk CSV import silently skipped every row whose name field contained non-Latin characters, with no error or warning shown. Customer uploaded a 320-row file built from their HRIS export; the tool reported 'import complete' but only 291 members were created. The 29 missing rows all had kanji/katakana names, while every successfully imported row had a Latin-alphabet or romanized name. Customer states this will recur on any future import containing native Japanese names, which represent the majority of their workforce, and that the danger is the import reporting success with no indication which rows failed.",
+    "line": 38,
+    "quote": "every single one has a name written in kanji or katakana in the name field. Non-Latin characters.",
+    "context_lines": [
+     24,
+     28,
+     34,
+     44
+    ],
+    "severity": "high",
+    "severity_reason": "Bulk import silently loses data with no error surfaced, affecting a majority of this customer's workforce (Japanese names) and recurring on every future import; caused a two-week access gap for 29 employees, though a manual per-user workaround exists.",
+    "match_note": "No catalogue issue covers import row loss by character set; PROJ-131 (search indexing delay for new invites) is a different symptom and different failure mode."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Manual provisioning requested for the 29 members stuck from the import bug",
+    "description": "Because the 29 employees affected by the CSV import bug had been unable to access their accounts for two weeks, Maya offered to have support manually add them immediately rather than wait for the underlying fix. Kenji accepted, calling the two-week limbo embarrassing. This is a stopgap for the import bug already logged, not a distinct product issue.",
+    "line": 50,
+    "quote": "They've been in limbo for two weeks, it's embarrassing.",
+    "context_lines": [
+     49,
+     51
+    ],
+    "related_line": 38,
+    "severity": "low",
+    "severity_reason": "Purely an operational stopgap (manual data entry by support) tied to an already-captured bug, not itself a product defect.",
+    "match_note": "Workaround/stopgap for the CSV import bug reported earlier in the same call (line 38); not filed separately per guidance."
+   },
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "tracked_key": "PROJ-102",
+    "title": "Dark mode requested for mobile app",
+    "description": "Customer relayed that some employees asked whether the mobile app has a dark mode because screens are hard on the eyes at night. Maya confirmed dark mode (manual toggle or system-follow) already shipped in release 4.2 (2026-05-14) under Settings > Appearance, and Kenji said he'd pass that along. Maya separately noted the feature could be better surfaced to users.",
+    "line": 54,
+    "quote": "a couple of my people asked if there's a dark mode. Screens are hard on the eyes at night.",
+    "context_lines": [
+     55,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "Feature already shipped; only a discoverability/communication gap remains, no engineering action needed.",
+    "match_note": "Directly matches PROJ-102 (Dark mode for the mobile app), shipped in 4.2 on 2026-05-14."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Manager self-service view of team engagement dashboard (Aiko)",
+    "description": "Kenji said his Tokyo VP Aiko wants to see her own team's engagement data directly instead of routing every request through his admin account. Maya responded that a team-manager dashboard view should already be available if Aiko's role is configured correctly, and offered to check her account configuration after the call rather than treating it as a missing capability. No defect was confirmed by end of call; resolution is pending a role/config check on the customer's account.",
+    "line": 58,
+    "quote": "Aiko wanted to know if she can see her team's engagement without me pulling it for her.",
+    "context_lines": [
+     59,
+     60
+    ],
+    "severity": "low",
+    "severity_reason": "Existing manager-dashboard capability is believed to already cover this; pending confirmation of a customer-side role configuration rather than a proven product gap.",
+    "match_note": "Distinct from PROJ-118 (PDF export of engagement summary) \u2014 this is about direct dashboard access, not an export feature, and Maya indicates the capability already exists pending role setup."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,55 @@
+{
+ "call_id": "call-111",
+ "sha256": "f1d398603288f278b15084e443bf7abbeb311e61668393f24663ee703fa19491",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:38:05+00:00",
+ "usage": {
+  "input_tokens": 41782,
+  "output_tokens": 4103,
+  "latency_s": 57.34,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-142",
+    "title": "Password-reset emails delayed up to 30 minutes during peak usage hours",
+    "description": "Beacon Point's leadership-tier users (infrequent loggers) report password-reset emails taking up to 30 minutes to arrive, versus the expected near-instant delivery. The customer has about a dozen examples from the last two months, with the worst (full 30-minute) delays clustering at weekday midday and busy Saturday mornings. The delay spans multiple recipient providers (personal Gmail and the marina's own domain), ruling out a provider- or spam-filter-side cause and pointing to sending-side queuing under load. The reset link itself works correctly once the email arrives; workaround given was to request once, wait, and avoid re-requesting.",
+    "line": 22,
+    "quote": "And then the email doesn't come. Or rather \u2014 it comes, eventually, but not for like half an hour.",
+    "context_lines": [
+     26,
+     35,
+     39,
+     20
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Blocks timely login/session access for affected users but a workaround exists (wait for the email, or reset ahead of time); already a tracked Open bug reflecting known but non-critical impact.",
+    "match_note": "Same symptom (reset email delay up to ~30 min) and same scope (worse during peak/busy hours) as PROJ-142's peak-hour email queuing behind bulk sends."
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "N/A \u2014 SSO raised by support engineer, not requested first-hand by customer",
+    "description": "Support engineer Ravi suggested SSO as a long-term fix for the infrequent-login/forgotten-password pattern. Delia confirmed Beacon Point currently has no SSO and expressed casual curiosity ('interesting thought'), but did not ask for it as a product change \u2014 she said it 'might be more than we want to take on' and only wants to hear what it would involve. No firm ask was made by the customer.",
+    "line": 49,
+    "quote": "But that's an interesting thought. Is that something you all support?",
+    "context_lines": [
+     48,
+     50,
+     51
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No concrete customer ask exists; this is an unprompted, non-committal inquiry into an idea introduced by support staff, not a stated product gap the customer wants closed.",
+    "match_note": "Fails the 'external raises it first-hand' bar \u2014 SSO was introduced by INTERNAL Ravi at L48 as a suggestion; Delia only reacted with curiosity and did not request it."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

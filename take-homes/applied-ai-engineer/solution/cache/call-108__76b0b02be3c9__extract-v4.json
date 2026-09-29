@@ -1,0 +1,54 @@
+{
+ "call_id": "call-108",
+ "sha256": "76b0b02be3c9a09914eb03557d8125e62884cc1b0c828ad4b0204d834a981630",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:36+00:00",
+ "usage": {
+  "input_tokens": 61316,
+  "output_tokens": 3339,
+  "latency_s": 50.55,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Vague, unreproducible 'app is slow sometimes' report from agents (no specifics)",
+    "description": "Bianca relays secondhand feedback that 'a couple of my agents' have called the app slow, but when pressed she could not get any screen, time of day, device, network, or action associated with it \u2014 even a tentative 'mornings' guess was walked back as an artifact of a leading question. Both parties agree there is nothing to file yet and plan to instead capture live, in-the-moment details (screen, action, duration, device, network) if the issue recurs, escalating only if a pattern clusters. No specific defect, repro, or scope was ever established, and the account's engagement remains healthy with no drop-off, which both read as evidence it's minor/non-widespread at most.",
+    "line": 29,
+    "quote": "a couple of my agents have said the app feels \"slow sometimes.\" That's the whole report.",
+    "context_lines": [
+     31,
+     33,
+     34,
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "No confirmed defect, no reproduction, no scope, explicitly deferred by both sides pending real data; engagement shows no impact.",
+    "match_note": "No tracked issue describes generic unspecified slowness with zero repro details; too vague to map to any catalogue item.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for a tailored coaching track for the cruise-partnership team",
+    "description": "Bianca notes the growing cruise-partnership team does key-account/negotiation-style work distinct from leisure agents and wonders aloud whether they need a more tailored coaching track. She explicitly declines to commit to scoping this now since the team is still forming, and asks to revisit next quarter (Q4-ish) once it has settled. Priya logs it only as a placeholder for a future conversation, not a current request.",
+    "line": 49,
+    "quote": "Different skill set than a leisure agent. I've been wondering if they need a more tailored coaching track.",
+    "context_lines": [
+     50,
+     51,
+     54,
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly deferred by the customer, not a present ask, and concerns coaching-program design rather than a software defect or missing product capability.",
+    "match_note": "Not in catalogue; also not a product bug/feature per rules \u2014 it's a coaching-content/services design request, and it was retracted for now pending next quarter.",
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

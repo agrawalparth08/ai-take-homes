@@ -1,0 +1,56 @@
+{
+ "call_id": "call-046",
+ "sha256": "0be11edec9e3d9a3186c9b4f3cb3f2a940ea33de82e809dce4825d3875b9f6eb",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:56+00:00",
+ "usage": {
+  "input_tokens": 13942,
+  "output_tokens": 2123,
+  "latency_s": 27.8,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Warehouse lead engagement/drift raised but explicitly disclaimed as not a product issue",
+    "description": "Bonnie notes warehouse leads signed up and then drifted away from usage, and that deskless workers are hard to reach via email. She explicitly frames this as 'a me problem, not a you problem' rather than a product defect. No specific app malfunction or missing capability is described; the conversation shifts to a services favor (deskless enrollment ideas) rather than a product change request.",
+    "line": 38,
+    "quote": "Honestly the main thing is I wish more of the warehouse leads engaged, but that's a me problem, not a you problem.",
+    "context_lines": [
+     16,
+     20,
+     39,
+     40
+    ],
+    "severity": "low",
+    "severity_reason": "Customer explicitly attributes the pattern to workforce characteristics, not the product, and requests no product change.",
+    "match_note": "Not a product defect/feature; customer disclaims it as her own population challenge, and the follow-up ask is a consulting/services favor, not a product ticket.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "General question about mobile app performance on older Android devices (no specific defect reported)",
+    "description": "Bonnie asks whether the app works well on old, employee-owned Android phones used by warehouse staff, citing device age as a concern. Derek confirms the app is in good shape on both platforms and invites her to flag any specific device issue if one arises. No actual malfunction, crash, or repro was described by Bonnie \u2014 it was a forward-looking question, not a defect report.",
+    "line": 42,
+    "quote": "The app works well enough on their phones? Because half of them are on old Androids the company definitely didn't pay for.",
+    "context_lines": [
+     43,
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete defect or impact was stated; purely hypothetical/preventive question that was answered without any issue surfacing.",
+    "match_note": "Not specific enough to action (no device model, OS version, or symptom); distinct from PROJ-110 (Android crash-on-launch after 4.2) which is a concrete reported crash, not a general suitability question.",
+    "no_action_reason": "too_vague",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

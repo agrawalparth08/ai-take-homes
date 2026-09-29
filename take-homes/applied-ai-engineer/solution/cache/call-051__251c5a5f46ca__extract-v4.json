@@ -1,0 +1,86 @@
+{
+ "call_id": "call-051",
+ "sha256": "251c5a5f46ca1628ae011396896e12cc086f0cc89b19fb4816a8ed811f77cfca",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:29:14+00:00",
+ "usage": {
+  "input_tokens": 9175,
+  "output_tokens": 6988,
+  "latency_s": 63.83,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "title": "SSO login failures caused by expired customer-side IdP signing certificate",
+    "description": "On Tuesday, roughly 60-70 staff at Vantage Credit Union were unable to log in via SSO, hitting an error after clicking the login button. Investigation traced the cause to an expired signing certificate on the customer's own identity provider; BetterBark correctly rejected assertions signed with the expired cert (expected security behaviour, not a platform defect). The customer rotated the certificate and pushed updated federation metadata, and confirmed clean logins across all 15 branch/HQ sites since Tuesday afternoon with no recurrence. The customer explicitly asked that the ticket be closed as resolved with root cause on their side.",
+    "line": 14,
+    "quote": "So Tuesday morning we had a wave of people unable to log in through SSO. Maybe sixty, seventy staff. They'd hit the login button, get bounced, and land on an error.",
+    "context_lines": [
+     16,
+     18,
+     39,
+     40
+    ],
+    "severity": "low",
+    "severity_reason": "Root cause confirmed as customer-side (expired IdP cert); platform behaved as designed and no product defect remains.",
+    "match_note": "Distinct from PROJ-064 (Okta session expiring early for still-logged-in users) - this is login rejection due to an expired customer signing cert, explicitly resolved as customer-side cause, not a BetterBark defect.",
+    "no_action_reason": "customer_side_cause"
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "No proactive alert to customer when IdP assertions are rejected en masse",
+    "description": "Customer asked whether BetterBark generates any visible signal (alerts, a spike metric) when a tenant's IdP starts sending assertions with an expired certificate. Support explained that a rise in rejected assertions is visible internally per-tenant but is indistinguishable from other causes (misconfiguration, attack) and is not proactively surfaced to customers, since rejection is expected/correct behaviour; the diagnostic 'why' lives in the customer's own IdP logs. Customer accepted this explanation and did not ask for the behaviour to change.",
+    "line": 22,
+    "quote": "Can I ask \u2014 on your end, when our assertions started coming in with the expired cert, did that generate anything visible?",
+    "context_lines": [
+     23,
+     24,
+     25
+    ],
+    "severity": "low",
+    "severity_reason": "Curiosity question, satisfied by explanation on the call; no concrete request for a product change remains.",
+    "match_note": "Not in catalogue; distinct topic from the cert-expiry root cause itself, and not pursued as an ask.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Question about multi-IdP support for a newly acquired subsidiary",
+    "description": "As an unrelated aside, the customer asked whether BetterBark supports multiple identity providers under one account, ahead of a planned addition of a second IdP next quarter for an acquired subsidiary. Support declined to give a definitive answer on the call, stating multi-IdP setups are 'common' in general but that the CSM/implementation contact needs to scope it for this specific tenant, and offered to flag it to the CSM. No concrete product gap or firm request was established during the call.",
+    "line": 54,
+    "quote": "We're planning to add a second IdP down the road for a subsidiary we acquired. Is that something your platform handles, multiple identity providers under one account?",
+    "context_lines": [
+     55,
+     56,
+     57
+    ],
+    "severity": "low",
+    "severity_reason": "Exploratory question deferred to CSM for scoping; not established as a missing capability or firm request.",
+    "match_note": "Not in catalogue; deferred to account team rather than filed as a product gap.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Confirm auto-rotated IdP signing cert metadata is honored by BetterBark",
+    "description": "Customer is evaluating enabling IdP auto-rotation of the signing certificate and asked whether BetterBark would automatically pick up rotated keys via published federation metadata, the same mechanism used for the manual rotation just performed. Support confirmed BetterBark reads the customer's federation metadata to pick up the current signing key, so an auto-rotation updating that metadata should be transparent, but recommended the customer's implementation contact confirm exact refresh behaviour before enabling. This is a confirmation that existing behaviour already supports the scenario, not a reported gap or defect.",
+    "line": 50,
+    "quote": "Preliminary answer is yes, our IdP can auto-rotate signing certs, but it requires us to publish rotation metadata that consumers pick up automatically.",
+    "context_lines": [
+     51,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "Existing platform behaviour already covers the scenario per support's confirmation; no gap identified.",
+    "match_note": "Not a new feature request - support confirms current federation-metadata mechanism already handles this case.",
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

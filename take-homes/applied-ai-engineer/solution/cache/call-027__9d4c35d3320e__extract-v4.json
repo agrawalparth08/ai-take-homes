@@ -1,0 +1,75 @@
+{
+ "call_id": "call-027",
+ "sha256": "9d4c35d3320e06245be7cc1ef24eb3e478fb18892b5ca305d9817602ab8a3150",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:25:53+00:00",
+ "usage": {
+  "input_tokens": 17281,
+  "output_tokens": 5217,
+  "latency_s": 55.59,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports no product issues; mobile app performing well for retail rollout",
+    "description": "Nick states the retail leadership rollout (district and store managers) has had no complaints about the tool. Booking, rescheduling, and notifications all work fine on mobile, and the app has been easy to use for a deskless retail workforce that is on phones rather than at desks all day.",
+    "line": 31,
+    "quote": "No complaints on the tool at all, honestly. Everything just works, which is why I don't call you much.",
+    "context_lines": [
+     23,
+     25,
+     27
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or gap identified; this is a positive confirmation with no requested change, so no product impact to assess.",
+    "match_note": "No catalogue issue applies \u2014 this is general positive feedback confirming the product is working as expected, not a problem to file.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests kickoff training session for e-comm/corporate managers",
+    "description": "Nick confirms that a live kickoff session helped drive engagement during the retail rollout (attendees engaged more than those who just got an invite email) and agrees Derek should run a similar 30-minute kickoff for e-comm/corporate managers once the new seats land, ideally scheduled before the August back-to-school ramp.",
+    "line": 57,
+    "quote": "Yeah, actually, that helped a lot with retail. The managers who came to the kickoff engaged way more than the ones who just got the invite email.",
+    "context_lines": [
+     56,
+     59,
+     60
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature gap; a customer-success/enablement service request with no engineering action.",
+    "match_note": "No catalogue match \u2014 this is a rollout/enablement service (live training session), not a change to the BetterBark product.",
+    "no_action_reason": "not_product",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests seat expansion (120-200 additional seats) \u2014 commercial, not product",
+    "description": "Nick, prompted by demand from his VP of E-commerce, asks to expand the account to cover e-commerce and corporate managers: roughly 120 seats in a first wave, with a path to ~200 total, co-termed to the existing renewal so there is a single contract. This is a licensing/seat-count and contract-terms request, not a defect in or missing capability of the product itself.",
+    "line": 37,
+    "quote": "Roughly \u2014 the e-commerce and digital team is around 120 people, and if I fold in the corporate functions that want in, call it another 80.",
+    "context_lines": [
+     39,
+     43,
+     45
+    ],
+    "severity": "low",
+    "severity_reason": "Commercial/contractual expansion request; no product defect or feature gap involved.",
+    "match_note": "No catalogue issue applies \u2014 pricing, seat counts, and contract co-terming are explicitly out of scope for product tickets.",
+    "no_action_reason": "not_product",
+    "related_line": null,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

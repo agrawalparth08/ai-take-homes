@@ -1,0 +1,59 @@
+{
+ "run_id": "20260929T105821Z-3a5158",
+ "command": "run",
+ "finished_at": "2026-09-29T10:58:21+00:00",
+ "duration_s": 0.1,
+ "event_counts": {
+  "run.start": 1,
+  "parse.skipped_internal": 6,
+  "extract.ok": 134,
+  "finding.new": 52,
+  "finding.no_action": 308,
+  "finding.matches_tracked": 21,
+  "finding.shipped_feature": 7,
+  "cluster.warn": 1,
+  "cluster.group": 41,
+  "proposal.new": 69
+ },
+ "scope": "full",
+ "degraded": false,
+ "counts": {
+  "seen": 140,
+  "extracted": 134,
+  "skipped_internal": 6,
+  "failed": 0,
+  "findings": 388,
+  "actionable": 80,
+  "validation_failed": 0,
+  "dismissed": 308,
+  "proposals_new": 69,
+  "proposals_changed": 0,
+  "withdrawn": 0
+ },
+ "calls": {
+  "seen": 140,
+  "extracted": 134,
+  "skipped_internal": 6,
+  "failed": 0,
+  "from_cache": 134
+ },
+ "failed_calls": {},
+ "findings": {
+  "total": 388,
+  "actionable": 80,
+  "rejected_by_validator": 0,
+  "no_action": 308
+ },
+ "proposals": {
+  "new_ticket": 41,
+  "corroborate": 21,
+  "enablement": 7,
+  "new": 69,
+  "unchanged": 0,
+  "changed": 0,
+  "revived": 0,
+  "reopened": 0,
+  "kept_human_edit": 0,
+  "locked": 0
+ }
+}

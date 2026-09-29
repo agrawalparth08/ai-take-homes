@@ -1,0 +1,52 @@
+{
+ "call_id": "call-100",
+ "sha256": "55dad1ed816e895e8807bf7454308ec147a1400f402092a8bf249f04c2d17ffc",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:35:55+00:00",
+ "usage": {
+  "input_tokens": 15000,
+  "output_tokens": 2279,
+  "latency_s": 26.67,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "new",
+    "title": "Reactivated members lose visibility into their own pre-deactivation session notes",
+    "description": "When a member is deactivated and later reactivated (rather than deleted/recreated), their personal historical session notes from before deactivation are no longer visible to them after reactivation, even though the session records/count remain visible to admins. Confirmed first-hand for a Millbrook shift lead (8-9 sessions of her own notes vanished from her view) and corroborated by a spot-check of 3 additional reactivated members, all showing the same pattern. Of 11 reactivations this year at this account, 8 had prior coaching history and are therefore exposed to this loss of access. The underlying data appears intact (admin view still shows the sessions occurred), but the reactivated account is not being granted visibility into the pre-deactivation notes, undermining the reactivate-over-recreate continuity model BetterBark recommends.",
+    "line": 26,
+    "quote": "She came back, got reactivated, logged in, and her notes from before she left were just... gone. Not visible to her.",
+    "context_lines": [
+     28,
+     32,
+     34,
+     40
+    ],
+    "severity": "high",
+    "severity_reason": "Systematic (confirmed 4-for-4 on spot check) loss of member-facing access to their own historical data, undermining a core retention workflow with no in-product workaround (only a messaging workaround exists); not critical since backend data is not actually deleted.",
+    "match_note": "No catalogue issue covers reactivation/note-visibility; distinct from all tracked bugs, so this is a new finding."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Manual restoration of one member's hidden notes (stopgap request)",
+    "description": "Customer asked whether the specific Millbrook shift lead's pre-deactivation notes could be manually restored/re-linked as a one-off fix while the broader issue is investigated.",
+    "line": 36,
+    "quote": "is there any way to get those notes back for her manually? The shift lead specifically.",
+    "context_lines": [
+     37,
+     43
+    ],
+    "severity": "low",
+    "severity_reason": "Not a separate defect; it's a one-off remediation request tied to the note-visibility bug already filed.",
+    "match_note": "Workaround/stopgap request for the reactivation note-visibility bug raised earlier in the same call (L26).",
+    "no_action_reason": "workaround_request",
+    "related_line": 26
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

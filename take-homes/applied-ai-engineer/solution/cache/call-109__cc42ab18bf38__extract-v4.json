@@ -1,0 +1,109 @@
+{
+ "call_id": "call-109",
+ "sha256": "cc42ab18bf381f47e3d3e927eb04e9eeb1be95b687b8fa88ff8678f2bedb5f0f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:38:04+00:00",
+ "usage": {
+  "input_tokens": 14820,
+  "output_tokens": 5203,
+  "latency_s": 59.19,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "tracked_key": "PROJ-089",
+    "title": "Admin login-history/audit view needed for security audit compliance",
+    "description": "Customer's IT security auditor requires evidence of login monitoring for admin accounts (who logged in, when, from where) as part of an access-control control test. Customer initially believed BetterBark did not offer this and was prepared to write a compensating-control narrative. CSM demonstrated the existing SSO login-history view (Admin > Security > Login History, shipped in 4.1, April 2026), which shows user, timestamp, IP/location, and SSO method, and supports filtering by user and date range plus CSV export. Customer confirmed this fully satisfies the audit control and abandoned the narrative approach.",
+    "line": 23,
+    "quote": "The auditor wants evidence of login monitoring \u2014 specifically, they want to see that we have visibility into admin login activity.",
+    "context_lines": [
+     25,
+     26,
+     33,
+     39
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Feature already shipped and fully met the customer's need during the call; no outstanding gap remains.",
+    "match_note": "Directly matches PROJ-089 (SSO login-history view for admins, shipped 4.1) \u2014 same capability (admin login timestamp/IP/IdP visibility) the customer confirmed satisfies their need."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Clarification that admin member list reflects current access only, not historical",
+    "description": "Customer asked whether the admin list in the Members panel would still show a user whose admin access was removed last month, to make sure he was reading the list correctly for audit purposes. CSM confirmed the list reflects real-time current access and that removed admins drop off immediately, with historical proof of removal available via the login-history view instead. No discrepancy or defect was identified; this was a clarifying question that was fully answered.",
+    "line": 20,
+    "quote": "if I removed someone's admin access last month, they won't still show, right? The list is current, not historical?",
+    "context_lines": [
+     18,
+     19,
+     21,
+     22
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or unmet need; behavior was confirmed to work as the customer expected.",
+    "match_note": "Not a product gap \u2014 informational question about existing, correctly-functioning admin list behavior."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Login-history data retention window not yet confirmed to customer",
+    "description": "Customer asked how far back the login-history view's data goes and whether there is a retention limit, since he needs it to cover his specific audit period. CSM did not know the exact retention window on the call and committed to confirming it in writing afterward rather than guessing. This is an open information request, not a reported product defect or missing capability.",
+    "line": 45,
+    "quote": "is there anything I should know about the login-history view? Retention, how far back it goes, any limits?",
+    "context_lines": [
+     46,
+     47,
+     48
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Pending informational follow-up rather than a product defect; no functionality is reported broken or missing.",
+    "match_note": "No catalogue match \u2014 this is a request for documentation/confirmation of existing feature behavior, not a bug or feature gap."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Request for SOC 2 report and data-hosting documentation for vendor audit",
+    "description": "Customer asked where employee data is hosted and requested a current SOC 2 report or equivalent compliance documentation to include in his vendor-security package for the auditor. CSM confirmed this is a standard request and committed to having the trust team send the SOC 2 report and data-processing documentation after the call. This is a documentation/compliance-package request, not a product defect or feature gap.",
+    "line": 49,
+    "quote": "where's the employee data hosted, and do you have a current SOC 2 or equivalent I can hand them?",
+    "context_lines": [
+     50,
+     51
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Administrative documentation request with no product functionality implicated.",
+    "match_note": "Excluded per criteria as a services/documentation favour rather than a product capability or defect."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Request for standing CSM notifications on security-relevant product releases",
+    "description": "Customer asked the CSM to make it a standing practice to proactively flag any future release that touches access control, logging, SSO, or data handling, with a one-line explanation of relevance, since he does not reliably read release notes himself. CSM agreed to maintain this as an account-level practice. This is a request for a manual customer-success process, not a change to the BetterBark product itself.",
+    "line": 59,
+    "quote": "Can you make that a standing thing? Like, whenever a release touches access control, logging, SSO, data handling, ping me.",
+    "context_lines": [
+     60,
+     61,
+     62
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Account-service process request with no product engineering action implied.",
+    "match_note": "Distinct from PROJ-120 (Slack notifications for at-risk accounts) \u2014 this is a manual CSM communication habit, not an automated in-product alerting feature."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

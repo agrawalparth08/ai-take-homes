@@ -1,0 +1,86 @@
+{
+ "call_id": "call-084",
+ "sha256": "fe72ab1e9992b9d7cf01bffb798533b89d41ec260457d72958c5c94e0a841d98",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:14+00:00",
+ "usage": {
+  "input_tokens": 13616,
+  "output_tokens": 6562,
+  "latency_s": 73.55,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "Uncertainty whether coaching content fits new technical practice group",
+    "description": "When told the incoming fall practice group is a data-and-analytics team (more technical, younger) rather than management consultants, Nadia acknowledged the account hadn't considered whether the coaching content would suit a more technical audience. No specific defect or missing capability was named; Sam (internal) proposed tuning coach-matching for tech-leadership backgrounds as a proactive service action, and the customer did not push a concrete product change.",
+    "line": 46,
+    "quote": "That's a thoughtful catch. We hadn't thought about whether the coaching would fit a more technical crowd.",
+    "context_lines": [
+     43,
+     44,
+     45,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete defect or feature gap identified; it's a forward-looking consideration being handled operationally, not a product change request.",
+    "match_note": "No catalogue issue covers coach-matching tuning; this is an internally-initiated service action, not a customer-raised product bug/feature."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer wants existing onboarding-with-coaching process applied to new seat cohort",
+    "description": "Desmond asked that the new ~40-50 person practice group joining in the fall receive the same onboarding-with-coaching approach used previously, from day one. This is a request to apply an already-existing, working service/process to newly purchased seats as part of the renewal expansion, not a defect in or missing capability of the BetterBark product itself.",
+    "line": 28,
+    "quote": "The onboarding-with-coaching approach worked so well the first time, I want the new group to have it immediately.",
+    "context_lines": [
+     26,
+     27,
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Commercial/onboarding scope request, not a product defect or feature gap; already resolved by the seat-expansion decision made later in the call.",
+    "match_note": "No matching product issue; this is a services/rollout request tied to the seat expansion, not a software bug or feature."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer requests written rate-delta breakdown for finance approval",
+    "description": "Nadia asked Sam to send a written breakdown of the rate difference between building the 50 new seats into the renewal versus adding them mid-term, so she can present the math to her finance partner. This is a request for a commercial/pricing document to support internal approval, not a BetterBark product defect or feature.",
+    "line": 60,
+    "quote": "And send me the rate-delta breakdown so I can show my finance partner the math on the expansion.",
+    "context_lines": [
+     37,
+     38,
+     39
+    ],
+    "severity": "low",
+    "severity_reason": "Pure pricing/commercial documentation request; no product functionality involved.",
+    "match_note": "Not a product issue; pricing/quote documentation requests fall outside the product catalogue entirely."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "General exhortation to maintain coaching quality, no specific complaint",
+    "description": "Desmond stated that the renewal depends on coaching quality staying high and that he'd notice if it ever became transactional. No specific defect, feature gap, or incident was cited \u2014 it's a general expectation-setting statement tied to renewal, not an actionable product report.",
+    "line": 56,
+    "quote": "Just keep the quality up. The day it feels transactional, I'll notice.",
+    "context_lines": [
+     57,
+     58
+    ],
+    "severity": "low",
+    "severity_reason": "General sentiment with no specific, actionable detail for an engineer or product team to address.",
+    "match_note": "Too vague to map to any catalogue issue; no concrete symptom, location, or reproduction given."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

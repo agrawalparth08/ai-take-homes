@@ -1,0 +1,71 @@
+{
+ "call_id": "call-129",
+ "sha256": "e70e5b4aeb46cb9ec2ae08102aef8faea64e3f2784a57448f94c931731e9a11f",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:41:10+00:00",
+ "usage": {
+  "input_tokens": 60675,
+  "output_tokens": 3581,
+  "latency_s": 42.67,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports no product friction on relationship check-in call",
+    "description": "When asked directly whether anything was working poorly, Gloria said the product 'just works' \u2014 sessions get scheduled, reports show up, and no one on her team has complained. She noted that if something were broken she would hear about it. No defect or missing capability was identified.",
+    "line": 47,
+    "quote": "It just works. My team schedules their sessions, the reports show up, nobody complains to me",
+    "context_lines": [
+     46,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or impact described; customer explicitly confirms satisfaction with no issues.",
+    "match_note": "Not a defect or feature gap \u2014 a satisfaction confirmation, so no catalogue issue applies.",
+    "no_action_reason": "other",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Team members request more coaching session volume than current allocation",
+    "description": "Gloria relayed secondhand feedback that some of her team wants more sessions, not fewer. This is a capacity/contract-allocation matter rather than a product defect or missing capability, and Maya confirmed the account already has headroom in its current session allocation to cover the demand.",
+    "line": 49,
+    "quote": "The only feedback I've ever gotten is people wanting more sessions, not fewer. Which is a good problem, and one I think our contract already covers.",
+    "context_lines": [
+     50
+    ],
+    "severity": "low",
+    "severity_reason": "No product capability is missing; the request is about contract session volume, already covered by existing allocation.",
+    "match_note": "Concerns contract/allocation capacity, not a product feature or defect; not present in the catalogue.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Possible future expansion of coaching to frontline supervisors",
+    "description": "Gloria mentioned she has floated extending the coaching program to frontline supervisors next fiscal year, contingent on budget she does not currently have. This is a prospective commercial/contract expansion of who receives the existing service, not a report of a product defect or a request for new product functionality.",
+    "line": 51,
+    "quote": "We might, actually \u2014 I've floated the idea of extending it to our frontline supervisors next year. But that's a next-fiscal-year conversation, and I'd need budget I don't have yet.",
+    "context_lines": [
+     50,
+     62
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a future commercial/budget discussion with no product capability gap identified.",
+    "match_note": "Expansion of contract scope/population, not a product feature request; no catalogue match.",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

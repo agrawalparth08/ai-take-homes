@@ -1,0 +1,105 @@
+{
+ "call_id": "call-002",
+ "sha256": "d63818635c214d3e4c3c6b442ce6134bde23ffd36676f6bebf2035a9c4ccecd7",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:28+00:00",
+ "usage": {
+  "input_tokens": 13680,
+  "output_tokens": 5766,
+  "latency_s": 54.37,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Team dashboard appeared to show missing members (sticky 'Active in last 7 days' filter)",
+    "description": "Customer reported ~30 of 214 team members missing from the manager dashboard. Investigation on a shared screen found a sticky 'Active in last 7 days' filter chip left on from a prior session, hiding inactive seasonal workers. Clearing the chip restored all 214 members; customer confirmed nothing was deleted. Customer acknowledged it was his own filter setting, not a data or product defect, though he noted he's 'the third person this month' to hit this.",
+    "line": 20,
+    "quote": "half my people were just... gone. Like thirty-some members missing from my view.",
+    "context_lines": [
+     23,
+     25,
+     28,
+     32
+    ],
+    "severity": "low",
+    "severity_reason": "Resolved as user error (sticky UI filter); no data loss or defect confirmed, though the sticky filter's discoverability caused repeated confusion for multiple customers.",
+    "match_note": "No catalogue issue covers a sticky dashboard filter causing apparent missing members; resolved as user error so not filed regardless."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "cosmetic_preference",
+    "title": "Customer finds new purple header color loud (taste preference)",
+    "description": "Customer noted the dashboard header recently changed to purple and that it's 'a little loud' for his taste, per feedback from a designer friend. He explicitly stated it's not a problem and not stopping anyone from doing their job, and said he'd adjust to it.",
+    "line": 34,
+    "quote": "the new purple header is a little loud for my taste.",
+    "context_lines": [
+     35,
+     36,
+     37
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly framed by the customer as a personal taste observation, not a functional problem.",
+    "match_note": "No product defect or request; customer stated nothing is broken, purely cosmetic opinion."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "Unconfirmed intermittent afternoon dashboard slowness",
+    "description": "Customer mentioned the dashboard sometimes feels slower in the afternoons but could not pin it to any specific page, time, day, or repro step, and speculated it could be his network or laptop rather than the product. Customer agreed not to file it and said he'd send specifics (page, time, screenshot) if it recurs and becomes concrete.",
+    "line": 38,
+    "quote": "sometimes the dashboard feels a touch slower in the afternoons?",
+    "context_lines": [
+     39,
+     40,
+     41,
+     42
+    ],
+    "severity": "low",
+    "severity_reason": "No reproducible detail or confirmed pattern; customer and rep agreed it's not actionable without specifics.",
+    "match_note": "Too vague to match any tracked performance issue; no catalogue entry for general dashboard slowness."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "too_vague",
+    "title": "Mobile-first/low-bandwidth training format needed for planned drivers'-org rollout",
+    "description": "Customer is expanding BetterBark to a ~600-person drivers' org and noted this population works from trucks with spotty signal, unlikely to sit through scheduled video sessions, and would more likely engage via phone 'between loads.' This was raised as a planning consideration for a future proposal and pilot (Columbus hub, ~100 drivers, week of July 13), not as a specific defect or feature request against the current product.",
+    "line": 50,
+    "quote": "A driver's not going to sit through a scheduled video session with a trainer from a rest area in Nebraska",
+    "context_lines": [
+     46,
+     48,
+     49,
+     51
+    ],
+    "severity": "low",
+    "severity_reason": "No concrete, actionable capability gap was specified; it's a forward-looking design constraint for a not-yet-built proposal, not a defined product request.",
+    "match_note": "No existing catalogue item covers async/low-bandwidth mobile training formats; too undefined to file as a feature request yet."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "hearsay",
+    "title": "Some DC managers grumble about having 'another app'",
+    "description": "Customer relayed that a couple of DC managers still grumble about needing to use 'another app,' comparing it to routine payroll complaints. This is secondhand sentiment about other managers, not a specific defect or feature gap the customer himself is requesting be fixed.",
+    "line": 12,
+    "quote": "A couple of the DC managers still grumble about \"another app,\" but they grumble about payroll too, so.",
+    "context_lines": [
+     13,
+     14
+    ],
+    "severity": "low",
+    "severity_reason": "Vague, secondhand adoption sentiment with no specific product complaint or request attached.",
+    "match_note": "General adoption grumbling, not a specific product defect or capability gap; no catalogue match applicable."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

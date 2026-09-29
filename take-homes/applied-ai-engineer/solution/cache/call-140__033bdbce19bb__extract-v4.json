@@ -1,0 +1,75 @@
+{
+ "call_id": "call-140",
+ "sha256": "033bdbce19bb0e708a6316b6c923ac547bd7fea9779cdb867fa9a9aaf51bd711",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:43:00+00:00",
+ "usage": {
+  "input_tokens": 73274,
+  "output_tokens": 4885,
+  "latency_s": 53.96,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "DM wants store-level engagement breakdown (already available via view setting)",
+    "description": "A district manager wants to see engagement data broken out by store rather than by district, to spot lagging stores. Sam confirms the dashboard already supports filtering to the store level within a district, and that this is likely just a view setting the DM hasn't configured. Sam offers to send a walkthrough rather than filing anything, since the capability already exists.",
+    "line": 57,
+    "quote": "one of them mentioned wanting to see engagement broken out by store rather than by district, so she could spot which stores are lagging",
+    "context_lines": [
+     58,
+     59,
+     60
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Existing capability, resolved with a usage walkthrough rather than a product change.",
+    "match_note": "Not a gap in the product \u2014 Sam confirms store-level filtering already exists; the DM simply wasn't using the right view.",
+    "no_action_reason": "resolved_user_error",
+    "tracked_key": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Anticipated need for additional seats ahead of fall store openings",
+    "description": "Gwen says Harvest Moon may need to add seats for the next wave of store managers if fall store openings (Tennessee, northern Florida) proceed as planned. This is a capacity/commercial planning matter tied to store growth and licensing, not a defect in or missing capability of the product itself. Sam and Gwen agree to a proactive seat-capacity check-in in early September ahead of the openings.",
+    "line": 41,
+    "quote": "I think we're okay for now, but if the fall openings go as planned, I might need to add seats for the next wave of store managers",
+    "context_lines": [
+     42,
+     43,
+     44,
+     47
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Commercial/account-management planning item, not a product defect or feature gap.",
+    "match_note": "Seat/license capacity planning is an account-management topic, not a product bug or feature request.",
+    "no_action_reason": "not_product",
+    "tracked_key": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Informal idea for tracking off-hours escalation calls to district managers",
+    "description": "Gwen jokes that her favorite unofficial metric is how many times a district manager gets called at 2am, and that nobody tracks it officially. The exchange is framed as banter ('someone should build that... right?') rather than a genuine product request, and no concrete requirement or workflow is described.",
+    "line": 28,
+    "quote": "My favorite metric is \"how many times did a district manager get called at 2am,\" and it's way down, but nobody tracks that officially",
+    "context_lines": [
+     29,
+     30
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Framed as a joke/aside with no concrete ask or specification; not a real feature request.",
+    "match_note": "No catalogue item resembles this; not filed since it is banter rather than an actual request.",
+    "no_action_reason": "too_vague",
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

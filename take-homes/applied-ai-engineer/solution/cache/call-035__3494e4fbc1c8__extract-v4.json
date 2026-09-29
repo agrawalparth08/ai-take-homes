@@ -1,0 +1,69 @@
+{
+ "call_id": "call-035",
+ "sha256": "3494e4fbc1c855e7dc4507ca5fd88458c8b8e5475cdd458000e934dedaee42c4",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:02+00:00",
+ "usage": {
+  "input_tokens": 16888,
+  "output_tokens": 3434,
+  "latency_s": 40.49,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-149",
+    "title": "Profile photo upload fails silently for images over ~8MB",
+    "description": "Customer reports profile photo uploads fail for high-resolution photographer headshot files (12-15MB straight off camera export). The failure shows a generic 'Something went wrong. Please try again.' message with no indication that file size is the cause. Customer confirmed via testing that compressing images below roughly 8MB allows successful upload, while anything over that threshold consistently fails. Workaround is compressing images under 8MB before upload.",
+    "line": 40,
+    "quote": "There's some size ceiling around 8 megabytes. Anything over it fails, anything under it works.",
+    "context_lines": [
+     34,
+     38,
+     42,
+     43
+    ],
+    "severity": "medium",
+    "severity_reason": "Real defect (missing validation/error messaging) blocking a legitimate use case, but a workaround exists (compress the image) and scope is limited to users uploading unusually large images.",
+    "match_note": "Same symptom (upload fails over ~8MB, generic error) and same scope (profile photo upload) as PROJ-149, which is scoped to exactly this threshold and error behavior."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "Request for interim one-pager guidance on photo size limit",
+    "description": "Following the profile photo upload failure discussion, the CSM offered to send a short one-pager instructing users how to compress headshots under the size ceiling, and the customer accepted so the team isn't rediscovering the issue individually. This is a stopgap for the same upload-size issue already raised, not a separate product request.",
+    "line": 46,
+    "quote": "Yes, please. \"How to make your headshot fit,\" half a page, I'll drop it in our onboarding folder.",
+    "context_lines": [
+     45,
+     47
+    ],
+    "related_line": 40,
+    "severity": "low",
+    "severity_reason": "Purely a documentation workaround for an already-captured defect, not itself a product issue.",
+    "match_note": "Workaround/stopgap tied directly to the profile photo upload size issue raised at line 40; not filed separately."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "resolved_user_error",
+    "title": "Mobile app notifications perceived as 'chatty' due to default settings",
+    "description": "A couple of users complained the mobile app's notifications felt excessive. On investigation by the customer's admin, the users had never adjusted their notification preferences and were simply receiving default settings. Once they changed their preferences, they were satisfied. Customer explicitly frames this as resolved and not a bug.",
+    "line": 50,
+    "quote": "a couple people asked about notifications being a little chatty. But when I actually looked, it turned out they'd just never adjusted their notification preferences",
+    "context_lines": [
+     51,
+     52
+    ],
+    "severity": "low",
+    "severity_reason": "No underlying product defect; resolved via existing settings, explicitly confirmed by the customer as user error / non-issue.",
+    "match_note": "No catalogue match; issue was self-resolved by adjusting existing notification preference settings, not a product defect."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

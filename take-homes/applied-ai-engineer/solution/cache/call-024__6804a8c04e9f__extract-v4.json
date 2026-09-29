@@ -1,0 +1,57 @@
+{
+ "call_id": "call-024",
+ "sha256": "6804a8c04e9f8cfc6891095c002aa07ec41c42ccb50f0b41c30fb74bcfb02bee",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:57+00:00",
+ "usage": {
+  "input_tokens": 13873,
+  "output_tokens": 1790,
+  "latency_s": 24.64,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests a fall program review session with clinic managers",
+    "description": "Marcus asks whether there is anything on the program side to think about; Priya confirms engagement is healthy with no issues flagged. Marcus then asks to schedule a deeper program review with his clinic managers, to happen in the fall after renewal, ideally in person. This is a customer-success service engagement (a business review meeting), not a defect in or missing capability of the BetterBark product itself.",
+    "line": 50,
+    "quote": "Maybe in the fall, after renewal, when I'm not staring at a finance committee. A program review with the clinic managers might be useful",
+    "context_lines": [
+     48,
+     49,
+     51,
+     56
+    ],
+    "severity": "low",
+    "severity_reason": "No product defect or missing capability is described; this is a scheduling/services request with no technical impact.",
+    "match_note": "Not present in catalogue; it is a services/CSM engagement request, not a product bug or feature, so it does not map to any tracked issue.",
+    "no_action_reason": "not_product",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests the fall program review be conducted in person",
+    "description": "Following the program-review scheduling request, Marcus separately asks if the review could be done in person if Priya is ever in the region, noting clinic managers would engage better face-to-face than over a screen. This is a request about the format/delivery of a customer-success meeting, not a BetterBark product feature or defect.",
+    "line": 56,
+    "quote": "the fall program review with the clinic managers. Can we do it in person if you're ever out this way? They'd get more out of a face than a screen.",
+    "context_lines": [
+     57,
+     58,
+     59
+    ],
+    "severity": "low",
+    "severity_reason": "Purely a logistics/format preference for a services meeting; no product impact.",
+    "match_note": "Not a product topic at all, so no catalogue match applies.",
+    "no_action_reason": "not_product",
+    "related_line": 50,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

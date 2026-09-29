@@ -1,0 +1,92 @@
+{
+ "call_id": "call-087",
+ "sha256": "1d42a996be3dba67b24da0060e64650b1c9bfa59bc914f820191af1caa8c4c8e",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:34:32+00:00",
+ "usage": {
+  "input_tokens": 13703,
+  "output_tokens": 6343,
+  "latency_s": 68.12,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "no_action",
+    "title": "Manager requests more frequent app reminders to book next session",
+    "description": "A store manager joked to Renata that she wished the BetterBark app would nag her more to book her next coaching session. Renata frames this as 'a compliment disguised as a complaint,' not a real ask. Maya notes that reminder frequency settings already exist and can be turned up, and offers to send a link to where those live. This resolves the request via an existing, discoverable setting rather than a product gap.",
+    "line": 42,
+    "quote": "the app is almost too clean, one of my managers joked she wished it would nag her more to book her next session",
+    "context_lines": [
+     43,
+     44
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a defect; existing configurable reminder settings already address the desire, with no user impact once pointed to them.",
+    "no_action_reason": "resolved_user_error",
+    "tracked_key": null,
+    "match_note": "No catalogue entry covers reminder cadence settings; resolved on-call via existing feature, not a gap needing a ticket."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Coach-to-manager matching confirmed working well, no issues reported",
+    "description": "Renata states there are no matching issues at all across the store manager cohort, and that coaches who understand the 'retail and emotional labor' context have been great. She adds she's been impressed with how well matching understood the small-business, high-emotion context. This is an explicit confirmation of satisfaction, not a complaint or request.",
+    "line": 56,
+    "quote": "No matching issues at all, actually. The coaches who get the retail-and-emotional-labor combination have been great.",
+    "context_lines": [
+     57,
+     58
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No defect or unmet need was reported; purely positive confirmation of an existing product/service capability.",
+    "no_action_reason": "other",
+    "tracked_key": null,
+    "match_note": "Positive-only topic raised for completeness; no problem exists to file against the coach-matching capability."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Corporate/HQ staff show lower product engagement than store managers",
+    "description": "Renata notes that corporate (desk-based) staff use BetterBark less than the store manager cohort, saying 'desk people always think they're fine.' She explicitly attributes this to her own organization's culture, not to the product, and says she isn't worried about it. Maya offers an optional nudge-campaign playbook for the fall, but Renata says it's not a current priority.",
+    "line": 46,
+    "quote": "Corporate uses it less honestly. Desk people always think they're fine. But that's an us problem, not a you problem, and I'm not worried about it.",
+    "context_lines": [
+     47,
+     48
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Customer explicitly attributes lower engagement to internal culture, not a product defect or missing capability, and is not requesting action.",
+    "no_action_reason": "customer_side_cause",
+    "tracked_key": null,
+    "match_note": "No product defect alleged; engagement gap is attributed by the customer to her own org, not to BetterBark."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Admin cannot view individual coaching session content, confirmed as expected/desired",
+    "description": "Renata confirms that the confidentiality model (admins/managers cannot see individual coaching session details) is a key reason the rollout succeeded, saying her managers would not have engaged if they thought she could see their sessions. Maya confirms this restriction is by design. Raised as validation that the existing privacy control is working correctly, not as a complaint.",
+    "line": 38,
+    "quote": "My managers wouldn't have touched it if they thought I could see their sessions.",
+    "context_lines": [
+     36,
+     37,
+     39,
+     40
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Describes existing intended product behavior working as designed; no defect or gap raised.",
+    "no_action_reason": "other",
+    "tracked_key": null,
+    "match_note": "Topic noted for completeness; confirms an existing access-control feature is functioning as intended, not a bug or feature gap."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

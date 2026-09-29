@@ -1,0 +1,90 @@
+{
+ "call_id": "call-074",
+ "sha256": "80ccd7675f62e02f9b0c992e7490138bbcea8ad312e23794cb9c5281d5a06113",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:32:19+00:00",
+ "usage": {
+  "input_tokens": 16430,
+  "output_tokens": 5078,
+  "latency_s": 55.95,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-120",
+    "title": "Slack alert when account/segment engagement crosses at-risk threshold",
+    "description": "Customer currently discovers disengaged segments only via a manual report Neil runs monthly, leaving up to a month of blind spot before a drop is noticed. They want a Slack notification (to a channel they designate, e.g. #people-ops) fired automatically when a team/segment's engagement falls below a configurable threshold, so the right people see it within minutes instead of at the next monthly report. Neil additionally asked that the threshold be configurable per segment (e.g. separate lines for claims vs. underwriting) rather than one global number. No defect was reported; this is a capability gap, and the customer explicitly separated it from anything broken.",
+    "line": 38,
+    "quote": "We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes.",
+    "context_lines": [
+     30,
+     36,
+     41,
+     54
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Valuable, well-specified feature request matching an existing open backlog item; a manual monthly-report workaround exists today, so it is not blocking.",
+    "match_note": "Same underlying ask as PROJ-120 (Slack ping when an account/segment crosses an at-risk engagement threshold); Windmark adds channel-destination and per-segment threshold detail but it's the same feature."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer asks whether 65% engagement is a good benchmark",
+    "description": "Lorraine asked whether the company's 65% active-usage rate is good, since she has no benchmark and her CEO asks about it. This is a request for CSM insight/benchmarking commentary, not a defect in or missing capability of the BetterBark product itself.",
+    "line": 14,
+    "quote": "Before we do \u2014 is sixty-five even good? I have no benchmark. My CEO asks and I don't know what to tell him.",
+    "context_lines": [
+     15,
+     16,
+     17
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a product matter; no engineering action possible.",
+    "match_note": "No catalogue item covers a request for benchmark commentary; it isn't a product defect or feature."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Claims department engagement far below underwriting (31% vs 78%)",
+    "description": "Neil reported claims engagement at 31% versus underwriting at 78%, a 47-point gap within the same company. Lorraine attributed this to claims managers not modeling product usage themselves ('if the boss doesn't do it, the team doesn't'), and both agreed to address it via a Q3 leadership push rather than any product change.",
+    "line": 18,
+    "quote": "Claims department is our dead zone. Underwriting's great, claims is a ghost town.",
+    "context_lines": [
+     20,
+     22,
+     24
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Attributed by the customer to their own internal management behavior, not a product defect or gap.",
+    "match_note": "No catalogue item applies; this is a customer-side adoption/engagement issue, not a BetterBark product problem."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer preference for manager talking points as email bullets, not a doc/deck",
+    "description": "Lorraine asked that the manager engagement talking points Priya is preparing be delivered as bullets in an email rather than a polished document or deck, so she can adapt them in her own voice. Neil asked to be cc'd. This is a CSM deliverable/services preference, not a BetterBark product feature or defect.",
+    "line": 58,
+    "quote": "Bullets in an email. I'll adapt them to my own voice. I don't want a polished deck I have to re-do.",
+    "context_lines": [
+     57,
+     60
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a product matter; concerns a CSM-authored deliverable format, not the platform.",
+    "match_note": "No catalogue item applies; this is a services deliverable preference, not a product capability."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

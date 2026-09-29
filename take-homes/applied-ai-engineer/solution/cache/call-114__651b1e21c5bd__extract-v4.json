@@ -1,0 +1,94 @@
+{
+ "call_id": "call-114",
+ "sha256": "651b1e21c5bd207ad524ba6133468f0a6c8a53bc9f5a550ed3420f40aaf7949b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:39:03+00:00",
+ "usage": {
+  "input_tokens": 15738,
+  "output_tokens": 5470,
+  "latency_s": 66.56,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Android app crashes on launch on outdated OS devices (self-resolved via customer OS update)",
+    "description": "Customer reported that starting in late May, roughly 8-9 of 300 users experienced the app crashing back to the home screen immediately on launch. All affected devices were older Android handsets (Samsung, Pixel, Motorola) running OS versions several releases behind; no iOS users and no users on current Android versions were affected. The customer's own IT team pushed a device-management update in early June forcing OS updates on lagging devices, after which crashes stopped completely for two weeks with no reproduction possible even when asking prior complainants to retry. Customer explicitly asked that this be closed with no product-side engineering action.",
+    "line": 14,
+    "quote": "we started getting a trickle of complaints. People opening the app on their phones and it just closing on them. Boom, back to the home screen.",
+    "context_lines": [
+     20,
+     24,
+     26,
+     36
+    ],
+    "severity": "low",
+    "severity_reason": "Issue fully resolved on the customer side via OS update; no current product impact and no reproducible defect remains.",
+    "match_note": "Symptom resembles PROJ-110 (Android crash-on-launch) but customer confirmed the cause was outdated device OS versions, fully resolved once their IT forced updates, and explicitly requested no ticket be filed; treated as customer_side_cause rather than matches_tracked.",
+    "no_action_reason": "customer_side_cause",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer inquiry about viewing member login activity vs. dormant accounts",
+    "description": "Customer asked if there was a way to see who is actually logging in versus accounts that are just gathering dust, ahead of renewal season, to avoid paying for unused seats. Support confirmed the admin dashboard already has a members engagement view with an activity column and filters that covers this need. No product gap was identified; the existing feature satisfies the request.",
+    "line": 40,
+    "quote": "is there any way to see who's actually logging in versus who's just got an account gathering dust?",
+    "context_lines": [
+     41,
+     43,
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "Fully addressed by an existing product capability; no engineering action required.",
+    "match_note": "Not a distinct catalogue issue; existing admin engagement/activity view already provides this, so no new or tracked item applies.",
+    "no_action_reason": "other",
+    "related_line": null,
+    "tracked_key": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "shipped_feature",
+    "title": "Bulk CSV export of member roster",
+    "description": "Customer was unaware that bulk CSV export of the member roster now exists, noting she had previously been manually copy-pasting roster data. Support confirmed there is now a CSV export option under Admin > Members > 'Export all (CSV)'. This matches an already-shipped capability rather than a new request.",
+    "line": 46,
+    "quote": "Oh, you can export the roster now? Last I checked I was copy-pasting like an animal.",
+    "context_lines": [
+     47,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Feature already delivered in release 4.3; no further engineering work needed.",
+    "match_note": "Directly matches PROJ-095 (Bulk CSV export of the member roster), shipped 4.3 on 2026-06-10.",
+    "no_action_reason": null,
+    "related_line": null,
+    "tracked_key": "PROJ-095"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Request for minimum supported OS version to set device-management policy",
+    "description": "Following the resolved Android crash issue, the customer asked whether BetterBark publishes a minimum supported OS version so she could configure her organization's device-management policy to keep devices current and prevent a recurrence. Support pointed to existing help-center documentation stating the app supports the current and two prior major OS versions. This is a preventive policy question tied directly to the crash issue already discussed on this call, not a separate product defect or feature gap.",
+    "line": 50,
+    "quote": "is there a minimum OS version your app officially supports? So I can set our policy to keep everyone above the line and avoid this whole class of problem.",
+    "context_lines": [
+     51,
+     52,
+     54
+    ],
+    "severity": "low",
+    "severity_reason": "Informational/documentation request to prevent recurrence of an already-resolved issue; no product change needed.",
+    "match_note": "Preventive workaround tied to the Android crash issue raised earlier on this call (L14), not an independent product request.",
+    "no_action_reason": "workaround_request",
+    "related_line": 14,
+    "tracked_key": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

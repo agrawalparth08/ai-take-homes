@@ -1,0 +1,90 @@
+{
+ "call_id": "call-130",
+ "sha256": "59a66640ba5ca4bc732ba19a9379ee9660f1ad0eee63e34fa24c7c867898ebc7",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:41:23+00:00",
+ "usage": {
+  "input_tokens": 14117,
+  "output_tokens": 4546,
+  "latency_s": 54.17,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "matches_tracked",
+    "tracked_key": "PROJ-087",
+    "title": "Duplicate webhook deliveries lack idempotency key for reliable dedup",
+    "description": "Customer's integration occasionally receives the exact same webhook event (e.g. session-completed) delivered two or three times, with identical event payload but a later delivery timestamp on the duplicate. Frequency is estimated at a few per thousand events. Customer has built a custom dedup layer keyed on session ID + event type, but this is fragile and can miss duplicates under race conditions, risking double-counted sessions for an analytics-focused customer. Customer requests a stable, unique idempotency key on the event itself so consumers can dedup reliably instead of fingerprinting payload contents.",
+    "line": 26,
+    "quote": "We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times.",
+    "context_lines": [
+     28,
+     30,
+     32,
+     34
+    ],
+    "related_line": null,
+    "severity": "medium",
+    "severity_reason": "Real data-accuracy risk (double-counted sessions) for an analytics customer, but currently mitigated by the customer's own dedup workaround and only a few duplicates per thousand events.",
+    "match_note": "Directly matches PROJ-087: same symptom (duplicate webhook deliveries) and same requested fix (idempotency keys on payload)."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Inquiry about registering a separate staging webhook endpoint",
+    "description": "Customer asked whether a second, staging webhook endpoint could be configured (with a subset of event types and a separate signing secret) to test schema changes without affecting production. Ravi confirmed multi-endpoint configuration with per-endpoint event scoping and separate secrets is already supported, and offered to send setup documentation.",
+    "line": 16,
+    "quote": "We want to add a second endpoint \u2014 a staging one \u2014 so we can test schema changes without pointing at prod. Is that supported?",
+    "context_lines": [
+     17,
+     18,
+     19,
+     20
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a defect or gap; confirmed as already-supported existing functionality, just a configuration question.",
+    "match_note": "No catalogue match needed \u2014 capability already exists per Ravi's response, not a product gap."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "Customer describes their own inbound webhook signature verification practice",
+    "description": "Nadia described that her team verifies signatures on every inbound webhook before processing and drops/logs anything that fails verification. This is a description of the customer's own consuming system, not a request or defect regarding the BetterBark product.",
+    "line": 22,
+    "quote": "Every inbound webhook gets its signature verified before we process it. If it doesn't verify, we drop it and log it.",
+    "context_lines": [
+     21,
+     23
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a product issue; purely informational about customer-side security posture.",
+    "match_note": "No product defect or ask; not applicable to any tracked issue."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "Inquiry about CSV export availability for engagement reports",
+    "description": "Tim asked whether standard engagement reports are available as CSV or only via the dashboard, on behalf of his analytics team. Ravi confirmed admin reports already support CSV export via an export option in the reports view.",
+    "line": 62,
+    "quote": "Do the standard engagement reports come as CSV or just the dashboard? My analytics people asked.",
+    "context_lines": [
+     63,
+     64
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not a defect or gap; confirmed as already-available existing functionality.",
+    "match_note": "Distinct from PROJ-118 (PDF export of manager dashboard) and PROJ-095 (CSV export of member roster, shipped) \u2014 this is CSV export of engagement reports, which Ravi confirmed already exists, so no catalogue action needed."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

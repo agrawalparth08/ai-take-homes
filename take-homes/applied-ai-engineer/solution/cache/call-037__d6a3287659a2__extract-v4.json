@@ -1,0 +1,102 @@
+{
+ "call_id": "call-037",
+ "sha256": "d6a3287659a2f1b437d64d91bce148bb0ec0695f1108b195a0b9d5dbdf20b80b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:27:06+00:00",
+ "usage": {
+  "input_tokens": 8263,
+  "output_tokens": 3655,
+  "latency_s": 32.87,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Allow members to export/download their own session notes (org policy-gated)",
+    "description": "Members currently can view session notes (reflections, action items) in-platform but cannot export or download them. Customer reports repeated requests (a dozen+ members) for a personal copy: to share their dog's training history with an outside vet/trainer, and to keep their own reflective work as a personal record if they lose platform access. Customer explicitly wants this gated by an org-level policy setting so companies with stricter confidentiality needs can disable it, while Osprey Rail would enable it. Request applies to both desktop and mobile use.",
+    "line": 32,
+    "quote": "the ask is simple: let a member download their own session notes. A PDF, a text file, I don't care about the format.",
+    "context_lines": [
+     26,
+     28,
+     30,
+     34,
+     54
+    ],
+    "severity": "medium",
+    "severity_reason": "Valuable, repeatedly-requested feature affecting a retention-sensitive user segment, but no core workflow is blocked and there's no data-integrity or security risk.",
+    "match_note": "No existing catalogue issue covers member-facing export of their own session notes; PROJ-095 is CSV roster export for admins, a different capability and audience."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "N/A - positive feedback on coach matching quality",
+    "description": "Customer praised coach matching, noting engineers with technical/operations backgrounds were successfully paired with coaches who share similar professional context, reducing need to explain domain-specific concepts. This is positive feedback with no request for change.",
+    "line": 44,
+    "quote": "the coach matching for my engineers has been excellent.",
+    "context_lines": [
+     45,
+     46,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "Praise only; no defect or missing capability raised.",
+    "match_note": "Not a product issue; no catalogue match applicable."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "other",
+    "title": "N/A - mobile app confirmed working well for field/low-connectivity users",
+    "description": "Customer was proactively asked about mobile experience for trackside engineers with spotty signal; confirmed the app works fine and members complete reflections once back in coverage, with no complaints.",
+    "line": 52,
+    "quote": "The app's fine, actually. I was worried about it because half my people are trackside with spotty signal, but they manage.",
+    "context_lines": [
+     51,
+     53
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly confirmed as working with no issue reported.",
+    "match_note": "No defect reported; not comparable to PROJ-110 (Android crash-on-launch), which is an unrelated failure mode."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "workaround_request",
+    "title": "N/A - mobile notes download is same request as desktop notes export",
+    "description": "Customer notes that members would also want to download their session notes from mobile while out in the field, not just at a desk. Customer explicitly frames this as the same underlying request, not a new one.",
+    "line": 54,
+    "quote": "The only mobile-adjacent thing is the notes download, really \u2014 they'd want to grab their notes on the go too, not just at a desk.",
+    "context_lines": [
+     55
+    ],
+    "related_line": 32,
+    "severity": "low",
+    "severity_reason": "Explicitly the same request as the main notes-export feature, just noting platform scope.",
+    "match_note": "Duplicate of the session-notes export feature request (line 32); filed there with mobile scope noted in context."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "no_action_reason": "not_product",
+    "title": "N/A - request for post-project recovery coaching program focus",
+    "description": "Customer asked whether coaching sessions could be thematically oriented around decompression/re-engagement for a cohort of engineers finishing an 18-month infrastructure project this autumn. This is a request for a coaching program/content customization for a specific cohort, not a platform capability, defect, or missing product feature.",
+    "line": 58,
+    "quote": "when the signaling project wraps in the autumn, I'll have a cohort of exhausted engineers coming off eighteen months of hell. Can we do something for them specifically? A reset, almost.",
+    "context_lines": [
+     59,
+     60,
+     61
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or missing platform capability; a coaching-program/service customization request.",
+    "match_note": "Not applicable to product catalogue; it is a service/curriculum request rather than a software feature."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

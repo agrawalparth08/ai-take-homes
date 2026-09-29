@@ -1,0 +1,55 @@
+{
+ "call_id": "call-061",
+ "sha256": "4eae29385a2f6ac271102997d026eeaefb4da985b53a58675d45843bc2f829c0",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:30:15+00:00",
+ "usage": {
+  "input_tokens": 13455,
+  "output_tokens": 2809,
+  "latency_s": 30.91,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer expanding coaching benefit eligibility to senior ICs (program scoping, not a product change)",
+    "description": "Beatrix wants to extend the existing coaching benefit from department leads to the next layer of staff (senior individual contributors, many first-time dog owners on the new-puppy foundations track), citing burnout risk during crunch periods. This is a request to change who within Novak Studios is invited to use the existing product/benefit, not a request for new product functionality or a report of a defect. Tom\u00e1s confirms this fits within current seat capacity (88% utilized) and offers to help draft an opt-in invitation, which is a services/messaging favor, not a product change.",
+    "line": 35,
+    "quote": "I want to open it up to the next layer down \u2014 the senior individual contributors, a lot of them first-time dog owners on the new-puppy foundations track",
+    "context_lines": [
+     27,
+     36,
+     37,
+     43
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No product defect or missing capability; this is a customer-side program/rollout decision using existing product features.",
+    "match_note": "Not a product bug or feature gap \u2014 it's an internal eligibility/rollout decision by the customer, not present in the catalogue.",
+    "tracked_key": null,
+    "no_action_reason": "not_product"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports no app complaints / no issues reaching support",
+    "description": "Beatrix asks Hassan directly whether the app has been solid and whether any complaints have come through his team; Hassan confirms none have reached him and that things have been quiet on BetterBark. No defect, missing capability, or dissatisfaction is raised \u2014 this is an explicit confirmation that the product is working well for this account.",
+    "line": 57,
+    "quote": "the app's been solid, right, Hassan? No complaints coming through your team?",
+    "context_lines": [
+     58
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No issue exists; this exchange is a positive confirmation of product health, not a problem report.",
+    "match_note": "No underlying defect or feature gap is described, so there is nothing to match against the catalogue.",
+    "tracked_key": null,
+    "no_action_reason": "other"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

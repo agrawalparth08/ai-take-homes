@@ -1,0 +1,92 @@
+{
+ "call_id": "call-102",
+ "sha256": "f2560983a3904191c0f1217d67538f392026bf390821cbbfa2061e9d677a1976",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:37:05+00:00",
+ "usage": {
+  "input_tokens": 14581,
+  "output_tokens": 6195,
+  "latency_s": 69.39,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "General positive confirmation of app experience (booking, reminders, coach matching)",
+    "description": "Dominic states the app 'does what it says' \u2014 captains book sessions on their phones between events, reminders arrive at reasonable times, and coach matches have been good. No defect or missing capability is described; this is a general satisfaction statement offered when asked if anything is not working.",
+    "line": 37,
+    "quote": "the thing does what it says. My captains book sessions on their phones between events, the reminders come at sane times, the coaches have been good matches",
+    "context_lines": [
+     36,
+     38,
+     39,
+     40
+    ],
+    "severity": "low",
+    "severity_reason": "No defect or gap reported; purely positive, non-actionable feedback.",
+    "match_note": "No catalogue issue applies; customer explicitly reports no friction with these product areas.",
+    "no_action_reason": "other",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Captain double-booking incident attributed to user forgetting an event, not app fault",
+    "description": "Dominic describes one scheduling mixup where a captain double-booked herself. He explicitly attributes this to the captain forgetting she had an event scheduled, stating the app was correct and the human was wrong. No product defect is alleged.",
+    "line": 37,
+    "quote": "The one time we had a scheduling mixup \u2014 a captain double-booked herself \u2014 that was her, not the app, she'd forgotten she had an event",
+    "context_lines": [
+     38,
+     39
+    ],
+    "severity": "low",
+    "severity_reason": "Explicitly resolved as user error by the customer; no product defect exists.",
+    "match_note": "No catalogue issue applies; incident is explicitly attributed to human error, not the product.",
+    "no_action_reason": "resolved_user_error",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Session rescheduling confirmed to work smoothly under frequent calendar changes",
+    "description": "Dominic reports that in-app session rescheduling holds up well despite catering's high-churn calendar \u2014 when a client moves an event and a captain's week shifts, her coaching session moves with it without issue. He says he would have heard complaints from his captains if this were painful, and none have surfaced.",
+    "line": 43,
+    "quote": "Rescheduling's actually smooth, which surprised me, because catering is nothing but reschedules.",
+    "context_lines": [
+     44
+    ],
+    "severity": "low",
+    "severity_reason": "No defect reported; customer explicitly confirms the feature performs well under stress.",
+    "match_note": "No catalogue issue applies; distinct from PROJ-138 (Outlook invite display bug), which is not mentioned here.",
+    "no_action_reason": "other",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "No at-a-glance manager view of captains who are behind on coaching sessions",
+    "description": "Dominic says he sometimes wishes he could see at a glance which of his captains are behind on sessions without having to click around the platform. Priya notes an existing manager view gets 'close to that' and offers to send a pointer, but does not confirm it fully satisfies the ask. Dominic frames it as a low-priority want, not a complaint or blocker.",
+    "line": 45,
+    "quote": "I sometimes wish I could see at a glance which of my captains are behind on sessions without clicking around.",
+    "context_lines": [
+     46,
+     47,
+     48
+    ],
+    "severity": "low",
+    "severity_reason": "Customer explicitly frames this as a non-urgent nicety with an existing partial workaround (a manager view and manual clicking), not a blocker.",
+    "match_note": "Distinct from PROJ-118 (PDF export of team engagement summary); no catalogue issue covers an at-a-glance overdue-sessions manager view.",
+    "no_action_reason": null,
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

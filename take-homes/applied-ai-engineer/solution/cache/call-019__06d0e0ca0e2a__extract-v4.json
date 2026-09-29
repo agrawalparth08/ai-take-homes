@@ -1,0 +1,83 @@
+{
+ "call_id": "call-019",
+ "sha256": "06d0e0ca0e2a1aaa45dcc4a2612cd83cd9faee58d04ec19093e8ea0baa61c81e",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:12+00:00",
+ "usage": {
+  "input_tokens": 13593,
+  "output_tokens": 3015,
+  "latency_s": 36.52,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Unconfirmed 'sluggish on Monday mornings' perception, no repro or specifics",
+    "description": "Trish relays that a couple of agents described the app as feeling 'slow' or 'weird' on Monday mornings, but she cannot identify which screen or action, how often it happens, or whether anything actually fails versus just feeling slow. She explicitly says nobody is blocked, nothing has been formally reported, and she herself questions whether it's just general Monday sluggishness in life rather than the app. She agrees this isn't reportable as-is and commits to having her ops coordinator gather a concrete repro (screen, time, action) before escalating.",
+    "line": 24,
+    "quote": "this is going to be an annoying one because I can't pin it down. Something feels off on Mondays",
+    "context_lines": [
+     26,
+     28,
+     30,
+     34,
+     37
+    ],
+    "severity": "low",
+    "severity_reason": "No confirmed defect, no block, no repro steps, and the customer herself declines to file it as-is.",
+    "match_note": "No catalogue issue matches a vague, unconfirmed Monday slowness report with no screen/action identified; too unspecific to be a new bug.",
+    "no_action_reason": "too_vague"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Coach-swap request completed successfully via app \u2014 no defect or ask",
+    "description": "One agent requested to switch coaches due to a 'personality thing,' and the swap was completed through the app without any problems. Trish characterizes this as routine and not a complaint; both she and Sam frame it as a healthy engagement signal rather than a product issue.",
+    "line": 44,
+    "quote": "One agent asked to switch coaches because of a \"personality thing,\" we did the swap through the app, no drama.",
+    "context_lines": [
+     45,
+     49
+    ],
+    "severity": "low",
+    "severity_reason": "Feature functioned as intended; no defect, no unmet request.",
+    "match_note": "Working-as-intended coach-swap flow; nothing to match against catalogue since no problem is described.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Monthly engagement summary report described as trouble-free",
+    "description": "Trish states the engagement summary report she pulls monthly for her regional VP has never given her trouble, in response to a general question about friction on booking, coaching, and reports.",
+    "line": 42,
+    "quote": "The reports I actually use are fine. I pull the engagement summary monthly for my regional VP and it's never given me trouble.",
+    "context_lines": [
+     43
+    ],
+    "severity": "low",
+    "severity_reason": "No problem reported; purely a positive status confirmation.",
+    "match_note": "No issue stated, so no comparison to any catalogue item applies.",
+    "no_action_reason": "other"
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Headcount/seat-count discussion is a business/account matter, not a product topic",
+    "description": "Trish discusses slow, churny hiring in her real-estate brokerage and notes seat count won't move much unless a second office opens, which is a 'someday' possibility. This is account/commercial planning, not a product defect or feature request.",
+    "line": 54,
+    "quote": "We're hiring agents but slowly, and it's churny \u2014 real estate always is.",
+    "context_lines": [
+     55
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product matter; purely commercial/account planning.",
+    "match_note": "Not applicable to product catalogue; concerns seat/headcount planning only.",
+    "no_action_reason": "not_product"
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

@@ -1,0 +1,86 @@
+{
+ "call_id": "call-113",
+ "sha256": "5bd84a1b7be10a89247e96bc8d797a9da2efbecc848de478db0437349d6e94c4",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:38:43+00:00",
+ "usage": {
+  "input_tokens": 40056,
+  "output_tokens": 6066,
+  "latency_s": 67.03,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Frontline/production-floor staff reluctant to use app after shifts (adoption/culture, not a product defect)",
+    "description": "Gordon says office adoption is steady but production-floor workers (brewers, packaging, warehouse) don't want to open the app after a shift to work on training plans. Rotating shift schedules also make group sessions hard to schedule. By L54, Gordon explicitly frames this as 'a me-problem, not a you-problem' tied to workplace culture, not a tool defect, and doesn't ask for a product change.",
+    "line": 20,
+    "quote": "they finish a shift, they don't want to open an app and work on their dog's training plan",
+    "context_lines": [
+     22,
+     24,
+     54,
+     55
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Not actionable as a product issue; customer attributes it to internal culture/adoption, not the software.",
+    "match_note": "No catalogue issue covers adoption/culture friction; customer explicitly self-attributes the cause so it isn't filed."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer reports no bugs or friction with the product",
+    "description": "Gordon states the tool works fine for his day-to-day use (logging in, finding sessions) and explicitly declines to offer any bug report, describing himself as not a power user. No defect or missing capability is identified.",
+    "line": 28,
+    "quote": "It does what it does. I log in, I find my sessions, it works. I'm not a power user, I'm not going to give you a bug report.",
+    "context_lines": [
+     27,
+     29
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "No issue raised; purely affirmative feedback with no actionable content.",
+    "match_note": "No matching catalogue issue; explicit statement that there is nothing to report."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Positive feedback on already-shipped dark mode / mobile UI update",
+    "description": "Gordon notices the mobile app looks different and asks about it; Maya confirms recent updates including dark mode. Gordon responds only with appreciation ('my eyes thank you') and states that's the extent of his feedback \u2014 not a request for any change.",
+    "line": 32,
+    "quote": "Dark mode, nice. My eyes thank you. That's the extent of my feedback.",
+    "context_lines": [
+     30,
+     31
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Cosmetic compliment on a feature already shipped (PROJ-102); no request or defect to act on.",
+    "match_note": "Corresponds to PROJ-102 (Dark mode, shipped 4.2) but customer is not asking for anything \u2014 pure positive feedback, so not filed as shipped_feature."
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Second location (Fort Collins) opening \u2014 future account/business context, not a product ask",
+    "description": "Gordon mentions Thistle Brewing is opening a second location in Fort Collins, with groundbreaking in the fall and staffing planned for early next year. This is account/business news relevant to future onboarding, not a current product defect or feature request; no immediate product action is requested.",
+    "line": 38,
+    "quote": "Thank you. It's terrifying and exciting. Groundbreaking's in the fall, we'd staff up early next year.",
+    "context_lines": [
+     36,
+     37,
+     39,
+     40
+    ],
+    "related_line": null,
+    "severity": "low",
+    "severity_reason": "Business/account information, not a product defect or feature request.",
+    "match_note": "Not a product topic; noted for account context only, no matching catalogue issue."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

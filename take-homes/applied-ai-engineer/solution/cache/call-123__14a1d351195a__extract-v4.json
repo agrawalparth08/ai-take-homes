@@ -1,0 +1,75 @@
+{
+ "call_id": "call-123",
+ "sha256": "14a1d351195a0fa399ce71956749c10ae5cb511b98e9db8dccf11c140782d46b",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:40:28+00:00",
+ "usage": {
+  "input_tokens": 13923,
+  "output_tokens": 5262,
+  "latency_s": 58.51,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Competitor '24/7 live chat support' claim relayed, then customer downplays need",
+    "description": "Customer reports a competitor (PackMind) pitched 24/7 live human chat support to her CHRO, who was drawn to it because Oakhaven's communities run around the clock. However, Constance immediately clarifies this is 'more shiny than real' since members book coaching sessions in advance and are not requesting live chat at 3am. She is not asking BetterBark to build this capability; she explicitly says the actual need is not there.",
+    "line": 34,
+    "quote": "they claimed they have twenty-four-seven live chat support. Like, instant human support any time, day or night.",
+    "context_lines": [
+     32,
+     35,
+     37,
+     38
+    ],
+    "severity": "low",
+    "severity_reason": "No confirmed product gap; customer explicitly states this feature would not actually be used by her members.",
+    "match_note": "No catalogue entry concerns support-channel hours/live chat; also self-retracted by the customer as not a real need.",
+    "no_action_reason": "retracted",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Competitor claims of larger coach network and faster matching relayed secondhand",
+    "description": "Customer relays that the competitor's sales pitch also touted a bigger coach network and faster matching, alongside lower pricing. This is reported as part of a competitive sales pitch summary, not a first-hand complaint about BetterBark's own coach network size or matching speed, and no specific defect or gap in BetterBark is described.",
+    "line": 40,
+    "quote": "They talked up a bigger coach network and faster matching.",
+    "context_lines": [
+     41,
+     32
+    ],
+    "severity": "low",
+    "severity_reason": "Secondhand competitive claim with no first-hand product complaint or specific detail to act on.",
+    "match_note": "No catalogue issue on coach network size or matching speed; this is competitive chatter, not a product defect/feature ask.",
+    "no_action_reason": "hearsay",
+    "tracked_key": null,
+    "related_line": null
+   },
+   {
+    "kind": "not_actionable",
+    "disposition": "no_action",
+    "title": "Customer requests an executive value one-pager for internal CHRO conversation",
+    "description": "In response to the competitor pitch, Constance asks for a one-pager summarizing retention impact and director engagement, written for a CHRO audience, to help her defend the program internally. This is a customer-success deliverable/reporting request, not a defect in or missing capability of the BetterBark product itself.",
+    "line": 44,
+    "quote": "A one-pager on the value we've gotten \u2014 retention impact, the director engagement, in language a CHRO respects \u2014 that would genuinely help me.",
+    "context_lines": [
+     43,
+     45,
+     47
+    ],
+    "severity": "low",
+    "severity_reason": "Not a product defect or feature; a one-off account-team deliverable with no engineering action implied.",
+    "match_note": "No related catalogue entry; explicitly excluded category per rules (services/reporting favour, not a product change).",
+    "no_action_reason": "not_product",
+    "tracked_key": null,
+    "related_line": null
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

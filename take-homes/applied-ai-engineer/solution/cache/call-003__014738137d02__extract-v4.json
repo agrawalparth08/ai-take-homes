@@ -1,0 +1,71 @@
+{
+ "call_id": "call-003",
+ "sha256": "014738137d0284a053997471c4c7f6821839cb8f26c996ae6c5a2e9d5c185bb9",
+ "prompt_version": "extract-v4",
+ "model": "claude-sonnet-5",
+ "created_at": "2026-09-23T04:24:29+00:00",
+ "usage": {
+  "input_tokens": 15244,
+  "output_tokens": 5563,
+  "latency_s": 55.94,
+  "attempts": 1
+ },
+ "output": {
+  "findings": [
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "customer_side_cause",
+    "title": "Friday SAML login failures caused by customer IdP clock drift, not BetterBark",
+    "description": "About twenty users in the customer's Chicago office could not log in Friday morning; SAML assertions were rejected as expired. Root cause was traced to an NTP misconfiguration on the customer's IdP fleet after a Thursday-night patch window, leaving IdP clocks roughly ninety seconds off. BetterBark correctly rejected the stale assertions per spec. Customer forced an IdP time re-sync Friday afternoon and confirmed zero recurrence since; both parties agreed no BetterBark-side fix is needed, and a vendor letter documenting this will be provided for the customer's audit file.",
+    "line": 18,
+    "quote": "about twenty users couldn't log in. SAML assertions rejected as expired. Help desk lit up around 8:15",
+    "context_lines": [
+     20,
+     22,
+     28,
+     29
+    ],
+    "severity": "low",
+    "severity_reason": "Fully resolved, root cause confirmed on customer's infrastructure, zero recurrence, no BetterBark product change required.",
+    "match_note": "Distinct from PROJ-064 (Okta session-lifetime expiry for federated users) and PROJ-089 (login-history view); this was a one-time IdP clock-drift incident with correct vendor-side rejection behavior, not a recurring product defect."
+   },
+   {
+    "kind": "feature",
+    "disposition": "new",
+    "title": "Add SAML group-to-role mapping evaluated on every login (not just first provision)",
+    "description": "Currently every SSO user lands as a basic member on first login, requiring an admin to manually promote each user to the correct role one at a time; at the customer's planned scale of 400 users this is described as unworkable and error-prone (e.g., a finance manager could be mis-assigned, creating a segregation-of-duties issue). The customer's IdP already exposes group membership in the SAML assertion (e.g., finance-managers, people-admins, read-only-auditors) and they want BetterBark to map IdP groups to BetterBark roles and re-evaluate that mapping on every login, so role changes propagate automatically when group membership changes on the IdP side. The customer states this is required to pass their access-review audit (source-of-truth control) and is the single blocker to their planned September full rollout of all 400 seats.",
+    "line": 40,
+    "quote": "We need role assignment to happen automatically from SAML group membership, at login.",
+    "context_lines": [
+     34,
+     36,
+     42,
+     44
+    ],
+    "severity": "high",
+    "severity_reason": "Blocks a regulated customer's access-review audit and a 400-seat rollout; no scalable workaround exists (manual one-by-one promotion is error-prone at that scale).",
+    "match_note": "Not covered by any catalogue item: PROJ-089 is a login-history view (audit trail, not role assignment) and PROJ-155 is SCIM-driven deprovisioning on departure, not group-to-role mapping applied on every login."
+   },
+   {
+    "kind": "bug",
+    "disposition": "no_action",
+    "no_action_reason": "hearsay",
+    "title": "Unverified secondhand claim that large data exports drop rows",
+    "description": "The customer relayed a secondhand comment from a peer at a different, unrelated company (different industry, unknown plan) claiming BetterBark's data exports 'drop rows' on large pulls. The customer explicitly labeled this as gossip, has never used BetterBark's export feature themselves, and has zero first-hand experience of the issue. Both parties agreed not to file anything off the rumor; instead they plan to run and document a controlled export-reconciliation test once the customer begins using exports.",
+    "line": 52,
+    "quote": "mentioned at a conference that your data exports \"drop rows\" on large pulls.",
+    "context_lines": [
+     54,
+     55,
+     57,
+     61
+    ],
+    "severity": "low",
+    "severity_reason": "No first-hand evidence, no repro, no confirmed account or data; explicitly unverified secondhand claim pending a future validation test.",
+    "match_note": "No matching catalogue entry; correctly withheld from filing per the customer's own request pending a controlled reconciliation test."
+   }
+  ]
+ },
+ "catalog_sha": "d44d2d6f9162"
+}

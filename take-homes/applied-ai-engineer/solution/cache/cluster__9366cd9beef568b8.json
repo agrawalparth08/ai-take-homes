@@ -1,0 +1,68 @@
+{
+ "groups": [
+  {
+   "candidate_ids": [
+    "call-006#f0",
+    "call-012#f0"
+   ],
+   "filed_key": null,
+   "reason": "Both describe the identical symptom (search index returns stale/empty results for ~5-10 minutes after an admin renames a team or moves a member, then self-corrects with no data loss) on the same platform (admin panel search), just reported by two different customers (Gable Group and another)."
+  },
+  {
+   "candidate_ids": [
+    "call-001#f0"
+   ],
+   "filed_key": null,
+   "reason": "Distinct issue: dashboard summary-card total vs. per-team breakdown discrepancy on the usage/reporting dashboard; no corroborating candidate describes this same reporting mismatch."
+  },
+  {
+   "candidate_ids": [
+    "call-003#f1"
+   ],
+   "filed_key": null,
+   "reason": "Distinct feature request: SAML group-to-role mapping re-evaluated on every login. Related to SSO/identity but a different capability than the audit-log export API or the Azure AD redirect bug, so kept separate per scope-difference guidance."
+  },
+  {
+   "candidate_ids": [
+    "call-008#f1"
+   ],
+   "filed_key": null,
+   "reason": "Standalone low-priority copy/typo issue in email footer; no other candidate touches email branding text."
+  },
+  {
+   "candidate_ids": [
+    "call-010#f1"
+   ],
+   "filed_key": null,
+   "reason": "Distinct feature: programmatic/API audit-log export for SIEM automation. Customer explicitly requested this be filed separately from the SAML mapping request, and no other candidate covers audit export."
+  },
+  {
+   "candidate_ids": [
+    "call-010#f3"
+   ],
+   "filed_key": null,
+   "reason": "Distinct bug: Azure AD SSO infinite redirect loop after password rotation, resulting in full lockout. Explicitly confirmed in the transcript to be a different identity provider and different failure mode than the known Okta early-session-expiry issue, so not merged with any SSO-related candidate here."
+  },
+  {
+   "candidate_ids": [
+    "call-011#f2"
+   ],
+   "filed_key": null,
+   "reason": "Distinct bug: notification email profile links truncate at apostrophes in member names causing 404s; unique symptom/scope not shared by other candidates."
+  },
+  {
+   "candidate_ids": [
+    "call-013#f1"
+   ],
+   "filed_key": null,
+   "reason": "Distinct feature request: session-completion webhook for LMS (Cornerstone) integration; no other candidate addresses webhooks or LMS sync."
+  },
+  {
+   "candidate_ids": [
+    "call-014#f4"
+   ],
+   "filed_key": null,
+   "reason": "Distinct mobile bug: blank white screen (instead of proper inactive-account screen) when an account is deactivated mid-session; unique symptom/platform combination among the candidates."
+  }
+ ]
+}
