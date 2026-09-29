@@ -84,11 +84,21 @@ flowchart LR
 | S5 | Logs that show a silent stop or silent wrong filing. | `events.jsonl`, `summary.json` and the `health` command | `test_each_failure_mode_is_flagged`, `test_debug_only_run_does_not_mask_a_stale_full_run`, `test_stuck_delivery_is_flagged`, `test_events_log_has_one_extract_event_per_call_with_model_and_prompt` | Tested |
 | S5b | Tell a real miss from a bad grader. | Each failed case names the step that lost it, with line numbers. | `test_diagnosis_names_the_stage_that_lost_the_case` | Tested |
 
+## The evidence files
+
+A first static review (29 Sep) found no numbers for the full run or the eval. The numbers were in the repo, but only in prose and in large reports. These files now state them. A test fails if a file goes missing or stops agreeing with the run.
+
+| What a reviewer asks | File | Proof | Status |
+|---|---|---|---|
+| Counts for all 140 calls: processed, skipped, filed | `output/run-manifest.md` and `.json` | `test_one_row_per_transcript`, `test_totals_match_rows_and_the_review_queue` | Tested |
+| Eval pass rate and variance across runs | `output/eval-numbers.json` | `test_multi_run_numbers_and_variance_are_published` | Tested |
+| A second run writes nothing new | `output/idempotency-diff.md` and `.json` | `test_second_dispatch_and_rerun_write_nothing` | Tested |
+
 ## What the reviewers look for
 
 | Signal in the PDF | Where to see it |
 |---|---|
-| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 41 tests. 29 mutations, all caught. |
+| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 45 tests. 29 mutations, all caught. |
 | Work across systems, and reliability | The given stubs, not changed. The crash, Slack and lock tests. The demo. |
 | Good use of AI | The "where AI is" table in WRITEUP.md. The code overrules the model on facts. |
 | Output a person can use | Each card in `review.md` has the quote, the lines near it, the reason it is new, the priority reason and the approve command. |

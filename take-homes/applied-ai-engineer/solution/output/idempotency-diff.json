@@ -1,0 +1,65 @@
+{
+ "what": "same approvals as scripts/demo.sh, stub outbox in a temp folder",
+ "steps": [
+  {
+   "step": "run",
+   "sent_this_step": 0,
+   "note": "69 proposals, nothing written",
+   "outbox": {
+    "jira.jsonl": 0,
+    "slack.jsonl": 0,
+    "corroborations.jsonl": 0
+   },
+   "outbox_total": 0,
+   "outbox_sha256": "72cb15c431e34bf371eb8c0bef6d64e667df2a37dfa77beec7788d580eb9d46a"
+  },
+  {
+   "step": "dispatch #1",
+   "sent_this_step": 50,
+   "note": "approved: 3 tickets + 21 corroborations",
+   "outbox": {
+    "jira.jsonl": 3,
+    "slack.jsonl": 26,
+    "corroborations.jsonl": 21
+   },
+   "outbox_total": 50,
+   "outbox_sha256": "2ebaa7d57ab7a5e27a4e28cf699dc750233c1fa522aa4fcbabe9e937772fd136"
+  },
+  {
+   "step": "dispatch #2",
+   "sent_this_step": 0,
+   "note": "50 actions skipped: already sent",
+   "outbox": {
+    "jira.jsonl": 3,
+    "slack.jsonl": 26,
+    "corroborations.jsonl": 21
+   },
+   "outbox_total": 50,
+   "outbox_sha256": "2ebaa7d57ab7a5e27a4e28cf699dc750233c1fa522aa4fcbabe9e937772fd136"
+  },
+  {
+   "step": "re-run",
+   "sent_this_step": 0,
+   "note": "new proposals 0, unchanged 45, changed 0",
+   "outbox": {
+    "jira.jsonl": 3,
+    "slack.jsonl": 26,
+    "corroborations.jsonl": 21
+   },
+   "outbox_total": 50,
+   "outbox_sha256": "2ebaa7d57ab7a5e27a4e28cf699dc750233c1fa522aa4fcbabe9e937772fd136"
+  },
+  {
+   "step": "dispatch #3",
+   "sent_this_step": 0,
+   "note": "50 actions skipped: already sent",
+   "outbox": {
+    "jira.jsonl": 3,
+    "slack.jsonl": 26,
+    "corroborations.jsonl": 21
+   },
+   "outbox_total": 50,
+   "outbox_sha256": "2ebaa7d57ab7a5e27a4e28cf699dc750233c1fa522aa4fcbabe9e937772fd136"
+  }
+ ]
+}

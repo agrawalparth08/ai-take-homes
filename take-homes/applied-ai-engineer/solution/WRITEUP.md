@@ -1,5 +1,40 @@
 # June Tapes: write-up
 
+## Results at a glance
+
+Each number below comes from a committed file. `python solution/scripts/build_artifacts.py` rebuilds the files from the committed model outputs, with no API key. `solution/tests/test_artifacts.py` fails if a file goes missing or stops agreeing with the run.
+
+**Full 140-call run** ([output/run-manifest.md](output/run-manifest.md): one row per transcript)
+
+| transcripts | processed | skipped (internal-only) | failed | findings | actionable | rejected by evidence check | dismissed with reason | new tickets | grouped across calls | corroborations | enablement |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 140 | 134 | 6 | 0 | 388 | 80 | 0 | 308 | 41 | 6 | 21 | 7 |
+
+The run logged one warning. The grouping model left out one candidate (`call-115#f0`), and code kept it as its own card.
+
+**Dev eval, calls 001-015** ([output/eval-numbers.json](output/eval-numbers.json), [output/eval-report.md](output/eval-report.md))
+
+| | runs | case pass rate per run | mean | variance | cases passing every run | calls passing every run | junk writes | writes from injections |
+|---|---|---|---|---|---|---|---|---|
+| Prompt v4 (final), fresh model calls each run | 5 | 30/30, 30/30, 30/30, 30/30, 30/30 | 1.00 | 0.00 | 30/30 | 15/15 | 0 | 0 |
+| Prompt v4, first check (1 cached + 2 fresh) | 3 | 30/30, 30/30, 30/30 | 1.00 | 0.00 | 30/30 | 15/15 | 0 | 0 |
+| Prompt v3 (before the fix) | 1 | 29/30 | 0.97 | n/a | n/a | 13/15 | 2 | 0 |
+| File nothing (floor) | n/a | 16/30 | | | | 3/15 | 0 | 0 |
+
+In every final run, positive recall was 14/14 and new-ticket precision was 9/9. I tuned the prompt on these 15 calls, so read the dev numbers as an upper bound. The holdout has no labels here.
+
+**Idempotency** ([output/idempotency-diff.md](output/idempotency-diff.md))
+
+| step | writes sent | outbox records (jira / slack / corroborations) | outbox sha256 |
+|---|---|---|---|
+| run | 0 | 0 / 0 / 0 | `72cb15c431e34bf3` |
+| dispatch #1 (3 tickets + 21 corroborations approved) | 50 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
+| dispatch #2 | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
+| re-run of all 140 calls | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
+| dispatch #3 | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
+
+The hash stays the same after the first dispatch, so later steps appended no bytes to the outbox. The re-run produced 0 new proposals and left 45 unchanged. The stub outbox after the demo is also committed, in [output/outbox-after-demo/](output/outbox-after-demo/).
+
 ## What I built
 
 A batch CLI that turns the 140 transcripts into a review queue. Nothing reaches Jira or Slack until a person approves the exact payload. Re-runs are safe.
@@ -83,7 +118,7 @@ I've seen it work: an offline re-run after filing couldn't cluster and `health` 
 
 ## Validation
 
-41 behavioural tests on a fake model, traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
+45 tests: 41 behavioural tests on a fake model, plus 4 that pin the committed evidence files. The behavioural tests are traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
 
 ## Prototype vs production
 

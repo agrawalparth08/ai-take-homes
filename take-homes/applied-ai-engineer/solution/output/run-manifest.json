@@ -1,0 +1,2140 @@
+{
+ "run_id": "20260929T105009Z-daf18b",
+ "source": "committed model outputs in solution/cache (claude-sonnet-5, prompt extract-v4)",
+ "totals": {
+  "transcripts": 140,
+  "processed": 134,
+  "skipped_internal": 6,
+  "failed": 0,
+  "findings": 388,
+  "actionable": 80,
+  "rejected_by_validator": 0,
+  "dismissed": 308,
+  "proposals_new_ticket": 41,
+  "proposals_corroborate": 21,
+  "proposals_enablement": 7,
+  "new_tickets_grouped_across_calls": 6
+ },
+ "warnings": [
+  "call-115#f0 missing from grouping; kept alone"
+ ],
+ "calls": [
+  {
+   "call_id": "call-001",
+   "account": "Meridian Health",
+   "date": "2026-06-15",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-001#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-002",
+   "account": "Northwind Logistics",
+   "date": "2026-06-16",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 5,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-003",
+   "account": "Atlas Financial",
+   "date": "2026-06-17",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-003#f1"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-004",
+   "account": "Cedar Grove Schools",
+   "date": "2026-06-17",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-004:PROJ-101"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-005",
+   "account": "Vanta Retail",
+   "date": "2026-06-18",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-005:PROJ-087"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-006",
+   "account": "Harborline Media",
+   "date": "2026-06-18",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-006#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-007",
+   "account": "(internal)",
+   "date": "2026-06-19",
+   "owner": "Priya Nair",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-008",
+   "account": "Northwind Logistics",
+   "date": "2026-06-19",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [
+    "new:call-008#f1"
+   ],
+   "corroborate": [
+    "corr:call-008:PROJ-110"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-009",
+   "account": "Lakeside Partners",
+   "date": "2026-06-20",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-010",
+   "account": "Atlas Financial",
+   "date": "2026-06-20",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-010#f1",
+    "new:call-010#f3"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-011",
+   "account": "Brightpath Insurance",
+   "date": "2026-06-21",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-011#f2"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-012",
+   "account": "Gable Group",
+   "date": "2026-06-21",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-006#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-013",
+   "account": "Ridgeway Manufacturing",
+   "date": "2026-06-22",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [
+    "new:call-013#f1"
+   ],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-013:PROJ-095"
+   ]
+  },
+  {
+   "call_id": "call-014",
+   "account": "Sunrise Hospitality",
+   "date": "2026-06-22",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-014#f4"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-015",
+   "account": "Juniper Media",
+   "date": "2026-06-16",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-015:PROJ-142"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-016",
+   "account": "Bexley & Sons",
+   "date": "2026-06-17",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 5,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-017",
+   "account": "Halewood Biotech",
+   "date": "2026-06-18",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-017#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-018",
+   "account": "Orchard Grocery Co-op",
+   "date": "2026-06-18",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-019",
+   "account": "Pinnacle Realty",
+   "date": "2026-06-19",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-020",
+   "account": "Stallard Freight",
+   "date": "2026-06-19",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-020:PROJ-110"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-021",
+   "account": "Alderline Insurance",
+   "date": "2026-06-22",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-021#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-022",
+   "account": "Cavetto Restaurants",
+   "date": "2026-06-22",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-023",
+   "account": "Nordvik Shipping",
+   "date": "2026-06-23",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-023#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-024",
+   "account": "Ashwell Clinics",
+   "date": "2026-06-23",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-025",
+   "account": "(internal)",
+   "date": "2026-06-24",
+   "owner": "Derek Okafor",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-026",
+   "account": "Berkfield University",
+   "date": "2026-06-24",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-026:PROJ-138"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-027",
+   "account": "Tandem Sports",
+   "date": "2026-06-25",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-028",
+   "account": "Quill Publishing",
+   "date": "2026-06-25",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-029",
+   "account": "Hanamura Trading",
+   "date": "2026-06-18",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-029#f0"
+   ],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-029:PROJ-102"
+   ]
+  },
+  {
+   "call_id": "call-030",
+   "account": "Vela Cosmetics",
+   "date": "2026-06-19",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-030:PROJ-102"
+   ]
+  },
+  {
+   "call_id": "call-031",
+   "account": "Grafton Utilities",
+   "date": "2026-06-20",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-032",
+   "account": "Marlowe Consulting",
+   "date": "2026-06-20",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-033",
+   "account": "Beacon Charter Schools",
+   "date": "2026-06-22",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-034",
+   "account": "Pemrose Insurance",
+   "date": "2026-06-22",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-034#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-035",
+   "account": "Glasshouse Studios",
+   "date": "2026-06-23",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-035:PROJ-149"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-036",
+   "account": "Ferris & Lake Accounting",
+   "date": "2026-06-23",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-037",
+   "account": "Osprey Rail",
+   "date": "2026-06-24",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-037#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-038",
+   "account": "Ironbark Mining",
+   "date": "2026-06-25",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-039",
+   "account": "Loomis Daycare Group",
+   "date": "2026-06-25",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-040",
+   "account": "Palmetto Hotels",
+   "date": "2026-06-26",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-040:PROJ-160"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-041",
+   "account": "Verity Accounting",
+   "date": "2026-06-26",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-042",
+   "account": "Meraki Tech",
+   "date": "2026-06-29",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-042#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-043",
+   "account": "Dunmore Textiles",
+   "date": "2026-06-15",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-044",
+   "account": "Southgate Retail",
+   "date": "2026-06-16",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-044#f0"
+   ],
+   "corroborate": [
+    "corr:call-044:PROJ-118"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-045",
+   "account": "Bellweather PR",
+   "date": "2026-06-17",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-046",
+   "account": "Chandler Logistics",
+   "date": "2026-06-18",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-047",
+   "account": "Kirkfield College",
+   "date": "2026-06-19",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-047:PROJ-101"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-048",
+   "account": "Aurora Bakery Chain",
+   "date": "2026-06-22",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-049",
+   "account": "TrueNorth Bank",
+   "date": "2026-06-23",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-049#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-050",
+   "account": "Hollis & Partner",
+   "date": "2026-06-24",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-051",
+   "account": "Vantage Credit Union",
+   "date": "2026-06-25",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-052",
+   "account": "Kiwi Southern Freight",
+   "date": "2026-06-26",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-052#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-053",
+   "account": "Redgate Systems",
+   "date": "2026-06-29",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-053:PROJ-087"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-054",
+   "account": "Milburn Foods",
+   "date": "2026-06-30",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-055",
+   "account": "Foxglove Pharma",
+   "date": "2026-06-30",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-055:PROJ-142"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-056",
+   "account": "Trellis Gardens",
+   "date": "2026-06-30",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-057",
+   "account": "Pemberton Foods",
+   "date": "2026-06-16",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 6,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-021#f0",
+    "new:call-057#f3"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-058",
+   "account": "Quarry Heights REIT",
+   "date": "2026-06-17",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-059",
+   "account": "Sterling Mutual",
+   "date": "2026-06-18",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-059#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-060",
+   "account": "Harlow Health",
+   "date": "2026-06-19",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [
+    "new:call-060#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-061",
+   "account": "Novak Studios",
+   "date": "2026-06-20",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-062",
+   "account": "(internal)",
+   "date": "2026-06-22",
+   "owner": "Priya Nair",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-063",
+   "account": "Crescent Dental Group",
+   "date": "2026-06-23",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-063:PROJ-118"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-064",
+   "account": "Bluewater Marina",
+   "date": "2026-06-24",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-065",
+   "account": "Gardner Aerospace",
+   "date": "2026-06-25",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-065#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-066",
+   "account": "Pillar & Oak",
+   "date": "2026-06-26",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-067",
+   "account": "Fenwick Capital",
+   "date": "2026-06-27",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-067:PROJ-155"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-068",
+   "account": "Sunhaven Resorts",
+   "date": "2026-06-28",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-069",
+   "account": "Corvus Media",
+   "date": "2026-06-29",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [
+    "new:call-069#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-070",
+   "account": "Brightside Retail",
+   "date": "2026-06-30",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-071",
+   "account": "Keystone Plumbing Co-op",
+   "date": "2026-06-15",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 6,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 6,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-072",
+   "account": "Copperline Energy",
+   "date": "2026-06-16",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-006#f0"
+   ],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-072:PROJ-089"
+   ]
+  },
+  {
+   "call_id": "call-073",
+   "account": "Falkner Law",
+   "date": "2026-06-17",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-074",
+   "account": "Windmark Insurance",
+   "date": "2026-06-18",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-074:PROJ-120"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-075",
+   "account": "Maple Crest Bank",
+   "date": "2026-06-19",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-075#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-076",
+   "account": "Jasper Winery",
+   "date": "2026-06-20",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-077",
+   "account": "Holt Manufacturing",
+   "date": "2026-06-22",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-078",
+   "account": "Larkfield Media",
+   "date": "2026-06-23",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-034#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-079",
+   "account": "Cobalt Gyms",
+   "date": "2026-06-24",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-079:PROJ-102"
+   ]
+  },
+  {
+   "call_id": "call-080",
+   "account": "Granite Peak Outfitters",
+   "date": "2026-06-25",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-080#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-081",
+   "account": "Silverline Events",
+   "date": "2026-06-26",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-082",
+   "account": "Twin Pines Farms",
+   "date": "2026-06-29",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-082:PROJ-138"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-083",
+   "account": "Osier Textiles",
+   "date": "2026-06-30",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 6,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 6,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-084",
+   "account": "Umber & Co",
+   "date": "2026-06-30",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-085",
+   "account": "Cardinal Couriers",
+   "date": "2026-06-15",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-085#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-086",
+   "account": "Halcyon Robotics",
+   "date": "2026-06-16",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-049#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-087",
+   "account": "Petals & Stems Florists",
+   "date": "2026-06-17",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-088",
+   "account": "Beaumont Insurance",
+   "date": "2026-06-18",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-088#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-089",
+   "account": "Riverstone Timber",
+   "date": "2026-06-19",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-090",
+   "account": "(internal)",
+   "date": "2026-06-20",
+   "owner": "Derek Okafor",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-091",
+   "account": "Lumen Dance Academy",
+   "date": "2026-06-22",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-091:PROJ-149"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-092",
+   "account": "Fairweather Solar",
+   "date": "2026-06-23",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-093",
+   "account": "Whitcomb Partners",
+   "date": "2026-06-24",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-021#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-094",
+   "account": "Golden Hour Photography",
+   "date": "2026-06-25",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-095",
+   "account": "Northgate Security",
+   "date": "2026-06-26",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-095#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-096",
+   "account": "Idlewild Camps",
+   "date": "2026-06-27",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-097",
+   "account": "Sablewood Furniture",
+   "date": "2026-06-28",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-098",
+   "account": "Kepler Tutoring",
+   "date": "2026-06-29",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-099",
+   "account": "Drummond Steel",
+   "date": "2026-06-16",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-100",
+   "account": "Elmswood Care",
+   "date": "2026-06-17",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-100#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-101",
+   "account": "Taro Logistics",
+   "date": "2026-06-18",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-042#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-102",
+   "account": "Basil & Sage Catering",
+   "date": "2026-06-19",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-102#f3"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-103",
+   "account": "Winslow Group",
+   "date": "2026-06-20",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-103#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-104",
+   "account": "Harmon Optics",
+   "date": "2026-06-22",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-105",
+   "account": "Delft Imports",
+   "date": "2026-06-23",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-105:PROJ-101"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-106",
+   "account": "(internal)",
+   "date": "2026-06-24",
+   "owner": "Derek Okafor",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-107",
+   "account": "Bancroft Mills",
+   "date": "2026-06-25",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-107#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-108",
+   "account": "Coral Key Travel",
+   "date": "2026-06-26",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-109",
+   "account": "Prairie Rose Foods",
+   "date": "2026-06-29",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 5,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-109:PROJ-089"
+   ]
+  },
+  {
+   "call_id": "call-110",
+   "account": "Standish & Gray",
+   "date": "2026-06-15",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-111",
+   "account": "Beacon Point Marina",
+   "date": "2026-06-16",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-111:PROJ-142"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-112",
+   "account": "Onyx Apparel",
+   "date": "2026-06-17",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-034#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-113",
+   "account": "Thistle Brewing",
+   "date": "2026-06-15",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-114",
+   "account": "Galway Foods",
+   "date": "2026-06-16",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": [
+    "enable:call-114:PROJ-095"
+   ]
+  },
+  {
+   "call_id": "call-115",
+   "account": "Crane & Whitfield",
+   "date": "2026-06-17",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-115#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-116",
+   "account": "Overton Academy",
+   "date": "2026-06-18",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-116:PROJ-131"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-117",
+   "account": "Mistral Yachts",
+   "date": "2026-06-19",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-118",
+   "account": "Juniper & Finch",
+   "date": "2026-06-20",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-119",
+   "account": "Portside Medical",
+   "date": "2026-06-21",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-060#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-120",
+   "account": "Calloway Grain",
+   "date": "2026-06-22",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 1,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-121",
+   "account": "Hartley Insurance",
+   "date": "2026-06-23",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-122",
+   "account": "Vesper Finance",
+   "date": "2026-06-24",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-122#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-123",
+   "account": "Oakhaven Senior Living",
+   "date": "2026-06-25",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-124",
+   "account": "Pilgrim Coffee Roasters",
+   "date": "2026-06-26",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-125",
+   "account": "Ashcroft Partners",
+   "date": "2026-06-27",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-125#f2"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-126",
+   "account": "Bloomfield Nurseries",
+   "date": "2026-06-28",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-127",
+   "account": "Sterlington Legal",
+   "date": "2026-06-24",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-128",
+   "account": "Kestrel Airlines",
+   "date": "2026-06-25",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-021#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-129",
+   "account": "Danfield Appliances",
+   "date": "2026-06-25",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-130",
+   "account": "Ryecroft Analytics",
+   "date": "2026-06-26",
+   "owner": "Ravi Patel",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [
+    "corr:call-130:PROJ-087"
+   ],
+   "enablement": []
+  },
+  {
+   "call_id": "call-131",
+   "account": "Montclair Cosmetics",
+   "date": "2026-06-26",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [
+    "new:call-131#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-132",
+   "account": "Fairbanks Consulting",
+   "date": "2026-06-29",
+   "owner": "Tomás Vela",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-132#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-133",
+   "account": "Tundra Outfitters",
+   "date": "2026-06-29",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 2,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-134",
+   "account": "Sequoia Ventures",
+   "date": "2026-06-30",
+   "owner": "Priya Nair",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [
+    "new:call-049#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-135",
+   "account": "Bristlecone Labs",
+   "date": "2026-06-30",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-136",
+   "account": "Portman Grand Hotels",
+   "date": "2026-06-29",
+   "owner": "Lena Kowalski",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 2,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-136#f0",
+    "new:call-136#f1"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-137",
+   "account": "(internal)",
+   "date": "2026-06-29",
+   "owner": "Priya Nair",
+   "status": "skipped_internal",
+   "findings": 0,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 0,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-138",
+   "account": "Gilded Lily Events",
+   "date": "2026-06-30",
+   "owner": "Derek Okafor",
+   "status": "extracted",
+   "findings": 4,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 4,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-139",
+   "account": "Andes Mining Co",
+   "date": "2026-06-30",
+   "owner": "Maya Chen",
+   "status": "extracted",
+   "findings": 2,
+   "actionable": 1,
+   "rejected_by_validator": 0,
+   "dismissed": 1,
+   "new_ticket": [
+    "new:call-139#f0"
+   ],
+   "corroborate": [],
+   "enablement": []
+  },
+  {
+   "call_id": "call-140",
+   "account": "Harvest Moon Markets",
+   "date": "2026-06-30",
+   "owner": "Sam Oduya",
+   "status": "extracted",
+   "findings": 3,
+   "actionable": 0,
+   "rejected_by_validator": 0,
+   "dismissed": 3,
+   "new_ticket": [],
+   "corroborate": [],
+   "enablement": []
+  }
+ ]
+}

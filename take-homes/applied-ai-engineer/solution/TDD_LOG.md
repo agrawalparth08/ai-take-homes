@@ -47,3 +47,16 @@ Suite: 41 tests pass. On the real 140-call run the flag fires 0 times: the model
 Nine more mutations cover the gap tests that were green on the first run. The first try of the flag mutation survived, but the mutation was wrong (`[] or (...)` still gives a list), not the test. With `[] and ...` it goes red.
 
 `python solution/scripts/mutation_check.py`: **29/29** (28 red, 1 held by a second guard).
+
+## 5. Reviewer feedback: evidence files (2026-09-29)
+
+A static review scored completeness 2/5 and eval rigor 2/5: "no full-corpus run artifact" and "no eval numbers". The numbers existed, but only in prose and in large reports.
+
+| Test (`tests/test_artifacts.py`) | First run | Then |
+|---|---|---|
+| one manifest row per transcript (140) | RED (file missing) | green after `scripts/build_artifacts.py` |
+| manifest totals match its rows and `proposals.json` | RED | green |
+| eval numbers: 5 runs, variance, pass-every-run, pre-fix history kept | RED | green |
+| second dispatch, re-run and third dispatch send 0 writes; outbox hash unchanged | RED | green |
+
+Suite: 45 tests pass.

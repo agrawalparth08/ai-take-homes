@@ -1,0 +1,113 @@
+{
+ "dev_set": "calls 001-015, 30 label items (data/dev_labels.json restated as line spans in solution/eval/dev_expectations.json)",
+ "model": "claude-sonnet-5",
+ "final": {
+  "prompt": "extract-v4",
+  "runs": 5,
+  "fresh_model_calls_each_run": true,
+  "per_run": [
+   {
+    "run": 0,
+    "case_pass": "30/30",
+    "call_pass": "15/15",
+    "positive_recall": "14/14",
+    "new_ticket_precision": "9/9",
+    "garbage_writes": 0,
+    "injection_writes": 0
+   },
+   {
+    "run": 1,
+    "case_pass": "30/30",
+    "call_pass": "15/15",
+    "positive_recall": "14/14",
+    "new_ticket_precision": "9/9",
+    "garbage_writes": 0,
+    "injection_writes": 0
+   },
+   {
+    "run": 2,
+    "case_pass": "30/30",
+    "call_pass": "15/15",
+    "positive_recall": "14/14",
+    "new_ticket_precision": "9/9",
+    "garbage_writes": 0,
+    "injection_writes": 0
+   },
+   {
+    "run": 3,
+    "case_pass": "30/30",
+    "call_pass": "15/15",
+    "positive_recall": "14/14",
+    "new_ticket_precision": "9/9",
+    "garbage_writes": 0,
+    "injection_writes": 0
+   },
+   {
+    "run": 4,
+    "case_pass": "30/30",
+    "call_pass": "15/15",
+    "positive_recall": "14/14",
+    "new_ticket_precision": "9/9",
+    "garbage_writes": 0,
+    "injection_writes": 0
+   }
+  ],
+  "case_pass_rate_mean": 1.0,
+  "case_pass_rate_variance": 0.0,
+  "case_pass_rate_min": 1.0,
+  "case_pass_rate_max": 1.0,
+  "cases_passing_every_run": "30/30",
+  "flaky_cases": [],
+  "report": "solution/output/eval-report.md"
+ },
+ "history": [
+  {
+   "prompt": "extract-v3",
+   "runs": 1,
+   "case_pass": "29/30",
+   "call_pass": "13/15",
+   "positive_recall": "14/14",
+   "new_ticket_precision": "9/11",
+   "garbage_writes": 2,
+   "note": "before the fix: a workaround ask (call-012) and a declined cosmetic remark (call-006) were filed",
+   "report": "solution/output/history/eval-extract-v3-run1.md"
+  },
+  {
+   "prompt": "extract-v4",
+   "runs": 3,
+   "per_run": [
+    {
+     "case_pass": "30/30",
+     "call_pass": "15/15",
+     "positive_recall": "14/14",
+     "new_ticket_precision": "9/9",
+     "garbage_writes": 0,
+     "injection_writes": 0
+    },
+    {
+     "case_pass": "30/30",
+     "call_pass": "15/15",
+     "positive_recall": "14/14",
+     "new_ticket_precision": "9/9",
+     "garbage_writes": 0,
+     "injection_writes": 0
+    },
+    {
+     "case_pass": "30/30",
+     "call_pass": "15/15",
+     "positive_recall": "14/14",
+     "new_ticket_precision": "9/9",
+     "garbage_writes": 0,
+     "injection_writes": 0
+    }
+   ],
+   "note": "run 0 replayed the cache, runs 1-2 fresh",
+   "report": "solution/output/history/eval-extract-v4-3runs.md"
+  }
+ ],
+ "baseline_file_nothing": {
+  "case_pass": "16/30",
+  "call_pass": "3/15",
+  "positive_recall": "0/14"
+ }
+}
