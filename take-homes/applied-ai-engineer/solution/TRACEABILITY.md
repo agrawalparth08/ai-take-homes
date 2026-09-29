@@ -93,12 +93,15 @@ A first static review (29 Sep) found no numbers for the full run or the eval. Th
 | Counts for all 140 calls: processed, skipped, filed | `output/run-manifest.md` and `.json` | `test_one_row_per_transcript`, `test_totals_match_rows_and_the_review_queue` | Tested |
 | Eval pass rate and variance across runs | `output/eval-numbers.json` | `test_multi_run_numbers_and_variance_are_published` | Tested |
 | A second run writes nothing new | `output/idempotency-diff.md` and `.json` | `test_second_dispatch_and_rerun_write_nothing` | Tested |
+| A repeat report attaches and does not re-file | `output/ledger-after-demo.json` | `test_repeat_reports_attach_instead_of_refiling` | Tested |
+| Per-run counts that show a silent stop | `summary.json` `counts`, `output/observability-sample.md` | `test_run_summary_counts_withdrawals_and_validation_failures`, `test_run_summary_carries_the_counts_an_operator_needs` | Tested |
+| One example card and the review effort | `output/example-card.md`, `output/review-stats.json` | `test_review_effort_is_measured_from_the_packet` | Tested |
 
 ## What the reviewers look for
 
 | Signal in the PDF | Where to see it |
 |---|---|
-| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 45 tests. 29 mutations, all caught. |
+| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 49 tests. 29 mutations, all caught. |
 | Work across systems, and reliability | The given stubs, not changed. The crash, Slack and lock tests. The demo. |
 | Good use of AI | The "where AI is" table in WRITEUP.md. The code overrules the model on facts. |
 | Output a person can use | Each card in `review.md` has the quote, the lines near it, the reason it is new, the priority reason and the approve command. |

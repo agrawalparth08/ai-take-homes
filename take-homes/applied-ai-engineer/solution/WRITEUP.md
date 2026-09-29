@@ -35,6 +35,12 @@ In every final run, positive recall was 14/14 and new-ticket precision was 9/9. 
 
 The hash stays the same after the first dispatch, so later steps appended no bytes to the outbox. The re-run produced 0 new proposals and left 45 unchanged. The stub outbox after the demo is also committed, in [output/outbox-after-demo/](output/outbox-after-demo/).
 
+**Dedup: a repeat report attaches, it doesn't re-file** ([output/ledger-after-demo.json](output/ledger-after-demo.json))
+
+- Three customers reported the search-lag bug (calls 006, 012 and 072). The ledger has one Jira write for it: `new:call-006#f0:jira → PROJ-1001`, 1 attempt. That Jira record lists `call-012` and `call-072` under `corroborating_sources`.
+- call-004 reported the tracked timezone bug. The ledger has `corr:call-004:PROJ-101:corroboration`, sent once. The corroboration record holds the quote and a link to `transcripts/call-004.md#L26`, and no new ticket exists for it.
+- All 50 ledger rows are `sent` with 1 attempt each, and there are exactly 3 Jira rows for 3 tickets.
+
 ## What I built
 
 A batch CLI that turns the 140 transcripts into a review queue. Nothing reaches Jira or Slack until a person approves the exact payload. Re-runs are safe.
@@ -65,6 +71,19 @@ Main decisions:
 | Workaround asks ("give us a re-sync button") | model links, code enforces | Folded into the bug they work around (call-012), never a separate ticket. |
 | Every write | code, after approval | Each card has a copy-paste approve command. Code flags instruction-like text in the evidence, whatever the model decided. |
 
+**Where the rules live.** Each rule sits in one module, with a fixed number:
+
+| Module | Rule | Value |
+|---|---|---|
+| `extract.validate` | A quote is evidence only if it is at least 4 words and appears word for word (after whitespace and quote-mark normalization) on the cited `[EXTERNAL]` line | 4 words minimum |
+| `extract.validate` | Context lines kept per finding | at most 4 |
+| `proposals.apply_policy` | An account already listed on the tracked issue means no action | exact account-name match |
+| `proposals.PRIORITY` | Severity to priority | critical P1, high P2, medium P3, low P4 |
+| `proposals.instruction_like` | Flag evidence that addresses an automated system | regex, 6 phrase patterns |
+| `llm._retry` | Model call retries | 3 attempts, 2 s then 4 s backoff; 180 s API timeout, 300 s CLI timeout |
+| `dispatch._once` | Rows in `sending` or `failed` are checked against the sink before any resend | every retry |
+| `obs.health` | Alarms | no full run for 26 h; evidence-check rejects above 15%; findings per call outside 0.5x to 1.5x of the last 10 runs; 10+ calls with 0 findings |
+
 Prompt injection (call-005, call-011) is handled twice. The prompt treats the transcript as data. Even if the model obeyed an injected instruction, the result could only become a card in the review queue, never a write.
 
 ## Hardest engineering problem: exactly-once effects on sinks that aren't idempotent
@@ -78,6 +97,19 @@ The stubs append whatever you send. Three things make "run it twice, get nothing
 A Fable-model review of my first version found 16 defects here, most with repro scripts. Examples: a withdrawn proposal never came back, a `failed` write that had actually landed could be re-filed, and a scheduled re-run silently overwrote a reviewer's edit. All are fixed, each with a regression test.
 
 Two further rules. Reviewer edits win over regenerated payloads, and an edit voids the approval. A rejected proposal reopens if a *new* call reports the same issue. `run` and `dispatch` share a file lock.
+
+## The human gate
+
+What the reviewer sees is in [output/example-card.md](output/example-card.md). That file is one real card, copied from the queue. Trimmed, it looks like this:
+
+> **25. Bug · P3 · Search index lags ~10 minutes after team rename or member move**
+> `new:call-006#f0` · awaiting review · 3 call(s), 3 account(s): Copperline Energy, Gable Group, Harborline Media
+> "...After we rename a team or move a member, search keeps returning the old state for about ten minutes." (Harborline Media, [call-006 L24](../transcripts/call-006.md#L24)), plus the quote and 4 context lines from each of the other two calls
+> **Why new:** distinct from PROJ-131 (new invites not searchable until the next day's index build): this is a ~10-minute lag on renames and moves.
+> **Priority P3 (medium):** reproducible and creates support tickets, but self-corrects in ~10 minutes, with a known workaround.
+> **Slack:** @tomas.vela, @sam.oduya, @maya.chen · **Approve:** `python -m solution approve 'new:call-006#f0'`
+
+**Review effort** ([output/review-stats.json](output/review-stats.json)): the full run needs 43 decisions. That is one approve for each of the 41 new-ticket cards, plus one batch approve for the 21 corroborations and one for the 7 enablement nudges. A card has a median of 312 visible words (at most 965), and the Jira payload is folded away. I spent about 1 h in total on direction and review, including reading this queue. I did not time each card, so I don't claim a per-card median.
 
 ## The eval
 
@@ -114,11 +146,13 @@ Every run writes `var/runs/<id>/events.jsonl` (one event per call per stage, wit
 - **Silent mis-filing:** validator rejects above 15%, meaning the model has started quoting loosely or attributing staff lines to customers; findings-per-call drifting outside the recent band; degraded clustering; stale-extraction fallbacks.
 - **Silent non-delivery:** writes stuck in `sending`/`failed`; approvals never dispatched.
 
+Every `summary.json` also has a flat `counts` block: seen, extracted, skipped, failed, validation_failed, dismissed, new and changed proposals, and withdrawn. `health` prints it on every run, healthy or not, so a sudden change is visible between runs. [output/observability-sample.md](output/observability-sample.md) shows the full run's counts and `health` output, and what each alarm prints.
+
 I've seen it work: an offline re-run after filing couldn't cluster and `health` reported `DEGRADED` instead of passing.
 
 ## Validation
 
-45 tests: 41 behavioural tests on a fake model, plus 4 that pin the committed evidence files. The behavioural tests are traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
+49 tests: 42 behavioural tests on a fake model, plus 7 that pin the committed evidence files. The behavioural tests are traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
 
 ## Prototype vs production
 

@@ -1,0 +1,695 @@
+{
+ "what": "store.actions after the demo approvals, two re-dispatches and a re-run; every write happened once",
+ "actions": [
+  {
+   "action_key": "corr:call-004:PROJ-101:corroboration",
+   "proposal_key": "corr:call-004:PROJ-101",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-e9f8257d70546a77",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-004:PROJ-101:slack:@priya.nair",
+   "proposal_key": "corr:call-004:PROJ-101",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.782024+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-005:PROJ-087:corroboration",
+   "proposal_key": "corr:call-005:PROJ-087",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-3147ea8efa372db1",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-005:PROJ-087:slack:@sam.oduya",
+   "proposal_key": "corr:call-005:PROJ-087",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.782353+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-008:PROJ-110:corroboration",
+   "proposal_key": "corr:call-008:PROJ-110",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-a07e076b0be58462",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-008:PROJ-110:slack:@sam.oduya",
+   "proposal_key": "corr:call-008:PROJ-110",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.782840+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-015:PROJ-142:corroboration",
+   "proposal_key": "corr:call-015:PROJ-142",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-e4223afae42e7d50",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-015:PROJ-142:slack:@priya.nair",
+   "proposal_key": "corr:call-015:PROJ-142",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.783462+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-020:PROJ-110:corroboration",
+   "proposal_key": "corr:call-020:PROJ-110",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-805b713b20edf458",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-020:PROJ-110:slack:@derek.okafor",
+   "proposal_key": "corr:call-020:PROJ-110",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.784011+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-026:PROJ-138:corroboration",
+   "proposal_key": "corr:call-026:PROJ-138",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-28a90b36160be523",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-026:PROJ-138:slack:@sam.oduya",
+   "proposal_key": "corr:call-026:PROJ-138",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.784430+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-035:PROJ-149:corroboration",
+   "proposal_key": "corr:call-035:PROJ-149",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-62a667ce60b3897b",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-035:PROJ-149:slack:@derek.okafor",
+   "proposal_key": "corr:call-035:PROJ-149",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.784721+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-040:PROJ-160:corroboration",
+   "proposal_key": "corr:call-040:PROJ-160",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-6f2eec7fd348bc80",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-040:PROJ-160:slack:@derek.okafor",
+   "proposal_key": "corr:call-040:PROJ-160",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.785077+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-044:PROJ-118:corroboration",
+   "proposal_key": "corr:call-044:PROJ-118",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-2ab54b8086bfd4d7",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-044:PROJ-118:slack:@sam.oduya",
+   "proposal_key": "corr:call-044:PROJ-118",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.785577+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-047:PROJ-101:corroboration",
+   "proposal_key": "corr:call-047:PROJ-101",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-a45fb3ef18b84228",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-047:PROJ-101:slack:@tomas.vela",
+   "proposal_key": "corr:call-047:PROJ-101",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.786321+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-053:PROJ-087:corroboration",
+   "proposal_key": "corr:call-053:PROJ-087",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-6ade0247923813ec",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-053:PROJ-087:slack:@ravi.patel",
+   "proposal_key": "corr:call-053:PROJ-087",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.786725+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-055:PROJ-142:corroboration",
+   "proposal_key": "corr:call-055:PROJ-142",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-8d7128f3c853dc88",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-055:PROJ-142:slack:@maya.chen",
+   "proposal_key": "corr:call-055:PROJ-142",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.787097+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-063:PROJ-118:corroboration",
+   "proposal_key": "corr:call-063:PROJ-118",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-12bd6b9f41d3f30e",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-063:PROJ-118:slack:@derek.okafor",
+   "proposal_key": "corr:call-063:PROJ-118",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.787514+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-067:PROJ-155:corroboration",
+   "proposal_key": "corr:call-067:PROJ-155",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-95cb014432d72e2a",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-067:PROJ-155:slack:@derek.okafor",
+   "proposal_key": "corr:call-067:PROJ-155",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.787907+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-074:PROJ-120:corroboration",
+   "proposal_key": "corr:call-074:PROJ-120",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-5f612ed191801db0",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-074:PROJ-120:slack:@priya.nair",
+   "proposal_key": "corr:call-074:PROJ-120",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.788189+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-082:PROJ-138:corroboration",
+   "proposal_key": "corr:call-082:PROJ-138",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-9b17446f03dc5b4c",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-082:PROJ-138:slack:@ravi.patel",
+   "proposal_key": "corr:call-082:PROJ-138",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.788629+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-091:PROJ-149:corroboration",
+   "proposal_key": "corr:call-091:PROJ-149",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-7a476b4a5294c120",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-091:PROJ-149:slack:@maya.chen",
+   "proposal_key": "corr:call-091:PROJ-149",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.788897+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-105:PROJ-101:corroboration",
+   "proposal_key": "corr:call-105:PROJ-101",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-f253d168789407f0",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-105:PROJ-101:slack:@maya.chen",
+   "proposal_key": "corr:call-105:PROJ-101",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.789417+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-111:PROJ-142:corroboration",
+   "proposal_key": "corr:call-111:PROJ-142",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-9e967956cd76959c",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-111:PROJ-142:slack:@ravi.patel",
+   "proposal_key": "corr:call-111:PROJ-142",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.789878+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-116:PROJ-131:corroboration",
+   "proposal_key": "corr:call-116:PROJ-131",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-ffae9808a4ea0ffe",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-116:PROJ-131:slack:@lena.kowalski",
+   "proposal_key": "corr:call-116:PROJ-131",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.790417+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-130:PROJ-087:corroboration",
+   "proposal_key": "corr:call-130:PROJ-087",
+   "sink": "corroboration",
+   "status": "sent",
+   "sink_ref": "jt-6cf53f1c8afc0ed7",
+   "attempts": 1
+  },
+  {
+   "action_key": "corr:call-130:PROJ-087:slack:@ravi.patel",
+   "proposal_key": "corr:call-130:PROJ-087",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.790874+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-006#f0:jira",
+   "proposal_key": "new:call-006#f0",
+   "sink": "jira",
+   "status": "sent",
+   "sink_ref": "PROJ-1001",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-006#f0:slack:@maya.chen",
+   "proposal_key": "new:call-006#f0",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.791592+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-006#f0:slack:@sam.oduya",
+   "proposal_key": "new:call-006#f0",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.791374+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-006#f0:slack:@tomas.vela",
+   "proposal_key": "new:call-006#f0",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.791228+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-008#f1:jira",
+   "proposal_key": "new:call-008#f1",
+   "sink": "jira",
+   "status": "sent",
+   "sink_ref": "PROJ-1002",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-008#f1:slack:@sam.oduya",
+   "proposal_key": "new:call-008#f1",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.791928+00:00",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-010#f3:jira",
+   "proposal_key": "new:call-010#f3",
+   "sink": "jira",
+   "status": "sent",
+   "sink_ref": "PROJ-1003",
+   "attempts": 1
+  },
+  {
+   "action_key": "new:call-010#f3:slack:@tomas.vela",
+   "proposal_key": "new:call-010#f3",
+   "sink": "slack",
+   "status": "sent",
+   "sink_ref": "2026-09-29T10:58:21.792309+00:00",
+   "attempts": 1
+  }
+ ],
+ "jira_records": [
+  {
+   "key": "PROJ-1001",
+   "recorded_at": "2026-09-29T10:58:21.791037+00:00",
+   "corroborating_sources": [
+    {
+     "call_id": "call-012",
+     "line": 18,
+     "link": "transcripts/call-012.md#L18",
+     "snippet": "search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist."
+    },
+    {
+     "call_id": "call-072",
+     "line": 29,
+     "link": "transcripts/call-072.md#L29",
+     "snippet": "When we rename a team or move people between teams — which we do a lot during reorgs — the changes don't seem to show up right away when you search."
+    }
+   ],
+   "description": "After renaming a team or moving a member in the admin panel, search returns stale/old results (empty for the new team name, or old team for a moved member) for approximately 10 minutes before self-correcting with no user action required. Customer reproduced this on demand three separate times with consistent ~10 minute timing. During a large-scale reorg (60 members moved, 5 teams collapsed to 3 over two days), this caused a stream of 'where did this person go' tickets from managers who searched immediately after changes and concluded people had been deleted. The underlying edit/save operations (bulk move, rename) work correctly and do not lose data; only the search index is delayed. Workaround is waiting ~10 minutes for the index to catch up.\n\n*Reported on 3 call(s) by 3 account(s):* Copperline Energy, Gable Group, Harborline Media\n\n> \"There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.\"  (Harborline Media, call-006 2026-06-18, transcripts/call-006.md#L24)\n> \"search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist.\"  (Gable Group, call-012 2026-06-21, transcripts/call-012.md#L18)\n> \"When we rename a team or move people between teams — which we do a lot during reorgs — the changes don't seem to show up right away when you search.\"  (Copperline Energy, call-072 2026-06-16, transcripts/call-072.md#L29)\n\n_Severity medium: Real, reproducible defect causing confusion and support tickets during high-edit periods, but data is not lost, it self-corrects in ~10 minutes, and there is a known workaround (wait and re-search); customer explicitly says it is not urgent._\n_Drafted by june-tapes from customer-call transcripts; reviewed and approved by a human before filing._",
+   "idempotency_key": "jt-e184470eb555df81",
+   "labels": [
+    "customer-call",
+    "june-tapes"
+   ],
+   "priority": "P3",
+   "project": "PROJ",
+   "source": {
+    "call_id": "call-006",
+    "line": 24,
+    "link": "transcripts/call-006.md#L24",
+    "snippet": "There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes."
+   },
+   "summary": "Search index lags ~10 minutes after team rename or member move",
+   "type": "Bug"
+  },
+  {
+   "key": "PROJ-1002",
+   "recorded_at": "2026-09-29T10:58:21.791777+00:00",
+   "corroborating_sources": [],
+   "description": "The footer of outbound confirmation emails misspells the company's own name as \"BetterBrak\" instead of BetterBark, and this appears on every confirmation email sent. The customer's comms lead flagged it; on the call Marcus confirmed it directly and the rep agreed it's a real, embarrassing typo that should be fixed, though it has no functional impact (no data risk, nothing broken, no member blocked). Agreed to be logged as a low-priority copy fix rather than an urgent escalation.\n\n*Reported on 1 call(s) by 1 account(s):* Northwind Logistics\n\n> \"She noticed the confirmation emails your system sends have \"BetterBrak\" — B-E-T-T-E-R-B-R-A-K — in the footer.\"  (Northwind Logistics, call-008 2026-06-19, transcripts/call-008.md#L48)\n\n_Edited by parthagrawal: Bug P4 (model proposed low: Purely cosmetic copy defect (brand-name typo) with no functional or data impact; a real but trivial defect per guidance.)_\n_Drafted by june-tapes from customer-call transcripts; reviewed and approved by a human before filing._",
+   "idempotency_key": "jt-beae48c4090f4f6b",
+   "labels": [
+    "customer-call",
+    "june-tapes"
+   ],
+   "priority": "P4",
+   "project": "PROJ",
+   "source": {
+    "call_id": "call-008",
+    "line": 48,
+    "link": "transcripts/call-008.md#L48",
+    "snippet": "She noticed the confirmation emails your system sends have \"BetterBrak\" — B-E-T-T-E-R-B-R-A-K — in the footer."
+   },
+   "summary": "Typo \"BetterBrak\" in confirmation email footer",
+   "type": "Bug"
+  },
+  {
+   "key": "PROJ-1003",
+   "recorded_at": "2026-09-29T10:58:21.792170+00:00",
+   "corroborating_sources": [],
+   "description": "After an Azure AD-federated user rotates their network password and opens the BetterBark app, the app redirects them to the IdP, the IdP authenticates them successfully, but the app immediately bounces them back to the IdP again in an infinite authenticate-return-bounce loop, so they never reach the app. Seen in a 40-person pilot: 5 of 5 users who have rotated passwords so far hit the loop; the other 35 simply haven't reached their rotation date yet. The only workaround is clearing browser cookies for the BetterBark domain, which is not scalable to hundreds of users and generates a helpdesk ticket each time. At full rollout (400 users, 90-day rotation policy) this would recur for roughly 400 users every quarter, turning it into a rollout blocker. Confirmed distinct from the tracked Okta early-session-expiry issue: this account uses Azure AD (not Okta), and users are fully locked out rather than logged out early with successful re-entry.\n\n*Reported on 1 call(s) by 1 account(s):* Atlas Financial\n\n> \"They never get in. Not \"logged in briefly then out\" — they never reach the app at all. It just spins between your login and our IdP until they give up.\"  (Atlas Financial, call-010 2026-06-20, transcripts/call-010.md#L34)\n\n_Severity high: Currently masked by the pilot's staggered rotation dates, but projected to hit all ~400 users every quarter at full rollout with no scalable workaround, threatening the rollout timeline._\n_Drafted by june-tapes from customer-call transcripts; reviewed and approved by a human before filing._",
+   "idempotency_key": "jt-d62557e12483b510",
+   "labels": [
+    "customer-call",
+    "june-tapes"
+   ],
+   "priority": "P2",
+   "project": "PROJ",
+   "source": {
+    "call_id": "call-010",
+    "line": 34,
+    "link": "transcripts/call-010.md#L34",
+    "snippet": "They never get in. Not \"logged in briefly then out\" — they never reach the app at all. It just spins between your login and our IdP until they give up."
+   },
+   "summary": "Azure AD SSO users hit infinite redirect loop after network password change",
+   "type": "Bug"
+  }
+ ],
+ "corroboration_records": [
+  {
+   "account": "Cedar Grove Schools",
+   "call_id": "call-004",
+   "date": "2026-06-17",
+   "idempotency_key": "jt-e9f8257d70546a77",
+   "issue_key": "PROJ-101",
+   "line": 26,
+   "link": "transcripts/call-004.md#L26",
+   "snippet": "Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm."
+  },
+  {
+   "account": "Vanta Retail",
+   "call_id": "call-005",
+   "date": "2026-06-18",
+   "idempotency_key": "jt-3147ea8efa372db1",
+   "issue_key": "PROJ-087",
+   "line": 38,
+   "link": "transcripts/call-005.md#L38",
+   "snippet": "some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict"
+  },
+  {
+   "account": "Northwind Logistics",
+   "call_id": "call-008",
+   "date": "2026-06-19",
+   "idempotency_key": "jt-a07e076b0be58462",
+   "issue_key": "PROJ-110",
+   "line": 18,
+   "link": "transcripts/call-008.md#L18",
+   "snippet": "A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon."
+  },
+  {
+   "account": "Juniper Media",
+   "call_id": "call-015",
+   "date": "2026-06-16",
+   "idempotency_key": "jt-e4223afae42e7d50",
+   "issue_key": "PROJ-142",
+   "line": 30,
+   "link": "transcripts/call-015.md#L30",
+   "snippet": "several of them told me the password-reset email just... didn't come. Or came way late."
+  },
+  {
+   "account": "Stallard Freight",
+   "call_id": "call-020",
+   "date": "2026-06-19",
+   "idempotency_key": "jt-805b713b20edf458",
+   "issue_key": "PROJ-110",
+   "line": 14,
+   "link": "transcripts/call-020.md#L14",
+   "snippet": "I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes."
+  },
+  {
+   "account": "Berkfield University",
+   "call_id": "call-026",
+   "date": "2026-06-24",
+   "idempotency_key": "jt-28a90b36160be523",
+   "issue_key": "PROJ-138",
+   "line": 28,
+   "link": "transcripts/call-026.md#L28",
+   "snippet": "the Outlook invite doesn't update to the new time. It still shows the old time."
+  },
+  {
+   "account": "Glasshouse Studios",
+   "call_id": "call-035",
+   "date": "2026-06-23",
+   "idempotency_key": "jt-62a667ce60b3897b",
+   "issue_key": "PROJ-149",
+   "line": 40,
+   "link": "transcripts/call-035.md#L40",
+   "snippet": "There's some size ceiling around 8 megabytes. Anything over it fails, anything under it works."
+  },
+  {
+   "account": "Palmetto Hotels",
+   "call_id": "call-040",
+   "date": "2026-06-26",
+   "idempotency_key": "jt-6f2eec7fd348bc80",
+   "issue_key": "PROJ-160",
+   "line": 34,
+   "link": "transcripts/call-040.md#L34",
+   "snippet": "That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom — logged out, back to the login screen, gotta re-enter everything."
+  },
+  {
+   "account": "Southgate Retail",
+   "call_id": "call-044",
+   "date": "2026-06-16",
+   "idempotency_key": "jt-2ab54b8086bfd4d7",
+   "issue_key": "PROJ-118",
+   "line": 12,
+   "link": "transcripts/call-044.md#L12",
+   "snippet": "A couple asked for a PDF export but I told them to just screenshot it for now."
+  },
+  {
+   "account": "Kirkfield College",
+   "call_id": "call-047",
+   "date": "2026-06-19",
+   "idempotency_key": "jt-a45fb3ef18b84228",
+   "issue_key": "PROJ-101",
+   "line": 31,
+   "link": "transcripts/call-047.md#L31",
+   "snippet": "the times are several hours ahead of when things actually occurred. A session I know was at two in the afternoon shows up listed as something like eight in the evening"
+  },
+  {
+   "account": "Redgate Systems",
+   "call_id": "call-053",
+   "date": "2026-06-29",
+   "idempotency_key": "jt-6ade0247923813ec",
+   "issue_key": "PROJ-087",
+   "line": 16,
+   "link": "transcripts/call-053.md#L16",
+   "snippet": "Duplicates. We're getting the same event delivered more than once. Not constantly — it's intermittent — but often enough"
+  },
+  {
+   "account": "Foxglove Pharma",
+   "call_id": "call-055",
+   "date": "2026-06-30",
+   "idempotency_key": "jt-8d7128f3c853dc88",
+   "issue_key": "PROJ-142",
+   "line": 32,
+   "link": "transcripts/call-055.md#L32",
+   "snippet": "The reset email takes forever to arrive. Sometimes. That's the maddening part — it's not always."
+  },
+  {
+   "account": "Crescent Dental Group",
+   "call_id": "call-063",
+   "date": "2026-06-23",
+   "idempotency_key": "jt-12bd6b9f41d3f30e",
+   "issue_key": "PROJ-118",
+   "line": 24,
+   "link": "transcripts/call-063.md#L24",
+   "snippet": "What I want — what all forty-two of them want, and they've told me so loudly — is a button on the manager dashboard that spits out their team's engagement summary as a PDF."
+  },
+  {
+   "account": "Fenwick Capital",
+   "call_id": "call-067",
+   "date": "2026-06-27",
+   "idempotency_key": "jt-95cb014432d72e2a",
+   "issue_key": "PROJ-155",
+   "line": 30,
+   "link": "transcripts/call-067.md#L30",
+   "snippet": "What I need is for BetterBark to support SCIM so that user lifecycle — create, update, and critically deactivate — is driven automatically from our identity provider."
+  },
+  {
+   "account": "Windmark Insurance",
+   "call_id": "call-074",
+   "date": "2026-06-18",
+   "idempotency_key": "jt-5f612ed191801db0",
+   "issue_key": "PROJ-120",
+   "line": 38,
+   "link": "transcripts/call-074.md#L38",
+   "snippet": "We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes."
+  },
+  {
+   "account": "Twin Pines Farms",
+   "call_id": "call-082",
+   "date": "2026-06-29",
+   "idempotency_key": "jt-9b17446f03dc5b4c",
+   "issue_key": "PROJ-138",
+   "line": 18,
+   "link": "transcripts/call-082.md#L18",
+   "snippet": "But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update."
+  },
+  {
+   "account": "Lumen Dance Academy",
+   "call_id": "call-091",
+   "date": "2026-06-22",
+   "idempotency_key": "jt-7a476b4a5294c120",
+   "issue_key": "PROJ-149",
+   "line": 14,
+   "link": "transcripts/call-091.md#L14",
+   "snippet": "They pick the photo, they hit upload, and after a second it just fails. And the error message is so unhelpful, it's like \"something went wrong\" or \"upload failed, please try again.\""
+  },
+  {
+   "account": "Delft Imports",
+   "call_id": "call-105",
+   "date": "2026-06-23",
+   "idempotency_key": "jt-f253d168789407f0",
+   "issue_key": "PROJ-101",
+   "line": 26,
+   "link": "transcripts/call-105.md#L26",
+   "snippet": "A session that I know happened at nine in the morning our time shows in the report as three in the afternoon."
+  },
+  {
+   "account": "Beacon Point Marina",
+   "call_id": "call-111",
+   "date": "2026-06-16",
+   "idempotency_key": "jt-9e967956cd76959c",
+   "issue_key": "PROJ-142",
+   "line": 22,
+   "link": "transcripts/call-111.md#L22",
+   "snippet": "And then the email doesn't come. Or rather — it comes, eventually, but not for like half an hour."
+  },
+  {
+   "account": "Overton Academy",
+   "call_id": "call-116",
+   "date": "2026-06-18",
+   "idempotency_key": "jt-ffae9808a4ea0ffe",
+   "issue_key": "PROJ-131",
+   "line": 20,
+   "link": "transcripts/call-116.md#L20",
+   "snippet": "They'd search for a teacher by name in the member search, and nothing would come up"
+  },
+  {
+   "account": "Ryecroft Analytics",
+   "call_id": "call-130",
+   "date": "2026-06-26",
+   "idempotency_key": "jt-6cf53f1c8afc0ed7",
+   "issue_key": "PROJ-087",
+   "line": 26,
+   "link": "transcripts/call-130.md#L26",
+   "snippet": "We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times."
+  }
+ ]
+}

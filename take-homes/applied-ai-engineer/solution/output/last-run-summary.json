@@ -1,8 +1,8 @@
 {
- "run_id": "20260923T053612Z-f74d29",
+ "run_id": "20260929T105821Z-3a5158",
  "command": "run",
- "finished_at": "2026-09-23T05:36:13+00:00",
- "duration_s": 1.3,
+ "finished_at": "2026-09-29T10:58:21+00:00",
+ "duration_s": 0.1,
  "event_counts": {
   "run.start": 1,
   "parse.skipped_internal": 6,
@@ -17,6 +17,19 @@
  },
  "scope": "full",
  "degraded": false,
+ "counts": {
+  "seen": 140,
+  "extracted": 134,
+  "skipped_internal": 6,
+  "failed": 0,
+  "findings": 388,
+  "actionable": 80,
+  "validation_failed": 0,
+  "dismissed": 308,
+  "proposals_new": 69,
+  "proposals_changed": 0,
+  "withdrawn": 0
+ },
  "calls": {
   "seen": 140,
   "extracted": 134,

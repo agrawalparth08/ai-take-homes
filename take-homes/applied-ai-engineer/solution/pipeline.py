@@ -116,6 +116,7 @@ def _run(paths: Paths, llm: LLM | None, only: set[str] | None, refresh: bool, wo
     res.proposals, degraded = build_proposals(res.findings, res.transcripts, by_key, store, llm, paths.cache, log)
 
     # 4. Persist proposals. Approved-then-changed payloads lose their approval automatically.
+    withdrawn = 0
     changes = {k: 0 for k in ("new", "unchanged", "changed", "revived", "reopened", "kept_human_edit", "locked")}
     if persist:
         for p in res.proposals:
@@ -131,12 +132,19 @@ def _run(paths: Paths, llm: LLM | None, only: set[str] | None, refresh: bool, wo
                 q["key"] for q in store.proposals()
                 if not set(q["payload"]["call_ids"]) <= ok_scope or set(q["payload"]["call_ids"]) & set(failed)}
             for k in store.withdraw_missing(keep, log.run_id):
+                withdrawn += 1
                 log.event("proposal", "withdrawn", proposal=k)
         (paths.state / "last_findings.json").write_text(json.dumps([asdict(f) for f in res.findings], indent=1))
 
     fs = res.findings
+    # One flat block an operator (or an alert rule) can read without knowing the event schema.
+    counts = {"seen": stats["seen"], "extracted": stats["extracted"], "skipped_internal": stats["skipped_internal"],
+              "failed": stats["failed"], "findings": len(fs), "actionable": sum(f.actionable for f in fs),
+              "validation_failed": sum(not f.valid for f in fs),
+              "dismissed": sum(f.valid and f.disposition == "no_action" for f in fs),
+              "proposals_new": changes["new"], "proposals_changed": changes["changed"], "withdrawn": withdrawn}
     res.summary = log.finish(
-        scope="partial" if only else "full", degraded=degraded, calls=stats, failed_calls=failed,
+        scope="partial" if only else "full", degraded=degraded, counts=counts, calls=stats, failed_calls=failed,
         findings={"total": len(fs), "actionable": sum(f.actionable for f in fs),
                   "rejected_by_validator": sum(not f.valid for f in fs),
                   "no_action": sum(f.valid and f.disposition == "no_action" for f in fs)},

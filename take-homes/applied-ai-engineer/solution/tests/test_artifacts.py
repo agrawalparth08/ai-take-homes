@@ -61,5 +61,45 @@ class IdempotencyDiff(unittest.TestCase):
         self.assertTrue((OUT / "idempotency-diff.md").exists())
 
 
+
+class DedupProof(unittest.TestCase):
+    """Reviewer: 'show one ledger/corroboration record proving a repeat report did not re-file'."""
+
+    def test_repeat_reports_attach_instead_of_refiling(self):
+        led = json.loads((OUT / "ledger-after-demo.json").read_text())
+        jira = [a for a in led["actions"] if a["sink"] == "jira"]
+        self.assertEqual(len(jira), 3)
+        self.assertEqual(len({a["proposal_key"] for a in jira}), 3)  # one Jira write per ticket, ever
+        search = next(r for r in led["jira_records"] if "search" in r["summary"].lower())
+        self.assertEqual({s["call_id"] for s in search["corroborating_sources"]}, {"call-012", "call-072"})
+        corr = led["corroboration_records"]
+        self.assertTrue(any(r["issue_key"] == "PROJ-101" and r["call_id"] == "call-004" for r in corr))
+        self.assertTrue(all(a["status"] == "sent" for a in led["actions"]))
+
+
+class ObservabilitySample(unittest.TestCase):
+    """Reviewer: 'per-run log counts of extractions, validations failed, and withdrawals'."""
+
+    def test_run_summary_carries_the_counts_an_operator_needs(self):
+        s = json.loads((OUT / "last-run-summary.json").read_text())
+        for k in ("extracted", "skipped_internal", "failed", "validation_failed", "dismissed",
+                  "proposals_new", "withdrawn"):
+            self.assertIn(k, s["counts"], k)
+        sample = (OUT / "observability-sample.md").read_text()
+        self.assertIn("withdrawn", sample)
+        self.assertIn("MISFILING RISK", sample)  # an alarm example, not only the happy path
+
+
+class ReviewStats(unittest.TestCase):
+    """Reviewer: 'show one card example plus review time'."""
+
+    def test_review_effort_is_measured_from_the_packet(self):
+        r = json.loads((OUT / "review-stats.json").read_text())
+        props = json.loads((OUT / "proposals.json").read_text())
+        self.assertEqual(r["new_ticket_cards"], sum(p["kind"] == "new_ticket" for p in props))
+        self.assertEqual(r["decisions_needed"], r["new_ticket_cards"] + 2)  # + 1 batch each for corr/enable
+        self.assertGreater(r["median_words_per_card"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()

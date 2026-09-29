@@ -1,6 +1,6 @@
 # Full-run manifest: all 140 transcripts
 
-Run `20260929T105009Z-daf18b`, replayed from committed model outputs in solution/cache (claude-sonnet-5, prompt extract-v4). Regenerate: `python solution/scripts/build_artifacts.py`.
+Run `20260929T105821Z-683d36`, replayed from committed model outputs in solution/cache (claude-sonnet-5, prompt extract-v4). Regenerate: `python solution/scripts/build_artifacts.py`.
 
 | transcripts | processed | skipped (internal-only) | failed | findings | actionable | rejected by evidence check | dismissed with reason | new tickets | grouped across calls | corroborations | enablement |
 |---|---|---|---|---|---|---|---|---|---|---|---|

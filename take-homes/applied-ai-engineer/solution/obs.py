@@ -112,7 +112,12 @@ def health(runs_dir: Path, max_age_hours: float = 26.0, store=None) -> tuple[boo
     if c["extracted"] >= 10 and f["actionable"] == 0:
         ok = False
         msgs.append("STOPPED?: 10+ calls processed and zero actionable findings")
+    k = last.get("counts", {})
     if ok:
         msgs.append(f"OK: run {last['run_id']} processed {c['extracted']} calls, {actionable if f['actionable'] else 0} "
                     f"actionable findings, {reject_rate:.0%} validator rejects, {age_h:.1f}h ago")
+    if k:  # always print the counts, healthy or not, so a trend is visible run to run
+        msgs.append(f"COUNTS: seen {k['seen']}, extracted {k['extracted']}, skipped {k['skipped_internal']}, "
+                    f"failed {k['failed']}, validation_failed {k['validation_failed']}, dismissed {k['dismissed']}, "
+                    f"new proposals {k['proposals_new']}, changed {k['proposals_changed']}, withdrawn {k['withdrawn']}")
     return ok, msgs

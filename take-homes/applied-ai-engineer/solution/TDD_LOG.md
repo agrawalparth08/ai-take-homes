@@ -60,3 +60,14 @@ A static review scored completeness 2/5 and eval rigor 2/5: "no full-corpus run 
 | second dispatch, re-run and third dispatch send 0 writes; outbox hash unchanged | RED | green |
 
 Suite: 45 tests pass.
+
+## 6. Reviewer feedback: the other suggestions (2026-09-29)
+
+| Suggestion | Test, written first | First run | Change |
+|---|---|---|---|
+| Show a ledger record proving a repeat report did not re-file | `test_repeat_reports_attach_instead_of_refiling` | RED (no file) | `build_artifacts.py` exports the ledger and the outbox records |
+| Per-run counts of extractions, validation failures and withdrawals | `test_run_summary_counts_withdrawals_and_validation_failures` (unit), `test_run_summary_carries_the_counts_an_operator_needs` | RED (`KeyError: 'counts'`) | `pipeline` adds a flat `counts` block; `health` prints it every run |
+| One card example and the review time | `test_review_effort_is_measured_from_the_packet` | RED (no file) | `example-card.md`, `review-stats.json`; the review time is Parth's total of about 1 h, and no per-card median is claimed |
+| Name the modules and one threshold | none (text only) | | WRITEUP "Where the rules live" table |
+
+Suite: 49 tests pass.

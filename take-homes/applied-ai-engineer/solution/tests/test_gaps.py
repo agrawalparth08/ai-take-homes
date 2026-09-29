@@ -237,6 +237,19 @@ class T5Health(Harness):
         self.assertFalse(ok)
         self.assertTrue(any(m.startswith("DELIVERY") for m in msgs), msgs)
 
+    def test_run_summary_counts_withdrawals_and_validation_failures(self):
+        self.responses["call-001"].append(finding(6, "the summary card disagrees with its own breakdown"))
+        self.run_pipeline()
+        self.responses["call-002"] = []
+        res = self.run_pipeline(refresh=True)
+        c = res.summary["counts"]
+        self.assertEqual(c["validation_failed"], 1)
+        self.assertGreaterEqual(c["withdrawn"], 1)
+        self.assertEqual(c["extracted"], 2)
+        self.write(res.summary)
+        ok, msgs = self.health()
+        self.assertTrue(any("withdrawn" in m for m in msgs), msgs)
+
     def test_events_log_has_one_extract_event_per_call_with_model_and_prompt(self):
         res = self.run_pipeline()
         events = [json.loads(l) for l in (self.paths.runs / res.summary["run_id"] / "events.jsonl").read_text().splitlines()]
