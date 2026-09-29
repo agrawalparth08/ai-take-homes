@@ -69,5 +69,6 @@ Suite: 45 tests pass.
 | Per-run counts of extractions, validation failures and withdrawals | `test_run_summary_counts_withdrawals_and_validation_failures` (unit), `test_run_summary_carries_the_counts_an_operator_needs` | RED (`KeyError: 'counts'`) | `pipeline` adds a flat `counts` block; `health` prints it every run |
 | One card example and the review time | `test_review_effort_is_measured_from_the_packet` | RED (no file) | `example-card.md`, `review-stats.json`; the review time is Parth's total of about 1 h, and no per-card median is claimed |
 | Name the modules and one threshold | none (text only) | | WRITEUP "Where the rules live" table |
+| The write-up quotes outbox hashes that match the committed diff | `test_hashes_in_writeup_match_the_idempotency_diff` | RED: rebuilding the artifacts changed the hashes (stub records carry timestamps) and the write-up still quoted the old ones | write-up updated; the test now catches this drift |
 
-Suite: 49 tests pass.
+Suite: 50 tests pass.

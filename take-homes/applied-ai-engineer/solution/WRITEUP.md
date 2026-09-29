@@ -28,10 +28,10 @@ In every final run, positive recall was 14/14 and new-ticket precision was 9/9. 
 | step | writes sent | outbox records (jira / slack / corroborations) | outbox sha256 |
 |---|---|---|---|
 | run | 0 | 0 / 0 / 0 | `72cb15c431e34bf3` |
-| dispatch #1 (3 tickets + 21 corroborations approved) | 50 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
-| dispatch #2 | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
-| re-run of all 140 calls | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
-| dispatch #3 | 0 | 3 / 26 / 21 | `2ebaa7d57ab7a5e2` |
+| dispatch #1 (3 tickets + 21 corroborations approved) | 50 | 3 / 26 / 21 | `14a532e74a885fa4` |
+| dispatch #2 | 0 | 3 / 26 / 21 | `14a532e74a885fa4` |
+| re-run of all 140 calls | 0 | 3 / 26 / 21 | `14a532e74a885fa4` |
+| dispatch #3 | 0 | 3 / 26 / 21 | `14a532e74a885fa4` |
 
 The hash stays the same after the first dispatch, so later steps appended no bytes to the outbox. The re-run produced 0 new proposals and left 45 unchanged. The stub outbox after the demo is also committed, in [output/outbox-after-demo/](output/outbox-after-demo/).
 
@@ -152,7 +152,7 @@ I've seen it work: an offline re-run after filing couldn't cluster and `health` 
 
 ## Validation
 
-49 tests: 42 behavioural tests on a fake model, plus 7 that pin the committed evidence files. The behavioural tests are traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
+50 tests: 42 behavioural tests on a fake model, plus 8 that pin the committed evidence files. The behavioural tests are traced to each PDF requirement in [TRACEABILITY.md](TRACEABILITY.md). A mutation check (`scripts/mutation_check.py`) breaks each of 29 guarantees in a temp copy and confirms its test fails; the first build was not test-first, and [TDD_LOG.md](TDD_LOG.md) records how that was made good. The tests cover the gate, re-runs, crash-after-write, Slack failure, concurrent dispatch, partial failure, stale approval, human edits, revive/reopen, invented and staff-spoken quotes, and the fold rules. The dev eval ran 1 + 2 + 5 times with fresh model calls. The full 140-call run is committed. `scripts/demo.sh` (transcript in `output/demo-session.txt`) approves 3 tickets (one after a reviewer edit) and 21 corroborations, dispatches 50 writes, re-runs, dispatches twice more, and the outbox stays at 50. The resulting stub outbox is committed in `output/outbox-after-demo/`. Everything replays offline from `solution/cache/`.
 
 ## Prototype vs production
 

@@ -17,7 +17,7 @@ pip install -r solution/requirements.txt
 ```bash
 python -m solution run --offline          # 140 calls -> solution/output/review.md (the human review packet)
 python -m solution eval --offline         # dev-set eval replay (calls 001-015) -> solution/output/eval-report-replay.md
-python -m unittest discover -s solution/tests -t . -v   # 49 tests: 42 behavioural (fake model) + 7 on the evidence files
+python -m unittest discover -s solution/tests -t . -v   # 50 tests: 42 behavioural (fake model) + 8 on the evidence files
 python solution/scripts/build_artifacts.py             # rebuilds every evidence file in output/ (manifest, eval numbers, idempotency diff, ledger, observability, review stats)
 python solution/scripts/mutation_check.py              # breaks 29 guarantees, checks each test goes red
 ```

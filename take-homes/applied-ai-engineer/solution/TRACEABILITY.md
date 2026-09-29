@@ -101,7 +101,7 @@ A first static review (29 Sep) found no numbers for the full run or the eval. Th
 
 | Signal in the PDF | Where to see it |
 |---|---|
-| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 49 tests. 29 mutations, all caught. |
+| Software engineering (the most weight) | Small modules. The ledger and the outbox check. 50 tests. 29 mutations, all caught. |
 | Work across systems, and reliability | The given stubs, not changed. The crash, Slack and lock tests. The demo. |
 | Good use of AI | The "where AI is" table in WRITEUP.md. The code overrules the model on facts. |
 | Output a person can use | Each card in `review.md` has the quote, the lines near it, the reason it is new, the priority reason and the approve command. |

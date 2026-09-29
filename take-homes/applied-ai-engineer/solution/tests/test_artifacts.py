@@ -101,5 +101,17 @@ class ReviewStats(unittest.TestCase):
         self.assertGreater(r["median_words_per_card"], 0)
 
 
+
+class WriteupQuotesTheArtifacts(unittest.TestCase):
+    """The write-up quotes outbox hashes; they change whenever the artifacts are rebuilt (stub timestamps)."""
+
+    def test_hashes_in_writeup_match_the_idempotency_diff(self):
+        d = json.loads((OUT / "idempotency-diff.json").read_text())
+        want = {s["outbox_sha256"][:16] for s in d["steps"]}
+        import re
+        got = set(re.findall(r"`([0-9a-f]{16})`", (OUT.parent / "WRITEUP.md").read_text()))
+        self.assertEqual(got, want)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -43,7 +43,7 @@ Total: about 2 h 55 min.
 
 **How it was checked:**
 
-- 42 behavioural tests that call the provided stubs, plus 7 tests that pin the committed evidence files
+- 42 behavioural tests that call the provided stubs, plus 8 tests that pin the committed evidence files
 - a mutation check that breaks each of 29 guarantees and confirms its test fails
 - 8 of the 30 eval spans spot-checked against the transcripts
 - the dev eval run 1 + 2 + 5 times with fresh model calls
